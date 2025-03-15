@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 #
 # install-nixos.sh: Wipe /dev/sda, partition, format, and install NixOS
-# via flake "github:anaclumos/nix#nixosConfigurations.sunghyuncho".
+# via flake "github:anaclumos/nix#sunghyuncho".
+# sudo nixos-install --flake github:anaclumos/nix#sunghyuncho --no-write-lock-file
 #
 # Usage:
 #   curl -L https://raw.githubusercontent.com/anaclumos/nix/main/install.sh | sudo bash
