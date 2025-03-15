@@ -4,7 +4,7 @@
 # via flake "github:anaclumos/nix#nixosConfigurations.sunghyuncho".
 #
 # Usage:
-#   curl -L https://raw.githubusercontent.com/anaclumos/nix/main/install.sh | sudo bash
+#   sudo bash <(curl -L https://raw.githubusercontent.com/anaclumos/nix/main/install.sh)
 #
 # MAKE SURE /dev/sda IS NOT YOUR LIVE USB. This script is DESTRUCTIVE.
 
