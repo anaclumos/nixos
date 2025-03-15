@@ -75,10 +75,10 @@
   services.flatpak.enable = true;
   services.flatpak.registry.flathub.enable = true;
   services.flatpak.packages = [
-    pkgs.flatpakPackages.com.spotify.Client
-    pkgs.flatpakPackages.com.1password.1Password
-    pkgs.flatpakPackages.com.google.Chrome
-    pkgs.flatpakPackages.com.visualstudio.code
+    "com.spotify.Client"
+    "com.1password.1Password"
+    "com.google.Chrome"
+    "com.visualstudio.code"
   ];
 
   #####################################
