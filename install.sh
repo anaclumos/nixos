@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 #
 # install-nixos.sh: Wipe /dev/sda, partition, format, and install NixOS
-# via flake "github:anaclumos/nix#myHostname".
+# via flake "github:anaclumos/nix#nixosConfigurations.sunghyuncho".
 #
 # Usage:
-#   curl -L https://raw.githubusercontent.com/anaclumos/nix/main/install-nixos.sh | bash
+#   curl -L https://raw.githubusercontent.com/anaclumos/nix/main/install.sh | sudo bash
 #
 # MAKE SURE /dev/sda IS NOT YOUR LIVE USB. This script is DESTRUCTIVE.
 
@@ -13,7 +13,7 @@ set -euo pipefail
 DISK="/dev/sda"
 EFI_SIZE="512MiB"
 FLAKE_URI="github:anaclumos/nix"
-FLAKE_CONFIG="myHostname"
+FLAKE_CONFIG="nixosConfigurations.sunghyuncho"
 
 ########################################
 # 1. Must run as root
