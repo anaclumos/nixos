@@ -2,7 +2,6 @@
 #
 # install-nixos.sh: Wipe /dev/sda, partition, format, and install NixOS
 # via flake "github:anaclumos/nix#sunghyuncho".
-# sudo nixos-install --flake github:anaclumos/nix#sunghyuncho --no-write-lock-file
 #
 # Usage:
 #   curl -L https://raw.githubusercontent.com/anaclumos/nix/main/install.sh | sudo bash
@@ -27,7 +26,7 @@ fi
 ########################################
 # 2. Basic checks: parted, nixos-install, etc.
 ########################################
-for cmd in parted partprobe mkfs.fat mkfs.ext4 nixos-install ping; do
+for cmd in parted partprobe mkfs.fat mkfs.ext4 nixos-install nixos-generate-config ping; do
   if ! command -v "$cmd" >/dev/null 2>&1; then
     echo "ERROR: '$cmd' not found. Are you on the NixOS Live Installer?"
     exit 1
@@ -95,8 +94,30 @@ echo ">>> Mounting EFI partition at /mnt/boot"
 mount "${DISK}1" /mnt/boot
 
 ########################################
-# 8. Quick network check (ping GitHub)
+# 8. Generate hardware configuration
 ########################################
+echo ">>> Generating hardware-configuration.nix..."
+nixos-generate-config --root /mnt
+echo ">>> Hardware configuration generated at /mnt/etc/nixos/hardware-configuration.nix"
+
+########################################
+# 9. Copy hardware-configuration.nix to flake location
+########################################
+echo ">>> Setting up hardware configuration for the flake..."
+
+# Create a temporary directory to clone the flake repository
+TEMP_DIR=$(mktemp -d)
+echo ">>> Cloning flake repository to $TEMP_DIR..."
+if ! nix flake clone "$FLAKE_URI" --dest "$TEMP_DIR"; then
+  echo "ERROR: Failed to clone the flake repository."
+  exit 1
+fi
+
+# Copy the generated hardware-configuration.nix to the flake directory
+echo ">>> Copying hardware-configuration.nix to flake directory..."
+cp /mnt/etc/nixos/hardware-configuration.nix "$TEMP_DIR/"
+
+# Quick network check
 echo ">>> Checking network connectivity..."
 if ! ping -c 1 github.com >/dev/null 2>&1; then
   echo "ERROR: No network connectivity to GitHub. Fix your internet before installing."
@@ -104,10 +125,17 @@ if ! ping -c 1 github.com >/dev/null 2>&1; then
 fi
 
 ########################################
-# 9. Run nixos-install with flake
+# 10. Check if lock file exists and install NixOS
 ########################################
 echo ">>> Installing NixOS from flake: $FLAKE_URI#$FLAKE_CONFIG"
-nixos-install --flake "$FLAKE_URI#$FLAKE_CONFIG"
+
+# Check if we need to use --no-write-lock-file
+if [[ -e "/mnt/nix/store" ]]; then
+  echo ">>> Detected existing Nix store, using --no-write-lock-file to avoid lock conflicts"
+  nixos-install --flake "$FLAKE_URI#$FLAKE_CONFIG" --no-write-lock-file
+else
+  nixos-install --flake "$FLAKE_URI#$FLAKE_CONFIG"
+fi
 
 echo
 echo ">>> Installation is complete!"
