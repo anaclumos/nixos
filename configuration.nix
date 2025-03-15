@@ -68,28 +68,6 @@
   nixpkgs.config.allowUnfree = true;
   environment.variables.EDITOR = "code";
 
-  ########################################
-  # Flatpak (for Spotify & 1Password GUI)
-  ########################################
-
-  services.flatpak.enable = true;
-  services.flatpak.registry.flathub.enable = true;
-
-  systemd.services.flatpak-repo = {
-    wantedBy = [ "multi-user.target" ];
-    path = [ pkgs.flatpak ];
-    script = ''
-      flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-    '';
-  };
-
-  services.flatpak.packages = [
-    "com.spotify.Client"
-    "com.1password.1Password"
-    "com.google.Chrome"
-    "com.visualstudio.code"
-  ];
-
   #####################################
   # System Packages (via Flakes/Nix)
   #####################################
@@ -98,6 +76,10 @@
     vim
     wget
     onepassword-cli
+    spotify
+    google-chrome
+    vscode
+    _1password
   ];
 
   ####################################
