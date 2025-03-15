@@ -4,7 +4,7 @@
 # via flake "github:anaclumos/nix#nixosConfigurations.sunghyuncho".
 #
 # Usage:
-#   sudo bash <(curl -L https://raw.githubusercontent.com/anaclumos/nix/main/install.sh)
+#   curl -L https://raw.githubusercontent.com/anaclumos/nix/main/install.sh | sudo bash
 #
 # MAKE SURE /dev/sda IS NOT YOUR LIVE USB. This script is DESTRUCTIVE.
 
@@ -34,7 +34,7 @@ for cmd in parted partprobe mkfs.fat mkfs.ext4 nixos-install ping; do
 done
 
 ########################################
-# 3. Check if /dev/sda is currently mounted as root (meaning we’re booted from it)
+# 3. Check if /dev/sda is currently mounted as root
 ########################################
 # This is a heuristic check. If /dev/sda or any partition of it is mounted at /, abort.
 if mount | grep -qE '^/dev/sda.*/ '; then
@@ -54,7 +54,8 @@ cat <<EOF
 ============================================================
 EOF
 
-read -rp "Are you sure you want to continue? [y/N] " confirm
+# >>> The line changed here to force reading from /dev/tty:
+read -rp "Are you sure you want to continue? [y/N] " confirm </dev/tty
 if [[ "$confirm" != "y" && "$confirm" != "Y" ]]; then
   echo "Aborted."
   exit 1
@@ -72,7 +73,7 @@ parted -s "$DISK" mkpart primary "$EFI_SIZE" 100%
 # Force the kernel to re-read partition table
 partprobe "$DISK" || true
 
-# Show partitions for verification (non-interactive, but good to see)
+# Show partitions for verification
 echo ">>> Partition table on $DISK now:"
 parted "$DISK" print || true
 
