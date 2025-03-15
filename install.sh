@@ -13,7 +13,7 @@ set -euo pipefail
 DISK="/dev/sda"
 EFI_SIZE="512MiB"
 FLAKE_URI="github:anaclumos/nix"
-FLAKE_CONFIG="nixosConfigurations.sunghyuncho"
+FLAKE_CONFIG="sunghyuncho"
 
 ########################################
 # 1. Must run as root
