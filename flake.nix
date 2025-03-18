@@ -1,20 +1,28 @@
 {
-  description = "NixOS Configuration for sunghyuncho";
-
+  description = "Sunghyun Cho's NixOS Configuration";
+  
   inputs = {
-    nixpkgs.url = "nixpkgs/nixos-unstable"; 
-  };
-
-  outputs = { self, nixpkgs, ... }:
-    let
-      system = "x86_64-linux";
-    in
-    {
-      nixosConfigurations.sunghyuncho = nixpkgs.lib.nixosSystem {
-        inherit system;
-        modules = [
-          ./configuration.nix
-        ];
-      };
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    _1password-shell-plugins.url = "github:1Password/shell-plugins";
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
+  };
+  
+  outputs = { self, nixpkgs, home-manager, ... }: {
+    nixosConfigurations.spaceship = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      modules = [
+        ./configuration.nix
+        home-manager.nixosModules.home-manager {
+          home-manager = {
+            useGlobalPkgs = true;
+            useUserPackages = true;
+            users.sunghyuncho = import ./home.nix;
+          };
+        }
+      ];
+    };
+  };
 }
