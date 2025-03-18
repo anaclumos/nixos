@@ -1,101 +1,73 @@
 { config, pkgs, ... }:
-
 {
-  imports = [
-    ./hardware-configuration.nix
-  ];
-
-  ########################
-  # Basic System Settings
-  ########################
-
-  networking.hostName = "sunghyuncho";
-  networking.networkmanager.enable = true;
+  imports = [ ./hardware-configuration.nix ];
+  
+  # Bootloader
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
+  
+  networking.hostName = "spaceship";
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  
+  # Time zone and locale
   time.timeZone = "Asia/Seoul";
   i18n.defaultLocale = "en_US.UTF-8";
-
-  ############################
-  # Desktop (GNOME + X11)
-  ############################
-
+  i18n.extraLocaleSettings = {
+    LC_ADDRESS = "en_US.UTF-8";
+    LC_IDENTIFICATION = "en_US.UTF-8";
+    LC_MEASUREMENT = "en_US.UTF-8";
+    LC_MONETARY = "en_US.UTF-8";
+    LC_NAME = "en_US.UTF-8";
+    LC_NUMERIC = "en_US.UTF-8";
+    LC_PAPER = "en_US.UTF-8";
+    LC_TELEPHONE = "en_US.UTF-8";
+    LC_TIME = "en_US.UTF-8";
+  };
+  
+  # X11 and Desktop Environment
   services.xserver.enable = true;
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
-
-  # Enable two layouts: English (us) and Korean (kr).
-  # Assign left Win -> English (first layout group), 
-  # right Win -> Korean (second layout group).
   services.xserver.xkb = {
-    layout = "us,kr";
-    # If you have a specific variant for Korean, you can specify 
-    # variants = [ "" "kr104" ];
-    options = [
-      "grp:lwin_switch"
-      "grp:rwin_switch"
-    ];
+    layout = "kr";
+    variant = "";
   };
-
-  ###############################
-  # Audio (PipeWire + no Pulse)
-  ###############################
-
-  security.rtkit.enable = true;
+  
+  # Printing
+  services.printing.enable = true;
+  
+  # Audio
   services.pulseaudio.enable = false;
+  security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
   };
-
-  ######################
-  # Printing
-  ######################
-
-  services.printing.enable = true;
-
-  ######################
-  # Boot Loader
-  ######################
-
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-
-  ########################################
-  # Unfree Software & Misc. Settings
-  ########################################
-
-  nixpkgs.config.allowUnfree = true;
-  environment.variables.EDITOR = "code";
-
-  #####################################
-  # System Packages (via Flakes/Nix)
-  #####################################
-
-  environment.systemPackages = with pkgs; [
-    vim
-    wget
-    onepassword-cli
-    spotify
-    google-chrome
-    vscode
-    _1password
-  ];
-
-  ####################################
-  # User Account
-  ####################################
-
+  
+  # User account
   users.users.sunghyuncho = {
     isNormalUser = true;
-    description = "Sunghyun Cho";
+    description = "sunghyuncho";
     extraGroups = [ "networkmanager" "wheel" ];
-    hashedPassword = "$y$jFT$GLgbtjnxvFZH41xn4Zkfk.$zUpKCR7/f1TKj.b1U4JkYHXBqgz70UeSjt0bwQv5478";
   };
+  
+  # Allow unfree packages
+  nixpkgs.config.allowUnfree = true;
+  
+  # Enable Flatpak
+  services.flatpak.enable = true;
+  
+  # Fonts
+  fonts.packages = with pkgs; [
+    pretendard
+  ];
 
-  ###################################
-  # System State Version
-  ###################################
-
+  fonts.fontconfig.defaultFonts = {
+    serif = [ "Pretendard" ];
+    sansSerif = [ "Pretendard" ];
+  };
+  
   system.stateVersion = "24.11";
 }
