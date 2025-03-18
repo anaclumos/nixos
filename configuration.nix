@@ -51,10 +51,20 @@
     isNormalUser = true;
     description = "sunghyuncho";
     extraGroups = [ "networkmanager" "wheel" ];
+    shell = pkgs.zsh;
   };
   
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
+  
+  # System packages
+  environment.systemPackages = with pkgs; [
+    zsh
+    git
+  ];
+  
+  # Enable zsh system-wide
+  programs.zsh.enable = true;
   
   # Enable Flatpak
   services.flatpak.enable = true;
