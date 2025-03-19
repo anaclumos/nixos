@@ -52,9 +52,17 @@
 
   nixpkgs.config.allowUnfree = true;
 
-  environment.systemPackages = with pkgs; [ zsh git zsh-autosuggestions      _1password-gui
-    _1password-cli];
+  environment.systemPackages = with pkgs; [
+    zsh
+    git
+    zsh-autosuggestions
+    _1password-gui
+    _1password-cli
+  ];
   programs._1password = { enable = true; };
+
+  # Will be done with 1Password
+  programs.ssh.startAgent = false;
 
   programs._1password-gui = {
     enable = true;
