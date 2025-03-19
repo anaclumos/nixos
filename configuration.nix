@@ -1,28 +1,16 @@
 { config, pkgs, lib, ... }: {
+
   imports = [ ./hardware-configuration.nix ];
 
-  # Bootloader
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-
+  security.polkit.enable = true;
   networking.hostName = "spaceship";
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  # Time zone and locale
   time.timeZone = "Asia/Seoul";
   i18n = {
     defaultLocale = "en_US.UTF-8";
-    extraLocaleSettings = {
-      LC_ADDRESS = "en_US.UTF-8";
-      LC_IDENTIFICATION = "en_US.UTF-8";
-      LC_MEASUREMENT = "en_US.UTF-8";
-      LC_MONETARY = "en_US.UTF-8";
-      LC_NAME = "en_US.UTF-8";
-      LC_NUMERIC = "en_US.UTF-8";
-      LC_PAPER = "en_US.UTF-8";
-      LC_TELEPHONE = "en_US.UTF-8";
-      LC_TIME = "en_US.UTF-8";
-    };
     inputMethod = {
       type = "ibus";
       enable = true;
@@ -30,7 +18,6 @@
     };
   };
 
-  # X11 and Desktop Environment
   services.xserver = {
     enable = true;
     displayManager.gdm.enable = true;
@@ -41,11 +28,9 @@
     };
   };
 
-  # Printing
   services.printing.enable = true;
 
-  # Audio
-  hardware.pulseaudio.enable = false;
+  services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -54,7 +39,6 @@
     pulse.enable = true;
   };
 
-  # User account
   users.users.sunghyuncho = {
     isNormalUser = true;
     description = "sunghyuncho";
@@ -67,11 +51,12 @@
       gitAndTools.hub
       spotify
       asdf-vm
-      _1password-cli
       _1password-gui
+      _1password-cli
       gh
       nodejs
-      pnpm
+      pkgs.claude-code
+      nodePackages.pnpm
       slack
       ibus
       ibus-engines.hangul
@@ -81,37 +66,51 @@
     ];
   };
 
-  # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  # System packages
-  environment.systemPackages = with pkgs; [ zsh git ];
+  environment.systemPackages = with pkgs; [ zsh git zsh-autosuggestions ];
 
-  # Enable zsh system-wide
   programs.zsh = {
     enable = true;
     enableCompletion = true;
     syntaxHighlighting.enable = true;
     ohMyZsh = {
       enable = true;
-      plugins = [ "git" "docker" "npm" "sudo" "command-not-found" "zsh-autosuggestions" ];
+      plugins = [
+        "git"
+        "docker"
+        "npm"
+        "sudo"
+        "command-not-found"
+        "zsh-autosuggestions"
+      ];
       theme = "robbyrussell";
     };
     shellAliases = {
-      rebuild = "sudo nix flake update && sudo nixos-rebuild switch";
+      rebuild = ''
+        find . -name "*.nix" -type f | xargs nixfmt && sudo nix flake update && sudo nixos-rebuild switch'';
     };
   };
 
-  # Git configuration
   programs.git = {
     enable = true;
     config = {
       user.name = "Sunghyun Cho";
       user.email = "hey@cho.sh";
+      commit.gpgSign = true;
+      gpg.format = "ssh";
+      user.signingKey = "~/.ssh/id_ed25519.pub";
+      gpg.ssh.allowedSignersFile = "~/.config/git/allowed_signers";
+      gpg.ssh.program = "${pkgs._1password-gui}/share/1password/op-ssh-sign";
     };
   };
 
-  # SSH configuration with 1Password
+  programs._1password = { enable = true; };
+  programs._1password-gui = {
+    enable = true;
+    polkitPolicyOwners = [ "sunghyuncho" ];
+  };
+
   programs.ssh = {
     startAgent = true;
     extraConfig = ''
@@ -120,17 +119,59 @@
     '';
   };
 
-  # Enable Flatpak
+  system.activationScripts = {
+    sshSetup = {
+      text = ''
+        mkdir -p /home/sunghyuncho/.ssh
+        if [ ! -f /home/sunghyuncho/.ssh/id_ed25519.pub ]; then
+          echo "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGaWDMcfAJMbWDorZP8z1beEAz+fjLb+VFqFm8hkAlpt sunghyuncho@spaceship" > /home/sunghyuncho/.ssh/id_ed25519.pub
+          chmod 644 /home/sunghyuncho/.ssh/id_ed25519.pub
+          chown -R sunghyuncho:users /home/sunghyuncho/.ssh
+        fi
+        if [ ! -f /home/sunghyuncho/.ssh/config ]; then
+          echo "Host *" > /home/sunghyuncho/.ssh/config
+          echo "  IdentityAgent ~/.1password/agent.sock" >> /home/sunghyuncho/.ssh/config
+          chmod 644 /home/sunghyuncho/.ssh/config
+          chown -R sunghyuncho:users /home/sunghyuncho/.ssh
+        fi
+      '';
+      deps = [ ];
+    };
+
+    gitAllowedSigners = {
+      text = ''
+        mkdir -p /home/sunghyuncho/.config/git
+        if [ ! -f /home/sunghyuncho/.config/git/allowed_signers ]; then
+          # Extract public key from your SSH key
+          if [ -f /home/sunghyuncho/.ssh/id_ed25519.pub ]; then
+            echo "hey@cho.sh $(cat /home/sunghyuncho/.ssh/id_ed25519.pub)" > /home/sunghyuncho/.config/git/allowed_signers
+          else
+            echo "hey@cho.sh ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGaWDMcfAJMbWDorZP8z1beEAz+fjLb+VFqFm8hkAlpt" > /home/sunghyuncho/.config/git/allowed_signers
+          fi
+          chown -R sunghyuncho:users /home/sunghyuncho/.config/git
+        fi
+      '';
+      deps = [ "sshSetup" ];
+    };
+
+    onePasswordAgentSetup = {
+      text = ''
+        mkdir -p /home/sunghyuncho/.1password
+        chmod 700 /home/sunghyuncho/.1password
+        chown -R sunghyuncho:users /home/sunghyuncho/.1password
+      '';
+      deps = [ ];
+    };
+  };
+
   services.flatpak.enable = true;
 
-  # Fonts
   fonts.packages = with pkgs; [ pretendard ];
   fonts.fontconfig.defaultFonts = {
     serif = [ "Pretendard" ];
     sansSerif = [ "Pretendard" ];
   };
 
-  # PNPM configuration through environment variables
   environment.sessionVariables = {
     PNPM_HOME = "/root/.local/share/pnpm";
     PATH = [ "\${PNPM_HOME}" ];
