@@ -44,80 +44,27 @@
     description = "sunghyuncho";
     extraGroups = [ "networkmanager" "wheel" ];
     shell = pkgs.zsh;
-    packages = with pkgs; [
-      git
-      vscode
-      google-chrome
-      gitAndTools.hub
-      spotify
-      asdf-vm
-      _1password-gui
-      _1password-cli
-      gh
-      nodejs
-      pkgs.claude-code
-      nodePackages.pnpm
-      slack
-      ibus
-      ibus-engines.hangul
-      nixfmt-classic
-      warp-terminal
-      dconf-editor
-    ];
+    # Packages are now managed by Home Manager
   };
+
+  # Enable zsh at the system level
+  programs.zsh.enable = true;
 
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [ zsh git zsh-autosuggestions ];
 
-  programs.zsh = {
-    enable = true;
-    enableCompletion = true;
-    syntaxHighlighting.enable = true;
-    ohMyZsh = {
-      enable = true;
-      plugins = [
-        "git"
-        "docker"
-        "npm"
-        "sudo"
-        "command-not-found"
-        "zsh-autosuggestions"
-      ];
-      theme = "robbyrussell";
-    };
-    shellAliases = {
-      rebuild = ''
-        find . -name "*.nix" -type f | xargs nixfmt && sudo nix flake update && sudo nixos-rebuild switch'';
-    };
-  };
+  # zsh is now configured via Home Manager
 
-  programs.git = {
-    enable = true;
-    config = {
-      user.name = "Sunghyun Cho";
-      user.email = "hey@cho.sh";
-      commit.gpgSign = true;
-      gpg.format = "ssh";
-      user.signingKey = "~/.ssh/id_ed25519.pub";
-      gpg.ssh.allowedSignersFile = "~/.config/git/allowed_signers";
-      gpg.ssh.program = "${pkgs._1password-gui}/share/1password/op-ssh-sign";
-    };
-  };
+  # Git is now configured via Home Manager
 
-  programs._1password = { enable = true; };
+  # System-wide 1Password configuration
   programs._1password-gui = {
     enable = true;
     polkitPolicyOwners = [ "sunghyuncho" ];
   };
 
-  programs.ssh = {
-    startAgent = true;
-    extraConfig = ''
-      Host *
-        IdentityAgent ~/.1password/agent.sock
-    '';
-  };
+  # SSH is now configured via Home Manager
 
   system.activationScripts = {
     sshSetup = {
