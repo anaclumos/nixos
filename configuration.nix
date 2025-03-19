@@ -52,66 +52,19 @@
 
   nixpkgs.config.allowUnfree = true;
 
-  environment.systemPackages = with pkgs; [ zsh git zsh-autosuggestions ];
+  environment.systemPackages = with pkgs; [ zsh git zsh-autosuggestions      _1password-gui
+    _1password-cli];
+  programs._1password = { enable = true; };
 
-  # zsh is now configured via Home Manager
-
-  # Git is now configured via Home Manager
-
-  # System-wide 1Password configuration
   programs._1password-gui = {
     enable = true;
     polkitPolicyOwners = [ "sunghyuncho" ];
   };
 
-  # SSH is now configured via Home Manager
-
-  system.activationScripts = {
-    sshSetup = {
-      text = ''
-        mkdir -p /home/sunghyuncho/.ssh
-        if [ ! -f /home/sunghyuncho/.ssh/id_ed25519.pub ]; then
-          echo "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGaWDMcfAJMbWDorZP8z1beEAz+fjLb+VFqFm8hkAlpt sunghyuncho@spaceship" > /home/sunghyuncho/.ssh/id_ed25519.pub
-          chmod 644 /home/sunghyuncho/.ssh/id_ed25519.pub
-          chown -R sunghyuncho:users /home/sunghyuncho/.ssh
-        fi
-        if [ ! -f /home/sunghyuncho/.ssh/config ]; then
-          echo "Host *" > /home/sunghyuncho/.ssh/config
-          echo "  IdentityAgent ~/.1password/agent.sock" >> /home/sunghyuncho/.ssh/config
-          chmod 644 /home/sunghyuncho/.ssh/config
-          chown -R sunghyuncho:users /home/sunghyuncho/.ssh
-        fi
-      '';
-      deps = [ ];
-    };
-
-    gitAllowedSigners = {
-      text = ''
-        mkdir -p /home/sunghyuncho/.config/git
-        if [ ! -f /home/sunghyuncho/.config/git/allowed_signers ]; then
-          # Extract public key from your SSH key
-          if [ -f /home/sunghyuncho/.ssh/id_ed25519.pub ]; then
-            echo "hey@cho.sh $(cat /home/sunghyuncho/.ssh/id_ed25519.pub)" > /home/sunghyuncho/.config/git/allowed_signers
-          else
-            echo "hey@cho.sh ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGaWDMcfAJMbWDorZP8z1beEAz+fjLb+VFqFm8hkAlpt" > /home/sunghyuncho/.config/git/allowed_signers
-          fi
-          chown -R sunghyuncho:users /home/sunghyuncho/.config/git
-        fi
-      '';
-      deps = [ "sshSetup" ];
-    };
-
-    onePasswordAgentSetup = {
-      text = ''
-        mkdir -p /home/sunghyuncho/.1password
-        chmod 700 /home/sunghyuncho/.1password
-        chown -R sunghyuncho:users /home/sunghyuncho/.1password
-      '';
-      deps = [ ];
-    };
+  services.flatpak = {
+    enable = true;
+    packages = [ "md.obsidian.Obsidian" ];
   };
-
-  services.flatpak.enable = true;
 
   fonts.packages = with pkgs; [ pretendard ];
   fonts.fontconfig.defaultFonts = {

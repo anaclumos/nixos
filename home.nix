@@ -37,6 +37,8 @@
     nixfmt-classic
     warp-terminal
     dconf-editor
+    flatpak
+    (lib.hiPrio windsurf)
   ];
 
   programs._1password-shell-plugins = {
@@ -63,6 +65,10 @@
       rebuild = ''
         find . -name "*.nix" -type f | xargs nixfmt && sudo nix flake update && sudo nixos-rebuild switch'';
     };
+
+    initExtra = ''
+      export SSH_AUTH_SOCK=~/.1password/agent.sock
+    '';
   };
 
   # Let Home Manager install and manage itself.
@@ -84,7 +90,6 @@
     };
   };
 
-  # SSH configuration
   programs.ssh = {
     enable = true;
     extraConfig = ''
