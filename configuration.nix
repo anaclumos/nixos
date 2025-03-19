@@ -1,16 +1,13 @@
-{ config, pkgs, ... }:
-{
-  imports = [ 
-    ./hardware-configuration.nix
-  ];
-  
+{ config, pkgs, ... }: {
+  imports = [ ./hardware-configuration.nix ];
+
   # Bootloader
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  
+
   networking.hostName = "spaceship";
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  
+
   # Time zone and locale
   time.timeZone = "Asia/Seoul";
   i18n = {
@@ -27,25 +24,26 @@
       LC_TIME = "en_US.UTF-8";
     };
     inputMethod = {
-      enabled = "ibus";
+      type = "ibus";
+      enable = true;
       ibus.engines = with pkgs.ibus-engines; [ hangul ];
     };
   };
-  
+
   # X11 and Desktop Environment
   services.xserver = {
     enable = true;
     displayManager.gdm.enable = true;
     desktopManager.gnome.enable = true;
     xkb = {
-      layout = "us";  
+      layout = "us";
       variant = "";
     };
   };
-  
+
   # Printing
   services.printing.enable = true;
-  
+
   # Audio
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;
@@ -55,7 +53,7 @@
     alsa.support32Bit = true;
     pulse.enable = true;
   };
-  
+
   # User account
   users.users.sunghyuncho = {
     isNormalUser = true;
@@ -63,32 +61,26 @@
     extraGroups = [ "networkmanager" "wheel" ];
     shell = pkgs.zsh;
   };
-  
+
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
-  
+
   # System packages
-  environment.systemPackages = with pkgs; [
-    zsh
-    git
-    home-manager
-  ];
-  
+  environment.systemPackages = with pkgs; [ zsh git home-manager ];
+
   # Enable zsh system-wide
   programs.zsh.enable = true;
-  
+
   # Enable Flatpak
   services.flatpak.enable = true;
-  
+
   # Fonts
-  fonts.packages = with pkgs; [
-    pretendard
-  ];
+  fonts.packages = with pkgs; [ pretendard ];
 
   fonts.fontconfig.defaultFonts = {
     serif = [ "Pretendard" ];
     sansSerif = [ "Pretendard" ];
   };
-  
+
   system.stateVersion = "24.11";
 }

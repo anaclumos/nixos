@@ -1,51 +1,12 @@
-{ config, pkgs, lib, ... }:
-{
+{ config, pkgs, lib, ... }: {
+  nixpkgs.config.allowUnfree = true;
+
   home.username = "sunghyuncho";
   home.homeDirectory = "/home/sunghyuncho";
-  
+
   # Keyboard remapping configuration
-  home.keyboard = {
-    layout = "us";
-    options = [
-      "caps:super"     # Caps Lock → Super
-      "ctrl:swap_lwin_lctl"  # Left Win/Cmd → Left Ctrl
-    ];
-  };
+  home.keyboard = { layout = "us"; };
 
-  # X11 key bindings for terminal copy/paste and input method switching
-  xsession.windowManager.command = ''
-    ${pkgs.xorg.xmodmap}/bin/xmodmap - <<EOF
-      keycode 133 = Control_L
-      keycode 134 = Control_L
-      add Control = Control_L
-    EOF
-
-    # Configure IBus
-    export GTK_IM_MODULE=ibus
-    export XMODIFIERS=@im=ibus
-    export QT_IM_MODULE=ibus
-    ${pkgs.ibus}/bin/ibus-daemon -drx
-  '';
-
-  dconf.settings = {
-    "org/gnome/desktop/interface" = {
-      clock-format = "12h";
-    };
-    # Terminal keybindings for GNOME Terminal
-    "org/gnome/terminal/legacy/keybindings" = {
-      copy = "<Primary>c";
-      paste = "<Primary>v";
-    };
-    # IBus preferences
-    "desktop/ibus/general" = {
-      preload-engines = ["hangul"];
-      use-system-keyboard-layout = true;
-    };
-    "desktop/ibus/general/hotkey" = {
-      triggers = ["Super_L" "Super_R"];  # Left and Right Command keys
-    };
-  };
-  
   home.packages = with pkgs; [
     git
     vscode
@@ -62,36 +23,46 @@
     slack
     ibus
     ibus-engines.hangul
+    nixfmt
   ];
-  
-  programs.home-manager.enable = true;  
+
+  programs.home-manager.enable = true;
   programs.atuin.enable = false;
-  
-  # Zsh configuration with oh-my-zsh
+
   programs.zsh = {
     enable = true;
     autosuggestion.enable = true;
     enableCompletion = true;
     syntaxHighlighting.enable = true;
-    
+
     oh-my-zsh = {
       enable = true;
-      plugins = [
-        "git"
-        "docker"
-        "npm"
-        "sudo"
-        "command-not-found"
-      ];
+      plugins = [ "git" "docker" "npm" "sudo" "command-not-found" ];
       theme = "robbyrussell";
     };
+    initExtra = ''
+      export PNPM_HOME="/root/.local/share/pnpm"
+      case ":$PATH:" in
+        *":$PNPM_HOME:"*) ;;
+        *) export PATH="$PNPM_HOME:$PATH" ;;
+      esac
+    '';
   };
-  
+
   programs.git = {
     enable = true;
     userName = "Sunghyun Cho";
     userEmail = "hey@cho.sh";
   };
-  
+
+  # Configure SSH with 1Password
+  programs.ssh = {
+    enable = true;
+    extraConfig = ''
+      Host *
+        IdentityAgent ~/.1password/agent.sock
+    '';
+  };
+
   home.stateVersion = "24.11";
 }
