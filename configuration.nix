@@ -77,6 +77,7 @@
       ibus-engines.hangul
       nixfmt-classic
       warp-terminal
+      dconf-editor
     ];
   };
 
