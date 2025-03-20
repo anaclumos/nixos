@@ -56,6 +56,8 @@
       openFirewall = true;
     };
 
+    flatpak.enable = true;
+
     gnome = { };
   };
 
@@ -98,11 +100,6 @@
       source = "${pkgs.beeper}/share/applications/beeper.desktop";
       mode = "0644";
     };
-  };
-
-  services.flatpak = {
-    enable = true;
-    packages = [ "md.obsidian.Obsidian" ];
   };
 
   fonts.packages = with pkgs; [ pretendard ];
