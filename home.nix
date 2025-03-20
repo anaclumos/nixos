@@ -60,7 +60,7 @@
     shellAliases = {
       rebuild = ''
         find . -name "*.nix" -type f | xargs nixfmt && sudo nix flake update && sudo nixos-rebuild switch'';
-      nixgit = ''git commit -m "$(date +"%Y-%m-%d")" -a'';
+      nixgit = ''git commit -m "$(date +"%Y-%m-%d")" -a & git push'';
     };
 
     initExtra = ''
