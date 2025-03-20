@@ -32,6 +32,24 @@
     };
   };
 
+  systemd.services.setup-git-sign-agent = {
+    enable = true;
+    description = "Configure Git with SSH key signing";
+    wantedBy = [ "multi-user.target" ];
+    script = ''
+      # Set global git config for the user
+      ${pkgs.git}/bin/git config --global user.signingkey "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGaWDMcfAJMbWDorZP8z1beEAz+fjLb+VFqFm8hkAlpt"
+      ${pkgs.git}/bin/git config --global gpg.format ssh
+      ${pkgs.git}/bin/git config --global gpg.ssh.program "${pkgs._1password-gui}/share/1password/op-ssh-sign"
+      ${pkgs.git}/bin/git config --global commit.gpgsign true
+    '';
+    serviceConfig = {
+      Type = "oneshot";
+      RemainAfterExit = true;
+      User = "sunghyuncho";
+    };
+  };
+
   networking.hostName = "spaceship";
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
