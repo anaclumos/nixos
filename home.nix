@@ -14,7 +14,6 @@
     git
     gitAndTools.hub
     asdf-vm
-    gh
     nodejs
     pkgs.claude-code
     nodePackages.pnpm
