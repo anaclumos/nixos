@@ -58,13 +58,16 @@
 
     shellAliases = {
       rebuild =
-        "sudo nix-channel --update && sudo nix flake update  && sudo nixos-rebuild switch --upgrade && sudo nix-collect-garbage -d";
+        "cd ~/etc/nixos && sudo nix-channel --update && sudo nix flake update && sudo nixos-rebuild switch --upgrade";
       nixgit = ''git commit -m "$(date +"%Y-%m-%d")" -a && git push'';
       llm = ''
         find . -type f ! -path "*/.git/*" ! -name "*.lock*" ! -name "*lock.*" -exec grep -Iq . {} \; -and -exec sh -c 'echo -e "### $(basename $1)\n\n\`\`\`\n$(cat $1)\n\`\`\`\n\n"' sh {} \; | xclip -selection clipboard'';
     };
 
     initExtra = ''
+      # Source 1Password plugins
+      source ~/.config/op/plugins.sh
+
       # Ensure 1Password SSH agent is used
       export SSH_AUTH_SOCK=~/.1password/agent.sock
 
@@ -72,6 +75,7 @@
       if [ -z "$(ssh-add -l 2>/dev/null)" ]; then
         op signin
       fi
+
 
       # Run fastfetch on terminal start
       command -v fastfetch >/dev/null 2>&1 && fastfetch
