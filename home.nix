@@ -34,7 +34,6 @@
     steam
     spotify
     libreoffice
-    bottles
     gnome-extension-manager
     adguardhome
     beeper
@@ -189,6 +188,8 @@
       "app.bluebubbles.BlueBubbles"
       "app.zen_browser.zen"
       "com.github.tchx84.Flatseal"
+      # bottles
+      "com.usebottles.bottles"
     ];
   };
 }
