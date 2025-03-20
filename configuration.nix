@@ -104,11 +104,13 @@
     git
     zsh-autosuggestions
     _1password-gui
+    _1password-cli
     gnome-keyring
     seahorse
   ];
 
   programs._1password = { enable = true; };
+
   programs._1password-gui = {
     enable = true;
     polkitPolicyOwners = [ "sunghyuncho" ];
