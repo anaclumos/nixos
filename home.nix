@@ -68,9 +68,6 @@
 
     initExtra = ''
       export SSH_AUTH_SOCK=~/.1password/agent.sock
-      mkdir -p ~/.config/autostart \
-        && cp /etc/xdg/autostart/gnome-keyring-ssh.desktop ~/.config/autostart/gnome-keyring-ssh.desktop \
-        && echo "Hidden=true" >> ~/.config/autostart/gnome-keyring-ssh.desktop
     '';
   };
 
