@@ -6,22 +6,10 @@
     inputs.nix-flatpak.homeManagerModules.nix-flatpak
   ];
 
-  # Home Manager needs a bit of information about you and the paths it should
-  # manage.
   home.username = "sunghyuncho";
   home.homeDirectory = "/home/sunghyuncho";
-
-  # This value determines the Home Manager release that your configuration is
-  # compatible with. This helps avoid breakage when a new Home Manager release
-  # introduces backwards incompatible changes.
-  #
-  # You should not change this value, even if you update Home Manager. If you do
-  # want to update the value, then make sure to first check the Home Manager
-  # release notes.
   home.stateVersion = "24.11";
 
-  # The home.packages option allows you to install Nix packages into your
-  # environment.
   home.packages = with pkgs; [
     git
     gitAndTools.hub
@@ -184,7 +172,7 @@
       "com.usebottles.bottles"
       "app.zen_browser.zen"
       "com.spotify.Client"
-      "com.visualstudio.code"
+      "com.google.Chrome"
       "com.valvesoftware.Steam"
       "com.github.tchx84.Flatseal"
       "com.mattjakeman.ExtensionManager"
