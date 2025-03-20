@@ -7,6 +7,10 @@
   security.polkit.enable = true;
   security.rtkit.enable = true;
 
+  # Enable PAM authentication for GNOME keyring
+  security.pam.services.login.enableGnomeKeyring = true;
+  security.pam.services.gdm-password.enableGnomeKeyring = true;
+
   systemd.services.mute-startup-chime = {
     description = "Mute Mac startup chime";
     wantedBy = [ "multi-user.target" ];
@@ -78,7 +82,10 @@
 
     flatpak.enable = true;
 
-    gnome = { };
+    gnome = {
+      # Enable the GNOME keyring service
+      gnome-keyring.enable = true;
+    };
   };
 
   users.users.sunghyuncho = {
@@ -97,6 +104,8 @@
     git
     zsh-autosuggestions
     _1password-gui
+    gnome-keyring
+    seahorse
   ];
 
   programs._1password = { enable = true; };
