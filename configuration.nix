@@ -76,11 +76,6 @@
       pulse.enable = true;
     };
 
-    adguardhome = {
-      enable = true;
-      openFirewall = true;
-    };
-
     flatpak.enable = true;
 
     gnome = { };
@@ -101,10 +96,7 @@
     zsh
     git
     zsh-autosuggestions
-    _1password-cli
     _1password-gui
-    adguardhome
-    beeper
   ];
 
   programs._1password = { enable = true; };
