@@ -29,6 +29,15 @@
     flatpak
     gnome-tweaks
     (lib.hiPrio windsurf)
+    obsidian
+    google-chrome
+    steam
+    spotify
+    libreoffice
+    bottles
+    gnome-extension-manager
+    adguardhome
+    beeper
   ];
 
   programs._1password-shell-plugins = {
@@ -167,16 +176,10 @@
   services.flatpak = {
     enable = true;
     packages = [
-      "md.obsidian.Obsidian"
+      # Keep only those that don't have good Nix alternatives
       "app.bluebubbles.BlueBubbles"
-      "com.usebottles.bottles"
       "app.zen_browser.zen"
-      "com.spotify.Client"
-      "com.google.Chrome"
-      "com.valvesoftware.Steam"
       "com.github.tchx84.Flatseal"
-      "com.mattjakeman.ExtensionManager"
-      "org.libreoffice.LibreOffice"
     ];
   };
 }
