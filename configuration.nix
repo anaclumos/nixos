@@ -10,7 +10,7 @@
   systemd.services.mute-startup-chime = {
     description = "Mute Mac startup chime";
     wantedBy = [ "multi-user.target" ];
-    path = [ pkgs.coreutils pkgs.util-linux ];
+    path = [ pkgs.coreutils pkgs.util-linux pkgs.e2fsprogs ];
     script = ''
       if [ -f /sys/firmware/efi/efivars/SystemAudioVolume-7c436110-ab2a-4bbb-a880-fe41995c9f82 ]; then
         chattr -i /sys/firmware/efi/efivars/SystemAudioVolume-7c436110-ab2a-4bbb-a880-fe41995c9f82 || true
@@ -21,6 +21,14 @@
     serviceConfig = {
       Type = "oneshot";
       RemainAfterExit = true;
+      ExecStartPre = "${pkgs.coreutils}/bin/mkdir -p /sys/firmware/efi/efivars";
+      ProtectSystem = "no";
+      ProtectHome = "no";
+      ProtectKernelTunables = false;
+      ProtectKernelModules = false;
+      ProtectControlGroups = false;
+      PrivateDevices = false;
+      PrivateTmp = false;
     };
   };
 
