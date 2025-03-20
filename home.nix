@@ -38,14 +38,12 @@
     warp-terminal
     dconf-editor
     flatpak
+    gnome-tweaks
     (lib.hiPrio windsurf)
   ];
 
   programs._1password-shell-plugins = {
-    # enable 1Password shell plugins for bash, zsh, and fish shell
     enable = true;
-    # the specified packages as well as 1Password CLI will be
-    # automatically installed and configured to use shell plugins
     plugins = with pkgs; [ gh awscli2 ];
   };
 
@@ -67,7 +65,23 @@
     };
 
     initExtra = ''
+      # Ensure 1Password SSH agent is used
       export SSH_AUTH_SOCK=~/.1password/agent.sock
+
+      # Add SSH identities to 1Password agent
+      if [ -z "$(ssh-add -l 2>/dev/null)" ]; then
+        op signin
+      fi
+    '';
+  };
+
+  # Enhanced SSH configuration
+  programs.ssh = {
+    enable = true;
+    extraConfig = ''
+      Host *
+        IdentityAgent ~/.1password/agent.sock
+        AddKeysToAgent yes
     '';
   };
 
@@ -88,14 +102,6 @@
       gpg.ssh.allowedSignersFile = "~/.config/git/allowed_signers";
       gpg.ssh.program = "${pkgs._1password-gui}/share/1password/op-ssh-sign";
     };
-  };
-
-  programs.ssh = {
-    enable = true;
-    extraConfig = ''
-      Host *
-        IdentityAgent ~/.1password/agent.sock
-    '';
   };
 
   # Add Pretendard font to your system

@@ -75,9 +75,10 @@
 
   programs._1password = { enable = true; };
 
-  # Will be done with 1Password
+  # Disable system SSH agent in favor of 1Password
   programs.ssh.startAgent = false;
 
+  # Enhanced 1Password GUI configuration
   programs._1password-gui = {
     enable = true;
     polkitPolicyOwners = [ "sunghyuncho" ];
