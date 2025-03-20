@@ -24,10 +24,7 @@
   # environment.
   home.packages = with pkgs; [
     git
-    vscode
-    google-chrome
     gitAndTools.hub
-    spotify
     asdf-vm
     _1password-gui
     _1password-cli
@@ -181,6 +178,17 @@
   # Flatpak configuration
   services.flatpak = {
     enable = true;
-    packages = [ "md.obsidian.Obsidian" "app.bluebubbles.BlueBubbles" ];
+    packages = [
+      "md.obsidian.Obsidian"
+      "app.bluebubbles.BlueBubbles"
+      "com.usebottles.bottles"
+      "app.zen_browser.zen"
+      "com.spotify.Client"
+      "com.visualstudio.code"
+      "com.valvesoftware.Steam"
+      "com.github.tchx84.Flatseal"
+      "com.mattjakeman.ExtensionManager"
+      "org.libreoffice.LibreOffice"
+    ];
   };
 }
