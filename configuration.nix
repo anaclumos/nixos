@@ -5,6 +5,8 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   security.polkit.enable = true;
+  security.rtkit.enable = true;
+
   networking.hostName = "spaceship";
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
@@ -18,25 +20,36 @@
     };
   };
 
-  services.xserver = {
-    enable = true;
-    displayManager.gdm.enable = true;
-    desktopManager.gnome.enable = true;
-    xkb = {
-      layout = "us";
-      variant = "";
+  services = {
+    xserver = {
+      enable = true;
+      displayManager.gdm.enable = true;
+      desktopManager.gnome.enable = true;
+      xkb = {
+        layout = "us";
+        variant = "";
+      };
     };
-  };
 
-  services.printing.enable = true;
+    libinput = {
+      enable = true;
+      touchpad = {
+        naturalScrolling = true;
+        scrollMethod = "twofinger";
+        accelSpeed = "0.7";
+        accelProfile = "adaptive";
+      };
+    };
 
-  services.pulseaudio.enable = false;
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
+    printing.enable = true;
+    pulseaudio.enable = false;
+
+    pipewire = {
+      enable = true;
+      alsa.enable = true;
+      alsa.support32Bit = true;
+      pulse.enable = true;
+    };
   };
 
   users.users.sunghyuncho = {
@@ -56,8 +69,8 @@
     zsh
     git
     zsh-autosuggestions
-    _1password-gui
     _1password-cli
+    _1password-gui
   ];
   programs._1password = { enable = true; };
 
