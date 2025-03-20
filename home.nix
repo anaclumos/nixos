@@ -38,6 +38,8 @@
     beeper
     xclip
     fastfetch
+    gnome-keyring
+    seahorse
   ];
 
   programs._1password-shell-plugins = {
@@ -83,9 +85,8 @@
   programs.ssh = {
     enable = true;
     extraConfig = ''
-      Host *
-        IdentityAgent ~/.1password/agent.sock
-        AddKeysToAgent yes
+      IdentityAgent ~/.1password/agent.sock
+      AddKeysToAgent yes
     '';
   };
 
@@ -107,6 +108,12 @@
       gpg.ssh.program = "${pkgs._1password-gui}/share/1password/op-ssh-sign";
       commit.gpgsign = true;
     };
+  };
+
+  # Enable GNOME keyring
+  services.gnome-keyring = {
+    enable = true;
+    components = [ "pkcs11" "secrets" ];
   };
 
   # Add Pretendard font to your system
