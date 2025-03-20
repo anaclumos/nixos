@@ -7,6 +7,23 @@
   security.polkit.enable = true;
   security.rtkit.enable = true;
 
+  systemd.services.mute-startup-chime = {
+    description = "Mute Mac startup chime";
+    wantedBy = [ "multi-user.target" ];
+    path = [ pkgs.coreutils pkgs.util-linux ];
+    script = ''
+      if [ -f /sys/firmware/efi/efivars/SystemAudioVolume-7c436110-ab2a-4bbb-a880-fe41995c9f82 ]; then
+        chattr -i /sys/firmware/efi/efivars/SystemAudioVolume-7c436110-ab2a-4bbb-a880-fe41995c9f82 || true
+      fi
+      printf "\x07\x00\x00\x00\x00" > /sys/firmware/efi/efivars/SystemAudioVolume-7c436110-ab2a-4bbb-a880-fe41995c9f82
+      chattr +i /sys/firmware/efi/efivars/SystemAudioVolume-7c436110-ab2a-4bbb-a880-fe41995c9f82 || true
+    '';
+    serviceConfig = {
+      Type = "oneshot";
+      RemainAfterExit = true;
+    };
+  };
+
   networking.hostName = "spaceship";
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
