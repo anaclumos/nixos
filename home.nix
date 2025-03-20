@@ -39,6 +39,7 @@
     adguardhome
     beeper
     xclip
+    fastfetch
   ];
 
   programs._1password-shell-plugins = {
@@ -59,9 +60,11 @@
     };
 
     shellAliases = {
-      rebuild = ''find . -name "*.nix" -type f | xargs nixfmt && sudo nix flake update && sudo nixos-rebuild switch'';
+      rebuild = ''
+        find . -name "*.nix" -type f | xargs nixfmt && sudo nix flake update && sudo nixos-rebuild switch'';
       nixgit = ''git commit -m "$(date +"%Y-%m-%d")" -a && git push'';
-      llm = ''find . -type f ! -path "*/.git/*" ! -name "*.lock*" ! -name "*lock.*" -exec grep -Iq . {} \; -and -exec sh -c 'echo -e "### $(basename $1)\n\n\`\`\`\n$(cat $1)\n\`\`\`\n\n"' sh {} \; | xclip -selection clipboard'';
+      llm = ''
+        find . -type f ! -path "*/.git/*" ! -name "*.lock*" ! -name "*lock.*" -exec grep -Iq . {} \; -and -exec sh -c 'echo -e "### $(basename $1)\n\n\`\`\`\n$(cat $1)\n\`\`\`\n\n"' sh {} \; | xclip -selection clipboard'';
     };
 
     initExtra = ''
@@ -72,6 +75,9 @@
       if [ -z "$(ssh-add -l 2>/dev/null)" ]; then
         op signin
       fi
+
+      # Run fastfetch on terminal start
+      command -v fastfetch >/dev/null 2>&1 && fastfetch
     '';
   };
 
