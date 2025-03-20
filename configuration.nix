@@ -54,7 +54,7 @@
 
   users.users.sunghyuncho = {
     isNormalUser = true;
-    description = "sunghyuncho";
+    description = "성현";
     extraGroups = [ "networkmanager" "wheel" ];
     shell = pkgs.zsh;
     # Packages are now managed by Home Manager
