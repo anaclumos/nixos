@@ -100,13 +100,14 @@
     userName = "Sunghyun Cho";
     userEmail = "hey@cho.sh";
     signing = {
-      key = "~/.ssh/id_ed25519.pub";
+      key =
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGaWDMcfAJMbWDorZP8z1beEAz+fjLb+VFqFm8hkAlpt";
       signByDefault = true;
     };
     extraConfig = {
       gpg.format = "ssh";
-      gpg.ssh.allowedSignersFile = "~/.config/git/allowed_signers";
       gpg.ssh.program = "${pkgs._1password-gui}/share/1password/op-ssh-sign";
+      commit.gpgsign = true;
     };
   };
 
