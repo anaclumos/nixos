@@ -21,7 +21,6 @@
     slack
     ibus
     ibus-engines.hangul
-    nixfmt-classic
     dconf-editor
     flatpak
     gnome-tweaks
@@ -59,7 +58,7 @@
 
     shellAliases = {
       rebuild = ''
-        find . -name "*.nix" -type f | xargs nixfmt && sudo nix-channel --update && sudo nix flake update && sudo nixos-rebuild switch --upgrade && sudo nix-collect-garbage -d'';
+        sudo nix-channel --update && sudo nix flake update && sudo nixos-rebuild switch --upgrade && sudo nix-collect-garbage -d'';
       nixgit = ''git commit -m "$(date +"%Y-%m-%d")" -a && git push'';
       llm = ''
         find . -type f ! -path "*/.git/*" ! -name "*.lock*" ! -name "*lock.*" -exec grep -Iq . {} \; -and -exec sh -c 'echo -e "### $(basename $1)\n\n\`\`\`\n$(cat $1)\n\`\`\`\n\n"' sh {} \; | xclip -selection clipboard'';
