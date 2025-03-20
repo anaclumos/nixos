@@ -72,6 +72,7 @@
     _1password-cli
     _1password-gui
   ];
+
   programs._1password = { enable = true; };
 
   # Will be done with 1Password
