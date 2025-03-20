@@ -61,7 +61,7 @@
     shellAliases = {
       rebuild = ''
         find . -name "*.nix" -type f | xargs nixfmt && sudo nix flake update && sudo nixos-rebuild switch'';
-      nixgit = ''git commit -m "$(date +"%Y-%m-%d")" -a & git push'';
+      nixgit = ''git commit -m "$(date +"%Y-%m-%d")" -a && git push'';
       llm = ''
               find . -type f ! -path "*/.git/*" ! -name "*.lock*" ! -name "*lock.*" -exec grep -Iq . {} \; -and -exec sh -c '
           echo -e "### `basename \"$1\"`\n\n\`\`\`\n$(cat \"$1\")\n\`\`\`\n\n"
