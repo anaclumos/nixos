@@ -1,7 +1,11 @@
 { config, pkgs, inputs, ... }:
 
 {
-  imports = [ inputs._1password-shell-plugins.hmModules.default ];
+  imports = [
+    inputs._1password-shell-plugins.hmModules.default
+    inputs.nix-flatpak.homeManagerModules.nix-flatpak
+  ];
+
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "sunghyuncho";
@@ -173,4 +177,10 @@
       </match>
     </fontconfig>
   '';
+
+  # Flatpak configuration
+  services.flatpak = {
+    enable = true;
+    packages = [ "md.obsidian.Obsidian" "app.bluebubbles.BlueBubbles" ];
+  };
 }
