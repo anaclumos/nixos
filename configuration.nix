@@ -50,6 +50,13 @@
       alsa.support32Bit = true;
       pulse.enable = true;
     };
+
+    adguardhome = {
+      enable = true;
+      openFirewall = true;
+    };
+
+    gnome = { };
   };
 
   users.users.sunghyuncho = {
@@ -57,10 +64,8 @@
     description = "성현";
     extraGroups = [ "networkmanager" "wheel" ];
     shell = pkgs.zsh;
-    # Packages are now managed by Home Manager
   };
 
-  # Enable zsh at the system level
   programs.zsh.enable = true;
 
   nixpkgs.config.allowUnfree = true;
@@ -71,17 +76,28 @@
     zsh-autosuggestions
     _1password-cli
     _1password-gui
+    adguardhome
+    beeper
   ];
 
   programs._1password = { enable = true; };
-
-  # Disable system SSH agent in favor of 1Password
-  programs.ssh.startAgent = false;
-
-  # Enhanced 1Password GUI configuration
   programs._1password-gui = {
     enable = true;
     polkitPolicyOwners = [ "sunghyuncho" ];
+  };
+
+  programs.ssh.startAgent = false;
+
+  environment.etc = {
+    "xdg/autostart/1password.desktop" = {
+      source = "${pkgs._1password-gui}/share/applications/1password.desktop";
+      mode = "0644";
+    };
+
+    "xdg/autostart/beeper.desktop" = {
+      source = "${pkgs.beeper}/share/applications/beeper.desktop";
+      mode = "0644";
+    };
   };
 
   services.flatpak = {
