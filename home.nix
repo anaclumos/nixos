@@ -10,6 +10,11 @@
   home.homeDirectory = "/home/sunghyuncho";
   home.stateVersion = "24.11";
 
+  # Configure GNOME settings
+  dconf.settings = {
+    "org/gnome/desktop/interface" = { clock-format = "12h"; };
+  };
+
   home.packages = with pkgs; [
     git
     gitAndTools.hub
@@ -57,7 +62,7 @@
 
     shellAliases = {
       rebuild =
-        "cd ~/etc/nixos && sudo nix-channel --update && sudo nix flake update && sudo nixos-rebuild switch --upgrade";
+        "cd ~/etc/nixos && sudo nix-channel --update && sudo nix flake update && sudo nixos-rebuild switch --upgrade --flake .#spaceship";
       nixgit = ''git commit -m "$(date +"%Y-%m-%d")" -a && git push'';
       llm = ''
         find . -type f ! -path "*/.git/*" ! -name "*.lock*" ! -name "*lock.*" -exec grep -Iq . {} \; -and -exec sh -c 'echo -e "### $(basename $1)\n\n\`\`\`\n$(cat $1)\n\`\`\`\n\n"' sh {} \; | xclip -selection clipboard'';
