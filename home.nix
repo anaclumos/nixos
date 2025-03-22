@@ -16,7 +16,9 @@
     "org/gnome/shell" = {
       disable-user-extensions = false;
 
-      enabled-extensions = [ ];
+      enabled-extensions = [
+        "system-monitor@gnome-shell-extensions.gcampax.github.com"
+      ];
     };
   };
 
@@ -41,7 +43,6 @@
     libreoffice
     gnome-extension-manager
     adguardhome
-    beeper
     xclip
     fastfetch
     gnome-keyring
