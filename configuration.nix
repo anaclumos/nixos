@@ -130,11 +130,6 @@
       source = "${pkgs._1password-gui}/share/applications/1password.desktop";
       mode = "0644";
     };
-
-    "xdg/autostart/beeper.desktop" = {
-      source = "${pkgs.beeper}/share/applications/beeper.desktop";
-      mode = "0644";
-    };
   };
 
   fonts.packages = with pkgs; [ pretendard ];
