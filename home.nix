@@ -42,6 +42,8 @@
     gnome-keyring
     seahorse
     bun
+    podman-desktop
+    nixfmt-classic
   ];
 
   programs._1password-shell-plugins = {
