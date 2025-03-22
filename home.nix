@@ -13,6 +13,13 @@
   # Configure GNOME settings
   dconf.settings = {
     "org/gnome/desktop/interface" = { clock-format = "12h"; };
+    "org/gnome/shell" = {
+      disable-user-extensions = false;
+
+      enabled-extensions = [
+        "move-clock@rmy.pobox.com"
+      ];
+    };
   };
 
   home.packages = with pkgs; [
@@ -44,6 +51,7 @@
     bun
     podman-desktop
     nixfmt-classic
+    gnomeExtensions.move-clock
   ];
 
   programs._1password-shell-plugins = {
