@@ -16,9 +16,7 @@
     "org/gnome/shell" = {
       disable-user-extensions = false;
 
-      enabled-extensions = [
-        "move-clock@rmy.pobox.com"
-      ];
+      enabled-extensions = [ ];
     };
   };
 
@@ -51,7 +49,6 @@
     bun
     podman-desktop
     nixfmt-classic
-    gnomeExtensions.move-clock
   ];
 
   programs._1password-shell-plugins = {
