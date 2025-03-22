@@ -47,7 +47,6 @@
     gnome-keyring
     seahorse
     bun
-    podman-desktop
     nixfmt-classic
   ];
 
