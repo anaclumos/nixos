@@ -49,6 +49,12 @@
     };
   };
 
+  # Enable Docker
+  virtualisation.docker = {
+    enable = true;
+    enableOnBoot = true;
+  };
+
   services = {
     xserver = {
       enable = true;
@@ -91,7 +97,7 @@
   users.users.sunghyuncho = {
     isNormalUser = true;
     description = "성현";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
     shell = pkgs.zsh;
   };
 
@@ -107,6 +113,7 @@
     _1password-cli
     gnome-keyring
     seahorse
+    docker-compose
   ];
 
   programs._1password = { enable = true; };
