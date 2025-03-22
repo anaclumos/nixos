@@ -41,6 +41,7 @@
     fastfetch
     gnome-keyring
     seahorse
+    bun
   ];
 
   programs._1password-shell-plugins = {
