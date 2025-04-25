@@ -9,7 +9,6 @@
 
   # Enable PAM authentication for GNOME keyring
   security.pam.services.login.enableGnomeKeyring = true;
-  security.pam.services.gdm-password.enableGnomeKeyring = true;
 
   systemd.services.mute-startup-chime = {
     description = "Mute Mac startup chime";
@@ -58,8 +57,9 @@
   services = {
     xserver = {
       enable = true;
-      displayManager.gdm.enable = true;
-      desktopManager.gnome.enable = true;
+      displayManager.gdm.enable = false;
+      desktopManager.gnome.enable = false;
+      desktopManager.pantheon.enable = true;
       xkb = {
         layout = "us";
         variant = "";

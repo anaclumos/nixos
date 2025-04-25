@@ -10,18 +10,6 @@
   home.homeDirectory = "/home/sunghyuncho";
   home.stateVersion = "24.11";
 
-  # Configure GNOME settings
-  dconf.settings = {
-    "org/gnome/desktop/interface" = { clock-format = "12h"; };
-    "org/gnome/shell" = {
-      disable-user-extensions = false;
-
-      enabled-extensions = [
-        "system-monitor@gnome-shell-extensions.gcampax.github.com"
-      ];
-    };
-  };
-
   home.packages = with pkgs; [
     git
     gitAndTools.hub
@@ -32,20 +20,16 @@
     slack
     ibus
     ibus-engines.hangul
-    dconf-editor
     flatpak
-    gnome-tweaks
-    (lib.hiPrio windsurf)
+    windsurf
     obsidian
     google-chrome
     steam
     spotify
     libreoffice
-    gnome-extension-manager
     adguardhome
     xclip
     fastfetch
-    gnome-keyring
     seahorse
     bun
     nixfmt-classic
