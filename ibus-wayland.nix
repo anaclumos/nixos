@@ -12,10 +12,10 @@
   };
 
   # KDE-specific IBus Wayland settings
-  programs.ibus.panel.custom = {
-    enable = true;
-    engines = with pkgs.ibus-engines; [ hangul ];
-    args = [ "--panel=wayland" "--xim" ];
+  # Use environment variables and autostart instead, since programs.ibus.panel doesn't exist
+  environment.variables = {
+    # Set IBus to use wayland panel
+    IBUS_USE_PANEL_WAYLAND = "1";
   };
 
   # Additional guidance for the user:

@@ -142,10 +142,7 @@
     sansSerif = [ "Pretendard" ];
   };
 
-  environment.sessionVariables = {
-    PNPM_HOME = "/root/.local/share/pnpm";
-    PATH = [ "\${PNPM_HOME}" ];
-  };
+  # Only keeping the first sessionVariables definition which is at line 54
 
   system.stateVersion = "24.11";
 }
