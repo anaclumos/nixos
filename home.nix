@@ -14,7 +14,7 @@
   home.pointerCursor = {
     gtk.enable = true;
     x11.enable = true;
-    package = pkgs.gnome.adwaita-icon-theme;
+    package = pkgs.adwaita-icon-theme;
     name = "Adwaita";
     size = 24;
   };
@@ -61,7 +61,7 @@
     seahorse
     bun
     nixfmt-classic
-    gnome.adwaita-icon-theme
+    pkgs.adwaita-icon-theme
     vanilla-dmz         # DMZ cursor themes (alternative option)
   ];
 
