@@ -9,10 +9,23 @@
   home.username = "sunghyuncho";
   home.homeDirectory = "/home/sunghyuncho";
   home.stateVersion = "24.11";
+  
+  # Configure cursor theme to fix white box cursor
+  home.pointerCursor = {
+    gtk.enable = true;
+    x11.enable = true;
+    package = pkgs.gnome.adwaita-icon-theme;
+    name = "Adwaita";
+    size = 24;
+  };
 
   # Configure GNOME settings
   dconf.settings = {
-    "org/gnome/desktop/interface" = { clock-format = "12h"; };
+    "org/gnome/desktop/interface" = { 
+      clock-format = "12h";
+      cursor-theme = "Adwaita";
+      cursor-size = 24;
+    };
     "org/gnome/shell" = {
       disable-user-extensions = false;
 
@@ -48,6 +61,8 @@
     seahorse
     bun
     nixfmt-classic
+    gnome.adwaita-icon-theme
+    vanilla-dmz         # DMZ cursor themes (alternative option)
   ];
 
   programs._1password-shell-plugins = {
