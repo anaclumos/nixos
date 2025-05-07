@@ -1,14 +1,15 @@
 { config, pkgs, lib, ... }: {
 
-  imports = [ ./hardware-configuration.nix ./ibus-wayland.nix ];
+  imports = [ ./hardware-configuration.nix ];
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   security.polkit.enable = true;
   security.rtkit.enable = true;
 
-  # Security settings
-  security.pam.services.login.enableKwallet = true;
+  # Enable PAM authentication for GNOME keyring
+  security.pam.services.login.enableGnomeKeyring = true;
+  security.pam.services.gdm-password.enableGnomeKeyring = true;
 
   systemd.services.mute-startup-chime = {
     description = "Mute Mac startup chime";
@@ -36,8 +37,6 @@
   };
 
   networking.hostName = "spaceship";
-  networking.networkmanager.enable = true;
-  networking.wireless.enable = false; # Disable wpa_supplicant
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   time.timeZone = "Asia/Seoul";
@@ -50,16 +49,6 @@
     };
   };
 
-  # Ensure proper IBus configuration for Wayland
-  environment.sessionVariables = {
-    PNPM_HOME = "/root/.local/share/pnpm";
-    PATH = [ "\${PNPM_HOME}" ];
-    # Clear IM modules to ensure proper IBus Wayland integration
-    QT_IM_MODULE = lib.mkForce null;
-    GTK_IM_MODULE = lib.mkForce null;
-    XMODIFIERS = "@im=ibus";
-  };
-
   # Enable Docker
   virtualisation.docker = {
     enable = true;
@@ -69,36 +58,41 @@
   services = {
     xserver = {
       enable = true;
+      displayManager.gdm.enable = true;
+      desktopManager.gnome.enable = true;
       xkb = {
         layout = "us";
         variant = "";
       };
     };
-    displayManager.sddm.enable = true;
-    desktopManager.plasma6.enable = true;
-  };
 
-  services.libinput = {
-    enable = true;
-    touchpad = {
-      naturalScrolling = true;
-      scrollMethod = "twofinger";
-      accelSpeed = "0.7";
-      accelProfile = "adaptive";
+    libinput = {
+      enable = true;
+      touchpad = {
+        naturalScrolling = true;
+        scrollMethod = "twofinger";
+        accelSpeed = "0.7";
+        accelProfile = "adaptive";
+      };
+    };
+
+    printing.enable = true;
+    pulseaudio.enable = false;
+
+    pipewire = {
+      enable = true;
+      alsa.enable = true;
+      alsa.support32Bit = true;
+      pulse.enable = true;
+    };
+
+    flatpak.enable = true;
+
+    gnome = {
+      # Enable the GNOME keyring service
+      gnome-keyring.enable = true;
     };
   };
-
-  services.printing.enable = true;
-  services.pulseaudio.enable = false;
-
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-  };
-
-  services.flatpak.enable = true;
 
   users.users.sunghyuncho = {
     isNormalUser = true;
@@ -117,6 +111,8 @@
     zsh-autosuggestions
     _1password-gui
     _1password-cli
+    gnome-keyring
+    seahorse
     docker-compose
   ];
 
@@ -140,6 +136,11 @@
   fonts.fontconfig.defaultFonts = {
     serif = [ "Pretendard" ];
     sansSerif = [ "Pretendard" ];
+  };
+
+  environment.sessionVariables = {
+    PNPM_HOME = "/root/.local/share/pnpm";
+    PATH = [ "\${PNPM_HOME}" ];
   };
 
   system.stateVersion = "24.11";
