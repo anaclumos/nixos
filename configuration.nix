@@ -142,7 +142,5 @@
     sansSerif = [ "Pretendard" ];
   };
 
-  # Only keeping the first sessionVariables definition which is at line 54
-
   system.stateVersion = "24.11";
 }
