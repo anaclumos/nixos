@@ -76,8 +76,10 @@
     };
 
     initExtra = ''
-      # Source 1Password plugins
-      source ~/.config/op/plugins.sh
+      # Source 1Password plugins if they exist
+      if [ -f ~/.config/op/plugins.sh ]; then
+        source ~/.config/op/plugins.sh
+      fi
 
       # Ensure 1Password SSH agent is used
       export SSH_AUTH_SOCK=~/.1password/agent.sock
