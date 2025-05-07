@@ -7,8 +7,8 @@
   security.polkit.enable = true;
   security.rtkit.enable = true;
 
-  # Enable PAM authentication for GNOME keyring
-  security.pam.services.login.enableGnomeKeyring = true;
+  # Security settings
+  security.pam.services.login.enableKwallet = true;
 
   systemd.services.mute-startup-chime = {
     description = "Mute Mac startup chime";
@@ -57,9 +57,8 @@
   services = {
     xserver = {
       enable = true;
-      displayManager.gdm.enable = false;
-      desktopManager.gnome.enable = false;
-      desktopManager.pantheon.enable = true;
+      displayManager.sddm.enable = true;
+      desktopManager.plasma5.enable = true;
       xkb = {
         layout = "us";
         variant = "";
@@ -88,10 +87,6 @@
 
     flatpak.enable = true;
 
-    gnome = {
-      # Enable the GNOME keyring service
-      gnome-keyring.enable = true;
-    };
   };
 
   users.users.sunghyuncho = {
@@ -111,8 +106,6 @@
     zsh-autosuggestions
     _1password-gui
     _1password-cli
-    gnome-keyring
-    seahorse
     docker-compose
   ];
 
