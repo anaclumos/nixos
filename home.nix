@@ -12,10 +12,7 @@
 
   # Configure GNOME settings
   dconf.settings = {
-    "org/gnome/desktop/interface" = {
-      clock-format = "12h";
-      text-scaling-factor = 1.5; # 150% scaling
-    };
+    "org/gnome/desktop/interface" = { clock-format = "12h"; };
     "org/gnome/shell" = {
       disable-user-extensions = false;
 
