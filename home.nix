@@ -10,6 +10,18 @@
   home.homeDirectory = "/home/sunghyuncho";
   home.stateVersion = "24.11";
 
+  # Configure GNOME settings
+  dconf.settings = {
+    "org/gnome/desktop/interface" = { clock-format = "12h"; };
+    "org/gnome/shell" = {
+      disable-user-extensions = false;
+
+      enabled-extensions = [
+        "system-monitor@gnome-shell-extensions.gcampax.github.com"
+      ];
+    };
+  };
+
   home.packages = with pkgs; [
     git
     gitAndTools.hub
@@ -20,16 +32,20 @@
     slack
     ibus
     ibus-engines.hangul
+    dconf-editor
     flatpak
-    windsurf
+    gnome-tweaks
+    (lib.hiPrio windsurf)
     obsidian
     google-chrome
     steam
     spotify
     libreoffice
+    gnome-extension-manager
     adguardhome
     xclip
     fastfetch
+    gnome-keyring
     seahorse
     bun
     nixfmt-classic
@@ -60,7 +76,7 @@
         find . -type f ! -path "*/.git/*" ! -name "*.lock*" ! -name "*lock.*" -exec grep -Iq . {} \; -and -exec sh -c 'echo -e "### $(basename $1)\n\n\`\`\`\n$(cat $1)\n\`\`\`\n\n"' sh {} \; | xclip -selection clipboard'';
     };
 
-    initContent = ''
+    initExtra = ''
       # Source 1Password plugins
       source ~/.config/op/plugins.sh
 
