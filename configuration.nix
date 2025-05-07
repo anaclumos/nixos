@@ -74,6 +74,10 @@
         accelSpeed = "0.7";
         accelProfile = "adaptive";
       };
+      mouse = {
+        accelProfile = "flat";
+        middleEmulation = false;
+      };
     };
 
     printing.enable = true;
