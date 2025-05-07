@@ -9,7 +9,7 @@
   home.username = "sunghyuncho";
   home.homeDirectory = "/home/sunghyuncho";
   home.stateVersion = "24.11";
-  
+
   # Configure cursor theme to fix white box cursor
   home.pointerCursor = {
     gtk.enable = true;
@@ -19,18 +19,12 @@
     size = 24;
   };
 
-  # Configure GNOME settings
+  # Configure Pantheon settings
   dconf.settings = {
-    "org/gnome/desktop/interface" = { 
+    "org/pantheon/desktop/interface" = {
       clock-format = "12h";
       cursor-theme = "Adwaita";
       cursor-size = 24;
-    };
-    "org/gnome/shell" = {
-      disable-user-extensions = false;
-
-      enabled-extensions =
-        [ "system-monitor@gnome-shell-extensions.gcampax.github.com" ];
     };
   };
 
@@ -44,25 +38,16 @@
     slack
     ibus
     ibus-engines.hangul
-    dconf-editor
-    flatpak
-    gnome-tweaks
-    (lib.hiPrio windsurf)
+    windsurf
     obsidian
     google-chrome
     steam
-    spotify
-    libreoffice
-    gnome-extension-manager
     adguardhome
     xclip
     fastfetch
-    gnome-keyring
-    seahorse
     bun
     nixfmt-classic
     pkgs.adwaita-icon-theme
-    vanilla-dmz         # DMZ cursor themes (alternative option)
   ];
 
   programs._1password-shell-plugins = {
@@ -135,12 +120,6 @@
       gpg.ssh.program = "${pkgs._1password-gui}/share/1password/op-ssh-sign";
       commit.gpgsign = true;
     };
-  };
-
-  # Enable GNOME keyring
-  services.gnome-keyring = {
-    enable = true;
-    components = [ "pkcs11" "secrets" ];
   };
 
   # Add Pretendard font to your system
