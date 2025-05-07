@@ -38,12 +38,10 @@
     size = 24; # Set cursor size to 24px
   };
 
-  # Configure Pantheon desktop environment settings
+  # Configure GNOME desktop environment settings
   dconf.settings = {
-    "org/pantheon/desktop/interface" = {
+    "org/gnome/desktop/interface" = {
       clock-format = "12h"; # Use 12-hour clock format
-      cursor-theme = "Adwaita"; # Match cursor theme
-      cursor-size = 24; # Match cursor size
     };
   };
 
