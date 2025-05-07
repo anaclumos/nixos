@@ -12,13 +12,15 @@
 
   # Configure GNOME settings
   dconf.settings = {
-    "org/gnome/desktop/interface" = { clock-format = "12h"; };
+    "org/gnome/desktop/interface" = {
+      clock-format = "12h";
+      text-scaling-factor = 1.5; # 150% scaling
+    };
     "org/gnome/shell" = {
       disable-user-extensions = false;
 
-      enabled-extensions = [
-        "system-monitor@gnome-shell-extensions.gcampax.github.com"
-      ];
+      enabled-extensions =
+        [ "system-monitor@gnome-shell-extensions.gcampax.github.com" ];
     };
   };
 
