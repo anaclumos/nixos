@@ -60,7 +60,7 @@
         find . -type f ! -path "*/.git/*" ! -name "*.lock*" ! -name "*lock.*" -exec grep -Iq . {} \; -and -exec sh -c 'echo -e "### $(basename $1)\n\n\`\`\`\n$(cat $1)\n\`\`\`\n\n"' sh {} \; | xclip -selection clipboard'';
     };
 
-    initExtra = ''
+    initContent = ''
       # Source 1Password plugins
       source ~/.config/op/plugins.sh
 

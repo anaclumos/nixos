@@ -1,6 +1,6 @@
 { config, pkgs, lib, ... }: {
 
-  imports = [ ./hardware-configuration.nix ];
+  imports = [ ./hardware-configuration.nix ./ibus-wayland.nix ];
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -36,6 +36,8 @@
   };
 
   networking.hostName = "spaceship";
+  networking.networkmanager.enable = true;
+  networking.wireless.enable = false; # Disable wpa_supplicant
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   time.timeZone = "Asia/Seoul";
@@ -48,6 +50,16 @@
     };
   };
 
+  # Ensure proper IBus configuration for Wayland
+  environment.sessionVariables = {
+    PNPM_HOME = "/root/.local/share/pnpm";
+    PATH = [ "\${PNPM_HOME}" ];
+    # Clear IM modules to ensure proper IBus Wayland integration
+    QT_IM_MODULE = lib.mkForce null;
+    GTK_IM_MODULE = lib.mkForce null;
+    XMODIFIERS = "@im=ibus";
+  };
+
   # Enable Docker
   virtualisation.docker = {
     enable = true;
@@ -57,37 +69,36 @@
   services = {
     xserver = {
       enable = true;
-      displayManager.sddm.enable = true;
-      desktopManager.plasma5.enable = true;
       xkb = {
         layout = "us";
         variant = "";
       };
     };
-
-    libinput = {
-      enable = true;
-      touchpad = {
-        naturalScrolling = true;
-        scrollMethod = "twofinger";
-        accelSpeed = "0.7";
-        accelProfile = "adaptive";
-      };
-    };
-
-    printing.enable = true;
-    pulseaudio.enable = false;
-
-    pipewire = {
-      enable = true;
-      alsa.enable = true;
-      alsa.support32Bit = true;
-      pulse.enable = true;
-    };
-
-    flatpak.enable = true;
-
+    displayManager.sddm.enable = true;
+    desktopManager.plasma6.enable = true;
   };
+
+  services.libinput = {
+    enable = true;
+    touchpad = {
+      naturalScrolling = true;
+      scrollMethod = "twofinger";
+      accelSpeed = "0.7";
+      accelProfile = "adaptive";
+    };
+  };
+
+  services.printing.enable = true;
+  services.pulseaudio.enable = false;
+
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+  };
+
+  services.flatpak.enable = true;
 
   users.users.sunghyuncho = {
     isNormalUser = true;
