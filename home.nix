@@ -42,6 +42,26 @@
   dconf.settings = {
     "org/gnome/desktop/interface" = {
       clock-format = "12h"; # Use 12-hour clock format
+      enable-animations = false; # Disable interface animations
+    };
+    
+    # Disable window animations
+    "org/gnome/desktop/wm/preferences" = {
+      button-layout = "appmenu:minimize,maximize,close";
+    };
+    
+    # Disable all animations in mutter (window manager)
+    "org/gnome/mutter" = {
+      experimental-features = [ "scale-monitor-framebuffer" ];
+      animate-appicon-hover = false;
+      edge-tiling = false;
+    };
+    
+    # Additional animation disabling
+    "org/gnome/shell" = {
+      disable-user-extensions = false;
+      disable-extension-version-validation = true;
+      enabled-extensions = [ ];
     };
   };
 
