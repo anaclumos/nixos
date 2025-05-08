@@ -43,6 +43,7 @@
     "org/gnome/desktop/interface" = {
       clock-format = "12h"; # Use 12-hour clock format
       enable-animations = false; # Disable interface animations
+      icon-theme = "Adwaita"; # Set icon theme to ensure proper icon display
     };
 
     # Configure window preferences and hide title bar
@@ -54,7 +55,7 @@
 
     # Disable all animations in mutter (window manager)
     "org/gnome/mutter" = {
-      experimental-features = [ "scale-monitor-framebuffer" ];
+      experimental-features = [ ];
       animate-appicon-hover = false;
       edge-tiling = false;
       # Enable hot corners to show dash/app grid when hitting bottom of screen
@@ -111,6 +112,8 @@
 
     # System utilities
     adwaita-icon-theme # Cursor and icon theme
+    gnome.adwaita-icon-theme # Complete GNOME icon theme
+    hicolor-icon-theme # Fallback icon theme
     adguardhome # Network-wide ad blocking
     xclip # Command line clipboard tool
     fastfetch # System information tool
@@ -242,6 +245,13 @@
 
   # Enable fontconfig
   fonts.fontconfig.enable = true;
+  
+  # Update icon cache after system changes
+  home.activation.updateGTKIconCache = {
+    after = [ "writeBoundary" "linkGeneration" ];
+    before = [];
+    data = "gtk-update-icon-cache -qtf ~/.local/share/icons/* || true";
+  };
 
   # Configure font substitutions to use Pretendard font
   xdg.configFile."fontconfig/conf.d/99-pretendard-substitutions.conf".text = ''
