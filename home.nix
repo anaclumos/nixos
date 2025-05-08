@@ -44,6 +44,9 @@
       clock-format = "12h"; # Use 12-hour clock format
       enable-animations = false; # Disable interface animations
       icon-theme = "Adwaita"; # Set icon theme to ensure proper icon display
+      font-name = "Pretendard 10"; # Set UI font to Pretendard
+      document-font-name = "Pretendard 10"; # Set document font to Pretendard
+      monospace-font-name = "Pretendard 10"; # Set monospace font to Pretendard
     };
 
     # Configure window preferences and hide title bar
@@ -51,6 +54,13 @@
       button-layout = "appmenu:minimize,maximize,close";
       titlebar-font =
         "Pretendard 0"; # Setting font size to 0 effectively hides the title bar
+    };
+
+    # Configure font settings
+    "org/gnome/settings-daemon/plugins/xsettings" = {
+      antialiasing = "rgba"; # Enable antialiasing
+      hinting = "slight"; # Set hinting to slight
+      rgba-order = "rgb"; # Set RGB order for subpixel rendering
     };
 
     # Disable all animations in mutter (window manager)
@@ -69,7 +79,6 @@
       enabled-extensions = [
         "dash-to-dock@micxgx.gmail.com"
         "system-monitor@gnome-shell-extensions.gcampax.github.com"
-        "undecorate_window_for_wayland@github.tbranyen"
       ];
     };
 
@@ -123,7 +132,6 @@
     gnomeExtensions.dash-to-dock # Dock with configurable behavior
     gnomeExtensions.system-monitor # System monitor for CPU/RAM/Network stats
     gnomeExtensions.vitals # System monitoring in top bar
-    gnomeExtensions.undecorate-window-for-wayland # Remove title bars from windows
 
     # Gaming
     steam # Gaming platform
@@ -194,15 +202,6 @@
       # Add SSH identities to 1Password agent
       if [ -z "$(ssh-add -l 2>/dev/null)" ]; then
         op signin
-      fi
-
-      # Enable undecorate window extension for Wayland sessions
-      if [ "$XDG_SESSION_TYPE" = wayland ]; then
-        # Ensure the extension is enabled
-        if ! gnome-extensions info undecorate_window_for_wayland@github.tbranyen | grep -q "State: ENABLED"; then
-          gnome-extensions enable undecorate_window_for_wayland@github.tbranyen 2>/dev/null || true
-          echo "Focus window, Alt+Space→Undecorate toggles title bar"
-        fi
       fi
 
       # Run fastfetch on terminal start for system information display
@@ -286,23 +285,15 @@
     data = "gtk-update-icon-cache -qtf ~/.local/share/icons/* || true";
   };
 
-  # Enable undecorate window extension on login for Wayland sessions
-  home.activation.enableUndecorator = {
-    after = [ "writeBoundary" "linkGeneration" ];
-    before = [ ];
-    data = ''
-      if [ "$XDG_SESSION_TYPE" = wayland ]; then
-        echo "Focus window, Alt+Space→Undecorate toggles title bar"
-      fi
-    '';
-  };
-
   # Configure font substitutions to use Pretendard font
   xdg.configFile."fontconfig/conf.d/99-pretendard-substitutions.conf".text = ''
     <?xml version="1.0"?>
     <!DOCTYPE fontconfig SYSTEM "fonts.dtd">
     <fontconfig>
-      <!-- Replace Helvetica with Pretendard -->
+
+
+      <!-- Common font substitutions -->
+      <!-- Western fonts -->
       <match target="pattern">
         <test qual="any" name="family">
           <string>Helvetica</string>
@@ -312,7 +303,6 @@
         </edit>
       </match>
 
-      <!-- Replace Helvetica Neue with Pretendard -->
       <match target="pattern">
         <test qual="any" name="family">
           <string>Helvetica Neue</string>
@@ -322,7 +312,6 @@
         </edit>
       </match>
 
-      <!-- Replace Arial with Pretendard -->
       <match target="pattern">
         <test qual="any" name="family">
           <string>Arial</string>
@@ -332,7 +321,25 @@
         </edit>
       </match>
 
-      <!-- Replace -apple-system with Pretendard -->
+      <match target="pattern">
+        <test qual="any" name="family">
+          <string>Tahoma</string>
+        </test>
+        <edit name="family" mode="assign" binding="same">
+          <string>Pretendard</string>
+        </edit>
+      </match>
+
+      <match target="pattern">
+        <test qual="any" name="family">
+          <string>Verdana</string>
+        </test>
+        <edit name="family" mode="assign" binding="same">
+          <string>Pretendard</string>
+        </edit>
+      </match>
+
+      <!-- System fonts -->
       <match target="pattern">
         <test qual="any" name="family">
           <string>-apple-system</string>
@@ -342,7 +349,6 @@
         </edit>
       </match>
 
-      <!-- Replace BlinkMacSystemFont with Pretendard -->
       <match target="pattern">
         <test qual="any" name="family">
           <string>BlinkMacSystemFont</string>
@@ -352,10 +358,73 @@
         </edit>
       </match>
 
-      <!-- Replace Ubuntu with Pretendard -->
+      <match target="pattern">
+        <test qual="any" name="family">
+          <string>Noto Sans</string>
+        </test>
+        <edit name="family" mode="assign" binding="same">
+          <string>Pretendard</string>
+        </edit>
+      </match>
+
       <match target="pattern">
         <test qual="any" name="family">
           <string>Ubuntu</string>
+        </test>
+        <edit name="family" mode="assign" binding="same">
+          <string>Pretendard</string>
+        </edit>
+      </match>
+
+      <match target="pattern">
+        <test qual="any" name="family">
+          <string>Roboto</string>
+        </test>
+        <edit name="family" mode="assign" binding="same">
+          <string>Pretendard</string>
+        </edit>
+      </match>
+
+      <!-- Korean fonts -->
+      <match target="pattern">
+        <test qual="any" name="family">
+          <string>Nanum Gothic</string>
+        </test>
+        <edit name="family" mode="assign" binding="same">
+          <string>Pretendard</string>
+        </edit>
+      </match>
+
+      <match target="pattern">
+        <test qual="any" name="family">
+          <string>Malgun Gothic</string>
+        </test>
+        <edit name="family" mode="assign" binding="same">
+          <string>Pretendard</string>
+        </edit>
+      </match>
+
+      <match target="pattern">
+        <test qual="any" name="family">
+          <string>Apple SD Gothic Neo</string>
+        </test>
+        <edit name="family" mode="assign" binding="same">
+          <string>Pretendard</string>
+        </edit>
+      </match>
+
+      <match target="pattern">
+        <test qual="any" name="family">
+          <string>Dotum</string>
+        </test>
+        <edit name="family" mode="assign" binding="same">
+          <string>Pretendard</string>
+        </edit>
+      </match>
+
+      <match target="pattern">
+        <test qual="any" name="family">
+          <string>Gulim</string>
         </test>
         <edit name="family" mode="assign" binding="same">
           <string>Pretendard</string>
