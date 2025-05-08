@@ -36,6 +36,17 @@
   # Set the hostname
   networking.hostName = "spaceship";
 
+  # Firewall configuration
+  networking.firewall = {
+    enable = true;
+    # Enable the firewall
+    allowedTCPPorts = [ 22 ];
+    # Allow Tailscale traffic
+    trustedInterfaces = [ "tailscale0" ];
+    # Allow traffic from internal trusted networks
+    allowedUDPPorts = [ config.services.tailscale.port ];
+  };
+
   #-----------------------------------------------------------------------
   # NIX PACKAGE MANAGER SETTINGS
   #-----------------------------------------------------------------------
@@ -138,6 +149,17 @@
 
   # Enable printing support
   services.printing.enable = true;
+
+  # Enable Tailscale VPN
+  services.tailscale = {
+    enable = true;
+    openFirewall = true;
+    authKeyFile = null; # Will use interactive login
+    extraUpFlags = [ "--ssh" ];
+  };
+
+  # Make NetworkManager respect Tailscale routes
+  networking.networkmanager = { enable = true; };
 
   #-----------------------------------------------------------------------
   # USER CONFIGURATION
