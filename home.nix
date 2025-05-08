@@ -44,24 +44,41 @@
       clock-format = "12h"; # Use 12-hour clock format
       enable-animations = false; # Disable interface animations
     };
-    
-    # Disable window animations
+
+    # Configure window preferences and hide title bar
     "org/gnome/desktop/wm/preferences" = {
       button-layout = "appmenu:minimize,maximize,close";
+      titlebar-font =
+        "Pretendard 0"; # Setting font size to 0 effectively hides the title bar
     };
-    
+
     # Disable all animations in mutter (window manager)
     "org/gnome/mutter" = {
       experimental-features = [ "scale-monitor-framebuffer" ];
       animate-appicon-hover = false;
       edge-tiling = false;
+      # Enable hot corners to show dash/app grid when hitting bottom of screen
+      edge-profiles = [ "scale" "none" "none" "none" ];
     };
-    
-    # Additional animation disabling
+
+    # Additional animation disabling and extension configuration
     "org/gnome/shell" = {
       disable-user-extensions = false;
       disable-extension-version-validation = true;
-      enabled-extensions = [ ];
+      enabled-extensions = [
+        "dash-to-dock@micxgx.gmail.com"
+        "system-monitor@gnome-shell-extensions.gcampax.github.com"
+      ];
+    };
+
+    # Dash to Dock configuration
+    "org/gnome/shell/extensions/dash-to-dock" = {
+      dock-position = "BOTTOM";
+      intellihide = true;
+      autohide = true;
+      show-apps-at-top = false;
+      hot-keys = false;
+      pressure-threshold = 100.0; # Lower value = less pressure needed to reveal
     };
   };
 
@@ -97,6 +114,11 @@
     adguardhome # Network-wide ad blocking
     xclip # Command line clipboard tool
     fastfetch # System information tool
+
+    # GNOME extensions
+    gnomeExtensions.dash-to-dock # Dock with configurable behavior
+    gnomeExtensions.system-monitor # System monitor for CPU/RAM/Network stats
+    gnomeExtensions.vitals # System monitoring in top bar
 
     # Gaming
     steam # Gaming platform
@@ -141,7 +163,7 @@
     shellAliases = {
       # Rebuild NixOS system with updates (requires sudo)
       rebuild =
-        "cd ~/etc/nixos && nix-channel --update && nix flake update && sudo nixos-rebuild switch --flake .#spaceship";
+        "cd ~/etc/nixos && nixfmt *.nix && nix-channel --update && nix flake update && sudo nixos-rebuild switch --flake .#spaceship";
 
       # Build NixOS system without switching (no sudo required)
       build = "cd ~/etc/nixos && nixos-rebuild build --flake .#spaceship";

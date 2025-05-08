@@ -203,7 +203,6 @@
     _1password-gui
     _1password-cli
 
-
     # Docker tools
     docker-compose
   ];
