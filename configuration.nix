@@ -82,11 +82,11 @@
     # Enable the X server
     enable = true;
 
-    # Configure LightDM as the display manager (login screen)
-    displayManager.lightdm.enable = true;
+    # Configure GDM as the display manager (login screen)
+    displayManager.gdm.enable = true;
 
-    # Use Pantheon (Elementary OS) desktop environment
-    desktopManager.pantheon.enable = true;
+    # Use GNOME desktop environment
+    desktopManager.gnome.enable = true;
 
     # Configure keyboard layout
     xkb = {
@@ -203,8 +203,6 @@
     _1password-gui
     _1password-cli
 
-    # Desktop environment components
-    pantheon.elementary-default-settings
 
     # Docker tools
     docker-compose
