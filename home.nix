@@ -69,6 +69,7 @@
       enabled-extensions = [
         "dash-to-dock@micxgx.gmail.com"
         "system-monitor@gnome-shell-extensions.gcampax.github.com"
+        "undecorate_window_for_wayland@github.tbranyen"
       ];
     };
 
@@ -112,7 +113,6 @@
 
     # System utilities
     adwaita-icon-theme # Cursor and icon theme
-    gnome.adwaita-icon-theme # Complete GNOME icon theme
     hicolor-icon-theme # Fallback icon theme
     adguardhome # Network-wide ad blocking
     xclip # Command line clipboard tool
@@ -123,6 +123,7 @@
     gnomeExtensions.dash-to-dock # Dock with configurable behavior
     gnomeExtensions.system-monitor # System monitor for CPU/RAM/Network stats
     gnomeExtensions.vitals # System monitoring in top bar
+    gnomeExtensions.undecorate-window-for-wayland # Remove title bars from windows
 
     # Gaming
     steam # Gaming platform
@@ -195,6 +196,15 @@
         op signin
       fi
 
+      # Enable undecorate window extension for Wayland sessions
+      if [ "$XDG_SESSION_TYPE" = wayland ]; then
+        # Ensure the extension is enabled
+        if ! gnome-extensions info undecorate_window_for_wayland@github.tbranyen | grep -q "State: ENABLED"; then
+          gnome-extensions enable undecorate_window_for_wayland@github.tbranyen 2>/dev/null || true
+          echo "Focus window, Alt+Space→Undecorate toggles title bar"
+        fi
+      fi
+
       # Run fastfetch on terminal start for system information display
       command -v fastfetch >/dev/null 2>&1 && fastfetch
     '';
@@ -241,6 +251,28 @@
   };
 
   #-----------------------------------------------------------------------
+  # CUSTOM SCRIPTS
+  #-----------------------------------------------------------------------
+
+  # Create a toggle-decoration script
+  home.file.".local/bin/toggle-decoration" = {
+    executable = true;
+    text = ''
+      #!/usr/bin/env bash
+      if [ "$XDG_SESSION_TYPE" = "wayland" ]; then
+        # Send Alt+Space shortcut to trigger undecorate
+        gdbus call --session --dest org.gnome.Shell \
+          --object-path /org/gnome/Shell \
+          --method org.gnome.Shell.Eval \
+          "global.get_window_actors().map(a=>a.meta_window).find(w=>w.has_focus()).toggle_decorator()"
+        echo "Window decoration toggled"
+      else
+        echo "This script only works in Wayland sessions"
+      fi
+    '';
+  };
+
+  #-----------------------------------------------------------------------
   # FONT CONFIGURATION
   #-----------------------------------------------------------------------
 
@@ -252,6 +284,17 @@
     after = [ "writeBoundary" "linkGeneration" ];
     before = [ ];
     data = "gtk-update-icon-cache -qtf ~/.local/share/icons/* || true";
+  };
+
+  # Enable undecorate window extension on login for Wayland sessions
+  home.activation.enableUndecorator = {
+    after = [ "writeBoundary" "linkGeneration" ];
+    before = [ ];
+    data = ''
+      if [ "$XDG_SESSION_TYPE" = wayland ]; then
+        echo "Focus window, Alt+Space→Undecorate toggles title bar"
+      fi
+    '';
   };
 
   # Configure font substitutions to use Pretendard font
