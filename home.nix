@@ -117,6 +117,7 @@
     adguardhome # Network-wide ad blocking
     xclip # Command line clipboard tool
     fastfetch # System information tool
+    tailscale # Tailscale VPN client
 
     # GNOME extensions
     gnomeExtensions.dash-to-dock # Dock with configurable behavior
@@ -245,11 +246,11 @@
 
   # Enable fontconfig
   fonts.fontconfig.enable = true;
-  
+
   # Update icon cache after system changes
   home.activation.updateGTKIconCache = {
     after = [ "writeBoundary" "linkGeneration" ];
-    before = [];
+    before = [ ];
     data = "gtk-update-icon-cache -qtf ~/.local/share/icons/* || true";
   };
 
