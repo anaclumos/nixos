@@ -220,6 +220,7 @@
 
     # Development tools
     git
+    uv
 
     # Password management
     _1password-gui
