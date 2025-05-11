@@ -174,17 +174,13 @@
     shellAliases = {
       # Rebuild NixOS system with updates (requires sudo)
       rebuild =
-        "cd ~/etc/nixos && nixfmt *.nix && nix-channel --update && nix flake update && sudo nixos-rebuild switch --flake .#spaceship";
-
-      # Build NixOS system without switching (no sudo required)
-      build = "cd ~/etc/nixos && nixos-rebuild build --flake .#spaceship";
+        "cd ~/Desktop/nixos && nixfmt *.nix && nix-channel --update && nix flake update && sudo nixos-rebuild switch --flake .#spaceship";
 
       # Quick git commit and push with timestamp
       nixgit = ''git commit -m "$(date +"%Y-%m-%d")" -a && git push'';
 
-      # Format all files for LLM (Large Language Model) input
-      llm = ''
-        find . -type f ! -path "*/.git/*" ! -name "*.lock*" ! -name "*lock.*" -exec grep -Iq . {} \; -and -exec sh -c 'echo -e "### $(basename $1)\n\n\`\`\`\n$(cat $1)\n\`\`\`\n\n"' sh {} \; | xclip -selection clipboard'';
+      qqqq = "cd ~/Desktop/extracranial && bun run save";
+
     };
 
     # Additional shell initialization
