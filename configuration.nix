@@ -197,6 +197,9 @@
     polkitPolicyOwners = [ "sunghyuncho" ];
   };
 
+  # Enable nix-ld for dynamic linking compatibility
+  programs.nix-ld.enable = true;
+
   # Disable OpenSSH's built-in SSH agent (using 1Password instead)
   programs.ssh.startAgent = false;
 
