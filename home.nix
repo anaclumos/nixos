@@ -130,8 +130,6 @@
 
     # GNOME extensions
     gnomeExtensions.dash-to-dock # Dock with configurable behavior
-    gnomeExtensions.system-monitor # System monitor for CPU/RAM/Network stats
-    gnomeExtensions.vitals # System monitoring in top bar
 
     # Gaming
     steam # Gaming platform
