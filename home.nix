@@ -181,6 +181,8 @@
 
       qqqq = "cd ~/Desktop/extracranial && bun run save";
 
+      x = "exit";
+
     };
 
     # Additional shell initialization
