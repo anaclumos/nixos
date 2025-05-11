@@ -79,7 +79,13 @@
       enabled-extensions = [
         "dash-to-dock@micxgx.gmail.com"
         "system-monitor@gnome-shell-extensions.gcampax.github.com"
+        "ding@rastersoft.com" # Desktop Icons NG extension
       ];
+    };
+    
+    # Enable desktop icons
+    "org/gnome/desktop/background" = {
+      show-desktop-icons = true;
     };
 
     # Dash to Dock configuration
@@ -130,6 +136,7 @@
 
     # GNOME extensions
     gnomeExtensions.dash-to-dock # Dock with configurable behavior
+    gnomeExtensions.ding # Desktop Icons NG - show desktop files
 
     # Gaming
     steam # Gaming platform
