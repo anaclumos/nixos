@@ -49,13 +49,6 @@
       monospace-font-name = "Pretendard 10"; # Set monospace font to Pretendard
     };
 
-    # Configure window preferences and hide title bar
-    "org/gnome/desktop/wm/preferences" = {
-      button-layout = "appmenu:minimize,maximize,close";
-      titlebar-font =
-        "Pretendard 0"; # Setting font size to 0 effectively hides the title bar
-    };
-
     # Configure font settings
     "org/gnome/settings-daemon/plugins/xsettings" = {
       antialiasing = "rgba"; # Enable antialiasing
@@ -81,11 +74,6 @@
         "system-monitor@gnome-shell-extensions.gcampax.github.com"
         "ding@rastersoft.com" # Desktop Icons NG extension
       ];
-    };
-    
-    # Enable desktop icons
-    "org/gnome/desktop/background" = {
-      show-desktop-icons = true;
     };
 
     # Dash to Dock configuration
@@ -136,7 +124,9 @@
 
     # GNOME extensions
     gnomeExtensions.dash-to-dock # Dock with configurable behavior
-    gnomeExtensions.ding # Desktop Icons NG - show desktop files
+`
+    # Wine
+    bottles
 
     # Gaming
     steam # Gaming platform
