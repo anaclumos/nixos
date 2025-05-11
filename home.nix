@@ -124,7 +124,7 @@
 
     # GNOME extensions
     gnomeExtensions.dash-to-dock # Dock with configurable behavior
-`
+
     # Wine
     bottles
 
