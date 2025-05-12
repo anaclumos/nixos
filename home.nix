@@ -32,6 +32,7 @@
     bottles
     steam
     google-cloud-sdk
+    pretendard
   ];
 
   programs._1password-shell-plugins = {
@@ -95,6 +96,11 @@
   };
 
   fonts.fontconfig.enable = true;
+
+  fonts.fontconfig.defaultFonts = {
+    sansSerif = [ "Pretendard" ];
+    serif = [ "Pretendard" ];
+  };
 
   home.activation.updateGTKIconCache = {
     after = [ "writeBoundary" "linkGeneration" ];
