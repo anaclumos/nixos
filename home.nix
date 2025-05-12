@@ -44,9 +44,9 @@
       clock-format = "12h"; # Use 12-hour clock format
       enable-animations = false; # Disable interface animations
       icon-theme = "Adwaita"; # Set icon theme to ensure proper icon display
-      font-name = "Pretendard 10"; # Set UI font to Pretendard
-      document-font-name = "Pretendard 10"; # Set document font to Pretendard
-      monospace-font-name = "Pretendard 10"; # Set monospace font to Pretendard
+      font-name = "Pretendard 12"; # Set UI font to Pretendard
+      document-font-name = "Pretendard 12"; # Set document font to Pretendard
+      monospace-font-name = "Pretendard 12"; # Set monospace font to Pretendard
     };
 
     # Configure font settings
@@ -54,12 +54,6 @@
       antialiasing = "rgba"; # Enable antialiasing
       hinting = "slight"; # Set hinting to slight
       rgba-order = "rgb"; # Set RGB order for subpixel rendering
-    };
-
-    # Hide input method indicator in the panel
-    "org/gnome/desktop/input-sources" = {
-      show-all-sources = false;
-      xkb-options = [ "terminate:ctrl_alt_bksp" ];
     };
 
     # Disable all animations in mutter (window manager)
@@ -157,10 +151,7 @@
   # Configure 1Password shell plugins integration
   programs._1password-shell-plugins = {
     enable = true;
-    plugins = with pkgs; [
-      gh # GitHub CLI integration
-      awscli2 # AWS CLI integration
-    ];
+    plugins = with pkgs; [ gh awscli2 google-cloud-sdk ];
   };
 
   #-----------------------------------------------------------------------
@@ -258,28 +249,6 @@
       # Sign all commits by default
       commit.gpgsign = true;
     };
-  };
-
-  #-----------------------------------------------------------------------
-  # CUSTOM SCRIPTS
-  #-----------------------------------------------------------------------
-
-  # Create a toggle-decoration script
-  home.file.".local/bin/toggle-decoration" = {
-    executable = true;
-    text = ''
-      #!/usr/bin/env bash
-      if [ "$XDG_SESSION_TYPE" = "wayland" ]; then
-        # Send Alt+Space shortcut to trigger undecorate
-        gdbus call --session --dest org.gnome.Shell \
-          --object-path /org/gnome/Shell \
-          --method org.gnome.Shell.Eval \
-          "global.get_window_actors().map(a=>a.meta_window).find(w=>w.has_focus()).toggle_decorator()"
-        echo "Window decoration toggled"
-      else
-        echo "This script only works in Wayland sessions"
-      fi
-    '';
   };
 
   #-----------------------------------------------------------------------
