@@ -56,6 +56,12 @@
       rgba-order = "rgb"; # Set RGB order for subpixel rendering
     };
 
+    # Hide input method indicator in the panel
+    "org/gnome/desktop/input-sources" = {
+      show-all-sources = false;
+      xkb-options = [ "terminate:ctrl_alt_bksp" ];
+    };
+
     # Disable all animations in mutter (window manager)
     "org/gnome/mutter" = {
       experimental-features = [ ];
@@ -71,7 +77,6 @@
       disable-extension-version-validation = true;
       enabled-extensions = [
         "dash-to-dock@micxgx.gmail.com"
-        "system-monitor@gnome-shell-extensions.gcampax.github.com"
         "ding@rastersoft.com" # Desktop Icons NG extension
       ];
     };
