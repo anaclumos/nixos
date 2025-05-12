@@ -21,6 +21,20 @@
 
   nixpkgs.config.allowUnfree = true;
 
+  xdg.icons.enable = true;
+
+  programs.gdk-pixbuf.modulePackages = [ pkgs.librsvg ];
+
+  environment.sessionVariables = {
+    XDG_DATA_DIRS = lib.mkForce (lib.concatStringsSep ":" [
+      "${pkgs.glib}/share"
+      "/run/current-system/sw/share"
+      "/home/sunghyuncho/.local/share"
+    ]);
+    PNPM_HOME = "/root/.local/share/pnpm";
+    PATH = [ "/root/.local/share/pnpm" ];
+  };
+
   time.timeZone = "Asia/Seoul";
   time.hardwareClockInLocalTime = true;
 
@@ -33,12 +47,8 @@
       ibus.engines = with pkgs.ibus-engines; [ hangul ];
     };
   };
-  environment.sessionVariables.LC_TIME = "ko_KR.UTF-8";
 
   services.xserver.desktopManager.pantheon.extraGSettingsOverrides = ''
-    [org.gnome.desktop.interface]
-    clock-format='12h'
-
     [io.elementary.wingpanel.datetime]
     clock-format='12h'
     show-weeks=true
@@ -148,6 +158,8 @@
   users.users.root.isSystemUser = true;
 
   environment.systemPackages = with pkgs; [
+    hicolor-icon-theme
+    adwaita-icon-theme
     zsh
     zsh-autosuggestions
     git
@@ -165,10 +177,11 @@
   # sansSerif = [ "Pretendard" ];
   # };
 
-  environment.sessionVariables = {
-    PNPM_HOME = "/root/.local/share/pnpm";
-    PATH = [ "\${PNPM_HOME}" ];
-  };
+  # PNPM_HOME and PATH are now defined in the main environment.sessionVariables above
+  # environment.sessionVariables = {
+  #   PNPM_HOME = "/root/.local/share/pnpm";
+  #   PATH = [ "${PNPM_HOME}" ];
+  # };
 
   system.stateVersion = "24.11";
 }
