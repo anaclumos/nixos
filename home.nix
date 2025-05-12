@@ -151,7 +151,7 @@
   # Configure 1Password shell plugins integration
   programs._1password-shell-plugins = {
     enable = true;
-    plugins = with pkgs; [ gh awscli2 google-cloud-sdk ];
+    plugins = with pkgs; [ gh awscli2 ];
   };
 
   #-----------------------------------------------------------------------
