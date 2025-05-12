@@ -65,16 +65,12 @@
   services.xserver = {
     enable = true;
 
-    displayManager = {
-      lightdm.enable = true;
-    };
+    displayManager = { lightdm.enable = true; };
     desktopManager.pantheon.enable = true;
     xkb = { layout = "us"; };
   };
 
   services.displayManager.hiddenUsers = [ "root" ];
-
-
 
   services.libinput = {
     enable = true;
