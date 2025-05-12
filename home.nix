@@ -85,6 +85,18 @@
       hot-keys = false;
       pressure-threshold = 100.0; # Lower value = less pressure needed to reveal
     };
+
+    # Desktop Icons NG (Ding) configuration
+    "org/gnome/shell/extensions/ding" = {
+      show-home = true; # Show home folder on desktop
+      show-trash = true; # Show trash icon on desktop
+      show-volumes = true; # Show mounted volumes on desktop
+      start-corner = "top-left"; # Start icons from top-left corner
+      icon-size =
+        "medium"; # Set icon size to medium (options: small, medium, large)
+      show-network-volumes = true; # Show network drives on desktop
+      show-drop-place = true; # Show a place to drop files
+    };
   };
 
   #-----------------------------------------------------------------------
@@ -124,6 +136,7 @@
 
     # GNOME extensions
     gnomeExtensions.dash-to-dock # Dock with configurable behavior
+    gnomeExtensions.ding # Desktop Icons NG (show icons on desktop)
 
     # Wine
     bottles
