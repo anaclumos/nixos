@@ -136,7 +136,7 @@
 
     # GNOME extensions
     gnomeExtensions.dash-to-dock # Dock with configurable behavior
-    gnomeExtensions.ding # Desktop Icons NG (show icons on desktop)
+    gnomeExtensions.desktop-icons-ng-ding # Desktop Icons NG (show icons on desktop)
 
     # Wine
     bottles
