@@ -22,15 +22,40 @@
   nixpkgs.config.allowUnfree = true;
 
   time.timeZone = "Asia/Seoul";
+  time.hardwareClockInLocalTime = true;
 
   i18n = {
     defaultLocale = "en_US.UTF-8";
+    extraLocales = [ "ko_KR.UTF-8" ];
     inputMethod = {
       type = "ibus";
       enable = true;
       ibus.engines = with pkgs.ibus-engines; [ hangul ];
     };
   };
+  environment.sessionVariables.LC_TIME = "ko_KR.UTF-8";
+
+  services.xserver.desktopManager.pantheon.extraGSettingsOverrides = ''
+    [org.gnome.desktop.interface]
+    clock-format='12h'
+
+    [io.elementary.wingpanel.datetime]
+    clock-format='12h'
+    show-weeks=true
+    show-seconds=true
+
+    [io.elementary.wingpanel.notifications]
+    use-symbolic-icons=false
+
+    [io.elementary.pantheon.notifications]
+    use-symbolic-icons=false
+
+    [io.elementary.desktop.wingpanel]
+    use-symbolic-icons=true
+
+    [org.pantheon.desktop.gala.appearance]
+    button-layout=""
+  '';
 
   virtualisation.docker = {
     enable = true;
@@ -39,10 +64,17 @@
 
   services.xserver = {
     enable = true;
-    displayManager.lightdm.enable = true;
+
+    displayManager = {
+      lightdm.enable = true;
+    };
     desktopManager.pantheon.enable = true;
     xkb = { layout = "us"; };
   };
+
+  services.displayManager.hiddenUsers = [ "root" ];
+
+
 
   services.libinput = {
     enable = true;
@@ -110,7 +142,14 @@
       source = "${pkgs._1password-gui}/share/applications/1password.desktop";
       mode = "0644";
     };
+    "AccountsService/users/root".text = ''
+      [User]
+      SystemAccount=true
+    '';
   };
+
+  # Additional setting to hide root user
+  users.users.root.isSystemUser = true;
 
   environment.systemPackages = with pkgs; [
     zsh

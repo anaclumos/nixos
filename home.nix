@@ -31,6 +31,7 @@
     tailscale
     bottles
     steam
+    google-cloud-sdk
   ];
 
   programs._1password-shell-plugins = {
