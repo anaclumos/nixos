@@ -5,11 +5,9 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   security.polkit.enable = true;
-
   security.rtkit.enable = true;
 
   networking.hostName = "spaceship";
-
   networking.firewall = {
     enable = true;
     allowedTCPPorts = [ 22 ];
@@ -17,12 +15,8 @@
     allowedUDPPorts = [ config.services.tailscale.port ];
   };
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
   nixpkgs.config.allowUnfree = true;
-
   xdg.icons.enable = true;
-
   programs.gdk-pixbuf.modulePackages = [ pkgs.librsvg ];
 
   environment.sessionVariables = {
@@ -33,6 +27,7 @@
     ]);
     PNPM_HOME = "/root/.local/share/pnpm";
     PATH = [ "/root/.local/share/pnpm" ];
+    MUTTER_ALLOW_CUSTOM_SCALING_FACTORS = "1";
   };
 
   time.timeZone = "Asia/Seoul";
@@ -48,41 +43,28 @@
     };
   };
 
-  services.xserver.desktopManager.pantheon.extraGSettingsOverrides = ''
+  services.xserver = {
+    enable = true;
+    displayManager.gdm.enable = true;
+    desktopManager.gnome.enable = true;
+    xkb = { layout = "us"; };
+  };
+
+  services.xserver.desktopManager.gnome.extraGSettingsOverrides = ''
     [org.gnome.desktop.interface]
     gtk-theme='WhiteSur-Dark'
     icon-theme='WhiteSur'
 
     [org.gnome.desktop.wm.preferences]
-    button-layout='''
+    button-layout='appmenu:minimize,maximize,close'
 
-    [org.pantheon.desktop.gala.appearance]
-    button-layout='''
-
-    [io.elementary.wingpanel.datetime]
-    clock-format='12h'
-    show-weeks=true
-    show-seconds=true;
-    use-symbolic-icons=true
-
-    [io.elementary.pantheon.notifications]
-    use-symbolic-icons=true
-
-    [io.elementary.desktop.wingpanel]
-    use-symbolic-icons=true
+    [org.gnome.desktop.background]
+    show-desktop-icons=true
   '';
 
   virtualisation.docker = {
     enable = true;
     enableOnBoot = true;
-  };
-
-  services.xserver = {
-    enable = true;
-
-    displayManager = { lightdm.enable = true; };
-    desktopManager.pantheon.enable = true;
-    xkb = { layout = "us"; };
   };
 
   services.displayManager.hiddenUsers = [ "root" ];
@@ -133,19 +115,39 @@
     description = "성현";
     extraGroups = [ "networkmanager" "wheel" "docker" ];
     shell = pkgs.zsh;
+    packages = with pkgs; [
+      git
+      gitAndTools.hub
+      asdf-vm
+      nodejs
+      nodePackages.pnpm
+      bun
+      nixfmt-classic
+      claude-code
+      slack
+      obsidian
+      ibus
+      ibus-engines.hangul
+      google-chrome
+      windsurf
+      adguardhome
+      xclip
+      fastfetch
+      tailscale
+      bottles
+      steam
+      google-cloud-sdk
+      pretendard
+    ];
   };
 
   programs.zsh.enable = true;
-
   programs._1password = { enable = true; };
-
   programs._1password-gui = {
     enable = true;
     polkitPolicyOwners = [ "sunghyuncho" ];
   };
-
   programs.nix-ld.enable = true;
-
   programs.ssh.startAgent = false;
 
   environment.etc = {
@@ -163,10 +165,15 @@
   users.users.root.isSystemUser = true;
 
   environment.systemPackages = with pkgs; [
+    # GNOME packages
+    gnome-tweaks
+    dconf-editor
     whitesur-gtk-theme
     whitesur-icon-theme
     hicolor-icon-theme
     adwaita-icon-theme
+
+    # System packages
     zsh
     zsh-autosuggestions
     git
@@ -175,21 +182,13 @@
     _1password-cli
     docker-compose
     solaar
-    pantheon-tweaks
   ];
 
   fonts.packages = with pkgs; [ pretendard ];
-
-  # fonts.fontconfig.defaultFonts = {
-  # serif = [ "Pretendard" ];
-  # sansSerif = [ "Pretendard" ];
-  # };
-
-  # PNPM_HOME and PATH are now defined in the main environment.sessionVariables above
-  # environment.sessionVariables = {
-  #   PNPM_HOME = "/root/.local/share/pnpm";
-  #   PATH = [ "${PNPM_HOME}" ];
-  # };
+  fonts.fontconfig.defaultFonts = {
+    serif = [ "Pretendard" ];
+    sansSerif = [ "Pretendard" ];
+  };
 
   system.stateVersion = "24.11";
 }
