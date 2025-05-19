@@ -63,8 +63,12 @@
     [io.elementary.desktop.wingpanel]
     use-symbolic-icons=true
 
-    [org.pantheon.desktop.gala.appearance]
+    [org.gnome.desktop.wm.preferences]
     button-layout=""
+
+    [org.gnome.desktop.interface]
+    icon-theme='elementary'
+    gtk-theme='elementary'
   '';
 
   virtualisation.docker = {
@@ -160,6 +164,7 @@
   environment.systemPackages = with pkgs; [
     hicolor-icon-theme
     adwaita-icon-theme
+    pantheon.elementary-icon-theme
     zsh
     zsh-autosuggestions
     git
