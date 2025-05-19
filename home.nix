@@ -16,7 +16,6 @@
     asdf-vm
     nodejs
     nodePackages.pnpm
-    nodePackages.aicommits
     bun
     nixfmt-classic
     claude-code
