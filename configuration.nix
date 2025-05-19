@@ -174,9 +174,6 @@
     adwaita-icon-theme
 
     # System packages
-    zsh
-    zsh-autosuggestions
-    git
     uv
     _1password-gui
     _1password-cli
