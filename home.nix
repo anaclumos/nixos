@@ -23,8 +23,6 @@
     ibus-engines.hangul
     google-chrome
     windsurf
-    adwaita-icon-theme
-    hicolor-icon-theme
     adguardhome
     xclip
     fastfetch
