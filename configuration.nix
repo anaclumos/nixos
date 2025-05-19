@@ -49,26 +49,27 @@
   };
 
   services.xserver.desktopManager.pantheon.extraGSettingsOverrides = ''
+    [org.gnome.desktop.interface]
+    gtk-theme='WhiteSur-Dark'
+    icon-theme='WhiteSur'
+
+    [org.gnome.desktop.wm.preferences]
+    button-layout='''
+
+    [org.pantheon.desktop.gala.appearance]
+    button-layout='''
+
     [io.elementary.wingpanel.datetime]
     clock-format='12h'
     show-weeks=true
-    show-seconds=true
-
-    [io.elementary.wingpanel.notifications]
-    use-symbolic-icons=false
+    show-seconds=true;
+    use-symbolic-icons=true
 
     [io.elementary.pantheon.notifications]
-    use-symbolic-icons=false
+    use-symbolic-icons=true
 
     [io.elementary.desktop.wingpanel]
     use-symbolic-icons=true
-
-    [org.gnome.desktop.wm.preferences]
-    button-layout=""
-
-    [org.gnome.desktop.interface]
-    icon-theme='elementary'
-    gtk-theme='elementary'
   '';
 
   virtualisation.docker = {
@@ -162,9 +163,10 @@
   users.users.root.isSystemUser = true;
 
   environment.systemPackages = with pkgs; [
+    whitesur-gtk-theme
+    whitesur-icon-theme
     hicolor-icon-theme
     adwaita-icon-theme
-    pantheon.elementary-icon-theme
     zsh
     zsh-autosuggestions
     git
@@ -173,6 +175,7 @@
     _1password-cli
     docker-compose
     solaar
+    pantheon.pantheon-tweaks
   ];
 
   fonts.packages = with pkgs; [ pretendard ];
