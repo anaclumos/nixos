@@ -175,7 +175,7 @@
     _1password-cli
     docker-compose
     solaar
-    pantheon.pantheon-tweaks
+    pantheon-tweaks
   ];
 
   fonts.packages = with pkgs; [ pretendard ];
