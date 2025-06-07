@@ -14,18 +14,6 @@
   networking.networkmanager.enable = true;
 
   time.timeZone = "America/New_York";
-  i18n.defaultLocale = "en_US.UTF-8";
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "en_US.UTF-8";
-    LC_IDENTIFICATION = "en_US.UTF-8";
-    LC_MEASUREMENT = "en_US.UTF-8";
-    LC_MONETARY = "en_US.UTF-8";
-    LC_NAME = "en_US.UTF-8";
-    LC_NUMERIC = "en_US.UTF-8";
-    LC_PAPER = "en_US.UTF-8";
-    LC_TELEPHONE = "en_US.UTF-8";
-    LC_TIME = "en_US.UTF-8";
-  };
 
   i18n = {
     defaultLocale = "en_US.UTF-8";
@@ -97,29 +85,6 @@
     };
   };
 
-  programs.ssh = {
-    enable = true;
-    extraConfig = ''
-      IdentityAgent ~/.1password/agent.sock
-      AddKeysToAgent yes
-    '';
-  };
-  programs.git = {
-    enable = true;
-    userName = "Sunghyun Cho";
-    userEmail = "hey@cho.sh";
-    signing = {
-      key =
-        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGaWDMcfAJMbWDorZP8z1beEAz+fjLb+VFqFm8hkAlpt";
-      signByDefault = true;
-    };
-
-    extraConfig = {
-      gpg.format = "ssh";
-      gpg.ssh.program = "${pkgs._1password-gui}/share/1password/op-ssh-sign";
-      commit.gpgsign = true;
-    };
-  };
 
   nixpkgs.config.allowUnfree = true;
 
