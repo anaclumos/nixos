@@ -18,7 +18,8 @@
   time.timeZone = "America/New_York";
   i18n.defaultLocale = "en_US.UTF-8";
   i18n.inputMethod = {
-    enabled = "ibus";
+    type = "ibus";
+    enable = true;
     ibus.engines = with pkgs.ibus-engines; [ hangul ];
   };
 
