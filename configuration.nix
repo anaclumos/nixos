@@ -16,29 +16,42 @@
   time.timeZone = "America/New_York";
   i18n.defaultLocale = "en_US.UTF-8";
   i18n.extraLocaleSettings = {
-    LC_ADDRESS = "ko_KR.UTF-8";
-    LC_IDENTIFICATION = "ko_KR.UTF-8";
-    LC_MEASUREMENT = "ko_KR.UTF-8";
-    LC_MONETARY = "ko_KR.UTF-8";
-    LC_NAME = "ko_KR.UTF-8";
-    LC_NUMERIC = "ko_KR.UTF-8";
-    LC_PAPER = "ko_KR.UTF-8";
-    LC_TELEPHONE = "ko_KR.UTF-8";
-    LC_TIME = "ko_KR.UTF-8";
+    LC_ADDRESS = "en_US.UTF-8";
+    LC_IDENTIFICATION = "en_US.UTF-8";
+    LC_MEASUREMENT = "en_US.UTF-8";
+    LC_MONETARY = "en_US.UTF-8";
+    LC_NAME = "en_US.UTF-8";
+    LC_NUMERIC = "en_US.UTF-8";
+    LC_PAPER = "en_US.UTF-8";
+    LC_TELEPHONE = "en_US.UTF-8";
+    LC_TIME = "en_US.UTF-8";
   };
 
-  i18n.inputMethod = {
-    enable = true;
-    type = "ibus";
-    ibus.engines = with pkgs.ibus-engines; [ hangul ];
+  i18n = {
+    defaultLocale = "en_US.UTF-8";
+    extraLocales = [ "ko_KR.UTF-8" ];
+    inputMethod = {
+      type = "ibus";
+      enable = true;
+      ibus.engines = with pkgs.ibus-engines; [ hangul ];
+    };
   };
 
-  fonts.packages = with pkgs; [ nanum noto-fonts-cjk-sans pretendard ];
+  fonts.packages = with pkgs; [ pretendard ];
+  fonts.fontconfig.defaultFonts = {
+    sansSerif = [ "Pretendard" ];
+    serif = [ "Pretendard" ];
+  };
 
   services.xserver = {
     enable = true;
     displayManager.lightdm.enable = true;
     desktopManager.pantheon.enable = true;
+  };
+
+  services.pantheon = {
+    apps.enable = true;
+    contractor.enable = true;
     xkb = {
       layout = "us,kr";
       variant = ",kr104";
@@ -65,7 +78,48 @@
     shell = pkgs.zsh;
   };
 
-  programs.zsh.enable = true;
+  programs.zsh = {
+    enable = true;
+    autosuggestion.enable = true;
+    enableCompletion = true;
+    oh-my-zsh = {
+      enable = true;
+      theme = "robbyrussell";
+      plugins = [ "git" "docker" "npm" "sudo" "command-not-found" ];
+    };
+
+    shellAliases = {
+      rebuild =
+        "cd ~/Desktop/nixos && nixfmt *.nix && nix-channel --update && nix flake update && sudo nixos-rebuild switch --flake .#spaceship";
+      nixgit = ''git commit -m "$(date +"%Y-%m-%d")" -a && git push'';
+      qqqq = "cd ~/Desktop/extracranial && bun run save";
+      x = "exit";
+    };
+  };
+
+  programs.ssh = {
+    enable = true;
+    extraConfig = ''
+      IdentityAgent ~/.1password/agent.sock
+      AddKeysToAgent yes
+    '';
+  };
+  programs.git = {
+    enable = true;
+    userName = "Sunghyun Cho";
+    userEmail = "hey@cho.sh";
+    signing = {
+      key =
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGaWDMcfAJMbWDorZP8z1beEAz+fjLb+VFqFm8hkAlpt";
+      signByDefault = true;
+    };
+
+    extraConfig = {
+      gpg.format = "ssh";
+      gpg.ssh.program = "${pkgs._1password-gui}/share/1password/op-ssh-sign";
+      commit.gpgsign = true;
+    };
+  };
 
   nixpkgs.config.allowUnfree = true;
 
