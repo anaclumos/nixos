@@ -18,18 +18,23 @@
       };
       extraConfig = {
         gpg.format = "ssh";
-        gpg.ssh.program = "op-ssh-sign";
+        gpg.ssh.program = "${pkgs._1password-gui}/share/1password/op-ssh-sign";
       };
     };
 
     zsh = {
       enable = true;
-      enableAutosuggestions = true;
+      autosuggestion.enable = true;
+      oh-my-zsh = {
+        enable = true;
+        theme = "robbyrussell";
+        plugins = [ "git" "docker" "npm" ];
+      };
     };
   };
 
   home.packages = with pkgs; [
-    # Development
+    # Development Tools
     asdf-vm
     nodejs
     nodePackages.pnpm
@@ -37,21 +42,38 @@
     nixfmt-classic
     claude-code
     windsurf
+    gitAndTools.hub
+    google-cloud-sdk
 
     # Applications
     slack
     obsidian
     google-chrome
     bottles
+    steam
+    _1password-gui
 
     # System Tools
     xclip
     fastfetch
     tailscale
     adguardhome
+    zsh-autosuggestions
 
     # Input Methods
     ibus
     ibus-engines.hangul
+
+    # Fonts
+    pretendard
   ];
+
+  # Locale settings
+  home.language = {
+    base = "en_US.UTF-8";
+    address = "en_US.UTF-8";
+    measurement = "en_US.UTF-8";
+    monetary = "en_US.UTF-8";
+    time = "en_US.UTF-8";
+  };
 }
