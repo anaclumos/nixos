@@ -15,32 +15,85 @@
 
   time.timeZone = "America/New_York";
 
-  i18n = {
-    defaultLocale = "en_US.UTF-8";
-    supportedLocales = [
-      "en_US.UTF-8/UTF-8"
-      "ko_KR.UTF-8/UTF-8"
-    ];
-    inputMethod = {
-      type = "ibus";
-      enable = true;
-      ibus.engines = with pkgs.ibus-engines; [ hangul ];
-    };
-  };
+  i18n = { defaultLocale = "en_US.UTF-8"; };
 
   fonts.packages = with pkgs; [ pretendard ];
-  fonts.fontconfig.defaultFonts = {
-    sansSerif = [ "Pretendard" ];
-    serif = [ "Pretendard" ];
+  fonts.fontconfig = {
+    defaultFonts = {
+      sansSerif = [ "Pretendard" ];
+      serif = [ "Pretendard" ];
+    };
+    localConf = ''
+      <?xml version="1.0"?>
+      <!DOCTYPE fontconfig SYSTEM "fonts.dtd">
+      <fontconfig>
+        <!-- Replace Helvetica with Pretendard -->
+        <match target="pattern">
+          <test qual="any" name="family">
+            <string>Helvetica</string>
+          </test>
+          <edit name="family" mode="assign" binding="same">
+            <string>Pretendard</string>
+          </edit>
+        </match>
+
+        <!-- Replace Helvetica Neue with Pretendard -->
+        <match target="pattern">
+          <test qual="any" name="family">
+            <string>Helvetica Neue</string>
+          </test>
+          <edit name="family" mode="assign" binding="same">
+            <string>Pretendard</string>
+          </edit>
+        </match>
+
+        <!-- Replace Arial with Pretendard -->
+        <match target="pattern">
+          <test qual="any" name="family">
+            <string>Arial</string>
+          </test>
+          <edit name="family" mode="assign" binding="same">
+            <string>Pretendard</string>
+          </edit>
+        </match>
+
+        <!-- Replace -apple-system with Pretendard -->
+        <match target="pattern">
+          <test qual="any" name="family">
+            <string>-apple-system</string>
+          </test>
+          <edit name="family" mode="assign" binding="same">
+            <string>Pretendard</string>
+          </edit>
+        </match>
+
+        <!-- Replace BlinkMacSystemFont with Pretendard -->
+        <match target="pattern">
+          <test qual="any" name="family">
+            <string>BlinkMacSystemFont</string>
+          </test>
+          <edit name="family" mode="assign" binding="same">
+            <string>Pretendard</string>
+          </edit>
+        </match>
+
+        <!-- Replace Ubuntu with Pretendard -->
+        <match target="pattern">
+          <test qual="any" name="family">
+            <string>Ubuntu</string>
+          </test>
+          <edit name="family" mode="assign" binding="same">
+            <string>Pretendard</string>
+          </edit>
+        </match>
+      </fontconfig>
+    '';
   };
 
   services.xserver = {
     enable = true;
     displayManager.lightdm.enable = true;
     desktopManager.pantheon.enable = true;
-    layout = "us,kr";
-    xkbVariant = ",kr104";
-    xkbOptions = "grp:alt_space_toggle";
   };
 
   services.pantheon = {
@@ -71,7 +124,7 @@
     enable = true;
     autosuggestions.enable = true;
     enableCompletion = true;
-    oh-my-zsh = {
+    ohMyZsh = {
       enable = true;
       theme = "robbyrussell";
       plugins = [ "git" "docker" "npm" "sudo" "command-not-found" ];
@@ -79,17 +132,18 @@
 
     shellAliases = {
       rebuild =
-        "cd ~/Desktop/nixos && nixfmt *.nix && nix-channel --update && nix flake update && sudo nixos-rebuild switch --flake .#spaceship";
+        "cd ~/Desktop/nixos && nixfmt *.nix && nix-channel --update && nix --extra-experimental-features 'nix-command flakes' flake update && sudo nixos-rebuild switch --flake .#spaceship";
       nixgit = ''git commit -m "$(date +"%Y-%m-%d")" -a && git push'';
       qqqq = "cd ~/Desktop/extracranial && bun run save";
       x = "exit";
     };
   };
 
-
   nixpkgs.config.allowUnfree = true;
 
-  environment.systemPackages = with pkgs; [ git zsh ibus ibus-engines.hangul ];
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
+  environment.systemPackages = with pkgs; [ git zsh ];
 
   system.stateVersion = "25.05";
 }
