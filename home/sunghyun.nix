@@ -60,10 +60,6 @@
     adguardhome
     zsh-autosuggestions
 
-    # Input Methods
-    ibus
-    ibus-engines.hangul
-
     # Fonts
     pretendard
   ];
