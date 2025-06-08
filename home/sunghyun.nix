@@ -56,6 +56,7 @@
     bottles
     steam
     _1password-gui
+    geekbench
 
     # System Tools
     xclip
