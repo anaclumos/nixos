@@ -143,7 +143,7 @@
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  environment.systemPackages = with pkgs; [ git zsh ];
+  environment.systemPackages = with pkgs; [ git zsh pantheon-tweaks ];
 
   system.stateVersion = "25.05";
 }
