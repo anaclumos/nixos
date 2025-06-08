@@ -17,7 +17,10 @@
 
   i18n = {
     defaultLocale = "en_US.UTF-8";
-    extraLocales = [ "ko_KR.UTF-8" ];
+    supportedLocales = [
+      "en_US.UTF-8/UTF-8"
+      "ko_KR.UTF-8/UTF-8"
+    ];
     inputMethod = {
       type = "ibus";
       enable = true;
@@ -35,16 +38,14 @@
     enable = true;
     displayManager.lightdm.enable = true;
     desktopManager.pantheon.enable = true;
+    layout = "us,kr";
+    xkbVariant = ",kr104";
+    xkbOptions = "grp:alt_space_toggle";
   };
 
   services.pantheon = {
     apps.enable = true;
     contractor.enable = true;
-    xkb = {
-      layout = "us,kr";
-      variant = ",kr104";
-      options = "grp:alt_space_toggle";
-    };
   };
 
   # Audio
@@ -68,7 +69,7 @@
 
   programs.zsh = {
     enable = true;
-    autosuggestion.enable = true;
+    autosuggestions.enable = true;
     enableCompletion = true;
     oh-my-zsh = {
       enable = true;
