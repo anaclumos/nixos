@@ -15,9 +15,6 @@
           # Bind Alt keys to trigger the 'meta_mac' layer (acting as Command)
           leftalt = layer(meta_mac)
 
-          # Hyper Key
-          capslock = overload(layer(hyper), f19)
-
           # Remap Super/Windows keys to act as Alt for word navigation
           leftmeta = layer(alt_layer)
           rightmeta = layer(alt_layer)
@@ -71,9 +68,6 @@
           # Alt + Delete for word deletion
           delete = C-delete
 
-          [hyper:CMSA]
-          j = command(wmctrl -x -a google-chrome.Google-chrome || google-chrome-stable)
-          o = command(wmctrl -x -a obsidian.Obsidian      || obsidian)
         '';
       };
     };
