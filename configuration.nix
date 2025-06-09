@@ -2,11 +2,11 @@
 
 {
   imports = [
+    ./shortcuts.nix
     ./hardware-configuration.nix
     ./keyboard.nix
     ./font.nix
     ./shell.nix
-    ./shortcuts.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
