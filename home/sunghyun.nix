@@ -5,15 +5,6 @@
   home.homeDirectory = "/home/sunghyun";
   home.stateVersion = "25.05";
 
-  dconf.settings = {
-    "org/gnome/shell" = {
-      enabled-extensions = [
-        "frippery-applications-menu@frippery.org"
-        "ding@rastersoft.com"
-      ];
-    };
-  };
-
   programs = {
     home-manager.enable = true;
 
@@ -79,9 +70,9 @@
     zsh-autosuggestions
 
     # GNOME Extensions
-    gnomeExtensions.desktop-icons-ng-ding
-    gnomeExtensions.frippery-applications-menu
-    
+    gnomeExtensions.gtk4-desktop-icons-ng-ding
+    gnomeExtensions.dash-to-dock
+
     # Window Controls
     wmctrl
 
