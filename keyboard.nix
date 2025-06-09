@@ -15,9 +15,9 @@
           # Bind Alt keys to trigger the 'meta_mac' layer (acting as Command)
           leftalt = layer(meta_mac)
 
-          # Remap Super/Windows keys to act as Alt
-          leftmeta = leftalt
-          rightmeta = rightalt
+          # Remap Super/Windows keys to act as Alt for word navigation
+          leftmeta = layer(alt_layer)
+          rightmeta = layer(alt_layer)
 
           # Remap Caps Lock to left meta
           capslock = leftmeta
@@ -31,6 +31,9 @@
           v = S-insert
           # Cut
           x = S-delete
+
+          # Command + Delete deletes entire line
+          delete = C-shift-k
 
           # FIXME: for Konsole, we must create a shortcut in our default Konsole profile to bind Copy's Alternate to 'Ctrl+Ins'
 
@@ -62,6 +65,14 @@
           right = M-end
           up = M-pageup
           down = M-pagedown
+
+          [alt_layer:A]
+          # Alt layer for word navigation and deletion
+          # Alt + Left/Right for word navigation
+          left = C-left
+          right = C-right
+          # Alt + Delete for word deletion
+          delete = C-delete
         '';
       };
     };

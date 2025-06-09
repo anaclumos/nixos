@@ -71,6 +71,9 @@
 
     # GNOME Extensions
     gnomeExtensions.desktop-icons-ng-ding
+    
+    # Window Controls
+    wmctrl
 
     # Fonts
     pretendard
