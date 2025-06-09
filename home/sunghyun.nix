@@ -47,6 +47,8 @@
     nixfmt-classic
     claude-code
     windsurf
+    vscode
+    code-cursor
     gitAndTools.hub
     google-cloud-sdk
     refine
@@ -66,6 +68,9 @@
     tailscale
     adguardhome
     zsh-autosuggestions
+
+    # GNOME Extensions
+    gnomeExtensions.desktop-icons-ng-ding
 
     # Fonts
     pretendard

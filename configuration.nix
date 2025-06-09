@@ -15,7 +15,14 @@
 
   time.timeZone = "America/New_York";
 
-  i18n = { defaultLocale = "en_US.UTF-8"; };
+  i18n = {
+    defaultLocale = "en_US.UTF-8";
+    inputMethod = {
+      enable = true;
+      type = "ibus";
+      ibus.engines = with pkgs.ibus-engines; [ hangul ];
+    };
+  };
 
   fonts.packages = with pkgs; [ pretendard ];
   fonts.fontconfig = {
