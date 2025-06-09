@@ -2,7 +2,6 @@
 
 {
   imports = [
-    ./shortcuts.nix
     ./hardware-configuration.nix
     ./keyboard.nix
     ./font.nix
