@@ -8,7 +8,7 @@
         ids = [
           "*"
         ]; # what goes into the [id] section, here we select all keyboard
-        # extraConfig = builtins.readFile /home/deftdawg/source/meta-mac/keyd/kde-mac-keyboard.conf; # use includes when debugging, easier to edit in vscode
+        # extraConfig = builtins.readFile /home/deftdawg/source/meta-mac/keyd/kde-mac-keyboard.conf; # use includes when debugging, easier to edit in vs code or others
         extraConfig = ''
           # Use Alt as "command" key and Super/Windows as "alt" key
           [main]
@@ -26,7 +26,7 @@
           # By default meta_mac = Ctrl+<key>, except for mappings below
           [meta_mac:C]
           # Use alternate Copy/Cut/Paste bindings from Windows that won't conflict with Ctrl+C used to break terminal apps
-          # Copy (works everywhere (incl. vscode term) except Konsole)
+          # Copy (works everywhere (incl. vscode cursor term) except Konsole)
           c = C-insert
           # Paste
           v = S-insert
