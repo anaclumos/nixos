@@ -1,7 +1,12 @@
 { config, pkgs, ... }:
 
 {
-  imports = [ ./hardware-configuration.nix ./keyboard.nix ];
+  imports = [ 
+    ./hardware-configuration.nix 
+    ./keyboard.nix 
+    ./font.nix
+    ./shell.nix
+  ];
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -24,78 +29,6 @@
     };
   };
 
-  fonts.packages = with pkgs; [ pretendard ];
-  fonts.fontconfig = {
-    defaultFonts = {
-      sansSerif = [ "Pretendard" ];
-      serif = [ "Pretendard" ];
-    };
-    localConf = ''
-      <?xml version="1.0"?>
-      <!DOCTYPE fontconfig SYSTEM "fonts.dtd">
-      <fontconfig>
-        <!-- Replace Helvetica with Pretendard -->
-        <match target="pattern">
-          <test qual="any" name="family">
-            <string>Helvetica</string>
-          </test>
-          <edit name="family" mode="assign" binding="same">
-            <string>Pretendard</string>
-          </edit>
-        </match>
-
-        <!-- Replace Helvetica Neue with Pretendard -->
-        <match target="pattern">
-          <test qual="any" name="family">
-            <string>Helvetica Neue</string>
-          </test>
-          <edit name="family" mode="assign" binding="same">
-            <string>Pretendard</string>
-          </edit>
-        </match>
-
-        <!-- Replace Arial with Pretendard -->
-        <match target="pattern">
-          <test qual="any" name="family">
-            <string>Arial</string>
-          </test>
-          <edit name="family" mode="assign" binding="same">
-            <string>Pretendard</string>
-          </edit>
-        </match>
-
-        <!-- Replace -apple-system with Pretendard -->
-        <match target="pattern">
-          <test qual="any" name="family">
-            <string>-apple-system</string>
-          </test>
-          <edit name="family" mode="assign" binding="same">
-            <string>Pretendard</string>
-          </edit>
-        </match>
-
-        <!-- Replace BlinkMacSystemFont with Pretendard -->
-        <match target="pattern">
-          <test qual="any" name="family">
-            <string>BlinkMacSystemFont</string>
-          </test>
-          <edit name="family" mode="assign" binding="same">
-            <string>Pretendard</string>
-          </edit>
-        </match>
-
-        <!-- Replace Ubuntu with Pretendard -->
-        <match target="pattern">
-          <test qual="any" name="family">
-            <string>Ubuntu</string>
-          </test>
-          <edit name="family" mode="assign" binding="same">
-            <string>Pretendard</string>
-          </edit>
-        </match>
-      </fontconfig>
-    '';
-  };
 
   services.xserver.enable = true;
   services.displayManager.gdm.enable = true;
@@ -113,31 +46,6 @@
 
   services.printing.enable = true;
 
-  users.users.sunghyun = {
-    isNormalUser = true;
-    description = "Sunghyun Cho";
-    extraGroups = [ "networkmanager" "wheel" ];
-    shell = pkgs.zsh;
-  };
-
-  programs.zsh = {
-    enable = true;
-    autosuggestions.enable = true;
-    enableCompletion = true;
-    ohMyZsh = {
-      enable = true;
-      theme = "robbyrussell";
-      plugins = [ "git" "docker" "npm" "sudo" "command-not-found" ];
-    };
-
-    shellAliases = {
-      rebuild =
-        "cd ~/Desktop/nixos && nixfmt *.nix && nix-channel --update && nix --extra-experimental-features 'nix-command flakes' flake update && sudo nixos-rebuild switch --flake .#cho";
-      nixgit = ''git commit -m "$(date +"%Y-%m-%d")" -a && git push'';
-      qqqq = "cd ~/Desktop/extracranial && bun run save";
-      x = "exit";
-    };
-  };
 
   nixpkgs.config.allowUnfree = true;
 
