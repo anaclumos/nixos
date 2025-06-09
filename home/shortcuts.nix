@@ -6,6 +6,7 @@
       custom-keybindings = [
         "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"
         "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/"
+        "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/"
       ];
     };
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
@@ -17,6 +18,11 @@
       name = "Launch or Focus Obsidian";
       command = "bash -c 'wmctrl -x -a obsidian.Obsidian || obsidian'";
       binding = "<Ctrl><Alt><Super><Shift>o";
+    };
+    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2" = {
+      name = "Launch or Focus Cursor";
+      command = "bash -c 'wmctrl -x -a cursor.Cursor || cursor'";
+      binding = "<Ctrl><Alt><Super><Shift>semicolon";
     };
   };
 }
