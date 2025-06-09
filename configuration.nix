@@ -90,16 +90,9 @@
     '';
   };
 
-  services.xserver = {
-    enable = true;
-    displayManager.lightdm.enable = true;
-    desktopManager.pantheon.enable = true;
-  };
-
-  services.pantheon = {
-    apps.enable = true;
-    contractor.enable = true;
-  };
+  services.xserver.enable = true;
+  services.displayManager.gdm.enable = true;
+  services.desktopManager.gnome.enable = true;
 
   # Audio
   services.pulseaudio.enable = false;
@@ -143,7 +136,7 @@
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  environment.systemPackages = with pkgs; [ git zsh pantheon-tweaks ];
+  environment.systemPackages = with pkgs; [ git zsh ];
 
   system.stateVersion = "25.05";
 }
