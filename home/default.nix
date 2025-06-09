@@ -7,6 +7,7 @@
     ./shortcuts.nix
     ./locale.nix
     ./icons.nix
+    ./time.nix
   ];
 
   home.username = "sunghyun";

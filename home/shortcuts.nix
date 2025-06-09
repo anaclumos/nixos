@@ -9,20 +9,24 @@
         "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/"
       ];
     };
-    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
-      name = "Launch or Focus Chrome";
-      command = "bash -c 'wmctrl -x -a google-chrome.Google-chrome || google-chrome-stable'";
-      binding = "<Ctrl><Alt><Super><Shift>j";
-    };
-    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" = {
-      name = "Launch or Focus Obsidian";
-      command = "bash -c 'wmctrl -x -a obsidian.Obsidian || obsidian'";
-      binding = "<Ctrl><Alt><Super><Shift>o";
-    };
-    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2" = {
-      name = "Launch or Focus Cursor";
-      command = "bash -c 'wmctrl -x -a cursor.Cursor || cursor'";
-      binding = "<Ctrl><Alt><Super><Shift>semicolon";
-    };
+    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" =
+      {
+        name = "Launch or Focus Chrome";
+        command =
+          "bash -c 'wmctrl -x -a google-chrome.Google-chrome || google-chrome-stable'";
+        binding = "<Ctrl><Alt><Super><Shift>j";
+      };
+    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" =
+      {
+        name = "Launch or Focus Obsidian";
+        command = "bash -c 'wmctrl -x -a obsidian.Obsidian || obsidian'";
+        binding = "<Ctrl><Alt><Super><Shift>o";
+      };
+    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2" =
+      {
+        name = "Launch or Focus Cursor";
+        command = "bash -c 'wmctrl -x -a cursor.Cursor || cursor'";
+        binding = "<Ctrl><Alt><Super><Shift>semicolon";
+      };
   };
 }
