@@ -1,12 +1,8 @@
 { config, pkgs, ... }:
 
 {
-  imports = [ 
-    ./hardware-configuration.nix 
-    ./keyboard.nix 
-    ./font.nix
-    ./shell.nix
-  ];
+  imports =
+    [ ./hardware-configuration.nix ./keyboard.nix ./font.nix ./shell.nix ];
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -29,7 +25,6 @@
     };
   };
 
-
   services.xserver.enable = true;
   services.displayManager.gdm.enable = true;
   services.desktopManager.gnome.enable = true;
@@ -45,7 +40,6 @@
   };
 
   services.printing.enable = true;
-
 
   nixpkgs.config.allowUnfree = true;
 
