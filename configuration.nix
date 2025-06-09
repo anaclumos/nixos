@@ -29,7 +29,7 @@
   services.displayManager.gdm.enable = true;
   services.desktopManager.gnome.enable = true;
 
-  environment.gnome.excludePackages = with pkgs.gnome; [
+  environment.gnome.excludePackages = with pkgs; [
     baobab # disk usage analyzer
     cheese # photo booth
     eog # image viewer
@@ -57,6 +57,8 @@
     gnome-weather
     gnome-disk-utility
     pkgs.gnome-connections
+    gnome-tour
+    xterm
   ];
 
   # Audio
