@@ -19,6 +19,7 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
+            home-manager.backupFileExtension = "backup";
             home-manager.users.sunghyun = import ./home/sunghyun.nix;
           }
         ];
