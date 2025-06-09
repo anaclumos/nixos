@@ -36,6 +36,7 @@
     # GNOME
     gnomeExtensions.gtk4-desktop-icons-ng-ding
     gnomeExtensions.dash-to-dock
+    gnomeExtensions.fw-fanctrl
     
     refine
 
