@@ -5,6 +5,15 @@
   home.homeDirectory = "/home/sunghyun";
   home.stateVersion = "25.05";
 
+  dconf.settings = {
+    "org/gnome/shell" = {
+      enabled-extensions = [
+        "frippery-applications-menu@frippery.org"
+        "ding@rastersoft.com"
+      ];
+    };
+  };
+
   programs = {
     home-manager.enable = true;
 
@@ -71,7 +80,7 @@
 
     # GNOME Extensions
     gnomeExtensions.desktop-icons-ng-ding
-    gnomeExtensions.unite
+    gnomeExtensions.frippery-applications-menu
     
     # Window Controls
     wmctrl
