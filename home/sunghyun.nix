@@ -44,7 +44,6 @@
     nodejs
     nodePackages.pnpm
     nodePackages.vercel
-    nodePackages.aicommits
     bun
     nixfmt-classic
     claude-code
