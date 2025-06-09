@@ -74,7 +74,6 @@
           [hyper:C-A-S-M]
           # Hyper key layer (Ctrl+Alt+Shift+Super modifier)
 
-
         '';
       };
     };
