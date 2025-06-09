@@ -51,7 +51,7 @@
     code-cursor
     gitAndTools.hub
     google-cloud-sdk
-    refine
+    gh
 
     # Applications
     slack
@@ -69,9 +69,10 @@
     adguardhome
     zsh-autosuggestions
 
-    # GNOME Extensions
+    # GNOME
     gnomeExtensions.gtk4-desktop-icons-ng-ding
     gnomeExtensions.dash-to-dock
+    refine
 
     # Window Controls
     wmctrl
