@@ -12,6 +12,9 @@
         extraConfig = ''
           # Use Alt as "command" key and Super/Windows as "alt" key
           [main]
+          # Map Caps Lock to Hyper Key (Ctrl+Alt+Shift+Super)
+          capslock = layer(hyper)
+
           # Bind Alt keys to trigger the 'meta_mac' layer (acting as Command)
           leftalt = layer(meta_mac)
 
@@ -67,6 +70,10 @@
           right = C-right
           # Alt + Delete for word deletion
           delete = C-delete
+
+          [hyper:C-A-S-M]
+          # Hyper key layer (Ctrl+Alt+Shift+Super modifier)
+
 
         '';
       };
