@@ -71,6 +71,7 @@
 
     # GNOME Extensions
     gnomeExtensions.desktop-icons-ng-ding
+    gnomeExtensions.unite
     
     # Window Controls
     wmctrl

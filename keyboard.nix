@@ -15,12 +15,13 @@
           # Bind Alt keys to trigger the 'meta_mac' layer (acting as Command)
           leftalt = layer(meta_mac)
 
+          # Hyper Key
+          capslock = overload(layer(hyper), f19)
+
           # Remap Super/Windows keys to act as Alt for word navigation
           leftmeta = layer(alt_layer)
           rightmeta = layer(alt_layer)
 
-          # Remap Caps Lock to left meta
-          capslock = leftmeta
 
           # By default meta_mac = Ctrl+<key>, except for mappings below
           [meta_mac:C]
@@ -32,10 +33,6 @@
           # Cut
           x = S-delete
 
-          # Command + Delete deletes entire line
-          delete = C-shift-k
-
-          # FIXME: for Konsole, we must create a shortcut in our default Konsole profile to bind Copy's Alternate to 'Ctrl+Ins'
 
           # Switch directly to an open tab (e.g., Firefox, VS Code)
           1 = A-1
@@ -73,6 +70,10 @@
           right = C-right
           # Alt + Delete for word deletion
           delete = C-delete
+
+          [hyper:CMSA]
+          j = command(wmctrl -x -a google-chrome.Google-chrome || google-chrome-stable)
+          o = command(wmctrl -x -a obsidian.Obsidian      || obsidian)
         '';
       };
     };
