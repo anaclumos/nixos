@@ -49,6 +49,7 @@
     windsurf
     gitAndTools.hub
     google-cloud-sdk
+    refine
 
     # Applications
     slack
