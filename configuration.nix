@@ -77,14 +77,7 @@
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  environment.systemPackages = with pkgs; [
-    git
-    zsh
-    wineWowPackages.stable
-    winetricks
-    wine64
-    wine32
-  ];
+  environment.systemPackages = with pkgs; [ git zsh ];
 
   system.stateVersion = "25.05";
 }
