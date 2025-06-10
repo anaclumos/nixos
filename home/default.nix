@@ -8,6 +8,7 @@
     ./locale.nix
     ./icons.nix
     ./time.nix
+    ./kakaotalk.nix
   ];
 
   home.username = "sunghyun";
