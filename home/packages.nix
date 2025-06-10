@@ -43,5 +43,5 @@
 
     # Fonts
     pretendard
-  ];
+    ];
 }
