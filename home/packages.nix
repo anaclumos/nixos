@@ -15,13 +15,13 @@
     gitAndTools.hub
     google-cloud-sdk
     gh
+    prisma-engines
 
     # Applications
     slack
     obsidian
     google-chrome
     bottles
-    steam
     _1password-gui
     geekbench
 
