@@ -1,13 +1,8 @@
 { config, pkgs, ... }:
 
 {
-  imports = [
-    ./hardware-configuration.nix
-    ./keyboard.nix
-    ./font.nix
-    ./shell.nix
-    ./pkgs
-  ];
+  imports =
+    [ ./hardware-configuration.nix ./keyboard.nix ./font.nix ./shell.nix ];
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
