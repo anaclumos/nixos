@@ -10,6 +10,7 @@
 
   services.fwupd.enable = true;
   services.fprintd.enable = true;
+  services.expressvpn.enable = true;
 
   networking.hostName = "cho";
   networking.networkmanager.enable = true;
