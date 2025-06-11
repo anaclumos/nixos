@@ -18,6 +18,7 @@
     prisma-engines
     codex
     ollama
+    uv
 
     # Applications
     slack
