@@ -16,6 +16,8 @@
     google-cloud-sdk
     gh
     prisma-engines
+    codex
+    ollama
 
     # Applications
     slack
@@ -23,6 +25,8 @@
     google-chrome
     bottles
     _1password-gui
+    _1password-cli
+    ookla-speedtest
     geekbench
     expressvpn
 

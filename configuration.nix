@@ -80,6 +80,11 @@
 
   environment.systemPackages = with pkgs; [ git zsh ];
 
+  # 1Password Service Account Token
+  environment.variables = {
+    OP_SERVICE_ACCOUNT_TOKEN = "/etc/1password/service-account-token";
+  };
+
   system.stateVersion = "25.05";
 }
 
