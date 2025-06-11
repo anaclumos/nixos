@@ -24,7 +24,6 @@
     bottles
     _1password-gui
     geekbench
-    webtorrent_desktop
     expressvpn
 
     # System Tools
