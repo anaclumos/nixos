@@ -36,7 +36,7 @@
     eog # image viewer
     epiphany # web browser
     gedit # text editor
-    simple-calendarscan # document scanner
+    simple-scan # document scanner
     totem # video player
     yelp # help viewer
     evince # document viewer
