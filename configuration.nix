@@ -15,7 +15,7 @@
   networking.hostName = "cho";
   networking.networkmanager.enable = true;
 
-  time.timeZone = "America/New_York";
+  time.timeZone = "Asia/Seoul";
 
   i18n = {
     defaultLocale = "en_US.UTF-8";
@@ -36,7 +36,7 @@
     eog # image viewer
     epiphany # web browser
     gedit # text editor
-    simple-scan # document scanner
+    simple-calendarscan # document scanner
     totem # video player
     yelp # help viewer
     evince # document viewer
