@@ -15,8 +15,8 @@
           # Map Caps Lock to Hyper Key (Ctrl+Alt+Shift+Super)
           capslock = overload(hyper, M-up)
 
-          # Bind Alt keys to trigger the 'meta_mac' layer (acting as Command)
-          leftalt = layer(meta_mac)
+          leftalt = overload(meta_mac, f18)
+          rightalt = overload(meta_mac, f19)
 
           # Remap Super/Windows keys to act as Alt for word navigation
           leftmeta = layer(alt_layer)
@@ -31,7 +31,7 @@
           c = C-insert
           v = S-insert
           x = S-delete
-          
+
           # Delete word — Left Alt + Delete
           # TODO: This is not working.
 
