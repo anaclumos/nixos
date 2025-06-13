@@ -13,7 +13,7 @@
           # Use Alt as "command" key and Super/Windows as "alt" key
           [main]
           # Map Caps Lock to Hyper Key (Ctrl+Alt+Shift+Super)
-          capslock = layer(hyper)
+          capslock = overload(hyper, f19)
 
           # Bind Alt keys to trigger the 'meta_mac' layer (acting as Command)
           leftalt = layer(meta_mac)
@@ -72,12 +72,6 @@
           delete = C-delete
 
           [hyper:C-A-S-M]
-          # Hyper key layer (Ctrl+Alt+Shift+Super modifier)
-          # Hyper key alone triggers F19
-          oneshot = f19
-          # Hyper key + Space triggers Super (Mission Control)
-          space = leftmeta
-
         '';
       };
     };

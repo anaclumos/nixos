@@ -46,6 +46,7 @@
 
     # Window Controls
     wmctrl
+    xdotool
 
     # Fonts
     pretendard
