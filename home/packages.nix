@@ -31,7 +31,6 @@
     ookla-speedtest
     geekbench
     expressvpn
-    inputs.kakaotalk.packages.x86_64-linux.default
 
     # System Tools
     xclip
