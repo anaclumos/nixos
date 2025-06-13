@@ -81,10 +81,7 @@
   services.printing.enable = true;
 
   services.flatpak.enable = true;
-  services.flatpak.packages =
-    [ "com.usebottles.bottles" "com.kakaocorp.KakaoTalk" ];
-
-  nixpkgs.config.allowUnfree = true;
+  services.flatpak.packages = [ "com.usebottles.bottles" ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
