@@ -20,6 +20,50 @@
         "type": "github"
       }
     },
+    "kakaotalk": {
+      "inputs": {
+        "kakaotalk-exe": "kakaotalk-exe",
+        "kakaotalk-icon": "kakaotalk-icon",
+        "nixpkgs": "nixpkgs"
+      },
+      "locked": {
+        "lastModified": 1749807071,
+        "narHash": "sha256-z4tToU+V6pLiokU4WHFQQWMZS5/guTvY+oQEFKZoPX8=",
+        "owner": "anaclumos",
+        "repo": "kakaotalk.nix",
+        "rev": "1c74e2cc76a6baf0697653ef82a8a7cde977510d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "anaclumos",
+        "repo": "kakaotalk.nix",
+        "type": "github"
+      }
+    },
+    "kakaotalk-exe": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-h8zIdf2vCdZeC1fiFga1XeHUdoq/Bq+RAvqgEz4qK1U=",
+        "type": "file",
+        "url": "https://app-pc.kakaocdn.net/talk/win32/KakaoTalk_Setup.exe"
+      },
+      "original": {
+        "type": "file",
+        "url": "https://app-pc.kakaocdn.net/talk/win32/KakaoTalk_Setup.exe"
+      }
+    },
+    "kakaotalk-icon": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-FcSTBiBxiGyOhRuLkaVIjVt2omY3Tz2NKE/+nGvHDjo=",
+        "type": "file",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/e/e3/KakaoTalk_logo.svg"
+      },
+      "original": {
+        "type": "file",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/e/e3/KakaoTalk_logo.svg"
+      }
+    },
     "nix-flatpak": {
       "locked": {
         "lastModified": 1749394952,
@@ -36,6 +80,20 @@
       }
     },
     "nixpkgs": {
+      "locked": {
+        "lastModified": 1749743618,
+        "narHash": "sha256-ibsz06u1jlWyH7YURnRhLQn38Tuc5zwknr00suFjvfA=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "8d6cdc7756817e0c4b24567271634a44bcf80752",
+        "type": "github"
+      },
+      "original": {
+        "id": "nixpkgs",
+        "type": "indirect"
+      }
+    },
+    "nixpkgs_2": {
       "locked": {
         "lastModified": 1749285348,
         "narHash": "sha256-frdhQvPbmDYaScPFiCnfdh3B/Vh81Uuoo0w5TkWmmjU=",
@@ -54,8 +112,9 @@
     "root": {
       "inputs": {
         "home-manager": "home-manager",
+        "kakaotalk": "kakaotalk",
         "nix-flatpak": "nix-flatpak",
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": "nixpkgs_2"
       }
     }
   },

@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, kakaotalk, ... }:
 
 {
   nixpkgs.config.allowUnfree = true;
@@ -85,7 +85,11 @@
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  environment.systemPackages = with pkgs; [ git zsh ];
+  environment.systemPackages = with pkgs; [
+    git
+    zsh
+    kakaotalk.packages.${pkgs.system}.kakaotalk
+  ];
 
   system.stateVersion = "25.05";
 }
