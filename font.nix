@@ -71,6 +71,17 @@
           </edit>
         </match>
       </fontconfig>
+
+      <!-- Replace noto-sans with Pretendard -->
+        <match target="pattern">
+          <test qual="any" name="family">
+            <string>noto-sans</string>
+          </test>
+          <edit name="family" mode="assign" binding="same">
+            <string>Pretendard</string>
+          </edit>
+        </match>
+      </fontconfig>
     '';
   };
 }
