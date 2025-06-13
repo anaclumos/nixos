@@ -26,6 +26,8 @@
       ec = "expressvpn connect";
       ed = "expressvpn disconnect";
       x = "exit";
+      oo = "hub browse";
+      ss = "source ~/.zshrc";
     };
   };
 }

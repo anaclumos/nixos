@@ -33,5 +33,23 @@
       '';
     };
 
+    # Enable 1Password GUI to start on login
+    _1password-gui = {
+      enable = true;
+      package = pkgs._1password-gui;
+    };
+
   };
+
+  # Autostart 1Password on login
+  xdg.configFile."autostart/1password.desktop".text = ''
+    [Desktop Entry]
+    Type=Application
+    Exec=${pkgs._1password-gui}/bin/1password --silent
+    Hidden=false
+    NoDisplay=false
+    X-GNOME-Autostart-enabled=true
+    Name=1Password
+    Comment=Password manager and secure wallet
+  '';
 }

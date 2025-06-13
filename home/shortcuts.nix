@@ -7,6 +7,8 @@
         "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"
         "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/"
         "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/"
+        "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/"
+        "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4/"
       ];
     };
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" =
@@ -27,6 +29,18 @@
         name = "Launch or Focus Cursor";
         command = "bash -c 'wmctrl -x -a cursor.Cursor || cursor'";
         binding = "<Ctrl><Alt><Super><Shift>semicolon";
+      };
+    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3" =
+      {
+        name = "Launch or Focus kgx";
+        command = "bash -c 'wmctrl -x -a kgx.kgx || kgx'";
+        binding = "<Ctrl><Alt><Super><Shift>apostrophe";
+      };
+    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4" =
+      {
+        name = "Launch or Focus Slack";
+        command = "bash -c 'wmctrl -x -a slack.Slack || slack'";
+        binding = "<Ctrl><Alt><Super><Shift>n";
       };
   };
 }

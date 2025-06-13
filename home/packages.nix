@@ -41,7 +41,6 @@
     # GNOME
     gnomeExtensions.gtk4-desktop-icons-ng-ding
     gnomeExtensions.dash-to-dock
-
     refine
 
     # Window Controls
