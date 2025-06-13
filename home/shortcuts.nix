@@ -9,6 +9,7 @@
         "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/"
         "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/"
         "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4/"
+        "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom5/"
       ];
     };
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" =
@@ -41,6 +42,12 @@
         name = "Launch or Focus Slack";
         command = "bash -c 'wmctrl -x -a slack.Slack || slack'";
         binding = "<Ctrl><Alt><Super><Shift>n";
+      };
+    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom5" =
+      {
+        name = "Maximize Window";
+        command = "bash -c 'wmctrl -r :ACTIVE: -b toggle,maximized_vert,maximized_horz'";
+        binding = "F19";
       };
   };
 }

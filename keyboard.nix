@@ -73,6 +73,10 @@
 
           [hyper:C-A-S-M]
           # Hyper key layer (Ctrl+Alt+Shift+Super modifier)
+          # Hyper key alone triggers F19
+          oneshot = f19
+          # Hyper key + Space triggers Super (Mission Control)
+          space = leftmeta
 
         '';
       };
