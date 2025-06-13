@@ -1,14 +1,10 @@
 { config, lib, pkgs, ... }:
 
-let
-  onePassPath = "~/.1password/agent.sock";
-in
-{
+let onePassPath = "~/.1password/agent.sock";
+in {
   # Enable the unfree 1Password packages
-  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-    "1password-gui"
-    "1password"
-  ];
+  nixpkgs.config.allowUnfreePredicate = pkg:
+    builtins.elem (lib.getName pkg) [ "1password-gui" "1password" ];
 
   # Enable 1Password system-wide
   programs._1password.enable = true;
@@ -43,10 +39,7 @@ in
   # Home Manager configuration
   home-manager.users.sunghyun = {
     # 1Password packages (already in packages.nix, but kept here for reference)
-    home.packages = with pkgs; [
-      _1password-gui
-      _1password-cli
-    ];
+    home.packages = with pkgs; [ _1password-gui _1password-cli ];
 
     # SSH configuration for 1Password SSH agent
     programs.ssh = {
@@ -64,18 +57,15 @@ in
       userEmail = "hey@cho.sh";
       signing = {
         signByDefault = true;
-        key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGaWDMcfAJMbWDorZP8z1beEAz+fjLb+VFqFm8hkAlpt";
+        key =
+          "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGaWDMcfAJMbWDorZP8z1beEAz+fjLb+VFqFm8hkAlpt";
       };
       extraConfig = {
-        gpg = {
-          format = "ssh";
-        };
+        gpg = { format = "ssh"; };
         "gpg \"ssh\"" = {
           program = "${lib.getExe' pkgs._1password-gui "op-ssh-sign"}";
         };
-        commit = {
-          gpgsign = true;
-        };
+        commit = { gpgsign = true; };
       };
     };
 
