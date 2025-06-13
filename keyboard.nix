@@ -16,7 +16,7 @@
           capslock = overload(hyper, M-up)
 
           leftalt = layer(meta_mac)
-          rightalt = layer(rightctrl)
+          rightalt = rightcontrol
 
           # Remap Super/Windows keys to act as Alt for word navigation
           leftmeta = layer(alt_layer)
