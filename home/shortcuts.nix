@@ -47,14 +47,16 @@
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom5" =
       {
         name = "Maximize Window";
-        command = "bash -c 'xdotool key super+Up'";
+        command =
+          "bash -c 'wmctrl -r :ACTIVE: -b toggle,maximized_vert,maximized_horz'";
         binding = "F19";
       };
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom6" =
       {
         name = "GNOME Overview";
-        command = "bash -c 'xdotool key super'";
-        binding = "<Ctrl><Alt><Super><Shift>space";
+        command =
+          "bash -c 'dbus-send --session --dest=org.gnome.Shell --type=method_call /org/gnome/Shell org.freedesktop.DBus.Properties.Set string:org.gnome.Shell string:OverviewActive variant:boolean:true'";
+        binding = "<Ctrl>space";
       };
   };
 }
