@@ -9,6 +9,7 @@
     ./shell.nix
     ./1password.nix
     ./lunit.nix
+    ./home/kakaotalk.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
@@ -82,7 +83,6 @@
   services.printing.enable = true;
 
   services.flatpak.enable = true;
-  services.flatpak.packages = [ "com.usebottles.bottles" ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
