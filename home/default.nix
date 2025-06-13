@@ -1,9 +1,9 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
   imports = [
-    ./programs.nix
-    ./packages.nix
+    (import ./programs.nix { inherit config pkgs inputs; })
+    (import ./packages.nix { inherit config pkgs inputs; })
     ./shortcuts.nix
     ./locale.nix
     ./icons.nix
