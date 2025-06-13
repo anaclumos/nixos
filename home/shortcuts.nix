@@ -10,6 +10,7 @@
         "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/"
         "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4/"
         "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom5/"
+        "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom6/"
       ];
     };
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" =
@@ -49,6 +50,12 @@
         command =
           "bash -c 'dbus-send --session --dest=org.gnome.Shell --type=method_call /org/gnome/Shell org.freedesktop.DBus.Properties.Set string:org.gnome.Shell string:OverviewActive variant:boolean:true'";
         binding = "<Ctrl>space";
+      };
+    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom6" =
+      {
+        name = "Launch or Focus KakaoTalk";
+        command = "bash -c 'wmctrl -x -a kakaotalk.KakaoTalk || kakaotalk'";
+        binding = "<Ctrl><Alt><Super><Shift>m";
       };
   };
 }
