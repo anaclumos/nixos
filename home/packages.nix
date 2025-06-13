@@ -26,13 +26,11 @@
     slack
     obsidian
     google-chrome
-    bottles
     _1password-gui
     _1password-cli
     ookla-speedtest
     geekbench
     expressvpn
-    (import ./kakaotalk.nix { inherit pkgs; }).packages.${pkgs.system}.default
 
     # System Tools
     xclip
@@ -53,5 +51,8 @@
 
     # Fonts
     pretendard
+
+    # Icons
+    hicolor-icon-theme
   ];
 }
