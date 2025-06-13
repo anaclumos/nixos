@@ -41,14 +41,14 @@
     # GNOME
     gnomeExtensions.gtk4-desktop-icons-ng-ding
     gnomeExtensions.dash-to-dock
-    gnomeExtensions.system-monitor
     refine
 
     # Window Controls
     wmctrl
     xdotool
+    keyd
 
     # Fonts
     pretendard
-    ];
+  ];
 }
