@@ -29,7 +29,7 @@
       oo = "hub browse";
       ss = "source ~/.zshrc";
       sha =
-        "git push && echo “Done in $(git rev-parse HEAD)” | xclip -selection clipboard";
+        "git push && echo Done in $(git rev-parse HEAD) | xclip -selection clipboard";
     };
   };
 }
