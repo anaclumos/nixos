@@ -2,7 +2,7 @@
 
 {
   imports =
-    [ ./hardware-configuration.nix ./keyboard.nix ./font.nix ./shell.nix ];
+    [ ./hardware-configuration.nix ./keyboard.nix ./font.nix ./shell.nix ./1password.nix ];
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -79,11 +79,6 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   environment.systemPackages = with pkgs; [ git zsh ];
-
-  # 1Password Service Account Token
-  environment.variables = {
-    OP_SERVICE_ACCOUNT_TOKEN = "/etc/1password/service-account-token";
-  };
 
   system.stateVersion = "25.05";
 }
