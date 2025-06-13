@@ -18,6 +18,7 @@
           system = "x86_64-linux";
           specialArgs = { inherit kakaotalk; };
           modules = [
+            { nixpkgs.config.allowUnfree = true; }
             ./configuration.nix
             nix-flatpak.nixosModules.nix-flatpak
             home-manager.nixosModules.home-manager
