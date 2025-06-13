@@ -20,6 +20,7 @@
     ollama
     uv
     xclip
+    warp-terminal
 
     # Applications
     slack
@@ -31,6 +32,7 @@
     ookla-speedtest
     geekbench
     expressvpn
+    (import ./kakaotalk.nix { inherit pkgs; }).packages.${pkgs.system}.default
 
     # System Tools
     xclip
