@@ -13,7 +13,7 @@
           # Use Alt as "command" key and Super/Windows as "alt" key
           [main]
           # Map Caps Lock to Hyper Key (Ctrl+Alt+Shift+Super)
-          capslock = overload(hyper, f19)
+          capslock = overload(hyper, M-up)
 
           # Bind Alt keys to trigger the 'meta_mac' layer (acting as Command)
           leftalt = layer(meta_mac)
@@ -23,7 +23,7 @@
           rightmeta = layer(alt_layer)
 
           # Delete entire line — Left Control + Delete
-          delete@leftctrl = [home shift-end delete]
+          # TODO: This is not working.
 
           # By default meta_mac = Ctrl+<key>, except for mappings below
           [meta_mac:C]
@@ -31,8 +31,9 @@
           c = C-insert
           v = S-insert
           x = S-delete
+          
           # Delete word — Left Alt + Delete
-          delete = C-delete
+          # TODO: This is not working.
 
           # Switch directly to an open tab (e.g., Firefox, VS Code)
           1 = A-1

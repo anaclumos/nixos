@@ -10,7 +10,6 @@
         "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/"
         "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4/"
         "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom5/"
-        "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom6/"
       ];
     };
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" =
@@ -45,13 +44,6 @@
         binding = "<Ctrl><Alt><Super><Shift>n";
       };
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom5" =
-      {
-        name = "Maximize Window";
-        command =
-          "bash -c 'wmctrl -r :ACTIVE: -b toggle,maximized_vert,maximized_horz'";
-        binding = "F19";
-      };
-    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom6" =
       {
         name = "GNOME Overview";
         command =
