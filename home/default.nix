@@ -8,9 +8,17 @@
     ./locale.nix
     ./icons.nix
     ./time.nix
+    ./kakaotalk.nix
   ];
 
   home.username = "sunghyun";
   home.homeDirectory = "/home/sunghyun";
   home.stateVersion = "25.05";
+
+  services.flatpak = {
+    enable = true;
+    packages = [
+      "com.usebottles.bottles"
+    ];
+  };
 }
