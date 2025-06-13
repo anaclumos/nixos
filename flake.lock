@@ -1,40 +1,5 @@
 {
   "nodes": {
-    "erosanix": {
-      "inputs": {
-        "flake-compat": "flake-compat",
-        "nixpkgs": "nixpkgs"
-      },
-      "locked": {
-        "lastModified": 1749151378,
-        "narHash": "sha256-4BMn5b1YCd2ahtRs0Lx8U4qBDgzDcRqNcW5NsgrP650=",
-        "owner": "emmanuelrosa",
-        "repo": "erosanix",
-        "rev": "476eccfde0dae1c439915ff45c59a9e160ef14c4",
-        "type": "github"
-      },
-      "original": {
-        "owner": "emmanuelrosa",
-        "repo": "erosanix",
-        "type": "github"
-      }
-    },
-    "flake-compat": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1673956053,
-        "narHash": "sha256-4gtG9iQuiKITOjNQQeQIpoIB6b16fm+504Ch3sNKLd8=",
-        "owner": "edolstra",
-        "repo": "flake-compat",
-        "rev": "35bb57c0c8d8b62bbfd284272c928ceb64ddbde9",
-        "type": "github"
-      },
-      "original": {
-        "owner": "edolstra",
-        "repo": "flake-compat",
-        "type": "github"
-      }
-    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -55,72 +20,7 @@
         "type": "github"
       }
     },
-    "kakaotalk": {
-      "inputs": {
-        "erosanix": "erosanix",
-        "kakaotalk-exe": "kakaotalk-exe",
-        "kakaotalk-icon": "kakaotalk-icon",
-        "nixpkgs": [
-          "nixpkgs"
-        ],
-        "pretendard-bold": "pretendard-bold",
-        "pretendard-regular": "pretendard-regular"
-      },
-      "locked": {
-        "lastModified": 1749788257,
-        "narHash": "sha256-S3h2TQWLQp0+E5HIIjDuOS/337YJMbakZDmOeKoYjJ0=",
-        "owner": "anaclumos",
-        "repo": "kakaotalk.nix",
-        "rev": "fc9413ddb353f7e6d4af39c634f19717de0aabf5",
-        "type": "github"
-      },
-      "original": {
-        "owner": "anaclumos",
-        "repo": "kakaotalk.nix",
-        "type": "github"
-      }
-    },
-    "kakaotalk-exe": {
-      "flake": false,
-      "locked": {
-        "narHash": "sha256-h8zIdf2vCdZeC1fiFga1XeHUdoq/Bq+RAvqgEz4qK1U=",
-        "type": "file",
-        "url": "https://app-pc.kakaocdn.net/talk/win32/KakaoTalk_Setup.exe"
-      },
-      "original": {
-        "type": "file",
-        "url": "https://app-pc.kakaocdn.net/talk/win32/KakaoTalk_Setup.exe"
-      }
-    },
-    "kakaotalk-icon": {
-      "flake": false,
-      "locked": {
-        "narHash": "sha256-FcSTBiBxiGyOhRuLkaVIjVt2omY3Tz2NKE/+nGvHDjo=",
-        "type": "file",
-        "url": "https://upload.wikimedia.org/wikipedia/commons/e/e3/KakaoTalk_logo.svg"
-      },
-      "original": {
-        "type": "file",
-        "url": "https://upload.wikimedia.org/wikipedia/commons/e/e3/KakaoTalk_logo.svg"
-      }
-    },
     "nixpkgs": {
-      "locked": {
-        "lastModified": 1748359502,
-        "narHash": "sha256-nnY29OR2nFG9NxF0eN0XemmJx8bpMdoRwvQt8PnI0Uw=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "502151620cdde8fda50f1f05706caae833379754",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "ref": "master",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
-    "nixpkgs_2": {
       "locked": {
         "lastModified": 1749285348,
         "narHash": "sha256-frdhQvPbmDYaScPFiCnfdh3B/Vh81Uuoo0w5TkWmmjU=",
@@ -136,35 +36,10 @@
         "type": "github"
       }
     },
-    "pretendard-bold": {
-      "flake": false,
-      "locked": {
-        "narHash": "sha256-lHIj132+7RPPYY/DfBdyJWJF/kwZkMB0egkEzM3uY5E=",
-        "type": "file",
-        "url": "https://raw.githubusercontent.com/orioncactus/pretendard/main/packages/pretendard/dist/public/static/alternative/Pretendard-Bold.ttf"
-      },
-      "original": {
-        "type": "file",
-        "url": "https://raw.githubusercontent.com/orioncactus/pretendard/main/packages/pretendard/dist/public/static/alternative/Pretendard-Bold.ttf"
-      }
-    },
-    "pretendard-regular": {
-      "flake": false,
-      "locked": {
-        "narHash": "sha256-CuBL0tnHOChjPhpeLDfyb8HBBrfzQvwfsHkP7T0+qhE=",
-        "type": "file",
-        "url": "https://raw.githubusercontent.com/orioncactus/pretendard/main/packages/pretendard/dist/public/static/alternative/Pretendard-Regular.ttf"
-      },
-      "original": {
-        "type": "file",
-        "url": "https://raw.githubusercontent.com/orioncactus/pretendard/main/packages/pretendard/dist/public/static/alternative/Pretendard-Regular.ttf"
-      }
-    },
     "root": {
       "inputs": {
         "home-manager": "home-manager",
-        "kakaotalk": "kakaotalk",
-        "nixpkgs": "nixpkgs_2"
+        "nixpkgs": "nixpkgs"
       }
     }
   },

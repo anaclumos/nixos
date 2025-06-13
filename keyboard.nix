@@ -22,8 +22,6 @@
           leftmeta = layer(alt_layer)
           rightmeta = layer(alt_layer)
 
-          # Delete entire line — Left Control + Delete
-          C-delete = C-u
 
           # By default meta_mac = Ctrl+<key>, except for mappings below
           [meta_mac:C]
@@ -32,8 +30,8 @@
           v = S-insert
           x = S-delete
 
-          # Delete word — Left Alt + Delete
-          delete = C-backspace
+          # Delete entire line — Command + Delete
+          delete = C-u
 
           # Switch directly to an open tab (e.g., Firefox, VS Code)
           1 = A-1
@@ -67,7 +65,8 @@
           # Alt layer for word navigation and deletion (for Super/Windows key)
           left = C-left
           right = C-right
-          delete = C-delete
+          # Delete word — Option + Delete
+          delete = C-backspace
 
           [hyper:C-A-S-M]
         '';
