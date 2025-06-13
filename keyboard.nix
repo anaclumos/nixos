@@ -15,8 +15,7 @@
           # Map Caps Lock to Hyper Key (Ctrl+Alt+Shift+Super)
           capslock = overload(hyper, M-up)
 
-          leftalt = overload(meta_mac, f18)
-          rightalt = overload(meta_mac, f19)
+          leftalt = layer(meta_mac)
 
           # Remap Super/Windows keys to act as Alt for word navigation
           leftmeta = layer(alt_layer)
