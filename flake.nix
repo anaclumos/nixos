@@ -23,8 +23,10 @@
             home-manager.backupFileExtension = "backup";
             home-manager.users.sunghyun = import ./home;
             home-manager.extraSpecialArgs = { inherit inputs; };
-            home-manager.sharedModules =
-              [{ nixpkgs.config.allowUnfree = true; }];
+            home-manager.sharedModules = [
+              { nixpkgs.config.allowUnfree = true; }
+              nix-flatpak.homeManagerModules.nix-flatpak
+            ];
           }
         ];
       };

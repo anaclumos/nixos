@@ -9,7 +9,6 @@
     ./shell.nix
     ./1password.nix
     ./lunit.nix
-    ./home/kakaotalk.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
