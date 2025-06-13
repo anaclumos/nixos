@@ -8,6 +8,7 @@
     ./locale.nix
     ./icons.nix
     ./time.nix
+    ./dunst.nix
   ];
 
   home.username = "sunghyun";

@@ -38,6 +38,10 @@
   services.xserver.enable = true;
   services.displayManager.gdm.enable = true;
   services.desktopManager.gnome.enable = true;
+  
+  # Disable GNOME-Shell banners so dunst can own org.freedesktop.Notifications
+  services.gnome.gnome-shell.enable = false;
+  services.dunst.enable = true;
 
   environment.gnome.excludePackages = with pkgs; [
     baobab # disk usage analyzer
