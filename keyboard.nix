@@ -22,17 +22,17 @@
           leftmeta = layer(alt_layer)
           rightmeta = layer(alt_layer)
 
+          # Delete entire line — Left Control + Delete
+          delete@leftctrl = [home shift-end delete]
 
           # By default meta_mac = Ctrl+<key>, except for mappings below
           [meta_mac:C]
-          # Use alternate Copy/Cut/Paste bindings from Windows that won't conflict with Ctrl+C used to break terminal apps
-          # Copy (works everywhere (incl. vscode cursor term) except Konsole)
+          # Copy / Paste / Cut
           c = C-insert
-          # Paste
           v = S-insert
-          # Cut
           x = S-delete
-
+          # Delete word — Left Alt + Delete
+          delete = C-delete
 
           # Switch directly to an open tab (e.g., Firefox, VS Code)
           1 = A-1
@@ -45,30 +45,27 @@
           8 = A-8
           9 = A-9
 
-          # Move cursor to the beginning of the line
+          # Move cursor to the beginning/end of the line
           left = home
-          # Move cursor to the end of the line
           right = end
 
           # As soon as 'tab' is pressed (but not yet released), switch to the 'app_switch_state' overlay
           tab = swapm(app_switch_state, A-tab)
 
           [app_switch_state:A]
-          # Being in this state holds 'Alt' down allowing us to switch back and forth with tab or arrow presses
+          # Holds 'Alt' down, allowing tab or arrow presses for app-switching
 
           [meta_fn:M]
-          # Left control + function key layer - map arrow keys to workspace switching
+          # Left Control + function-key layer — workspace switching
           left = M-home
           right = M-end
           up = M-pageup
           down = M-pagedown
 
           [alt_layer:A]
-          # Alt layer for word navigation and deletion
-          # Alt + Left/Right for word navigation
+          # Alt layer for word navigation and deletion (for Super/Windows key)
           left = C-left
           right = C-right
-          # Alt + Delete for word deletion
           delete = C-delete
 
           [hyper:C-A-S-M]
