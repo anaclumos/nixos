@@ -2,6 +2,8 @@
 
 {
   nixpkgs.config.allowUnfree = true;
+  # Allow any unfree package globally
+  nixpkgs.config.allowUnfreePredicate = _: true;
   imports = [
     ./hardware-configuration.nix
     ./keyboard.nix
