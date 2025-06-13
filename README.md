@@ -1,9 +1,13 @@
 # Sunghyun's NixOS
 
-```
-sudo nixos-rebuild switch --flake .#cho
-```
+## macOS Key Controls
 
-```
-fwupdmgr update
-```
+- Command, Option, Control follows macOS Key Controls.
+- Command+Backspace deletes whole line, Option+Backspace deletes a word, etc.
+
+## Hyper Key
+
+- Caps Lock is Hyper Key
+- Hyper Key alone maximizes the window.
+- Hyper Key combined with several alphabets are mapped to opening or focusing windows.
+- For example, Hyper + J opens or focuses Chrome.
