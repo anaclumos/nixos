@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
   home.packages = with pkgs; [
@@ -19,6 +19,7 @@
     codex
     ollama
     uv
+    xclip
 
     # Applications
     slack
@@ -30,6 +31,7 @@
     ookla-speedtest
     geekbench
     expressvpn
+    inputs.kakaotalk.packages.x86_64-linux.default
 
     # System Tools
     xclip

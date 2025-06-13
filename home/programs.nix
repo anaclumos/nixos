@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
   programs = {
@@ -18,5 +18,14 @@
       '';
     };
 
+  };
+
+  xdg.desktopEntries.kakaotalk = {
+    name = "KakaoTalk";
+    genericName = "Messenger";
+    exec = "${inputs.kakaotalk.packages.x86_64-linux.default}/bin/kakaotalk";
+    icon = "kakaotalk";
+    categories = [ "Network" "InstantMessaging" ];
+    comment = "KakaoTalk Messenger";
   };
 }
