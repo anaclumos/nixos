@@ -2,10 +2,6 @@
 
 let onePassPath = "~/.1password/agent.sock";
 in {
-  # Enable the unfree 1Password packages
-  nixpkgs.config.allowUnfreePredicate = pkg:
-    builtins.elem (lib.getName pkg) [ "1password-gui" "1password" ];
-
   # Enable 1Password system-wide
   programs._1password.enable = true;
   programs._1password-gui = {
