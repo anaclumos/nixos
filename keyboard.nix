@@ -23,7 +23,7 @@
           rightmeta = layer(alt_layer)
 
           # Delete entire line — Left Control + Delete
-          # TODO: This is not working.
+          C-delete = C-u
 
           # By default meta_mac = Ctrl+<key>, except for mappings below
           [meta_mac:C]
@@ -33,7 +33,7 @@
           x = S-delete
 
           # Delete word — Left Alt + Delete
-          # TODO: This is not working.
+          delete = C-backspace
 
           # Switch directly to an open tab (e.g., Firefox, VS Code)
           1 = A-1

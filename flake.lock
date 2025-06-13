@@ -62,14 +62,16 @@
         "kakaotalk-icon": "kakaotalk-icon",
         "nixpkgs": [
           "nixpkgs"
-        ]
+        ],
+        "pretendard-bold": "pretendard-bold",
+        "pretendard-regular": "pretendard-regular"
       },
       "locked": {
-        "lastModified": 1749782938,
-        "narHash": "sha256-SGRiFTxINmy3lzdEx7/AkXht/u8r+0YsTZP6x1MYNdo=",
+        "lastModified": 1749788257,
+        "narHash": "sha256-S3h2TQWLQp0+E5HIIjDuOS/337YJMbakZDmOeKoYjJ0=",
         "owner": "anaclumos",
         "repo": "kakaotalk.nix",
-        "rev": "bbdd821edff63ab02b7655cdea8ce9ee20ca528e",
+        "rev": "fc9413ddb353f7e6d4af39c634f19717de0aabf5",
         "type": "github"
       },
       "original": {
@@ -132,6 +134,30 @@
         "ref": "nixos-unstable",
         "repo": "nixpkgs",
         "type": "github"
+      }
+    },
+    "pretendard-bold": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-lHIj132+7RPPYY/DfBdyJWJF/kwZkMB0egkEzM3uY5E=",
+        "type": "file",
+        "url": "https://raw.githubusercontent.com/orioncactus/pretendard/main/packages/pretendard/dist/public/static/alternative/Pretendard-Bold.ttf"
+      },
+      "original": {
+        "type": "file",
+        "url": "https://raw.githubusercontent.com/orioncactus/pretendard/main/packages/pretendard/dist/public/static/alternative/Pretendard-Bold.ttf"
+      }
+    },
+    "pretendard-regular": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-CuBL0tnHOChjPhpeLDfyb8HBBrfzQvwfsHkP7T0+qhE=",
+        "type": "file",
+        "url": "https://raw.githubusercontent.com/orioncactus/pretendard/main/packages/pretendard/dist/public/static/alternative/Pretendard-Regular.ttf"
+      },
+      "original": {
+        "type": "file",
+        "url": "https://raw.githubusercontent.com/orioncactus/pretendard/main/packages/pretendard/dist/public/static/alternative/Pretendard-Regular.ttf"
       }
     },
     "root": {
