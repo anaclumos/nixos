@@ -80,6 +80,16 @@
             <string>Pretendard</string>
           </edit>
         </match>
+
+        <!-- Replace 'malgun gothic' with Pretendard -->
+        <match target="pattern">
+          <test qual="any" name="family">
+            <string>malgun gothic</string>
+          </test>
+          <edit name="family" mode="assign" binding="same">
+            <string>Pretendard</string>
+          </edit>
+        </match>
       </fontconfig>
     '';
   };
