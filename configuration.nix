@@ -7,6 +7,7 @@
     ./font.nix
     ./shell.nix
     ./1password.nix
+    ./lunit.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
