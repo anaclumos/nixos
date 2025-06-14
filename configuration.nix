@@ -65,7 +65,7 @@
     gnome-screenshot
     gnome-system-monitor
     gnome-weather
-    gnome-disk-utility
+    # gnome-disk-utility
     pkgs.gnome-connections
     gnome-tour
     xterm
