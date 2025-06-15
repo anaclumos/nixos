@@ -10,7 +10,6 @@
     bun
     nixfmt-classic
     claude-code
-    windsurf
     code-cursor
     gitAndTools.hub
     google-cloud-sdk
