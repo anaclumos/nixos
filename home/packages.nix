@@ -20,6 +20,7 @@
     uv
     xclip
     warp-terminal
+    scc
 
     # Applications
     slack
