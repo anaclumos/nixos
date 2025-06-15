@@ -90,6 +90,76 @@
             <string>Pretendard</string>
           </edit>
         </match>
+
+        <!-- Replace Apple SD Gothic Neo with Pretendard -->
+        <match target="pattern">
+          <test qual="any" name="family">
+            <string>Apple SD Gothic Neo</string>
+          </test>
+          <edit name="family" mode="assign" binding="same">
+            <string>Pretendard</string>
+          </edit>
+        </match>
+
+        <!-- Replace Noto Sans TC with Pretendard -->
+        <match target="pattern">
+          <test qual="any" name="family">
+            <string>Noto Sans TC</string>
+          </test>
+          <edit name="family" mode="assign" binding="same">
+            <string>Pretendard</string>
+          </edit>
+        </match>
+
+        <!-- Replace Noto Sans JP with Pretendard -->
+        <match target="pattern">
+          <test qual="any" name="family">
+            <string>Noto Sans JP</string>
+          </test>
+          <edit name="family" mode="assign" binding="same">
+            <string>Pretendard</string>
+          </edit>
+        </match>
+
+        <!-- Replace Noto Sans KR with Pretendard -->
+        <match target="pattern">
+          <test qual="any" name="family">
+            <string>Noto Sans KR</string>
+          </test>
+          <edit name="family" mode="assign" binding="same">
+            <string>Pretendard</string>
+          </edit>
+        </match>
+
+        <!-- Replace Noto Sans with Pretendard -->
+        <match target="pattern">
+          <test qual="any" name="family">
+            <string>Noto Sans</string>
+          </test>
+          <edit name="family" mode="assign" binding="same">
+            <string>Pretendard</string>
+          </edit>
+        </match>
+
+        <!-- Replace Roboto with Pretendard -->
+        <match target="pattern">
+          <test qual="any" name="family">
+            <string>Roboto</string>
+          </test>
+          <edit name="family" mode="assign" binding="same">
+            <string>Pretendard</string>
+          </edit>
+        </match>
+
+        <!-- Replace Tahoma with Pretendard -->
+        <match target="pattern">
+          <test qual="any" name="family">
+            <string>Tahoma</string>
+          </test>
+          <edit name="family" mode="assign" binding="same">
+            <string>Pretendard</string>
+          </edit>
+        </match>
       </fontconfig>
     '';
   };
