@@ -46,7 +46,7 @@
     epiphany # web browser
     gedit # text editor
     simple-scan # document scanner
-    totem # video player
+    # totem # video player
     yelp # help viewer
     evince # document viewer
     file-roller # archive manager

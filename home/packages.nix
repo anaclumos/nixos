@@ -22,6 +22,7 @@
     xclip
     warp-terminal
     scc
+    ffmpeg-full
 
     # Applications
     slack
@@ -44,6 +45,7 @@
     gnomeExtensions.gtk4-desktop-icons-ng-ding
     gnomeExtensions.dash-to-dock
     gnomeExtensions.clipboard-history
+    gnomeExtensions.system-monitor-next
     refine
 
     # Window Controls
