@@ -45,7 +45,7 @@
     gnomeExtensions.gtk4-desktop-icons-ng-ding
     gnomeExtensions.dash-to-dock
     gnomeExtensions.clipboard-history
-    gnomeExtensions.system-monitor-next
+    gnomeExtensions.system-monitor
     refine
 
     # Window Controls
