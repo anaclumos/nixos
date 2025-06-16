@@ -15,16 +15,16 @@
           # Map Caps Lock to Hyper Key (Ctrl+Alt+Shift+Super)
           capslock = overload(hyper, M-up)
 
-          leftalt = layer(software_command)
+          leftalt = layer(mac_command)
           rightalt = rightcontrol
 
-          leftmeta = layer(software_alt)
-          rightmeta = layer(software_alt)
+          leftmeta = layer(mac_alt)
+          rightmeta = layer(mac_alt)
 
-          leftcontrol = layer(software_control)
-          rightcontrol = layer(software_control)
+          leftcontrol = layer(mac_control)
+          rightcontrol = layer(mac_control)
 
-          [software_command:C]
+          [mac_command:C]
           c = C-insert
           v = S-insert
           x = S-delete
@@ -35,17 +35,16 @@
           up = pageup
           right = end
           down = pagedown
-          backspace = C-S-k
 
           [app_switch_state:A]
           backspace = C-backspace
 
-          [software_alt:A]
+          [mac_alt:A]
           left = C-left
           right = C-right
           backspace = C-backspace
 
-          [software_control:C]
+          [mac_control:C]
           left = M-pageup
           right = M-pagedown
 

@@ -11,6 +11,7 @@
     nixfmt-classic
     claude-code
     code-cursor
+    vscode
     gitAndTools.hub
     google-cloud-sdk
     gh
