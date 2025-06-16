@@ -6,12 +6,12 @@
   nixpkgs.config.allowUnfreePredicate = _: true;
   imports = [
     ./hardware-configuration.nix
-    ./keyboard.nix
-    ./font.nix
-    ./shell.nix
-    ./1password.nix
-    ./lunit.nix
-    ./fan.nix
+    ./system/keyboard.nix
+    ./system/font.nix
+    ./system/shell.nix
+    ./system/1password.nix
+    ./system/lunit.nix
+    ./system/fan.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
