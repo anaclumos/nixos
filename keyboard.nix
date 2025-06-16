@@ -15,60 +15,39 @@
           # Map Caps Lock to Hyper Key (Ctrl+Alt+Shift+Super)
           capslock = overload(hyper, M-up)
 
-          leftalt = layer(meta_mac)
+          leftalt = layer(software_command)
           rightalt = rightcontrol
 
-          # Remap Super/Windows keys to act as Alt for word navigation
-          leftmeta = layer(alt_layer)
-          rightmeta = layer(alt_layer)
+          leftmeta = layer(software_alt)
+          rightmeta = layer(software_alt)
 
+          leftcontrol = layer(software_control)
+          rightcontrol = layer(software_control)
 
-          # By default meta_mac = Ctrl+<key>, except for mappings below
-          [meta_mac:C]
-          # Copy / Paste / Cut
+          [software_command:C]
           c = C-insert
           v = S-insert
           x = S-delete
-
-          # Delete entire line — Command + Delete
-          delete = C-u
-
-          # Switch directly to an open tab (e.g., Firefox, VS Code)
-          1 = A-1
-          2 = A-2
-          3 = A-3
-          4 = A-4
-          5 = A-5
-          6 = A-6
-          7 = A-7
-          8 = A-8
-          9 = A-9
-
-          # Move cursor to the beginning/end of the line
-          left = home
-          right = end
-
-          # As soon as 'tab' is pressed (but not yet released), switch to the 'app_switch_state' overlay
+          [ = A-left
+          ] = A-right
           tab = swapm(app_switch_state, A-tab)
 
           [app_switch_state:A]
-          # Holds 'Alt' down, allowing tab or arrow presses for app-switching
+          backspace = C-backspace
 
-          [meta_fn:M]
-          # Left Control + function-key layer — workspace switching
-          left = M-home
-          right = M-end
-          up = M-pageup
-          down = M-pagedown
-
-          [alt_layer:A]
-          # Alt layer for word navigation and deletion (for Super/Windows key)
+          [software_alt:A]
           left = C-left
           right = C-right
-          # Delete word — Option + Delete
-          delete = C-backspace
+
+          [software_control:C]
+          left = M-pageup
+          right = M-pagedown
 
           [hyper:C-A-S-M]
+          left = M-left
+          right = M-right
+          up = M-pageup
+          down = M-pagedown
         '';
       };
     };
