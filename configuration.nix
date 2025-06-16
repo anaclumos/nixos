@@ -63,23 +63,23 @@
             speed = 0;
           }
           {
-            temp = 15;
+            temp = 20;
             speed = 20;
           }
           {
-            temp = 30;
+            temp = 40;
             speed = 40;
           }
           {
-            temp = 45;
+            temp = 60;
             speed = 60;
           }
           {
-            temp = 60;
+            temp = 80;
             speed = 80;
           }
           {
-            temp = 75;
+            temp = 100;
             speed = 100;
           }
         ];
