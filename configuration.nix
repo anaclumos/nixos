@@ -1,4 +1,4 @@
-{ config, pkgs, lib, kakaotalk, ... }:
+{ config, pkgs, lib, kakaotalk, fw-fanctrl, ... }:
 
 {
   nixpkgs.config.allowUnfree = true;
@@ -20,6 +20,72 @@
   services.fwupd.enable = true;
   services.fprintd.enable = true;
   services.expressvpn.enable = true;
+
+  # Enable fw-fanctrl
+  programs.fw-fanctrl.enable = true;
+
+  # Add a custom config
+  programs.fw-fanctrl.config = {
+    defaultStrategy = "Gentle";
+    strategies = {
+      "Turbo" = {
+        fanSpeedUpdateFrequency = 5;
+        movingAverageInterval = 30;
+        speedCurve = [
+          {
+            temp = 0;
+            speed = 20;
+          }
+          {
+            temp = 10;
+            speed = 40;
+          }
+          {
+            temp = 20;
+            speed = 60;
+          }
+          {
+            temp = 30;
+            speed = 80;
+          }
+          {
+            temp = 40;
+            speed = 100;
+          }
+        ];
+      };
+      "Gentle" = {
+        fanSpeedUpdateFrequency = 5;
+        movingAverageInterval = 30;
+        speedCurve = [
+          {
+            temp = 0;
+            speed = 0;
+          }
+          {
+            temp = 15;
+            speed = 20;
+          }
+          {
+            temp = 30;
+            speed = 40;
+          }
+          {
+            temp = 45;
+            speed = 60;
+          }
+          {
+            temp = 60;
+            speed = 80;
+          }
+          {
+            temp = 75;
+            speed = 100;
+          }
+        ];
+      };
+    };
+  };
 
   networking.hostName = "cho";
   networking.networkmanager.enable = true;
