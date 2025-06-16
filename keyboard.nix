@@ -31,6 +31,11 @@
           [ = A-left
           ] = A-right
           tab = swapm(app_switch_state, A-tab)
+          left = home
+          up = pageup
+          right = end
+          down = pagedown
+          backspace = C-S-k
 
           [app_switch_state:A]
           backspace = C-backspace
@@ -38,6 +43,7 @@
           [software_alt:A]
           left = C-left
           right = C-right
+          backspace = C-backspace
 
           [software_control:C]
           left = M-pageup
@@ -46,8 +52,6 @@
           [hyper:C-A-S-M]
           left = M-left
           right = M-right
-          up = M-pageup
-          down = M-pagedown
         '';
       };
     };
