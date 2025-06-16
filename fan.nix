@@ -39,27 +39,27 @@
         movingAverageInterval = 30;
         speedCurve = [
           {
-            temp = 0;
+            temp = 40;
             speed = 0;
           }
           {
-            temp = 20;
+            temp = 60;
             speed = 20;
           }
           {
-            temp = 40;
+            temp = 80;
             speed = 40;
           }
           {
-            temp = 60;
+            temp = 100;
             speed = 60;
           }
           {
-            temp = 80;
+            temp = 120;
             speed = 80;
           }
           {
-            temp = 100;
+            temp = 140;
             speed = 100;
           }
         ];
