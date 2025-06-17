@@ -51,6 +51,7 @@
           [hyper:C-A-S-M]
           left = M-left
           right = M-right
+          enter = macro(M-S-pagedown M-up)
         '';
       };
     };
