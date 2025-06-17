@@ -1,7 +1,7 @@
 { config, lib, pkgs, ... }:
 
 {
-  environment.sessionVariables = {
+  environment.variables = {
     INCL_SERVER_HOST = "34.47.100.100";
     INCL_DJANGO_PORT = "30000";
     INCL_GIN_PORT = "30010";
