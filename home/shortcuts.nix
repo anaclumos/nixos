@@ -28,8 +28,8 @@
       };
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2" =
       {
-        name = "Launch or Focus VS Code";
-        command = "bash -c 'wmctrl -x -a code.Code || code'";
+        name = "Launch or Focus Cursor";
+        command = "bash -c 'wmctrl -x -a cursor.Cursor || cursor'";
         binding = "<Ctrl><Alt><Super><Shift>semicolon";
       };
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3" =
