@@ -23,6 +23,7 @@
     warp-terminal
     scc
     ffmpeg-full
+    whois
 
     # Applications
     slack
