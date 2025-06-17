@@ -34,6 +34,7 @@
     geekbench
     expressvpn
     caffeine-ng
+    libreoffice
 
     # System Tools
     xclip
