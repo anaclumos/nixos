@@ -40,7 +40,6 @@
     # System Tools
     xclip
     fastfetch
-    tailscale
     adguardhome
     zsh-autosuggestions
 
