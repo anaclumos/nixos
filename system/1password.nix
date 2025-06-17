@@ -30,6 +30,7 @@ in {
   # 1Password Service Account Token environment variable
   environment.variables = {
     OP_SERVICE_ACCOUNT_TOKEN = "/etc/1password/service-account-token";
+    SSH_AUTH_SOCK = onePassPath;
   };
 
   # Home Manager configuration
@@ -40,6 +41,7 @@ in {
     # SSH configuration for 1Password SSH agent
     programs.ssh = {
       enable = true;
+      forwardAgent = true;
       extraConfig = ''
         Host *
             IdentityAgent ${onePassPath}
