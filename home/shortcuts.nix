@@ -11,6 +11,7 @@
         "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4/"
         "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom5/"
         "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom6/"
+        "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom7/"
       ];
     };
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" =
@@ -56,6 +57,12 @@
         name = "Launch or Focus KakaoTalk";
         command = "bash -c 'wmctrl -a 카카오톡 || kakaotalk && wmctrl -a 카카오톡'";
         binding = "<Ctrl><Alt><Super><Shift>m";
+      };
+    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom7" =
+      {
+        name = "Open Notion Calendar";
+        command = "xdg-open https://calendar.notion.so";
+        binding = "<Ctrl><Alt><Super><Shift>l";
       };
   };
 }
