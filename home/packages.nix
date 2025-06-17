@@ -33,6 +33,7 @@
     ookla-speedtest
     geekbench
     expressvpn
+    caffeine-ng
 
     # System Tools
     xclip

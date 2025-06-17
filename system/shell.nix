@@ -27,6 +27,7 @@
       ed = "expressvpn disconnect";
       x = "exit";
       oo = "hub browse";
+      zz = "cursor ~/Desktop/nixos/system/shell.nix";
       ss = "source ~/.zshrc";
       sha =
         "git push && echo Done in $(git rev-parse HEAD) | xclip -selection clipboard";
