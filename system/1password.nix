@@ -48,7 +48,6 @@ in {
       '';
     };
 
-
     # Autostart 1Password on login
     xdg.configFile."autostart/1password.desktop".text = ''
       [Desktop Entry]

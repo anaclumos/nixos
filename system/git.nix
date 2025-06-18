@@ -7,17 +7,18 @@
       enable = true;
       userName = "Sunghyun Cho";
       userEmail = "hey@cho.sh";
-      
+
       # Git signing configuration with 1Password SSH
       signing = {
         signByDefault = true;
-        key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGaWDMcfAJMbWDorZP8z1beEAz+fjLb+VFqFm8hkAlpt";
+        key =
+          "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGaWDMcfAJMbWDorZP8z1beEAz+fjLb+VFqFm8hkAlpt";
       };
-      
+
       extraConfig = {
         # Core configuration
         core.editor = "cursor --wait";
-        
+
         # GPG configuration for SSH signing
         gpg = { format = "ssh"; };
         "gpg \"ssh\"" = {

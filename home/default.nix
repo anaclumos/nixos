@@ -16,8 +16,6 @@
 
   services.flatpak = {
     enable = true;
-    packages = [
-      "com.usebottles.bottles"
-    ];
+    packages = [ "com.usebottles.bottles" ];
   };
 }
