@@ -9,23 +9,18 @@
     };
     nix-flatpak.url = "github:gmodena/nix-flatpak";
     kakaotalk.url = "github:anaclumos/kakaotalk.nix";
-    fw-fanctrl = {
-      url = "github:TamtamHero/fw-fanctrl/packaging/nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
-  outputs = { self, nixpkgs, home-manager, nix-flatpak, kakaotalk, fw-fanctrl
-    , ... }@inputs: {
+  outputs =
+    { self, nixpkgs, home-manager, nix-flatpak, kakaotalk, ... }@inputs: {
       nixosConfigurations = {
         cho = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
-          specialArgs = { inherit kakaotalk fw-fanctrl; };
+          specialArgs = { inherit kakaotalk; };
           modules = [
             { nixpkgs.config.allowUnfree = true; }
             ./configuration.nix
             nix-flatpak.nixosModules.nix-flatpak
-            fw-fanctrl.nixosModules.default
             home-manager.nixosModules.home-manager
             {
               home-manager.useUserPackages = true;

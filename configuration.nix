@@ -1,4 +1,4 @@
-{ config, pkgs, lib, kakaotalk, fw-fanctrl, ... }:
+{ config, pkgs, lib, kakaotalk, ... }:
 
 {
   nixpkgs.config.allowUnfree = true;
@@ -12,7 +12,6 @@
     ./system/1password.nix
     ./system/git.nix
     ./system/lunit.nix
-    ./system/fan.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
