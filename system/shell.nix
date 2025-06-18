@@ -22,13 +22,15 @@
       rebuild =
         "cd ~/Desktop/nixos && nixfmt **/*.nix && nix-channel --update && nix --extra-experimental-features 'nix-command flakes' flake update && sudo NIXPKGS_ALLOW_UNFREE=1 nixos-rebuild switch --flake .#cho --impure";
       nixgit = ''git commit -m "$(date +"%Y-%m-%d")" -a && git push'';
-      qqqq = "cd ~/Desktop/extracranial && bun run save";
+      qq = "cd ~/Desktop/extracranial";
+      qqqq = "cd ~/Desktop/extracranial && bun run save && gp && exit";
       ec = "expressvpn connect";
       ed = "expressvpn disconnect";
       x = "exit";
       oo = "hub browse";
       zz = "cursor ~/Desktop/nixos";
       ss = "source ~/.zshrc";
+      cc = "cursor .";
       sha =
         "git push && echo Done in $(git rev-parse HEAD) | xclip -selection clipboard";
     };
