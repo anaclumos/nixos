@@ -18,7 +18,6 @@
     prisma-engines
     codex
     ollama
-    uv
     xclip
     warp-terminal
     scc

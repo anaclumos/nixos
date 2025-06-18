@@ -97,7 +97,14 @@
     git
     zsh
     kakaotalk.packages.${pkgs.system}.kakaotalk
+    cacert
+    uv
   ];
+
+  environment.variables = {
+    SSL_CERT_FILE = "${pkgs.cacert}/etc/ssl/certs/ca-bundle.crt";
+    NIX_SSL_CERT_FILE = "${pkgs.cacert}/etc/ssl/certs/ca-bundle.crt";
+  };
 
   system.stateVersion = "25.05";
 }
