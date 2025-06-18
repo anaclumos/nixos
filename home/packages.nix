@@ -36,6 +36,7 @@
     expressvpn
     caffeine-ng
     libreoffice
+    zoom-us
 
     # System Tools
     xclip

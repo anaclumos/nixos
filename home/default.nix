@@ -16,6 +16,9 @@
 
   services.flatpak = {
     enable = true;
-    packages = [ "com.usebottles.bottles" ];
+    packages = [ "com.usebottles.bottles" "app.zen_browser.zen" ];
   };
+
+  # Bluetooth headset media controls
+  services.mpris-proxy.enable = true;
 }
