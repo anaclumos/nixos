@@ -10,6 +10,7 @@
     ./system/font.nix
     ./system/shell.nix
     ./system/1password.nix
+    ./system/git.nix
     ./system/lunit.nix
     ./system/fan.nix
   ];

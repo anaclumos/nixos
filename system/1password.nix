@@ -48,24 +48,6 @@ in {
       '';
     };
 
-    # Git configuration with 1Password SSH signing
-    programs.git = {
-      enable = true;
-      userName = "Sunghyun Cho";
-      userEmail = "hey@cho.sh";
-      signing = {
-        signByDefault = true;
-        key =
-          "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGaWDMcfAJMbWDorZP8z1beEAz+fjLb+VFqFm8hkAlpt";
-      };
-      extraConfig = {
-        gpg = { format = "ssh"; };
-        "gpg \"ssh\"" = {
-          program = "${lib.getExe' pkgs._1password-gui "op-ssh-sign"}";
-        };
-        commit = { gpgsign = true; };
-      };
-    };
 
     # Autostart 1Password on login
     xdg.configFile."autostart/1password.desktop".text = ''

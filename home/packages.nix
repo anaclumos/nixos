@@ -24,6 +24,7 @@
     scc
     ffmpeg-full
     whois
+    lefthook
 
     # Applications
     slack
