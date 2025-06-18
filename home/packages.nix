@@ -47,7 +47,6 @@
     # GNOME
     gnomeExtensions.gtk4-desktop-icons-ng-ding
     gnomeExtensions.clipboard-history
-    gnomeExtensions.framework-fan-control
     refine
 
     # Window Controls
