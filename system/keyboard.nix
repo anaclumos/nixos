@@ -7,8 +7,7 @@
       default = {
         ids = [
           "*"
-        ]; # what goes into the [id] section, here we select all keyboard
-        # extraConfig = builtins.readFile /home/deftdawg/source/meta-mac/keyd/kde-mac-keyboard.conf; # use includes when debugging, easier to edit in vs code or others
+        ];
         extraConfig = ''
           # Use Alt as "command" key and Super/Windows as "alt" key
           [main]
