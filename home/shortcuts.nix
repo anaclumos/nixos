@@ -12,6 +12,7 @@
         "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom5/"
         "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom6/"
         "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom7/"
+        "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom8/"
       ];
     };
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" =
@@ -63,6 +64,12 @@
         name = "Open Notion Calendar";
         command = "xdg-open https://calendar.notion.so";
         binding = "<Ctrl><Alt><Super><Shift>l";
+      };
+    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom8" =
+      {
+        name = "Open Notion Mail";
+        command = "xdg-open https://mail.notion.so";
+        binding = "<Ctrl><Alt><Super><Shift>h";
       };
   };
 }
