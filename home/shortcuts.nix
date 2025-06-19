@@ -13,6 +13,7 @@
         "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom6/"
         "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom7/"
         "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom8/"
+        "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom9/"
       ];
     };
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" =
@@ -70,6 +71,12 @@
         name = "Open Notion Mail";
         command = "xdg-open https://mail.notion.so";
         binding = "<Ctrl><Alt><Super><Shift>h";
+      };
+    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom9" =
+      {
+        name = "Open Linear";
+        command = "xdg-open https://linear.app";
+        binding = "<Ctrl><Alt><Super><Shift>i";
       };
   };
 }
