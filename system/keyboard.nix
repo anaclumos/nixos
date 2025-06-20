@@ -5,9 +5,7 @@
     enable = true;
     keyboards = {
       default = {
-        ids = [
-          "*"
-        ];
+        ids = [ "*" ];
         extraConfig = ''
           # Use Alt as "command" key and Super/Windows as "alt" key
           [main]
