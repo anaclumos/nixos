@@ -45,6 +45,10 @@
   services.xserver.enable = true;
   services.displayManager.gdm.enable = true;
   services.desktopManager.gnome.enable = true;
+
+  # Hyprland
+  programs.hyprland.enable = true;
+
   services.tailscale.enable = true;
 
   environment.gnome.excludePackages = with pkgs; [
@@ -122,7 +126,6 @@
   environment.variables = {
     SSL_CERT_FILE = "${pkgs.cacert}/etc/ssl/certs/ca-bundle.crt";
     NIX_SSL_CERT_FILE = "${pkgs.cacert}/etc/ssl/certs/ca-bundle.crt";
-    NODE_ENV = "development";
   };
 
   system.stateVersion = "25.05";

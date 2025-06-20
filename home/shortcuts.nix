@@ -14,7 +14,8 @@
         "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom7/"
         "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom8/"
         "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom9/"
-      ];
+        "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom10/"
+      I];
     };
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" =
       {
@@ -77,6 +78,14 @@
         name = "Open Linear";
         command = "xdg-open https://linear.app";
         binding = "<Ctrl><Alt><Super><Shift>i";
+      };
+
+    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom10" =
+      {
+        name = "Launch or Focus Youtube Music";
+        command =
+          "bash -c 'wmctrl -x -a com.github.th_ch.youtube_music.com.github.th_ch.youtube_music || youtube-music'";
+        binding = "<Ctrl><Alt><Super><Shift>k";
       };
   };
 }
