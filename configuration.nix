@@ -22,6 +22,12 @@
   services.fprintd.enable = true;
   services.expressvpn.enable = true;
 
+  # Docker
+  virtualisation.docker.enable = true;
+
+  # Add user to docker group
+  users.users.sunghyun.extraGroups = [ "docker" ];
+
   networking.hostName = "cho";
   networking.networkmanager.enable = true;
 

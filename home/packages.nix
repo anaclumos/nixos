@@ -23,6 +23,7 @@
     lefthook
     unzip
     zip
+    act
 
     # Applications
     slack
