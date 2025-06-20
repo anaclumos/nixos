@@ -15,15 +15,14 @@
     gitAndTools.hub
     google-cloud-sdk
     gh
-    prisma-engines
-    codex
     ollama
     xclip
-    warp-terminal
     scc
     ffmpeg-full
     whois
     lefthook
+    unzip
+    zip
 
     # Applications
     slack
