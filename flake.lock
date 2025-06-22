@@ -1,23 +1,5 @@
 {
   "nodes": {
-    "flake-utils": {
-      "inputs": {
-        "systems": "systems"
-      },
-      "locked": {
-        "lastModified": 1731533236,
-        "narHash": "sha256-l0KFg5HjrsfsO/JpG+r7fRrqm12kzFHyUHqHCVpMMbI=",
-        "owner": "numtide",
-        "repo": "flake-utils",
-        "rev": "11707dc2f618dd54ca8739b309ec4fc024de578b",
-        "type": "github"
-      },
-      "original": {
-        "owner": "numtide",
-        "repo": "flake-utils",
-        "type": "github"
-      }
-    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -40,17 +22,16 @@
     },
     "kakaotalk": {
       "inputs": {
-        "flake-utils": "flake-utils",
         "kakaotalk-exe": "kakaotalk-exe",
         "kakaotalk-icon": "kakaotalk-icon",
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1750600226,
-        "narHash": "sha256-JppqHJFq6XZNCiGwhriT2aCip1yDcpL5F4EUsQr6HNg=",
+        "lastModified": 1750602051,
+        "narHash": "sha256-jLbbV9R4zN2g6dtqIIFuoLZbKWVK2eryxP89laXAbTc=",
         "owner": "anaclumos",
         "repo": "kakaotalk.nix",
-        "rev": "ce4545c993e76d8cdcec5a3120ba71e76b4eb1b7",
+        "rev": "a2ef3596f9242dd401388464f435aece2d4d3837",
         "type": "github"
       },
       "original": {
@@ -100,18 +81,16 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1735563628,
-        "narHash": "sha256-OnSAY7XDSx7CtDoqNh8jwVwh4xNL/2HaJxGjryLWzX8=",
+        "lastModified": 1750386251,
+        "narHash": "sha256-1ovgdmuDYVo5OUC5NzdF+V4zx2uT8RtsgZahxidBTyw=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "b134951a4c9f3c995fd7be05f3243f8ecd65d798",
+        "rev": "076e8c6678d8c54204abcb4b1b14c366835a58bb",
         "type": "github"
       },
       "original": {
-        "owner": "NixOS",
-        "ref": "nixos-24.05",
-        "repo": "nixpkgs",
-        "type": "github"
+        "id": "nixpkgs",
+        "type": "indirect"
       }
     },
     "nixpkgs_2": {
@@ -136,21 +115,6 @@
         "kakaotalk": "kakaotalk",
         "nix-flatpak": "nix-flatpak",
         "nixpkgs": "nixpkgs_2"
-      }
-    },
-    "systems": {
-      "locked": {
-        "lastModified": 1681028828,
-        "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",
-        "owner": "nix-systems",
-        "repo": "default",
-        "rev": "da67096a3b9bf56a91d16901293e51ba5b49a27e",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nix-systems",
-        "repo": "default",
-        "type": "github"
       }
     }
   },
