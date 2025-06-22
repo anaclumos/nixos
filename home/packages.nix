@@ -38,7 +38,6 @@
     caffeine-ng
     libreoffice
     zoom-us
-    inputs.kakaotalk.packages.${pkgs.system}.kakaotalk
 
     # System Tools
     xclip
