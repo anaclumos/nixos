@@ -27,11 +27,11 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1749855644,
-        "narHash": "sha256-tZmr2hjkfJ9cCQwijtwaVpwyFlPLPyQe9APf+AaKhZo=",
+        "lastModified": 1750575490,
+        "narHash": "sha256-30tQSNzSMwq5rq8jOuepop6VVOW9hzIulLsFDKpWPDM=",
         "owner": "anaclumos",
         "repo": "kakaotalk.nix",
-        "rev": "12ea1759a07354ff1224af0beb866d5e6ddd0bf1",
+        "rev": "e7f601e7f2cde9a251487683c66f6440d4e83d34",
         "type": "github"
       },
       "original": {
