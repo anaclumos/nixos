@@ -63,4 +63,21 @@
   dconf.settings = {
     "org/gnome/shell/extensions/user-theme" = { name = "custom-compact"; };
   };
+
+  # Create desktop entry for Console with Korean alias
+  xdg.desktopEntries.console-roqkf = {
+    name = "Console";
+    genericName = "Terminal";
+    comment = "A simple user-friendly terminal emulator for the GNOME desktop";
+    exec = "kgx";
+    icon = "org.gnome.Console";
+    terminal = false;
+    type = "Application";
+    categories = [ "GNOME" "GTK" "System" "TerminalEmulator" ];
+    settings = {
+      Keywords = "roqkf;개발;terminal;shell;prompt;command;commandline;cmd;";
+      StartupNotify = "true";
+      DBusActivatable = "true";
+    };
+  };
 }
