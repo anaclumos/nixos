@@ -50,6 +50,7 @@
     gnomeExtensions.clipboard-history
     gnomeExtensions.auto-power-profile
     gnomeExtensions.appindicator
+    gnomeExtensions.user-themes
     refine
 
     # Window Controls
