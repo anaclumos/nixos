@@ -15,6 +15,7 @@
         "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom8/"
         "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom9/"
         "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom10/"
+        "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom11/"
       ];
     };
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" =
@@ -86,6 +87,14 @@
         command =
           "bash -c 'wmctrl -x -a com.github.th_ch.youtube_music.com.github.th_ch.youtube_music || youtube-music'";
         binding = "<Ctrl><Alt><Super><Shift>k";
+      };
+
+    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom11" =
+      {
+        name = "Lock Screen";
+        command =
+          "dbus-send --type=method_call --dest=org.gnome.ScreenSaver /org/gnome/ScreenSaver org.gnome.ScreenSaver.Lock";
+        binding = "<Ctrl>l";
       };
   };
 }
