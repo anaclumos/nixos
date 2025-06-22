@@ -48,6 +48,8 @@
     # GNOME
     gnomeExtensions.gtk4-desktop-icons-ng-ding
     gnomeExtensions.clipboard-history
+    gnomeExtensions.auto-power-profile
+    gnomeExtensions.appindicator
     refine
 
     # Window Controls
