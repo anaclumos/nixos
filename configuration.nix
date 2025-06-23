@@ -117,7 +117,7 @@
     zsh
     cacert
     uv
-    kakaotalk.packages.${pkgs.system}.default
+    kakaotalk.packages.${system}.kakaotalk
   ];
 
   environment.variables = {
