@@ -46,9 +46,6 @@
   services.displayManager.gdm.enable = true;
   services.desktopManager.gnome.enable = true;
 
-  # Hyprland
-  programs.hyprland.enable = true;
-
   services.tailscale.enable = true;
 
   environment.gnome.excludePackages = with pkgs; [
