@@ -16,6 +16,8 @@
         "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom9/"
         "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom10/"
         "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom11/"
+        "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom12/"
+        "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom13/"
       ];
     };
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" =
@@ -95,6 +97,18 @@
         command =
           "dbus-send --type=method_call --dest=org.gnome.ScreenSaver /org/gnome/ScreenSaver org.gnome.ScreenSaver.Lock";
         binding = "<Ctrl>l";
+      };
+    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom12" =
+      {
+        name = "Switch ▶ English (US)";
+        command = "ibus engine xkb:us::eng";
+        binding = "F18";
+      };
+    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom13" =
+      {
+        name = "Switch ▶ Korean (Hangul)";
+        command = "ibus engine hangul";
+        binding = "F19";
       };
   };
 }

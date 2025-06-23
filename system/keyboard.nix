@@ -12,8 +12,8 @@
           # Map Caps Lock to Hyper Key (Ctrl+Alt+Shift+Super)
           capslock = overload(hyper, M-up)
 
-          leftalt = layer(mac_command)
-          rightalt = rightcontrol
+          leftalt  = overload(layer(mac_command), f18)
+          rightalt = overload(rightcontrol,      f19)
 
           leftmeta = layer(mac_alt)
           rightmeta = layer(mac_alt)
