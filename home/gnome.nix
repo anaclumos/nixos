@@ -64,4 +64,9 @@
     "org/gnome/shell/extensions/user-theme" = { name = "custom-compact"; };
   };
 
+  dconf.settings."org/gnome/desktop/input-sources" = {
+    sources = "[('xkb','us'), ('ibus','hangul')]";
+    mru-sources = "[('xkb','us'), ('ibus','hangul')]";
+    per-window = false;
+  };
 }
