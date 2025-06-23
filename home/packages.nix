@@ -58,19 +58,6 @@
     xdotool
     keyd
 
-    # Hyprland
-    hyprland
-    hyprpaper
-    hyprpicker
-    waybar
-    wofi
-    dunst
-    swaylock
-    swayidle
-    wl-clipboard
-    grim
-    slurp
-
     # Fonts
     pretendard
 
