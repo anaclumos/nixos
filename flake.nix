@@ -8,7 +8,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-flatpak.url = "github:gmodena/nix-flatpak";
-    kakaotalk.url = "github:anaclumos/kakaotalk.nix";
+    kakaotalk.url = "/home/sunghyun/Desktop/nix/kakaotalk.nix";
   };
 
   outputs =
