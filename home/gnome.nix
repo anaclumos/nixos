@@ -65,8 +65,9 @@
   };
 
   dconf.settings."org/gnome/desktop/input-sources" = {
-    sources = "[('xkb','us'), ('ibus','hangul')]";
-    mru-sources = "[('xkb','us'), ('ibus','hangul')]";
+    sources = "[('ibus','hangul'), ('xkb','us')]";
+    mru-sources = "[('ibus','hangul'), ('xkb','us')]";
     per-window = false;
   };
+
 }
