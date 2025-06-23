@@ -16,11 +16,6 @@
   home.homeDirectory = "/home/sunghyun";
   home.stateVersion = "25.05";
 
-  services.flatpak = {
-    enable = true;
-    packages = [ "com.usebottles.bottles" "app.zen_browser.zen" ];
-  };
-
   # Bluetooth headset media controls
   services.mpris-proxy.enable = true;
 }
