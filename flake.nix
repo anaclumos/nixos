@@ -7,33 +7,28 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nix-flatpak.url = "github:gmodena/nix-flatpak";
     kakaotalk.url = "/home/sunghyun/Desktop/nix/kakaotalk.nix";
   };
 
-  outputs =
-    { self, nixpkgs, home-manager, nix-flatpak, kakaotalk, ... }@inputs: {
-      nixosConfigurations = {
-        cho = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          specialArgs = { inherit kakaotalk; };
-          modules = [
-            { nixpkgs.config.allowUnfree = true; }
-            ./configuration.nix
-            nix-flatpak.nixosModules.nix-flatpak
-            home-manager.nixosModules.home-manager
-            {
-              home-manager.useUserPackages = true;
-              home-manager.backupFileExtension = "backup";
-              home-manager.users.sunghyun = import ./home;
-              home-manager.extraSpecialArgs = { inherit inputs; };
-              home-manager.sharedModules = [
-                { nixpkgs.config.allowUnfree = true; }
-                nix-flatpak.homeManagerModules.nix-flatpak
-              ];
-            }
-          ];
-        };
+  outputs = { self, nixpkgs, home-manager, kakaotalk, ... }@inputs: {
+    nixosConfigurations = {
+      cho = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = { inherit kakaotalk; };
+        modules = [
+          { nixpkgs.config.allowUnfree = true; }
+          ./configuration.nix
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useUserPackages = true;
+            home-manager.backupFileExtension = "backup";
+            home-manager.users.sunghyun = import ./home;
+            home-manager.extraSpecialArgs = { inherit inputs; };
+            home-manager.sharedModules =
+              [{ nixpkgs.config.allowUnfree = true; }];
+          }
+        ];
       };
     };
+  };
 }

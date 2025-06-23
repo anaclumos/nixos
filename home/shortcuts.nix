@@ -59,7 +59,7 @@
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom6" =
       {
         name = "Launch or Focus KakaoTalk";
-        command = "bash -c 'wmctrl -a 카카오톡 || kakaotalk && wmctrl -a 카카오톡'";
+        command = "bash -c 'wmctrl -x -a KakaoTalk || kakaotalk && wmctrl -x -a KakaoTalk'";
         binding = "<Ctrl><Alt><Super><Shift>m";
       };
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom7" =

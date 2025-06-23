@@ -44,29 +44,14 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1750659328,
-        "narHash": "sha256-7obEgbMolnUHjxSE/9aySdVrVqiM8dPPCibWLlva3X0=",
+        "lastModified": 1750663978,
+        "narHash": "sha256-Js0hryg3enenHNHzhwXOzN4fy9AyhD9qpGbkVQsu9rs=",
         "path": "/home/sunghyun/Desktop/nix/kakaotalk.nix",
         "type": "path"
       },
       "original": {
         "path": "/home/sunghyun/Desktop/nix/kakaotalk.nix",
         "type": "path"
-      }
-    },
-    "nix-flatpak": {
-      "locked": {
-        "lastModified": 1749394952,
-        "narHash": "sha256-WbWkzIvB0gqAdBLghdmUpGveY7MlAS2iMj3VEJnJ9yE=",
-        "owner": "gmodena",
-        "repo": "nix-flatpak",
-        "rev": "64c6e53a3999957c19ab95cda78bde466d8374cc",
-        "type": "github"
-      },
-      "original": {
-        "owner": "gmodena",
-        "repo": "nix-flatpak",
-        "type": "github"
       }
     },
     "nixpkgs": {
@@ -105,7 +90,6 @@
       "inputs": {
         "home-manager": "home-manager",
         "kakaotalk": "kakaotalk",
-        "nix-flatpak": "nix-flatpak",
         "nixpkgs": "nixpkgs_2"
       }
     },
