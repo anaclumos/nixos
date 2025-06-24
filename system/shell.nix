@@ -33,6 +33,7 @@
       cc = "cursor .";
       sha =
         "git push && echo Done in $(git rev-parse HEAD) | xclip -selection clipboard";
+      hn = "sh ~/Desktop/tools/hn/hn.sh";
     };
   };
 }

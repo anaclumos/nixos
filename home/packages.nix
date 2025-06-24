@@ -38,6 +38,7 @@
     caffeine-ng
     libreoffice
     zoom-us
+    beeper
 
     # System Tools
     xclip
