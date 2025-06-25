@@ -13,7 +13,6 @@
         plugins = [ "git" "docker" "npm" ];
       };
       initContent = ''
-        # Run Fastfetch on terminal start
         ${pkgs.fastfetch}/bin/fastfetch
       '';
     };
