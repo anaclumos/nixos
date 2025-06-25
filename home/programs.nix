@@ -13,7 +13,7 @@
         plugins = [ "git" "docker" "npm" ];
       };
       initContent = ''
-        ${pkgs.fastfetch}/bin/fastfetch
+        ${pkgs.fastfetch}/bin/fastfetch --structure Title:OS:Kernel:DE:WM:Host:CPU:GPU:Memory:Disk
       '';
     };
 

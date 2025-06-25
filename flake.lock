@@ -27,8 +27,8 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1750816371,
-        "narHash": "sha256-GyUxYX2W2IJXHBelQOxSTdcuSQBsMhN9/Iqqg7kiJkg=",
+        "lastModified": 1750837084,
+        "narHash": "sha256-Mt6s5xCgypKjYPRZXZudJ9XnMyItllJbCGengpQ5RYo=",
         "path": "/home/sunghyun/Desktop/nix/kakaotalk.nix",
         "type": "path"
       },
