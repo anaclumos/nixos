@@ -7,18 +7,12 @@
       default = {
         ids = [ "*" ];
         extraConfig = ''
-          # Use Alt as "command" key and Super/Windows as "alt" key
           [main]
-          # Map Caps Lock to Hyper Key (Ctrl+Alt+Shift+Super)
           capslock = overload(hyper, M-up)
-
-
           leftalt = layer(mac_command)
           rightalt = rightcontrol
-
           leftmeta = layer(mac_alt)
           rightmeta = layer(mac_alt)
-
           leftcontrol = layer(mac_control)
           rightcontrol = layer(mac_control)
 
@@ -33,6 +27,9 @@
           up = pageup
           right = end
           down = pagedown
+
+          [mac_command+shift]
+          c = C-S-c
 
           [app_switch_state:A]
           backspace = C-backspace

@@ -16,6 +16,7 @@
         "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom9/"
         "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom10/"
         "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom11/"
+        "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom12/"
       ];
     };
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" =
@@ -96,6 +97,13 @@
         command =
           "dbus-send --type=method_call --dest=org.gnome.ScreenSaver /org/gnome/ScreenSaver org.gnome.ScreenSaver.Lock";
         binding = "<Ctrl>l";
+      };
+
+    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom12" =
+      {
+        name = "1Password Quick Access";
+        command = "1password --quick-access";
+        binding = "<Ctrl><Shift>space";
       };
   };
 }

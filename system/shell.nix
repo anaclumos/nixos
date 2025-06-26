@@ -28,7 +28,7 @@
       ed = "expressvpn disconnect";
       x = "exit";
       oo = "hub browse";
-      zz = "cursor ~/Desktop/nix/os";
+      zz = "cursor ~/Desktop/nix";
       ss = "source ~/.zshrc";
       cc = "cursor .";
       sha =
