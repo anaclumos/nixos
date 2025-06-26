@@ -27,8 +27,8 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1750839687,
-        "narHash": "sha256-yHtgXVkozfWYMc9P3T0WEndA4neR1G39ltULg+7w/nE=",
+        "lastModified": 1750916113,
+        "narHash": "sha256-TfhkOUkzOS/Inpp6o1D47Aqe+00/Xi9+wUu8FhveAZw=",
         "path": "/home/sunghyun/Desktop/nix/kakaotalk.nix",
         "type": "path"
       },
@@ -77,11 +77,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1750506804,
-        "narHash": "sha256-VLFNc4egNjovYVxDGyBYTrvVCgDYgENp5bVi9fPTDYc=",
+        "lastModified": 1750741721,
+        "narHash": "sha256-Z0djmTa1YmnGMfE9jEe05oO4zggjDmxOGKwt844bUhE=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "4206c4cb56751df534751b058295ea61357bbbaa",
+        "rev": "4b1164c3215f018c4442463a27689d973cffd750",
         "type": "github"
       },
       "original": {
