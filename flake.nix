@@ -11,24 +11,23 @@
   };
 
   outputs = { self, nixpkgs, home-manager, kakaotalk, ... }@inputs: {
-    nixosConfigurations = {
-      cho = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = { inherit kakaotalk; };
-        modules = [
-          { nixpkgs.config.allowUnfree = true; }
-          ./configuration.nix
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useUserPackages = true;
-            home-manager.backupFileExtension = "backup";
-            home-manager.users.sunghyun = import ./home;
-            home-manager.extraSpecialArgs = { inherit inputs; };
-            home-manager.sharedModules =
-              [{ nixpkgs.config.allowUnfree = true; }];
-          }
-        ];
+      nixosConfigurations = {
+        cho = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = [
+            { nixpkgs.config.allowUnfree = true; }
+            ./configuration.nix
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useUserPackages = true;
+              home-manager.backupFileExtension = "backup";
+              home-manager.users.sunghyun = import ./home;
+              home-manager.extraSpecialArgs = { inherit inputs; };
+              home-manager.sharedModules =
+                [{ nixpkgs.config.allowUnfree = true; }];
+            }
+          ];
+        };
       };
     };
-  };
 }

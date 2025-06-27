@@ -101,6 +101,16 @@
           </edit>
         </match>
 
+        <!-- Replace AppleSDGothicNeo with Pretendard -->
+        <match target="pattern">
+          <test qual="any" name="family">
+            <string>AppleSDGothicNeo</string>
+          </test>
+          <edit name="family" mode="assign" binding="same">
+            <string>Pretendard</string>
+          </edit>
+        </match>
+
         <!-- Replace Noto Sans TC with Pretendard -->
         <match target="pattern">
           <test qual="any" name="family">
