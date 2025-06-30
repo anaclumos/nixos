@@ -26,6 +26,10 @@
       zip
       act
 
+      ## Games
+      dolphin-emu
+      bottles
+
       # Applications
       slack
       obsidian
@@ -40,6 +44,7 @@
       libreoffice
       zoom-us
       beeper
+      pngcrush
 
       # System Tools
       xclip
