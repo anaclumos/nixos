@@ -70,5 +70,10 @@
 
       # Icons
       hicolor-icon-theme
-    ] ++ [ inputs.kakaotalk.packages.x86_64-linux.kakaotalk ];
+    ] ++ [
+      inputs.kakaotalk.packages.x86_64-linux.kakaotalk
+      inputs.affinity-nix.packages.x86_64-linux.photo
+      inputs.affinity-nix.packages.x86_64-linux.publisher
+      inputs.affinity-nix.packages.x86_64-linux.designer
+    ];
 }

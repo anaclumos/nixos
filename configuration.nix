@@ -16,10 +16,7 @@
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.kernelPackages = pkgs.linuxPackages_latest;
 
-  services.fwupd.enable = true;
-  services.fprintd.enable = true;
   services.expressvpn.enable = true;
 
   # Docker
