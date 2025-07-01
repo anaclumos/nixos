@@ -160,7 +160,7 @@
         "nixpkgs": "nixpkgs_4"
       },
       "locked": {
-        "lastModified": 1751349585,
+        "lastModified": 1751351684,
         "narHash": "sha256-hJy/7EbZNNaTljm2QzGxO4kOS2ZnLINvvAzLLSaeWZ8=",
         "path": "/home/sunghyun/Desktop/nix/kakaotalk.nix",
         "type": "path"
