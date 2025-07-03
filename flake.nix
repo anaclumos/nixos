@@ -9,11 +9,10 @@
     };
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     kakaotalk.url = "/home/sunghyun/Desktop/nix/kakaotalk.nix";
-    affinity-nix.url = "github:mrshmllow/affinity-nix";
   };
 
-  outputs = { self, nixpkgs, home-manager, nixos-hardware, kakaotalk
-    , affinity-nix, ... }@inputs: {
+  outputs =
+    { self, nixpkgs, home-manager, nixos-hardware, kakaotalk, ... }@inputs: {
       nixosConfigurations = {
         cho = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
