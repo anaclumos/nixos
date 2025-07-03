@@ -1,11 +1,16 @@
 { config, lib, pkgs, ... }:
 
-{
-  fonts.packages = with pkgs; [ pretendard ];
+let
+  berkeleyMono =
+    pkgs.callPackage ../../fonts/berkeley-mono/berkeley-mono.nix { };
+in {
+  fonts.packages = with pkgs; [ pretendard berkeleyMono ];
+  fonts.fontDir.enable = true;
   fonts.fontconfig = {
     defaultFonts = {
       sansSerif = [ "Pretendard" ];
       serif = [ "Pretendard" ];
+      monospace = [ "Berkeley Mono" ];
     };
     localConf = ''
       <?xml version="1.0"?>

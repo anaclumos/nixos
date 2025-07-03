@@ -7,7 +7,7 @@
   imports = [
     ./hardware-configuration.nix
     ./system/keyboard.nix
-    ./system/font.nix
+    ./system/fonts/default.nix
     ./system/shell.nix
     ./system/1password.nix
     ./system/git.nix
