@@ -17,6 +17,7 @@
         "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom10/"
         "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom11/"
         "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom12/"
+        "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom13/"
       ];
     };
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" =
@@ -104,6 +105,14 @@
         name = "1Password Quick Access";
         command = "1password --quick-access";
         binding = "<Ctrl><Shift>space";
+      };
+
+    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom13" =
+      {
+        name = "Toggle Dark Mode";
+        command =
+          "bash -c 'current=$(gsettings get org.gnome.desktop.interface color-scheme); if [[ \"$current\" == \"'\"'\"'prefer-dark'\"'\"'\" ]]; then gsettings set org.gnome.desktop.interface color-scheme '\"'\"'default'\"'\"'; else gsettings set org.gnome.desktop.interface color-scheme '\"'\"'prefer-dark'\"'\"'; fi'";
+        binding = "<Ctrl><Alt><Super><Shift>grave";
       };
   };
 }

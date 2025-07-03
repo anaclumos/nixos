@@ -25,6 +25,10 @@
       unzip
       zip
       act
+      sqlitebrowser
+      gimp
+      sublime
+      postgresql
 
       ## Games
       dolphin-emu
@@ -45,6 +49,9 @@
       zoom-us
       beeper
       pngcrush
+      imagemagick
+      pngquant
+      gimp
 
       # System Tools
       xclip
@@ -67,13 +74,5 @@
 
       # Fonts
       pretendard
-
-      # Icons
-      hicolor-icon-theme
-    ] ++ [
-      inputs.kakaotalk.packages.x86_64-linux.kakaotalk
-      inputs.affinity-nix.packages.x86_64-linux.photo
-      inputs.affinity-nix.packages.x86_64-linux.publisher
-      inputs.affinity-nix.packages.x86_64-linux.designer
-    ];
+    ] ++ [ inputs.kakaotalk.packages.x86_64-linux.kakaotalk ];
 }
