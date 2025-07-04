@@ -12,7 +12,7 @@
   };
 
   outputs =
-  { self, nixpkgs, home-manager, nixos-hardware, kakaotalk, ... }@inputs: {
+    { self, nixpkgs, home-manager, nixos-hardware, kakaotalk, ... }@inputs: {
       nixosConfigurations = {
         cho = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
