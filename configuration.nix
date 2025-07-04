@@ -17,6 +17,15 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  # Track the latest Linux kernel release for improved hardware support
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+
+  # Enable fingerprint reader support
+  services.fprintd.enable = true;
+
+  # Enable firmware updates
+  services.fwupd.enable = true;
+
   services.expressvpn.enable = true;
 
   # Docker
