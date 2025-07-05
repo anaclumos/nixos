@@ -12,7 +12,6 @@
     ./system/1password.nix
     ./dev/git.nix
     ./dev/lunit.nix
-    ./dev/postgres.nix
     ./dev/docker.nix
   ];
 
