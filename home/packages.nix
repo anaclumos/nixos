@@ -25,7 +25,6 @@
       act
       sqlitebrowser
       gimp
-      postgresql
 
       ## Games
       dolphin-emu
