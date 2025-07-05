@@ -27,8 +27,8 @@
       act
       sqlitebrowser
       gimp
-      sublime
       postgresql
+      moon
 
       ## Games
       dolphin-emu
