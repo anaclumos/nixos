@@ -63,9 +63,9 @@
     # simple-scan # document scanner
     # totem # video player
     yelp # help viewer
-    evince # document viewer
+    # evince # document viewer
     # file-roller # archive manager
-    geary # email client
+    # geary # email client
     seahorse # password manager
     # gnome-calculator
     # gnome-calendar
@@ -79,7 +79,7 @@
     gnome-photos
     # gnome-screenshot
     # gnome-system-monitor
-    gnome-weather
+    # gnome-weather
     # gnome-disk-utility
     pkgs.gnome-connections
     gnome-tour
