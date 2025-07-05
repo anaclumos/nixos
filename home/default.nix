@@ -4,6 +4,7 @@
   imports = [
     (import ./programs.nix { inherit config pkgs inputs; })
     (import ./packages.nix { inherit config pkgs inputs; })
+    (import ./phoenix.nix { inherit config pkgs inputs; })
     ./shortcuts.nix
     ./locale.nix
     ./icons.nix
