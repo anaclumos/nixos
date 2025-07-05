@@ -4,7 +4,6 @@
   home.packages = with pkgs;
     [
       # Development Tools
-      asdf-vm
       nodejs
       nodePackages.pnpm
       nodePackages.vercel
@@ -12,7 +11,6 @@
       nixfmt-classic
       claude-code
       code-cursor
-      vscode
       gitAndTools.hub
       google-cloud-sdk
       gh
@@ -28,7 +26,6 @@
       sqlitebrowser
       gimp
       postgresql
-      moon
 
       ## Games
       dolphin-emu
