@@ -9,7 +9,6 @@
     ./locale.nix
     ./icons.nix
     ./time.nix
-    ./gnome.nix
   ];
 
   dconf.enable = true;

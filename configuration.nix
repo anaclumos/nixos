@@ -10,8 +10,10 @@
     ./system/fonts/default.nix
     ./system/shell.nix
     ./system/1password.nix
-    ./system/git.nix
-    ./system/lunit.nix
+    ./dev/git.nix
+    ./dev/lunit.nix
+    ./dev/postgres.nix
+    ./dev/docker.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
@@ -27,12 +29,6 @@
   services.fwupd.enable = true;
 
   services.expressvpn.enable = true;
-
-  # Docker
-  virtualisation.docker.enable = true;
-
-  # Add user to docker group
-  users.users.sunghyun.extraGroups = [ "docker" ];
 
   networking.hostName = "cho";
   networking.networkmanager.enable = true;
