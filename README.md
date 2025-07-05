@@ -13,7 +13,7 @@
 - Hyper Key combined with several alphabets are mapped to opening or focusing windows.
 - For example, Hyper + J opens or focuses Chrome.
 
-## Language Switching inspired from Kana Keys
+## Language Switching inspired from Kana Keys (Not Implemented Yet)
 
 - Left Command clicked alone always switches to English.
 - Right Alt clicked alone always switches to Korean.
