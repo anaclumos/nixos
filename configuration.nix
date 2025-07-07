@@ -116,6 +116,7 @@
   environment.variables = {
     SSL_CERT_FILE = "${pkgs.cacert}/etc/ssl/certs/ca-bundle.crt";
     NIX_SSL_CERT_FILE = "${pkgs.cacert}/etc/ssl/certs/ca-bundle.crt";
+    MOZ_ENABLE_WAYLAND = "0";
   };
 
   system.stateVersion = "25.05";
