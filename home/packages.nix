@@ -48,6 +48,7 @@
       imagemagick
       pngquant
       gimp
+      thunderbird
 
       # System Tools
       xclip
