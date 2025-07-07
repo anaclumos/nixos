@@ -23,7 +23,7 @@
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" =
       {
         name = "Launch or Focus Zen";
-        command = "bash -c 'wmctrl -x -a Navigator.zen || zen'";
+        command = "bash -c 'wmctrl -x -a Navigator.zen || zen && wmctrl -x -a Navigator.zen'";
         binding = "<Ctrl><Alt><Super><Shift>j";
       };
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" =
