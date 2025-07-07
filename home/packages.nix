@@ -61,6 +61,7 @@
       gnomeExtensions.auto-power-profile
       gnomeExtensions.appindicator
       gnomeExtensions.user-themes
+      gnomeExtensions.run-or-raise
       refine
 
       # Window Controls
@@ -70,5 +71,8 @@
 
       # Fonts
       pretendard
-    ] ++ [ inputs.kakaotalk.packages.x86_64-linux.kakaotalk ];
+    ] ++ [
+      inputs.kakaotalk.packages.x86_64-linux.kakaotalk
+      inputs.zen-browser.packages.x86_64-linux.default
+    ];
 }

@@ -9,10 +9,11 @@
     };
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     kakaotalk.url = "/home/sunghyun/Desktop/nix/kakaotalk.nix";
+    zen-browser.url = "github:0xc000022070/zen-browser-flake";
   };
 
-  outputs =
-    { self, nixpkgs, home-manager, nixos-hardware, kakaotalk, ... }@inputs: {
+  outputs = { self, nixpkgs, home-manager, nixos-hardware, kakaotalk
+    , zen-browser, ... }@inputs: {
       nixosConfigurations = {
         cho = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
