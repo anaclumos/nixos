@@ -16,12 +16,7 @@ in {
   environment.etc = {
     "1password/custom_allowed_browsers" = {
       text = ''
-        chrome
-        chromium
-        firefox
-        brave
-        vivaldi-bin
-        google-chrome
+        .zen-wrapped
       '';
       mode = "0755";
     };
