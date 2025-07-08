@@ -38,8 +38,8 @@
     defaultLocale = "en_US.UTF-8";
     inputMethod = {
       enable = true;
-      type = "ibus";
-      ibus.engines = with pkgs.ibus-engines; [ hangul ];
+      type = "fcitx5";
+      fcitx5.addons = with pkgs; [ fcitx5-hangul ];
     };
   };
 
