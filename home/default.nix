@@ -9,6 +9,7 @@
     ./locale.nix
     ./icons.nix
     ./time.nix
+    ./fcitx5.nix
   ];
 
   dconf.enable = true;

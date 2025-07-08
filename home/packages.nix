@@ -62,7 +62,7 @@
       gnomeExtensions.auto-power-profile
       gnomeExtensions.appindicator
       gnomeExtensions.user-themes
-      gnomeExtensions.run-or-raise
+      gnomeExtensions.kimpanel
       refine
 
       # Window Controls
