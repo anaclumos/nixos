@@ -11,8 +11,8 @@
     kakaotalk.url = "github:anaclumos/kakaotalk.nix";
   };
 
-  outputs = { self, nixpkgs, home-manager, nixos-hardware, kakaotalk
-    , ... }@inputs: {
+  outputs =
+    { self, nixpkgs, home-manager, nixos-hardware, kakaotalk, ... }@inputs: {
       nixosConfigurations = {
         cho = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";

@@ -73,7 +73,5 @@
 
       # Fonts
       pretendard
-    ] ++ [
-      inputs.kakaotalk.packages.x86_64-linux.kakaotalk
-    ];
+    ] ++ [ inputs.kakaotalk.packages.x86_64-linux.kakaotalk ];
 }
