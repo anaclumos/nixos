@@ -22,9 +22,9 @@
     };
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" =
       {
-        name = "Launch or Focus Zen";
+        name = "Launch or Focus Chrome";
         command =
-          "bash -c 'wmctrl -x -a Navigator.zen || zen && wmctrl -x -a Navigator.zen'";
+          "bash -c 'wmctrl -x -a google-chrome.Google-chrome || google-chrome-stable'";
         binding = "<Ctrl><Alt><Super><Shift>j";
       };
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" =

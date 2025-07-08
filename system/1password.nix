@@ -16,6 +16,9 @@ in {
   environment.etc = {
     "1password/custom_allowed_browsers" = {
       text = ''
+        google-chrome
+        google-chrome-stable
+        .google-chrome-wrapped
         .zen-wrapped
         zen
       '';

@@ -75,6 +75,5 @@
       pretendard
     ] ++ [
       inputs.kakaotalk.packages.x86_64-linux.kakaotalk
-      inputs.zen-browser.packages.x86_64-linux.default
     ];
 }
