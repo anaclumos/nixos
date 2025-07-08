@@ -34,6 +34,7 @@
       slack
       obsidian
       google-chrome
+      firefox
       youtube-music
       _1password-gui
       _1password-cli
