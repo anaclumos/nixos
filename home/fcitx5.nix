@@ -78,4 +78,9 @@
       AutoSavePeriod=30
     '';
   };
+
+  xdg.configFile."fcitx5/addon/x11frontend.conf".text = ''
+    [Addon]
+    Enabled=True
+  '';
 }
