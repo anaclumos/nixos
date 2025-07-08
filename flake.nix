@@ -23,7 +23,6 @@
             home-manager.nixosModules.home-manager
             {
               home-manager.useUserPackages = true;
-              home-manager.backupFileExtension = "backup";
               home-manager.users.sunghyun = import ./home;
               home-manager.extraSpecialArgs = { inherit inputs; };
               home-manager.sharedModules =
