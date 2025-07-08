@@ -26,7 +26,7 @@
       sqlitebrowser
       gimp
 
-      ## Games
+      # Games
       dolphin-emu
       bottles
 
