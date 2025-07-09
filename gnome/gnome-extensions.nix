@@ -9,3 +9,4 @@
     user-themes
     kimpanel
   ];
+}
