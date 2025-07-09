@@ -8,7 +8,7 @@
   services.xserver.desktopManager.pantheon.enable = true;
 
   # Add Pantheon tweaks app and additional elementary packages
-  environment.systemPackages = with pkgs; [ 
+  environment.systemPackages = with pkgs; [
     pantheon-tweaks
     pantheon.elementary-greeter
     pantheon.elementary-session-settings
