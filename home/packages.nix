@@ -57,13 +57,7 @@
       adguardhome
       zsh-autosuggestions
 
-      # GNOME
-      gnomeExtensions.gtk4-desktop-icons-ng-ding
-      gnomeExtensions.clipboard-history
-      gnomeExtensions.auto-power-profile
-      gnomeExtensions.appindicator
-      gnomeExtensions.user-themes
-      gnomeExtensions.kimpanel
+      # GNOME tools
       refine
 
       # Window Controls

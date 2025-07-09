@@ -5,10 +5,10 @@
     (import ./programs.nix { inherit config pkgs inputs; })
     (import ./packages.nix { inherit config pkgs inputs; })
     (import ./phoenix.nix { inherit config pkgs inputs; })
-    ./shortcuts.nix
+    ../gnome/gnome-extensions.nix
+    ../gnome/gnome-shortcuts.nix
+    ../gnome/gnome-appearance.nix
     ./locale.nix
-    ./icons.nix
-    ./time.nix
     ./fcitx5.nix
   ];
 
