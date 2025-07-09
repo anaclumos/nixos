@@ -7,8 +7,13 @@
   services.xserver.displayManager.lightdm.greeters.pantheon.enable = true;
   services.xserver.desktopManager.pantheon.enable = true;
 
-  # Enable Pantheon apps
-  programs.pantheon-tweaks.enable = true;
+  # Add Pantheon tweaks app and additional elementary packages
+  environment.systemPackages = with pkgs; [ 
+    pantheon-tweaks
+    pantheon.elementary-greeter
+    pantheon.elementary-session-settings
+    pantheon.elementary-default-settings
+  ];
 
   # Exclude some default Pantheon apps if needed
   environment.pantheon.excludePackages = with pkgs.pantheon;
@@ -17,7 +22,4 @@
       # elementary-photos
       # elementary-videos
     ];
-
-  # Enable contractor for context menu actions
-  services.contractor.enable = true;
 }
