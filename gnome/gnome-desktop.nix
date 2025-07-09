@@ -14,5 +14,9 @@
     gnome-connections
     gnome-tour
     xterm
-  ]) ++ (with pkgs; [ gnome-contacts gnome-maps gnome-music gnome-photos ]);
+    gnome-contacts
+    gnome-maps
+    gnome-music
+    gnome-photos
+  ]);
 }
