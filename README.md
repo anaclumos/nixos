@@ -17,3 +17,9 @@
 
 - Left Command clicked alone always switches to English.
 - Right Alt clicked alone always switches to Korean.
+
+---
+
+Things to do
+
+- Use Spot Style in FCITX5
