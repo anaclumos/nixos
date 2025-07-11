@@ -8,7 +8,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-    kakaotalk.url = "/home/sunghyun/Desktop/nix/kakaotalk.nix";
+    kakaotalk.url = "github:anaclumos/kakaotalk.nix";
   };
 
   outputs =
