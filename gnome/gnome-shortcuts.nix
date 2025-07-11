@@ -67,13 +67,13 @@
       };
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom7" =
       {
-        name = "Open Notion Calendar";
+        name = "Open Calendar";
         command = "bash -c 'wmctrl -x -a Mail.thunderbird || thunderbird'";
         binding = "<Ctrl><Alt><Super><Shift>l";
       };
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom8" =
       {
-        name = "Open Notion Mail";
+        name = "Open Mail";
         command = "bash -c 'wmctrl -x -a Mail.thunderbird || thunderbird'";
         binding = "<Ctrl><Alt><Super><Shift>h";
       };

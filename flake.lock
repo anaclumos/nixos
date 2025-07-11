@@ -7,11 +7,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1751990210,
-        "narHash": "sha256-krWErNDl9ggMLSfK00Q2BcoSk3+IRTSON/DiDgUzzMw=",
+        "lastModified": 1752202894,
+        "narHash": "sha256-knafgng4gCjZIUMyAEWjxxdols6n/swkYnbWr+oF+1w=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "218da00bfa73f2a61682417efe74549416c16ba6",
+        "rev": "fab659b346c0d4252208434c3c4b3983a4b38fec",
         "type": "github"
       },
       "original": {
@@ -27,17 +27,14 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1751309068,
-        "narHash": "sha256-GkXgVq/WLAHUipaTVy1IOZ3vxNczOSDa60K1hLSSYbw=",
-        "owner": "anaclumos",
-        "repo": "kakaotalk.nix",
-        "rev": "bbbf71c6ded0bb79acba32b6ffcc60c57653f6ed",
-        "type": "github"
+        "lastModified": 1752210022,
+        "narHash": "sha256-uWhM5pNwST7c6fVsjg9sCdQEi4tF/Zq49ylGguAnEGM=",
+        "path": "/home/sunghyun/Desktop/nix/kakaotalk.nix",
+        "type": "path"
       },
       "original": {
-        "owner": "anaclumos",
-        "repo": "kakaotalk.nix",
-        "type": "github"
+        "path": "/home/sunghyun/Desktop/nix/kakaotalk.nix",
+        "type": "path"
       }
     },
     "kakaotalk-exe": {
@@ -66,11 +63,11 @@
     },
     "nixos-hardware": {
       "locked": {
-        "lastModified": 1751432711,
-        "narHash": "sha256-136MeWtckSHTN9Z2WRNRdZ8oRP3vyx3L8UxeBYE+J9w=",
+        "lastModified": 1752048960,
+        "narHash": "sha256-gATnkOe37eeVwKKYCsL+OnS2gU4MmLuZFzzWCtaKLI8=",
         "owner": "NixOS",
         "repo": "nixos-hardware",
-        "rev": "497ae1357f1ac97f1aea31a4cb74ad0d534ef41f",
+        "rev": "7ced9122cff2163c6a0212b8d1ec8c33a1660806",
         "type": "github"
       },
       "original": {
@@ -96,11 +93,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1751792365,
-        "narHash": "sha256-J1kI6oAj25IG4EdVlg2hQz8NZTBNYvIS0l4wpr9KcUo=",
+        "lastModified": 1751984180,
+        "narHash": "sha256-LwWRsENAZJKUdD3SpLluwDmdXY9F45ZEgCb0X+xgOL0=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "1fd8bada0b6117e6c7eb54aad5813023eed37ccb",
+        "rev": "9807714d6944a957c2e036f84b0ff8caf9930bc0",
         "type": "github"
       },
       "original": {

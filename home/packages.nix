@@ -25,6 +25,7 @@
       act
       sqlitebrowser
       gimp
+      terraform
 
       # Games
       dolphin-emu
