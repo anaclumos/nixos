@@ -48,7 +48,7 @@
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4" =
       {
         name = "Launch or Focus Slack";
-        command = "bash -c 'wmctrl -x -a slack.Slack || slack'";
+        command = "bash -c 'slack'";
         binding = "<Ctrl><Alt><Super><Shift>n";
       };
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom5" =
@@ -68,13 +68,15 @@
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom7" =
       {
         name = "Open Calendar";
-        command = "bash -c 'wmctrl -x -a Mail.thunderbird || thunderbird'";
+        command =
+          "bash -c 'thunderbird --calendar && wmctrl -x -a Mail.thunderbird'";
         binding = "<Ctrl><Alt><Super><Shift>l";
       };
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom8" =
       {
         name = "Open Mail";
-        command = "bash -c 'wmctrl -x -a Mail.thunderbird || thunderbird'";
+        command =
+          "bash -c 'thunderbird --mail && wmctrl -x -a Mail.thunderbird'";
         binding = "<Ctrl><Alt><Super><Shift>h";
       };
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom9" =
