@@ -24,7 +24,6 @@
       zip
       act
       sqlitebrowser
-      gimp
       terraform
 
       # Games
@@ -49,7 +48,6 @@
       pngcrush
       imagemagick
       pngquant
-      gimp
       thunderbird
 
       # System Tools
