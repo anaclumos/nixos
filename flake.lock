@@ -27,17 +27,14 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1752567625,
-        "narHash": "sha256-NJhMf8Wy6nVuV81y/r0H7Kcz6pjRkX2uqp6+zAMLDaQ=",
-        "owner": "anaclumos",
-        "repo": "kakaotalk.nix",
-        "rev": "5a85d92420568dd268f662cee6417b67827dadb0",
-        "type": "github"
+        "lastModified": 1752569248,
+        "narHash": "sha256-YKfRtLOB/S1VzS9QMCEE1JF8fHDy5Co/g/NDkb3CaV8=",
+        "path": "/home/sunghyun/Desktop/nix/kakaotalk.nix",
+        "type": "path"
       },
       "original": {
-        "owner": "anaclumos",
-        "repo": "kakaotalk.nix",
-        "type": "github"
+        "path": "/home/sunghyun/Desktop/nix/kakaotalk.nix",
+        "type": "path"
       }
     },
     "kakaotalk-exe": {
