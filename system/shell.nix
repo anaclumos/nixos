@@ -20,7 +20,7 @@
 
     shellAliases = {
       rebuild =
-        "cd ~/Desktop/nix/os && nixfmt **/*.nix && nix-channel --update && nix --extra-experimental-features 'nix-command flakes' flake update && sudo NIXPKGS_ALLOW_UNFREE=1 nixos-rebuild switch --flake .#cho --impure";
+        "cd ~/Desktop/nix/os && nix-collect-garbage && nixfmt **/*.nix && nix-channel --update && nix --extra-experimental-features 'nix-command flakes' flake update && sudo NIXPKGS_ALLOW_UNFREE=1 nixos-rebuild switch --flake .#cho --impure";
       nixgit = ''git commit -m "$(date +"%Y-%m-%d")" -a && git push'';
       qq = "cd ~/Desktop/extracranial";
       qqqq = "cd ~/Desktop/extracranial && bun run save && gp && exit";
