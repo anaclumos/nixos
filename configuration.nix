@@ -14,7 +14,6 @@
     ./dev/git.nix
     ./dev/lunit.nix
     ./dev/docker.nix
-    ./dev/playwright.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
