@@ -71,6 +71,19 @@
 
   services.printing.enable = true;
 
+  # Graphics configuration for Steam and games
+  hardware.graphics.enable = true;
+  hardware.graphics.enable32Bit = true;
+
+  # Enable Steam
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall =
+      true; # Open ports in the firewall for Steam Remote Play
+    dedicatedServer.openFirewall =
+      true; # Open ports in the firewall for Source Dedicated Server
+  };
+
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   programs.nix-ld.enable = true;
