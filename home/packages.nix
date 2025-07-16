@@ -15,6 +15,7 @@
       google-cloud-sdk
       gh
       ollama
+      azure-cli
       xclip
       scc
       ffmpeg-full
@@ -29,6 +30,7 @@
       # Games
       dolphin-emu
       bottles
+      lutris
 
       # Applications
       slack
