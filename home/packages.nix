@@ -26,6 +26,8 @@
       act
       sqlitebrowser
       terraform
+      biome
+      vscode-extensions.biomejs.biome
 
       # Games
       dolphin-emu
