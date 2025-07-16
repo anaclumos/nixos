@@ -175,6 +175,30 @@ in {
             <string>Pretendard</string>
           </edit>
         </match>
+        <match target="pattern">
+          <test qual="any" name="family">
+            <string>맑은 고딕</string>
+          </test>
+          <edit name="family" mode="assign" binding="same">
+            <string>Pretendard</string>
+          </edit>
+        </match>
+        <match target="pattern">
+          <test qual="any" name="family">
+            <string>MalgunGothic</string>
+          </test>
+          <edit name="family" mode="assign" binding="same">
+            <string>Pretendard</string>
+          </edit>
+        </match>
+        <match target="pattern">
+          <test qual="any" name="family">
+            <string>돋움</string>
+          </test>
+          <edit name="family" mode="assign" binding="same">
+            <string>Pretendard</string>
+          </edit>
+        </match>
       </fontconfig>
     '';
   };
