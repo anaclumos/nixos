@@ -2,9 +2,7 @@
 
 {
   home.packages = [
-    pkgs.whitesur-icon-theme
-    pkgs.hicolor-icon-theme
-    pkgs.adwaita-icon-theme
+    pkgs.elementary-icon-theme
   ];
 
   dconf.settings = {
@@ -12,7 +10,7 @@
       show-battery-percentage = true;
       font-name = "Pretendard 11";
       monospace-font-name = "Berkeley Mono 10";
-      icon-theme = "WhiteSur-dark";
+      icon-theme = "elementary";
       clock-show-weekday = true;
       clock-format = "12h";
     };
