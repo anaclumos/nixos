@@ -6,7 +6,7 @@
   nixpkgs.config.allowUnfreePredicate = _: true;
   imports = [
     ./hardware-configuration.nix
-    ./gnome/gnome-desktop.nix
+    ./pantheon/pantheon-desktop.nix
     ./system/keyboard.nix
     ./system/fonts/default.nix
     ./system/shell.nix
