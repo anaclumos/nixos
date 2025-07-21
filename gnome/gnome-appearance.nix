@@ -1,9 +1,7 @@
 { pkgs, ... }:
 
 {
-  home.packages = [
-    pkgs.elementary-icon-theme
-  ];
+  home.packages = [ pkgs.elementary-icon-theme ];
 
   dconf.settings = {
     "org/gnome/desktop/interface" = {
