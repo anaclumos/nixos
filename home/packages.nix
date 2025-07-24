@@ -28,6 +28,8 @@
       terraform
       biome
       vscode-extensions.biomejs.biome
+      argocd
+      k9s
 
       # Games
       dolphin-emu
