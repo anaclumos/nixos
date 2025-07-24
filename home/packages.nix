@@ -12,7 +12,6 @@
       claude-code
       code-cursor
       gitAndTools.hub
-      google-cloud-sdk
       gh
       ollama
       azure-cli
@@ -30,6 +29,7 @@
       vscode-extensions.biomejs.biome
       argocd
       k9s
+      kubectl
 
       # Games
       dolphin-emu
