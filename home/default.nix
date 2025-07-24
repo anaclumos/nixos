@@ -5,6 +5,7 @@
     (import ./programs.nix { inherit config pkgs inputs; })
     (import ./packages.nix { inherit config pkgs inputs; })
     (import ./phoenix.nix { inherit config pkgs inputs; })
+    (import ./gcloud.nix { inherit config pkgs inputs; })
     ../gnome/gnome-extensions.nix
     ../gnome/gnome-shortcuts.nix
     ../gnome/gnome-appearance.nix
