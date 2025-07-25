@@ -7,11 +7,11 @@
     ./system-tools.nix
     ./phoenix.nix
     ./gcloud.nix
+    ./locale.nix
+    ./fcitx5.nix
     ../gnome/gnome-extensions.nix
     ../gnome/gnome-shortcuts.nix
     ../gnome/gnome-appearance.nix
-    ./locale.nix
-    ./fcitx5.nix
   ];
 
   dconf.enable = true;

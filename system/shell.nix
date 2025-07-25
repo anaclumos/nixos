@@ -1,13 +1,6 @@
 { config, lib, pkgs, ... }:
 
 {
-  users.users.sunghyun = {
-    isNormalUser = true;
-    description = "Sunghyun Cho";
-    extraGroups = [ "networkmanager" "wheel" ];
-    shell = pkgs.zsh;
-  };
-
   programs.zsh = {
     enable = true;
     autosuggestions.enable = true;
