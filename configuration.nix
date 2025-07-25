@@ -1,13 +1,24 @@
 { config, pkgs, lib, ... }:
 
-{
+let
+  user = "sunghyun";
+  hostname = "cho";
+
+in {
   nixpkgs.config.allowUnfree = true;
   imports = [
     ./hardware-configuration.nix
     ./gnome/default.nix
     ./system/default.nix
     ./dev/default.nix
+    ./modules/user.nix
+    ./modules/config.nix
   ];
+
+  # Module configuration
+  modules.user.name = user;
+  modules.system.hostname = hostname;
+  modules.system.timezone = "Asia/Seoul";
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -23,7 +34,7 @@
 
   services.expressvpn.enable = true;
 
-  networking.hostName = "cho";
+  networking.hostName = hostname;
   networking.networkmanager.enable = true;
 
   time.timeZone = "Asia/Seoul";
