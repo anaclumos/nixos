@@ -15,6 +15,7 @@
       icon-theme = "WhiteSur-dark";
       clock-show-weekday = true;
       clock-format = "12h";
+      enable-animations = false;
     };
   };
 }
