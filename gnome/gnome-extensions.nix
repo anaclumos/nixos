@@ -8,6 +8,5 @@
     appindicator
     user-themes
     kimpanel
-    blur-my-shell
   ];
 }
