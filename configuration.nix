@@ -2,18 +2,11 @@
 
 {
   nixpkgs.config.allowUnfree = true;
-  # Allow any unfree package globally
-  nixpkgs.config.allowUnfreePredicate = _: true;
   imports = [
     ./hardware-configuration.nix
-    ./gnome/gnome-desktop.nix
-    ./system/keyboard.nix
-    ./system/fonts/default.nix
-    ./system/shell.nix
-    ./system/1password.nix
-    ./dev/git.nix
-    ./dev/lunit.nix
-    ./dev/docker.nix
+    ./gnome/default.nix
+    ./system/default.nix
+    ./dev/default.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
