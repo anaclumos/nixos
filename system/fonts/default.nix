@@ -16,189 +16,83 @@ in {
       <?xml version="1.0"?>
       <!DOCTYPE fontconfig SYSTEM "fonts.dtd">
       <fontconfig>
-        <!-- Replace Helvetica with Pretendard -->
-        <match target="pattern">
-          <test qual="any" name="family">
-            <string>Helvetica</string>
-          </test>
-          <edit name="family" mode="assign" binding="same">
-            <string>Pretendard</string>
-          </edit>
-        </match>
-
-        <!-- Replace Helvetica Neue with Pretendard -->
-        <match target="pattern">
-          <test qual="any" name="family">
-            <string>Helvetica Neue</string>
-          </test>
-          <edit name="family" mode="assign" binding="same">
-            <string>Pretendard</string>
-          </edit>
-        </match>
-
-        <!-- Replace Arial with Pretendard -->
-        <match target="pattern">
-          <test qual="any" name="family">
-            <string>Arial</string>
-          </test>
-          <edit name="family" mode="assign" binding="same">
-            <string>Pretendard</string>
-          </edit>
-        </match>
-
-        <!-- Replace -apple-system with Pretendard -->
-        <match target="pattern">
-          <test qual="any" name="family">
-            <string>-apple-system</string>
-          </test>
-          <edit name="family" mode="assign" binding="same">
-            <string>Pretendard</string>
-          </edit>
-        </match>
-
-        <!-- Replace BlinkMacSystemFont with Pretendard -->
-        <match target="pattern">
-          <test qual="any" name="family">
-            <string>BlinkMacSystemFont</string>
-          </test>
-          <edit name="family" mode="assign" binding="same">
-            <string>Pretendard</string>
-          </edit>
-        </match>
-
-        <!-- Replace Ubuntu with Pretendard -->
-        <match target="pattern">
-          <test qual="any" name="family">
-            <string>Ubuntu</string>
-          </test>
-          <edit name="family" mode="assign" binding="same">
-            <string>Pretendard</string>
-          </edit>
-        </match>
-
-        <!-- Replace noto-sans with Pretendard -->
-        <match target="pattern">
-          <test qual="any" name="family">
-            <string>noto-sans</string>
-          </test>
-          <edit name="family" mode="assign" binding="same">
-            <string>Pretendard</string>
-          </edit>
-        </match>
-
-        <!-- Replace 'malgun gothic' with Pretendard -->
-        <match target="pattern">
-          <test qual="any" name="family">
-            <string>malgun gothic</string>
-          </test>
-          <edit name="family" mode="assign" binding="same">
-            <string>Pretendard</string>
-          </edit>
-        </match>
-
-        <!-- Replace Apple SD Gothic Neo with Pretendard -->
-        <match target="pattern">
-          <test qual="any" name="family">
-            <string>Apple SD Gothic Neo</string>
-          </test>
-          <edit name="family" mode="assign" binding="same">
-            <string>Pretendard</string>
-          </edit>
-        </match>
-
-        <!-- Replace AppleSDGothicNeo with Pretendard -->
-        <match target="pattern">
-          <test qual="any" name="family">
-            <string>AppleSDGothicNeo</string>
-          </test>
-          <edit name="family" mode="assign" binding="same">
-            <string>Pretendard</string>
-          </edit>
-        </match>
-
-        <!-- Replace Noto Sans TC with Pretendard -->
-        <match target="pattern">
-          <test qual="any" name="family">
-            <string>Noto Sans TC</string>
-          </test>
-          <edit name="family" mode="assign" binding="same">
-            <string>Pretendard</string>
-          </edit>
-        </match>
-
-        <!-- Replace Noto Sans JP with Pretendard -->
-        <match target="pattern">
-          <test qual="any" name="family">
-            <string>Noto Sans JP</string>
-          </test>
-          <edit name="family" mode="assign" binding="same">
-            <string>Pretendard</string>
-          </edit>
-        </match>
-
-        <!-- Replace Noto Sans KR with Pretendard -->
-        <match target="pattern">
-          <test qual="any" name="family">
-            <string>Noto Sans KR</string>
-          </test>
-          <edit name="family" mode="assign" binding="same">
-            <string>Pretendard</string>
-          </edit>
-        </match>
-
-        <!-- Replace Noto Sans with Pretendard -->
-        <match target="pattern">
-          <test qual="any" name="family">
-            <string>Noto Sans</string>
-          </test>
-          <edit name="family" mode="assign" binding="same">
-            <string>Pretendard</string>
-          </edit>
-        </match>
-
-        <!-- Replace Roboto with Pretendard -->
-        <match target="pattern">
-          <test qual="any" name="family">
-            <string>Roboto</string>
-          </test>
-          <edit name="family" mode="assign" binding="same">
-            <string>Pretendard</string>
-          </edit>
-        </match>
-
-        <!-- Replace Tahoma with Pretendard -->
-        <match target="pattern">
-          <test qual="any" name="family">
-            <string>Tahoma</string>
-          </test>
-          <edit name="family" mode="assign" binding="same">
-            <string>Pretendard</string>
-          </edit>
-        </match>
-        <match target="pattern">
-          <test qual="any" name="family">
-            <string>맑은 고딕</string>
-          </test>
-          <edit name="family" mode="assign" binding="same">
-            <string>Pretendard</string>
-          </edit>
-        </match>
-        <match target="pattern">
-          <test qual="any" name="family">
-            <string>MalgunGothic</string>
-          </test>
-          <edit name="family" mode="assign" binding="same">
-            <string>Pretendard</string>
-          </edit>
-        </match>
-        <match target="pattern">
-          <test qual="any" name="family">
-            <string>돋움</string>
-          </test>
-          <edit name="family" mode="assign" binding="same">
-            <string>Pretendard</string>
-          </edit>
-        </match>
+        <!-- Replace various fonts with Pretendard -->
+        <alias>
+          <family>Helvetica</family>
+          <prefer><family>Pretendard</family></prefer>
+        </alias>
+        <alias>
+          <family>Helvetica Neue</family>
+          <prefer><family>Pretendard</family></prefer>
+        </alias>
+        <alias>
+          <family>Arial</family>
+          <prefer><family>Pretendard</family></prefer>
+        </alias>
+        <alias>
+          <family>-apple-system</family>
+          <prefer><family>Pretendard</family></prefer>
+        </alias>
+        <alias>
+          <family>BlinkMacSystemFont</family>
+          <prefer><family>Pretendard</family></prefer>
+        </alias>
+        <alias>
+          <family>Ubuntu</family>
+          <prefer><family>Pretendard</family></prefer>
+        </alias>
+        <alias>
+          <family>noto-sans</family>
+          <prefer><family>Pretendard</family></prefer>
+        </alias>
+        <alias>
+          <family>malgun gothic</family>
+          <prefer><family>Pretendard</family></prefer>
+        </alias>
+        <alias>
+          <family>Apple SD Gothic Neo</family>
+          <prefer><family>Pretendard</family></prefer>
+        </alias>
+        <alias>
+          <family>AppleSDGothicNeo</family>
+          <prefer><family>Pretendard</family></prefer>
+        </alias>
+        <alias>
+          <family>Noto Sans TC</family>
+          <prefer><family>Pretendard</family></prefer>
+        </alias>
+        <alias>
+          <family>Noto Sans JP</family>
+          <prefer><family>Pretendard</family></prefer>
+        </alias>
+        <alias>
+          <family>Noto Sans KR</family>
+          <prefer><family>Pretendard</family></prefer>
+        </alias>
+        <alias>
+          <family>Noto Sans</family>
+          <prefer><family>Pretendard</family></prefer>
+        </alias>
+        <alias>
+          <family>Roboto</family>
+          <prefer><family>Pretendard</family></prefer>
+        </alias>
+        <alias>
+          <family>Tahoma</family>
+          <prefer><family>Pretendard</family></prefer>
+        </alias>
+        <alias>
+          <family>맑은 고딕</family>
+          <prefer><family>Pretendard</family></prefer>
+        </alias>
+        <alias>
+          <family>MalgunGothic</family>
+          <prefer><family>Pretendard</family></prefer>
+        </alias>
+        <alias>
+          <family>돋움</family>
+          <prefer><family>Pretendard</family></prefer>
+        </alias>
       </fontconfig>
     '';
   };

@@ -57,19 +57,8 @@
       pngquant
       thunderbird
 
-      # System Tools
-      xclip
-      fastfetch
-      adguardhome
-      zsh-autosuggestions
-
       # GNOME tools
       refine
-
-      # Window Controls
-      wmctrl
-      xdotool
-      keyd
 
       # Fonts
       pretendard

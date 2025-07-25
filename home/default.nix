@@ -2,10 +2,11 @@
 
 {
   imports = [
-    (import ./programs.nix { inherit config pkgs inputs; })
-    (import ./packages.nix { inherit config pkgs inputs; })
-    (import ./phoenix.nix { inherit config pkgs inputs; })
-    (import ./gcloud.nix { inherit config pkgs inputs; })
+    ./programs.nix
+    ./packages.nix
+    ./system-tools.nix
+    ./phoenix.nix
+    ./gcloud.nix
     ../gnome/gnome-extensions.nix
     ../gnome/gnome-shortcuts.nix
     ../gnome/gnome-appearance.nix
