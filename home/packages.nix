@@ -38,6 +38,7 @@
 
       # Applications
       slack
+      teams-for-linux
       obsidian
       google-chrome
       firefox
