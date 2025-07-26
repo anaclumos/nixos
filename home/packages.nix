@@ -28,6 +28,7 @@ let
     argocd
     k9s
     kubectl
+    moon
   ];
 
   games = with pkgs; [ dolphin-emu bottles lutris ];
