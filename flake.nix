@@ -8,12 +8,13 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-    # kakaotalk.url = "path:/home/sunghyun/Desktop/nix/kakaotalk.nix";
-    kakaotalk.url = "github:anaclumos/kakaotalk.nix";
+    kakaotalk.url = "path:/home/sunghyun/Desktop/nix/kakaotalk.nix";
+    # kakaotalk.url = "github:anaclumos/kakaotalk.nix";
+    ridibooks.url = "path:/home/sunghyun/Desktop/nix/ridibooks.nix";
   };
 
-  outputs =
-    { self, nixpkgs, home-manager, nixos-hardware, kakaotalk, ... }@inputs: {
+  outputs = { self, nixpkgs, home-manager, nixos-hardware, kakaotalk, ridibooks
+    , ... }@inputs: {
       nixosConfigurations = {
         cho = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
