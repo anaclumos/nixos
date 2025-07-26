@@ -27,8 +27,8 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1753569482,
-        "narHash": "sha256-2TuSygTvKUWHqLejupy4UoeEal8YwwqFc7kdscjpfIk=",
+        "lastModified": 1753569659,
+        "narHash": "sha256-ouJhrpu3+kRWzFXktJ1BdqCDlFgRjg34KspRoY/U4m8=",
         "path": "/home/sunghyun/Desktop/nix/kakaotalk.nix",
         "type": "path"
       },
@@ -127,8 +127,8 @@
         "ridibooks-exe": "ridibooks-exe"
       },
       "locked": {
-        "lastModified": 1753569442,
-        "narHash": "sha256-3KJ8vYZOqrS0gMRq6AjQ1tVRKSSuhthiZqr5MViDNX0=",
+        "lastModified": 1753569663,
+        "narHash": "sha256-dFGPzHXNrvfbzftxOAwNHraLz1/6Ou3BAuriDf912lQ=",
         "path": "/home/sunghyun/Desktop/nix/ridibooks.nix",
         "type": "path"
       },
