@@ -8,9 +8,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-    kakaotalk.url = "path:/home/sunghyun/Desktop/nix/kakaotalk.nix";
-    # kakaotalk.url = "github:anaclumos/kakaotalk.nix";
-    ridibooks.url = "path:/home/sunghyun/Desktop/nix/ridibooks.nix";
+    # kakaotalk.url = "path:/home/sunghyun/Desktop/nix/kakaotalk.nix";
+    kakaotalk.url = "github:anaclumos/kakaotalk.nix";
+    # ridibooks.url = "path:/home/sunghyun/Desktop/nix/ridibooks.nix";
+    ridibooks.url = "github:anaclumos/ridibooks.nix";
   };
 
   outputs = { self, nixpkgs, home-manager, nixos-hardware, kakaotalk, ridibooks
