@@ -7,11 +7,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1753470191,
-        "narHash": "sha256-hOUWU5L62G9sm8NxdiLWlLIJZz9H52VuFiDllHdwmVA=",
+        "lastModified": 1753567913,
+        "narHash": "sha256-eYrqSRI1/mrnVGCGYO+zkKHUszwJQodq/qDHh+mzvkI=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "a1817d1c0e5eabe7dfdfe4caa46c94d9d8f3fdb6",
+        "rev": "2b73c2fcca690b6eca4f520179e54ae760f25d4e",
         "type": "github"
       },
       "original": {
@@ -27,17 +27,14 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1752585860,
-        "narHash": "sha256-46r7osbxFZ9cor7RYfHb77qpgGV+n2jCMNespqL1H5M=",
-        "owner": "anaclumos",
-        "repo": "kakaotalk.nix",
-        "rev": "8940d476aae41877d9f58660fe3e7e26f4d8d96f",
-        "type": "github"
+        "lastModified": 1753569482,
+        "narHash": "sha256-2TuSygTvKUWHqLejupy4UoeEal8YwwqFc7kdscjpfIk=",
+        "path": "/home/sunghyun/Desktop/nix/kakaotalk.nix",
+        "type": "path"
       },
       "original": {
-        "owner": "anaclumos",
-        "repo": "kakaotalk.nix",
-        "type": "github"
+        "path": "/home/sunghyun/Desktop/nix/kakaotalk.nix",
+        "type": "path"
       }
     },
     "kakaotalk-exe": {
@@ -110,12 +107,55 @@
         "type": "github"
       }
     },
+    "nixpkgs_3": {
+      "locked": {
+        "lastModified": 1753432016,
+        "narHash": "sha256-cnL5WWn/xkZoyH/03NNUS7QgW5vI7D1i74g48qplCvg=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "6027c30c8e9810896b92429f0092f624f7b1aace",
+        "type": "github"
+      },
+      "original": {
+        "id": "nixpkgs",
+        "type": "indirect"
+      }
+    },
+    "ridibooks": {
+      "inputs": {
+        "nixpkgs": "nixpkgs_3",
+        "ridibooks-exe": "ridibooks-exe"
+      },
+      "locked": {
+        "lastModified": 1753569442,
+        "narHash": "sha256-3KJ8vYZOqrS0gMRq6AjQ1tVRKSSuhthiZqr5MViDNX0=",
+        "path": "/home/sunghyun/Desktop/nix/ridibooks.nix",
+        "type": "path"
+      },
+      "original": {
+        "path": "/home/sunghyun/Desktop/nix/ridibooks.nix",
+        "type": "path"
+      }
+    },
+    "ridibooks-exe": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-buGsmbM52t/3cnWZVsnlCTh53hKzfQzT+FLecVxr0jI=",
+        "type": "file",
+        "url": "https://viewer-ota.ridicdn.net/pc_electron/Ridibooks%20Setup%200.11.6.exe"
+      },
+      "original": {
+        "type": "file",
+        "url": "https://viewer-ota.ridicdn.net/pc_electron/Ridibooks%20Setup%200.11.6.exe"
+      }
+    },
     "root": {
       "inputs": {
         "home-manager": "home-manager",
         "kakaotalk": "kakaotalk",
         "nixos-hardware": "nixos-hardware",
-        "nixpkgs": "nixpkgs_2"
+        "nixpkgs": "nixpkgs_2",
+        "ridibooks": "ridibooks"
       }
     }
   },

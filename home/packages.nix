@@ -57,6 +57,9 @@ let
 
   gnomeTools = with pkgs; [ refine ];
 in {
-  home.packages = developmentTools ++ games ++ applications ++ gnomeTools
-    ++ [ pkgs.pretendard inputs.kakaotalk.packages.x86_64-linux.kakaotalk ];
+  home.packages = developmentTools ++ games ++ applications ++ gnomeTools ++ [
+    pkgs.pretendard
+    inputs.kakaotalk.packages.x86_64-linux.kakaotalk
+    inputs.ridibooks.packages.x86_64-linux.ridibooks
+  ];
 }
