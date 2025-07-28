@@ -6,7 +6,7 @@
     clipboard-history
     auto-power-profile
     appindicator
-    user-themes
+    unite
     kimpanel
   ];
 }
