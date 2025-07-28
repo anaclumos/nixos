@@ -27,10 +27,14 @@ let
   ];
 
   generateFontAlias = font: ''
-    <alias>
-      <family>${font}</family>
-      <prefer><family>Pretendard</family></prefer>
-    </alias>
+    <match target="pattern">
+      <test qual="any" name="family">
+        <string>${font}</string>
+      </test>
+      <edit name="family" mode="assign" binding="same">
+        <string>Pretendard</string>
+      </edit>
+    </match>
   '';
 in {
   fonts.packages = with pkgs; [ pretendard berkeleyMono ];
