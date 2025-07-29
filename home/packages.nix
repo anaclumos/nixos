@@ -29,6 +29,11 @@ let
     k9s
     kubectl
     moon
+    git
+    zsh
+    cacert
+    uv
+    ruff
   ];
 
   games = with pkgs; [ dolphin-emu bottles lutris ];

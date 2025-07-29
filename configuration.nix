@@ -97,7 +97,7 @@ in {
   programs.nix-ld.enable = true;
   programs.nix-ld.libraries = with pkgs; [ ];
 
-  environment.systemPackages = with pkgs; [ git zsh cacert uv ];
+  environment.systemPackages = with pkgs; [ ];
 
   environment.variables = {
     SSL_CERT_FILE = "${pkgs.cacert}/etc/ssl/certs/ca-bundle.crt";
