@@ -22,15 +22,19 @@ in {
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.systemd-boot.configurationLimit = 10;
 
-  # Track the latest Linux kernel release for improved hardware support
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  hardware.cpu.amd.updateMicrocode = true;
 
-  # Enable fingerprint reader support
-  services.fprintd.enable = true;
+  powerManagement.cpuFreqGovernor = "schedutil";
+  services.power-profiles-daemon.enable = true;
 
-  # Enable firmware updates
   services.fwupd.enable = true;
+
+  # Suspend-then-hibernate after 2 hours
+  systemd.sleep.extraConfig = ''
+    HibernateDelaySec=2h
+  '';
 
   services.expressvpn.enable = true;
 
