@@ -7,11 +7,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1753617834,
-        "narHash": "sha256-WEVfKrdIdu5CpppJ0Va3vzP0DKlS+ZTLbBjugMO2Drg=",
+        "lastModified": 1753761827,
+        "narHash": "sha256-mrVNT+aF4yR8P8Fx570W2vz+LzukSlf68Yr2YhUJHjo=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "72cc1e3134a35005006f06640724319caa424737",
+        "rev": "50adf8fcaa97c9d64309f2d507ed8be54ea23110",
         "type": "github"
       },
       "original": {
@@ -96,11 +96,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1753429684,
-        "narHash": "sha256-9h7+4/53cSfQ/uA3pSvCaBepmZaz/dLlLVJnbQ+SJjk=",
+        "lastModified": 1753549186,
+        "narHash": "sha256-Znl7rzuxKg/Mdm6AhimcKynM7V3YeNDIcLjBuoBcmNs=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "7fd36ee82c0275fb545775cc5e4d30542899511d",
+        "rev": "17f6bd177404d6d43017595c5264756764444ab8",
         "type": "github"
       },
       "original": {
@@ -110,56 +110,12 @@
         "type": "github"
       }
     },
-    "nixpkgs_3": {
-      "locked": {
-        "lastModified": 1753666229,
-        "narHash": "sha256-s/p8gWPwSa6LLsXz8g9JMgoj6s+4/ASTRV2nsaKF1S8=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "de9c29bbd3512d3a776f1c0f150ee02d3477ff00",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
-    "ridibooks": {
-      "inputs": {
-        "nixpkgs": "nixpkgs_3",
-        "ridibooks-exe": "ridibooks-exe"
-      },
-      "locked": {
-        "lastModified": 1753669028,
-        "narHash": "sha256-oShlbmfE7j1jVtmtu8OMw+DeW/P0IgvR+bjk6po45fE=",
-        "path": "/home/sunghyun/Desktop/nix/ridibooks.nix",
-        "type": "path"
-      },
-      "original": {
-        "path": "/home/sunghyun/Desktop/nix/ridibooks.nix",
-        "type": "path"
-      }
-    },
-    "ridibooks-exe": {
-      "flake": false,
-      "locked": {
-        "narHash": "sha256-buGsmbM52t/3cnWZVsnlCTh53hKzfQzT+FLecVxr0jI=",
-        "type": "file",
-        "url": "https://viewer-ota.ridicdn.net/pc_electron/Ridibooks%20Setup%200.11.6.exe"
-      },
-      "original": {
-        "type": "file",
-        "url": "https://viewer-ota.ridicdn.net/pc_electron/Ridibooks%20Setup%200.11.6.exe"
-      }
-    },
     "root": {
       "inputs": {
         "home-manager": "home-manager",
         "kakaotalk": "kakaotalk",
         "nixos-hardware": "nixos-hardware",
-        "nixpkgs": "nixpkgs_2",
-        "ridibooks": "ridibooks"
+        "nixpkgs": "nixpkgs_2"
       }
     }
   },

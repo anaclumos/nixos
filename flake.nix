@@ -8,20 +8,18 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-    # kakaotalk.url = "path:/home/sunghyun/Desktop/nix/kakaotalk.nix";
     kakaotalk.url = "github:anaclumos/kakaotalk.nix";
-    ridibooks.url = "path:/home/sunghyun/Desktop/nix/ridibooks.nix";
-    # ridibooks.url = "github:anaclumos/ridibooks.nix";
   };
 
-  outputs = { self, nixpkgs, home-manager, nixos-hardware, kakaotalk, ridibooks
-    , ... }@inputs: {
+  outputs =
+    { self, nixpkgs, home-manager, nixos-hardware, kakaotalk, ... }@inputs: {
       nixosConfigurations = {
         cho = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           modules = [
             { nixpkgs.config.allowUnfree = true; }
             ./configuration.nix
+            nixos-hardware.nixosModules.framework-amd-ai-300-series
             home-manager.nixosModules.home-manager
             {
               home-manager.useUserPackages = true;
