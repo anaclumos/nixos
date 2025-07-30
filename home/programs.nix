@@ -13,7 +13,7 @@
         plugins = [ "git" "docker" "npm" ];
       };
       initContent = ''
-        ${pkgs.fastfetch}/bin/fastfetch
+        ${pkgs.fastfetch}/bin/fastfetch && if [ "$(pwd)" = "/home/sunghyun" ]; then cd ~/Desktop; fi
       '';
     };
 
