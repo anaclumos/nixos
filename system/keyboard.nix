@@ -8,7 +8,7 @@
         ids = [ "*" ];
         extraConfig = ''
           [main]
-          capslock = overload(hyper, macro(M-S-end M-up))
+          capslock = overload(hyper, command(~/Desktop/os/scripts/maximize-in-new-workspace-next.sh))
           leftalt = layer(mac_command)
           rightalt = rightcontrol
           leftmeta = layer(mac_alt)
@@ -46,7 +46,7 @@
           [hyper:C-A-S-M]
           left = M-left
           right = M-right
-          enter = macro(M-S-end M-up)
+          enter = command(~/Desktop/os/scripts/maximize-in-new-workspace-next.sh)
         '';
       };
     };
