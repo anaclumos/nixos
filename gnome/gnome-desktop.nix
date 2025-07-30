@@ -18,5 +18,7 @@
     gnome-maps
     gnome-music
     gnome-photos
+    evince
+    geary
   ]);
 }
