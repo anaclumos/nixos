@@ -19,7 +19,6 @@
           modules = [
             { nixpkgs.config.allowUnfree = true; }
             ./configuration.nix
-            nixos-hardware.nixosModules.framework-amd-ai-300-series
             home-manager.nixosModules.home-manager
             {
               home-manager.useUserPackages = true;
