@@ -58,6 +58,7 @@ let
     imagemagick
     pngquant
     thunderbird
+    logseq
   ];
 
   gnomeTools = with pkgs; [ refine ];
