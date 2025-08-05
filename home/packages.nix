@@ -34,6 +34,7 @@ let
     cacert
     uv
     ruff
+    comma
   ];
 
   games = with pkgs; [ dolphin-emu bottles lutris ];
