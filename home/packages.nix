@@ -9,6 +9,7 @@ let
     nixfmt-classic
     claude-code
     code-cursor
+    vscode
     gitAndTools.hub
     gh
     ollama
