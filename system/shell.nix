@@ -22,12 +22,13 @@
       ed = "expressvpn disconnect";
       x = "exit";
       oo = "hub browse";
-      zz = "cursor ~/Desktop/nix";
+      zz = "code ~/Desktop/nix";
       ss = "source ~/.zshrc";
-      cc = "cursor .";
+      cc = "code .";
       sha =
         "git push && echo Done in $(git rev-parse HEAD) | xclip -selection clipboard";
       hn = "sh ~/Desktop/tools/hn/hn.sh";
-    };
+      emptyfolder="find . -type d -empty -delete"
+    }
   };
 }
