@@ -29,6 +29,8 @@
         "git push && echo Done in $(git rev-parse HEAD) | xclip -selection clipboard";
       hn = "sh ~/Desktop/tools/hn/hn.sh";
       emptyfolder = "find . -type d -empty -delete";
+      npm = "bun";
+      npx = "bunx";
     };
   };
 }
