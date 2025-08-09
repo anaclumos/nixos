@@ -15,6 +15,10 @@
       initContent = ''
         ${pkgs.fastfetch}/bin/fastfetch && if [ "$(pwd)" = "/home/sunghyun" ]; then cd ~/Desktop; fi
       '';
+      shellAliases = {
+        npm = "bun";
+        npx = "bunx";
+      };
     };
 
   };
