@@ -59,7 +59,6 @@ let
     pngcrush
     imagemagick
     pngquant
-    thunderbird
     logseq
   ];
 
