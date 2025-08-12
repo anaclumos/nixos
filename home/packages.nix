@@ -36,6 +36,8 @@ let
     uv
     ruff
     comma
+    mariadb
+    pkg-config
   ];
 
   games = with pkgs; [ dolphin-emu bottles lutris ];
