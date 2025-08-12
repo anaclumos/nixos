@@ -68,15 +68,13 @@
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom7" =
       {
         name = "Open Calendar";
-        command =
-          "bash -c 'thunderbird-ui --calendar'";
+        command = "bash -c 'thunderbird-ui --calendar'";
         binding = "<Ctrl><Alt><Super><Shift>l";
       };
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom8" =
       {
         name = "Open Mail";
-        command =
-          "bash -c 'thunderbird-ui --mail'";
+        command = "bash -c 'thunderbird-ui --mail'";
         binding = "<Ctrl><Alt><Super><Shift>h";
       };
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom9" =
