@@ -38,6 +38,7 @@ let
     comma
     mariadb
     pkg-config
+    nix-index
   ];
 
   games = with pkgs; [ dolphin-emu bottles lutris ];

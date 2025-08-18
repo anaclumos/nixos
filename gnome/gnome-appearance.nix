@@ -15,7 +15,7 @@
       icon-theme = "WhiteSur";
       clock-show-weekday = true;
       clock-format = "12h";
-      enable-animations = false;
+      enable-animations = true;
     };
   };
 }

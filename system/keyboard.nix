@@ -8,7 +8,7 @@
         ids = [ "*" ];
         extraConfig = ''
           [main]
-          capslock = overload(hyper, macro(M-S-end M-up))
+          capslock = overload(hyper, macro(M-up))
           leftalt = layer(mac_command)
           rightalt = rightcontrol
           leftmeta = layer(mac_alt)
