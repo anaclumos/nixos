@@ -17,7 +17,7 @@
 
       extraConfig = {
         # Core configuration
-        core.editor = "code --wait";
+        core.editor = "cursor --wait";
 
         # GPG configuration for SSH signing
         gpg = { format = "ssh"; };
