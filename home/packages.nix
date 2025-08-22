@@ -39,6 +39,8 @@ let
     mariadb
     pkg-config
     nix-index
+    codex
+    ripgrep
   ];
 
   games = with pkgs; [ dolphin-emu bottles lutris ];

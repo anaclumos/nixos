@@ -22,9 +22,9 @@
       ed = "expressvpn disconnect";
       x = "exit";
       oo = "hub browse";
-      zz = "code ~/Desktop/nix";
+      zz = "cursor ~/Desktop/nix";
       ss = "source ~/.zshrc";
-      cc = "code .";
+      cc = "cursor .";
       sha =
         "git push && echo Done in $(git rev-parse HEAD) | xclip -selection clipboard";
       hn = "sh ~/Desktop/tools/hn/hn.sh";
