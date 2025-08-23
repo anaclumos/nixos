@@ -18,5 +18,8 @@
 
     # Shell
     zsh-autosuggestions
+
+    # Fan control CLI (for GNOME extension integration)
+    fw-fanctrl
   ];
 }

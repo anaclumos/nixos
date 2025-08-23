@@ -9,5 +9,7 @@
     unite
     kimpanel
     dock-from-dash
+    # Framework fan control panel for fw-fanctrl
+    framework-fan-control
   ];
 }
