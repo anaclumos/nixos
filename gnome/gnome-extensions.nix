@@ -8,5 +8,6 @@
     appindicator
     unite
     kimpanel
+    dock-from-dash
   ];
 }

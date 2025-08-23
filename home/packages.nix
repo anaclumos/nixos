@@ -41,6 +41,7 @@ let
     nix-index
     codex
     ripgrep
+    mongodb-compass
   ];
 
   games = with pkgs; [ dolphin-emu bottles lutris ];
