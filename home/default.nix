@@ -5,7 +5,6 @@
     ./programs.nix
     ./packages.nix
     ./system-tools.nix
-    ../gnome/fw-fanctrl-quick-settings.nix
     ./phoenix.nix
     ./gcloud.nix
     ./locale.nix
