@@ -31,6 +31,8 @@
       emptyfolder = "find . -type d -empty -delete";
       npm = "bun";
       npx = "bunx";
+      chat =
+        "codex --dangerously-bypass-approvals-and-sandbox --model gpt-5 -c model_reasoning_effort='high'";
     };
   };
 }
