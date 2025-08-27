@@ -73,7 +73,6 @@ in {
   hardware.graphics.enable = true;
   hardware.graphics.enable32Bit = true;
 
-
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   programs.nix-ld.enable = true;

@@ -2,9 +2,10 @@
 
 {
   home.packages = [
-    pkgs.whitesur-icon-theme
+    pkgs.pantheon.elementary-icon-theme
     pkgs.hicolor-icon-theme
     pkgs.adwaita-icon-theme
+    pkgs.whitesur-icon-theme
   ];
 
   dconf.settings = {
@@ -12,10 +13,11 @@
       show-battery-percentage = true;
       font-name = "Pretendard 12";
       monospace-font-name = "Berkeley Mono 12";
-      icon-theme = "WhiteSur";
+      icon-theme = "elementary";
+      cursor-theme = "elementary";
       clock-show-weekday = true;
       clock-format = "12h";
-      enable-animations = false;
+      enable-animations = true;
     };
   };
 }
