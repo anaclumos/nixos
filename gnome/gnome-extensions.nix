@@ -9,5 +9,6 @@
     unite
     kimpanel
     dock-from-dash
+    framework-fan-control
   ];
 }
