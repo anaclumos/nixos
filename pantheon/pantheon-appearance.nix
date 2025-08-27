@@ -2,7 +2,8 @@
 
 {
   # Install Pantheon/Elementary icon theme
-  home.packages = [ pkgs.elementary-icon-theme pkgs.hicolor-icon-theme ];
+  home.packages =
+    [ pkgs.pantheon.elementary-icon-theme pkgs.hicolor-icon-theme ];
 
   # Set GTK interface preferences, including icon theme
   dconf.settings = {
@@ -17,4 +18,3 @@
     };
   };
 }
-
