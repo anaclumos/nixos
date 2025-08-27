@@ -13,7 +13,7 @@
       show-battery-percentage = true;
       font-name = "Pretendard 12";
       monospace-font-name = "Berkeley Mono 12";
-      icon-theme = "elementary";
+      icon-theme = "WhiteSur";
       cursor-theme = "elementary";
       clock-show-weekday = true;
       clock-format = "12h";
