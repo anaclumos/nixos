@@ -8,7 +8,7 @@ in {
   nixpkgs.config.allowUnfree = true;
   imports = [
     ./hardware-configuration.nix
-    ./pantheon/default.nix
+    ./gnome/default.nix
     ./system/default.nix
     ./dev/default.nix
     ./modules/user.nix

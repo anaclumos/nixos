@@ -10,7 +10,9 @@
     ./locale.nix
     ./fcitx5.nix
     ./thunderbird.nix
-    ../pantheon/pantheon-appearance.nix
+    ../gnome/gnome-extensions.nix
+    ../gnome/gnome-shortcuts.nix
+    ../gnome/gnome-appearance.nix
   ];
 
   dconf.enable = true;
