@@ -4,7 +4,7 @@
   dconf.settings = {
     "org/gnome/settings-daemon/plugins/media-keys" = {
       custom-keybindings = [
-        "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/browser/"
+        # "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/browser/"
         "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/notes/"
         "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/code-editor/"
         "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/terminal/"
@@ -19,13 +19,13 @@
         "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/dark-mode/"
       ];
     };
-    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/browser" =
-      {
-        name = "Launch or Focus Chrome";
-        command =
-          "bash -c 'wmctrl -x -a google-chrome.Google-chrome || google-chrome-stable'";
-        binding = "<Ctrl><Alt><Super><Shift>j";
-      };
+    # "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/browser" =
+    #   {
+    #     name = "Launch or Focus Chrome";
+    #     command =
+    #       "bash -c 'wmctrl -x -a google-chrome.Google-chrome || google-chrome-stable'";
+    #     binding = "<Ctrl><Alt><Super><Shift>j";
+    #   };
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/notes" = {
       name = "Launch or Focus Obsidian";
       command = "bash -c 'wmctrl -x -a obsidian.Obsidian || obsidian'";
