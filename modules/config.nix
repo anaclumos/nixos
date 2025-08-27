@@ -28,8 +28,6 @@ with lib;
       description = "Enable Bluetooth support";
     };
 
-    
-
     enableFingerprint = mkOption {
       type = types.bool;
       default = true;
