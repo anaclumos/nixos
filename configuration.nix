@@ -76,108 +76,112 @@ in {
 
   hardware.fw-fanctrl.enable = true;
 
-  # fw-fanctrl: use a local config and avoid battery sensor errors
-  environment.etc."fw-fanctrl/config.json".text = ''
-    {
-      "$schema": "./config.schema.json",
-      "defaultStrategy": "lazy",
-      "strategies": {
-        "aeolus": {
-          "fanSpeedUpdateFrequency": 2,
-          "movingAverageInterval": 5,
-          "speedCurve": [
-            { "speed": 20, "temp": 0 },
-            { "speed": 50, "temp": 40 },
-            { "speed": 100, "temp": 65 }
-          ]
+  # Only include fw-fanctrl config and service overrides when enabled
+  # to avoid building the package when disabled.
+  environment.etc = lib.mkIf config.hardware.fw-fanctrl.enable {
+    "fw-fanctrl/config.json".text = ''
+      {
+        "$schema": "./config.schema.json",
+        "defaultStrategy": "lazy",
+        "strategies": {
+          "aeolus": {
+            "fanSpeedUpdateFrequency": 2,
+            "movingAverageInterval": 5,
+            "speedCurve": [
+              { "speed": 20, "temp": 0 },
+              { "speed": 50, "temp": 40 },
+              { "speed": 100, "temp": 65 }
+            ]
+          },
+          "agile": {
+            "fanSpeedUpdateFrequency": 3,
+            "movingAverageInterval": 15,
+            "speedCurve": [
+              { "speed": 15, "temp": 0 },
+              { "speed": 15, "temp": 40 },
+              { "speed": 30, "temp": 60 },
+              { "speed": 40, "temp": 70 },
+              { "speed": 80, "temp": 75 },
+              { "speed": 100, "temp": 85 }
+            ]
+          },
+          "deaf": {
+            "fanSpeedUpdateFrequency": 2,
+            "movingAverageInterval": 5,
+            "speedCurve": [
+              { "speed": 20, "temp": 0 },
+              { "speed": 30, "temp": 40 },
+              { "speed": 50, "temp": 50 },
+              { "speed": 100, "temp": 60 }
+            ]
+          },
+          "laziest": {
+            "fanSpeedUpdateFrequency": 5,
+            "movingAverageInterval": 40,
+            "speedCurve": [
+              { "speed": 0, "temp": 0 },
+              { "speed": 0, "temp": 45 },
+              { "speed": 25, "temp": 65 },
+              { "speed": 35, "temp": 70 },
+              { "speed": 50, "temp": 75 },
+              { "speed": 100, "temp": 85 }
+            ]
+          },
+          "lazy": {
+            "fanSpeedUpdateFrequency": 5,
+            "movingAverageInterval": 30,
+            "speedCurve": [
+              { "speed": 15, "temp": 0 },
+              { "speed": 15, "temp": 50 },
+              { "speed": 25, "temp": 65 },
+              { "speed": 35, "temp": 70 },
+              { "speed": 50, "temp": 75 },
+              { "speed": 100, "temp": 85 }
+            ]
+          },
+          "medium": {
+            "fanSpeedUpdateFrequency": 5,
+            "movingAverageInterval": 30,
+            "speedCurve": [
+              { "speed": 15, "temp": 0 },
+              { "speed": 15, "temp": 40 },
+              { "speed": 30, "temp": 60 },
+              { "speed": 40, "temp": 70 },
+              { "speed": 80, "temp": 75 },
+              { "speed": 100, "temp": 85 }
+            ]
+          },
+          "very-agile": {
+            "fanSpeedUpdateFrequency": 2,
+            "movingAverageInterval": 5,
+            "speedCurve": [
+              { "speed": 15, "temp": 0 },
+              { "speed": 15, "temp": 40 },
+              { "speed": 30, "temp": 60 },
+              { "speed": 40, "temp": 70 },
+              { "speed": 80, "temp": 75 },
+              { "speed": 100, "temp": 85 }
+            ]
+          }
         },
-        "agile": {
-          "fanSpeedUpdateFrequency": 3,
-          "movingAverageInterval": 15,
-          "speedCurve": [
-            { "speed": 15, "temp": 0 },
-            { "speed": 15, "temp": 40 },
-            { "speed": 30, "temp": 60 },
-            { "speed": 40, "temp": 70 },
-            { "speed": 80, "temp": 75 },
-            { "speed": 100, "temp": 85 }
-          ]
-        },
-        "deaf": {
-          "fanSpeedUpdateFrequency": 2,
-          "movingAverageInterval": 5,
-          "speedCurve": [
-            { "speed": 20, "temp": 0 },
-            { "speed": 30, "temp": 40 },
-            { "speed": 50, "temp": 50 },
-            { "speed": 100, "temp": 60 }
-          ]
-        },
-        "laziest": {
-          "fanSpeedUpdateFrequency": 5,
-          "movingAverageInterval": 40,
-          "speedCurve": [
-            { "speed": 0, "temp": 0 },
-            { "speed": 0, "temp": 45 },
-            { "speed": 25, "temp": 65 },
-            { "speed": 35, "temp": 70 },
-            { "speed": 50, "temp": 75 },
-            { "speed": 100, "temp": 85 }
-          ]
-        },
-        "lazy": {
-          "fanSpeedUpdateFrequency": 5,
-          "movingAverageInterval": 30,
-          "speedCurve": [
-            { "speed": 15, "temp": 0 },
-            { "speed": 15, "temp": 50 },
-            { "speed": 25, "temp": 65 },
-            { "speed": 35, "temp": 70 },
-            { "speed": 50, "temp": 75 },
-            { "speed": 100, "temp": 85 }
-          ]
-        },
-        "medium": {
-          "fanSpeedUpdateFrequency": 5,
-          "movingAverageInterval": 30,
-          "speedCurve": [
-            { "speed": 15, "temp": 0 },
-            { "speed": 15, "temp": 40 },
-            { "speed": 30, "temp": 60 },
-            { "speed": 40, "temp": 70 },
-            { "speed": 80, "temp": 75 },
-            { "speed": 100, "temp": 85 }
-          ]
-        },
-        "very-agile": {
-          "fanSpeedUpdateFrequency": 2,
-          "movingAverageInterval": 5,
-          "speedCurve": [
-            { "speed": 15, "temp": 0 },
-            { "speed": 15, "temp": 40 },
-            { "speed": 30, "temp": 60 },
-            { "speed": 40, "temp": 70 },
-            { "speed": 80, "temp": 75 },
-            { "speed": 100, "temp": 85 }
-          ]
-        }
-      },
-      "strategyOnDischarging": ""
-    }
-  '';
-
-  # Add --no-battery-sensors and use the /etc config
-  systemd.services.fw-fanctrl.serviceConfig = {
-    ExecStart = lib.mkForce ''
-      ${pkgs.fw-fanctrl}/bin/fw-fanctrl --output-format JSON run \
-        --config /etc/fw-fanctrl/config.json \
-        --silent \
-        --no-battery-sensors
-    '';
-    ExecStopPost = lib.mkForce ''
-      ${pkgs.fw-ectool}/bin/ectool autofanctrl
+        "strategyOnDischarging": ""
+      }
     '';
   };
+
+  # Add --no-battery-sensors and use the /etc config
+  systemd.services.fw-fanctrl.serviceConfig =
+    lib.mkIf config.hardware.fw-fanctrl.enable {
+      ExecStart = lib.mkForce ''
+        ${pkgs.fw-fanctrl}/bin/fw-fanctrl --output-format JSON run \
+          --config /etc/fw-fanctrl/config.json \
+          --silent \
+          --no-battery-sensors
+      '';
+      ExecStopPost = lib.mkForce ''
+        ${pkgs.fw-ectool}/bin/ectool autofanctrl
+      '';
+    };
 
   # Enable Steam
   programs.steam = {
