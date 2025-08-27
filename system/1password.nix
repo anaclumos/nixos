@@ -40,11 +40,13 @@ in {
     # SSH configuration for 1Password SSH agent
     programs.ssh = {
       enable = true;
-      forwardAgent = true;
-      extraConfig = ''
-        Host *
-            IdentityAgent ${onePassPath}
-      '';
+      enableDefaultConfig = false;
+      matchBlocks = {
+        "*" = {
+          forwardAgent = true;
+          identityAgent = onePassPath;
+        };
+      };
     };
 
     # Autostart 1Password on login
