@@ -74,8 +74,6 @@ in {
   hardware.graphics.enable = true;
   hardware.graphics.enable32Bit = true;
 
-  # Removed fw-fanctrl integration
-
   # Enable Steam
   programs.steam = {
     enable = true;
