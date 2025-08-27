@@ -28,11 +28,7 @@ with lib;
       description = "Enable Bluetooth support";
     };
 
-    enableSteam = mkOption {
-      type = types.bool;
-      default = true;
-      description = "Enable Steam gaming platform";
-    };
+    
 
     enableFingerprint = mkOption {
       type = types.bool;
