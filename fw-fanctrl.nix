@@ -94,8 +94,7 @@
           ];
         };
 
-        # Full-Blast: Aggressive full-speed operation.
-        Full-Blast = {
+        Blast = {
           fanSpeedUpdateFrequency = 2;
           movingAverageInterval = 5;
           speedCurve = [
@@ -196,7 +195,7 @@
           }
         ];
       };
-      Full-Blast = {
+      Blast = {
         fanSpeedUpdateFrequency = 2;
         movingAverageInterval = 5;
         speedCurve = [
