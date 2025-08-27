@@ -13,7 +13,6 @@ let
     gitAndTools.hub
     gh
     ollama
-    azure-cli
     xclip
     scc
     ffmpeg-full
