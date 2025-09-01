@@ -33,7 +33,7 @@
       npx = "bunx";
       chat =
         "codex --dangerously-bypass-approvals-and-sandbox --model gpt-5 -c model_reasoning_effort='high'";
-      gc =
+      ngc =
         "sudo nix-env -p /nix/var/nix/profiles/system --delete-generations +5 && sudo nix-store --gc";
     };
   };
