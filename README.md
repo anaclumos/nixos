@@ -8,6 +8,6 @@
 
 ---
 
-Things to do
+Input method
 
-- Use Spot Style in FCITX5
+- Using `ibus` with Hangul engine.

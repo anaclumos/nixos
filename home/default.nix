@@ -8,7 +8,6 @@
     ./phoenix.nix
     ./gcloud.nix
     ./locale.nix
-    ./fcitx5.nix
     ./thunderbird.nix
     ../gnome/gnome-extensions.nix
     ../gnome/gnome-appearance.nix
