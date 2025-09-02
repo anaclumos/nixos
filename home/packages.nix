@@ -41,7 +41,6 @@ let
     codex
     ripgrep
     lsof
-    zed-editor
   ];
 
   games = with pkgs; [ dolphin-emu bottles lutris ];
