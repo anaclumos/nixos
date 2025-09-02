@@ -7,8 +7,8 @@
       ids = [ "*" ];
       settings = {
         main = {
-          # Caps as Hyper when held; maximize window on tap (Super+Up)
-          capslock = "overload(hyper, macro(M-up))";
+          # Caps as Hyper when held; toggle maximize on tap (Alt+F10)
+          capslock = "overload(hyper, macro(A-f10))";
         };
 
         # Hyper layer applies C-A-S-M to keys by default.
@@ -22,4 +22,3 @@
     };
   };
 }
-
