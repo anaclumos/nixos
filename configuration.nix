@@ -46,8 +46,8 @@ in {
     defaultLocale = "en_US.UTF-8";
     inputMethod = {
       enable = true;
-      type = "ibus";
-      ibus.engines = with pkgs.ibus-engines; [ hangul ];
+      type = "fcitx5";
+      fcitx5.addons = with pkgs; [ fcitx5-hangul fcitx5-gtk ];
     };
   };
 
@@ -97,9 +97,9 @@ in {
 
   environment.sessionVariables = {
     MOZ_ENABLE_WAYLAND = "0";
-    GTK_IM_MODULE = "ibus";
-    QT_IM_MODULE = "ibus";
-    XMODIFIERS = "@im=ibus";
+    GTK_IM_MODULE = "fcitx";
+    QT_IM_MODULE = "fcitx";
+    XMODIFIERS = "@im=fcitx";
   };
 
   system.stateVersion = "25.05";
