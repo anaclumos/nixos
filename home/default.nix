@@ -11,6 +11,7 @@
     ./thunderbird.nix
     ../gnome/gnome-extensions.nix
     ../gnome/gnome-appearance.nix
+    ../gnome/gnome-keybindings.nix
   ];
 
   dconf.enable = true;

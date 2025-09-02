@@ -1,5 +1,5 @@
 { config, pkgs, lib, ... }:
 
 {
-  imports = [ ./fonts/default.nix ./shell.nix ./1password.nix ];
+  imports = [ ./fonts/default.nix ./shell.nix ./1password.nix ./keyd.nix ];
 }
