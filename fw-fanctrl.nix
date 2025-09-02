@@ -26,6 +26,22 @@
           ];
         };
 
+        # Quiet: Always run at 50% fan speed.
+        Quiet = {
+          fanSpeedUpdateFrequency = 5;
+          movingAverageInterval = 30;
+          speedCurve = [
+            {
+              temp = 0;
+              speed = 50;
+            }
+            {
+              temp = 100;
+              speed = 50;
+            }
+          ];
+        };
+
         # Normal: Approximate Framework's default policy using the built-in "medium" curve.
         Normal = {
           fanSpeedUpdateFrequency = 5;
@@ -128,6 +144,20 @@
           {
             temp = 100;
             speed = 15;
+          }
+        ];
+      };
+      Quiet = {
+        fanSpeedUpdateFrequency = 5;
+        movingAverageInterval = 30;
+        speedCurve = [
+          {
+            temp = 0;
+            speed = 50;
+          }
+          {
+            temp = 100;
+            speed = 50;
           }
         ];
       };
