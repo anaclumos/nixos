@@ -5,7 +5,6 @@
     xclip
     wmctrl
     xdotool
-    keyd
     fastfetch
     zsh-autosuggestions
   ];
