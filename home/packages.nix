@@ -58,7 +58,6 @@ let
     geekbench
     expressvpn
     caffeine-ng
-    libreoffice
     zoom-us
     beeper
     pngcrush
