@@ -196,11 +196,11 @@
         "nixpkgs": "nixpkgs_5"
       },
       "locked": {
-        "lastModified": 1757406734,
-        "narHash": "sha256-MJCZX490/d+H/Q78KE4XySsN0bGqEE3r0jwt1cuhm3k=",
+        "lastModified": 1757408412,
+        "narHash": "sha256-9j9FDPDqyj9tUyG8UqUpw1BWWLoAgWzteOLDa8nbodI=",
         "owner": "anaclumos",
         "repo": "kakaotalk.nix",
-        "rev": "120445a86670fbeec7f36597a8b34118c109d7a5",
+        "rev": "d7230e5efbd001707acbdd3e3ea503072b908c99",
         "type": "github"
       },
       "original": {
