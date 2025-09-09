@@ -16,7 +16,7 @@
       cursor-theme = "elementary";
       clock-show-weekday = true;
       clock-format = "12h";
-      enable-animations = true;
+      enable-animations = false;
     };
   };
 }
