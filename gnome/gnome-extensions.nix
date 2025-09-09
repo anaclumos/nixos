@@ -10,5 +10,6 @@
     kimpanel
     dock-from-dash
     framework-fan-control
+    run-or-raise
   ];
 }
