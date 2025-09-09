@@ -13,7 +13,7 @@
         # Silent: Always run at the lowest fan speed.
         Silent = {
           fanSpeedUpdateFrequency = 15;
-          movingAverageInterval = 120;
+          movingAverageInterval = 100;
           speedCurve = [
             {
               temp = 0;
@@ -29,7 +29,7 @@
         # Quiet: Always run at 50% fan speed.
         Quiet = {
           fanSpeedUpdateFrequency = 15;
-          movingAverageInterval = 120;
+          movingAverageInterval = 100;
           speedCurve = [
             {
               temp = 0;
@@ -134,8 +134,8 @@
     strategyOnDischarging = "Normal";
     strategies = {
       Silent = {
-        fanSpeedUpdateFrequency = 15;
-        movingAverageInterval = 120;
+        fanSpeedUpdateFrequency = 10;
+        movingAverageInterval = 100;
         speedCurve = [
           {
             temp = 0;
@@ -148,8 +148,8 @@
         ];
       };
       Quiet = {
-        fanSpeedUpdateFrequency = 15;
-        movingAverageInterval = 120;
+        fanSpeedUpdateFrequency = 10;
+        movingAverageInterval = 100;
         speedCurve = [
           {
             temp = 0;

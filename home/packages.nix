@@ -43,6 +43,7 @@ let
     lsof
     vtracer
     warp-terminal
+    mongodb-compass
   ];
 
   games = with pkgs; [ dolphin-emu bottles lutris ];
