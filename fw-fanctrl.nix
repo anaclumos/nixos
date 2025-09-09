@@ -17,11 +17,11 @@
           speedCurve = [
             {
               temp = 0;
-              speed = 15;
+              speed = 25;
             }
             {
               temp = 100;
-              speed = 15;
+              speed = 25;
             }
           ];
         };
@@ -139,11 +139,11 @@
         speedCurve = [
           {
             temp = 0;
-            speed = 15;
+            speed = 25;
           }
           {
             temp = 100;
-            speed = 15;
+            speed = 25;
           }
         ];
       };
