@@ -73,6 +73,7 @@ let
 in {
   home.packages = developmentTools ++ games ++ applications ++ gnomeTools ++ [
     pkgs.pretendard
+    pkgs.monaspace
     inputs.kakaotalk.packages.x86_64-linux.kakaotalk
     inputs.affinity-nix.packages.x86_64-linux.photo
   ];
