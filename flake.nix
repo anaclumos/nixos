@@ -18,16 +18,6 @@
 
   outputs = { self, nixpkgs, home-manager, nixos-hardware, kakaotalk, fw-fanctrl
     , affinity-nix, ... }@inputs: {
-      homeConfigurations.my-user = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages."x86_64-linux";
-        extraSpecialArgs = { inherit inputs; };
-        modules = [
-          # ...
-          {
-            home.packages = [ affinity-nix.packages.x86_64-linux.photo ];
-          }
-        ];
-      };
       nixosConfigurations = {
         cho = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";

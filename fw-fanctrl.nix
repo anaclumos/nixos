@@ -12,8 +12,8 @@
       strategies = {
         # Silent: Always run at the lowest fan speed.
         Silent = {
-          fanSpeedUpdateFrequency = 5;
-          movingAverageInterval = 30;
+          fanSpeedUpdateFrequency = 15;
+          movingAverageInterval = 120;
           speedCurve = [
             {
               temp = 0;
@@ -28,8 +28,8 @@
 
         # Quiet: Always run at 50% fan speed.
         Quiet = {
-          fanSpeedUpdateFrequency = 5;
-          movingAverageInterval = 30;
+          fanSpeedUpdateFrequency = 15;
+          movingAverageInterval = 120;
           speedCurve = [
             {
               temp = 0;
@@ -44,8 +44,8 @@
 
         # Normal: Approximate Framework's default policy using the built-in "medium" curve.
         Normal = {
-          fanSpeedUpdateFrequency = 5;
-          movingAverageInterval = 30;
+          fanSpeedUpdateFrequency = 10;
+          movingAverageInterval = 90;
           speedCurve = [
             {
               temp = 0;
@@ -76,8 +76,8 @@
 
         # Faster: More aggressive than Normal, peaks faster
         Faster = {
-          fanSpeedUpdateFrequency = 5;
-          movingAverageInterval = 20;
+          fanSpeedUpdateFrequency = 8;
+          movingAverageInterval = 60;
           speedCurve = [
             {
               temp = 0;
@@ -111,8 +111,8 @@
         };
 
         Blast = {
-          fanSpeedUpdateFrequency = 2;
-          movingAverageInterval = 5;
+          fanSpeedUpdateFrequency = 5;
+          movingAverageInterval = 15;
           speedCurve = [
             {
               temp = 0;
@@ -134,8 +134,8 @@
     strategyOnDischarging = "Normal";
     strategies = {
       Silent = {
-        fanSpeedUpdateFrequency = 5;
-        movingAverageInterval = 30;
+        fanSpeedUpdateFrequency = 15;
+        movingAverageInterval = 120;
         speedCurve = [
           {
             temp = 0;
@@ -148,8 +148,8 @@
         ];
       };
       Quiet = {
-        fanSpeedUpdateFrequency = 5;
-        movingAverageInterval = 30;
+        fanSpeedUpdateFrequency = 15;
+        movingAverageInterval = 120;
         speedCurve = [
           {
             temp = 0;
@@ -162,8 +162,8 @@
         ];
       };
       Normal = {
-        fanSpeedUpdateFrequency = 5;
-        movingAverageInterval = 30;
+        fanSpeedUpdateFrequency = 10;
+        movingAverageInterval = 90;
         speedCurve = [
           {
             temp = 0;
@@ -192,8 +192,8 @@
         ];
       };
       Faster = {
-        fanSpeedUpdateFrequency = 5;
-        movingAverageInterval = 20;
+        fanSpeedUpdateFrequency = 8;
+        movingAverageInterval = 60;
         speedCurve = [
           {
             temp = 0;
@@ -226,8 +226,8 @@
         ];
       };
       Blast = {
-        fanSpeedUpdateFrequency = 2;
-        movingAverageInterval = 5;
+        fanSpeedUpdateFrequency = 5;
+        movingAverageInterval = 15;
         speedCurve = [
           {
             temp = 0;
