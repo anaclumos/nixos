@@ -88,6 +88,10 @@ in {
   environment.systemPackages = with pkgs; [
     inputs.fw-fanctrl.packages.x86_64-linux.fw-fanctrl
     fw-ectool
+    # Install KakaoTalk at the system level so the binary is always
+    # available at /run/current-system/sw/bin/kakaotalk regardless of
+    # Home Manager state or user profiles.
+    inputs.kakaotalk.packages.x86_64-linux.kakaotalk
   ];
 
   environment.variables = {
