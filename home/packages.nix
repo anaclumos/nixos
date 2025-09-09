@@ -42,6 +42,7 @@ let
     ripgrep
     lsof
     vtracer
+    warp-terminal
   ];
 
   games = with pkgs; [ dolphin-emu bottles lutris ];
