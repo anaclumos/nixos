@@ -37,13 +37,13 @@ let
     </match>
   '';
 in {
-  fonts.packages = with pkgs; [ pretendard berkeleyMono ];
+  fonts.packages = with pkgs; [ pretendard monaspace berkeleyMono ];
   fonts.fontDir.enable = true;
   fonts.fontconfig = {
     defaultFonts = {
       sansSerif = [ "Pretendard" ];
       serif = [ "Pretendard" ];
-      monospace = [ "Berkeley Mono" ];
+      monospace = [ "Monaspace" ];
     };
     localConf = ''
       <?xml version="1.0"?>
