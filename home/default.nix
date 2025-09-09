@@ -13,7 +13,6 @@
     ../gnome/gnome-extensions.nix
     ../gnome/gnome-shortcuts.nix
     ../gnome/gnome-appearance.nix
-    ../gnome/run-or-raise.nix
   ];
 
   dconf.enable = true;

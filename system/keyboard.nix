@@ -9,6 +9,7 @@
         extraConfig = ''
           [main]
           capslock = overload(hyper, macro(A-f10))
+          f10 = leftmeta
           leftalt = layer(mac_command)
           rightalt = rightcontrol
           leftmeta = layer(mac_alt)
@@ -47,6 +48,15 @@
           left = M-left
           right = M-right
           enter = macro(M-S-end M-up)
+          f = M-1
+          h = M-3
+          j = M-2
+          k = M-4
+          l = M-5
+          semicolon = M-6
+          apostrophe = M-7
+          n = M-8
+          o = M-9
         '';
       };
     };
