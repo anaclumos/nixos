@@ -176,11 +176,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1757385184,
-        "narHash": "sha256-LCxtQn9ajvOgGRbQIRUJgfP7clMGGvV1SDW1HcSb0zk=",
+        "lastModified": 1757475826,
+        "narHash": "sha256-x6x30IzUOxKmOtE0KzQu9UxLrxg0HLurd5rpak62OL0=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "26993d87fd0d3b14f7667b74ad82235f120d986e",
+        "rev": "a60021a8c99bf5a28919c0a9fbb6b04422a6a8da",
         "type": "github"
       },
       "original": {
@@ -196,17 +196,14 @@
         "nixpkgs": "nixpkgs_5"
       },
       "locked": {
-        "lastModified": 1757427642,
-        "narHash": "sha256-sCdmLqGjnYLprlCuQktz1GNt2ybWs0W3oqVXbs8RNfA=",
-        "owner": "anaclumos",
-        "repo": "kakaotalk.nix",
-        "rev": "d74c116a6bddef7ebc3253687360ed3ea9d3a48b",
-        "type": "github"
+        "lastModified": 1757476375,
+        "narHash": "sha256-xQxQ9WO+TrbACPCgxgP3toa+TmcVuGol+HawLctskd8=",
+        "path": "/home/sunghyun/Desktop/nix/kakaotalk.nix",
+        "type": "path"
       },
       "original": {
-        "owner": "anaclumos",
-        "repo": "kakaotalk.nix",
-        "type": "github"
+        "path": "/home/sunghyun/Desktop/nix/kakaotalk.nix",
+        "type": "path"
       }
     },
     "kakaotalk-exe": {
