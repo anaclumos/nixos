@@ -78,12 +78,13 @@ in {
   programs.nix-ld.enable = true;
   programs.nix-ld.libraries = with pkgs; [ ];
 
-  environment.systemPackages = with pkgs; [
-    # Install KakaoTalk at the system level so the binary is always
-    # available at /run/current-system/sw/bin/kakaotalk regardless of
-    # Home Manager state or user profiles.
-    inputs.kakaotalk.packages.x86_64-linux.kakaotalk
-  ];
+  environment.systemPackages = with pkgs;
+    [
+      # Install KakaoTalk at the system level so the binary is always
+      # available at /run/current-system/sw/bin/kakaotalk regardless of
+      # Home Manager state or user profiles.
+      inputs.kakaotalk.packages.x86_64-linux.kakaotalk
+    ];
 
   environment.variables = {
     SSL_CERT_FILE = "${pkgs.cacert}/etc/ssl/certs/ca-bundle.crt";
