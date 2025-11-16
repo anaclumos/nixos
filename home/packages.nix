@@ -10,7 +10,7 @@ let
     claude-code
     code-cursor
     vscode
-    gitAndTools.hub
+    hub
     gh
     ollama
     xclip

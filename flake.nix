@@ -11,22 +11,17 @@
     # kakaotalk.url = "github:anaclumos/kakaotalk.nix";
     kakaotalk.url = "path:/home/sunghyun/Desktop/nix/kakaotalk.nix";
     affinity-nix.url = "github:mrshmllow/affinity-nix";
-    fw-fanctrl = {
-      url = "github:TamtamHero/fw-fanctrl/packaging/nix";
-      # Use fw-fanctrl's pinned nixpkgs to satisfy Python/jsonschema constraints
-    };
   };
 
-  outputs = { self, nixpkgs, home-manager, nixos-hardware, kakaotalk, fw-fanctrl
+  outputs = { self, nixpkgs, home-manager, nixos-hardware, kakaotalk
     , affinity-nix, ... }@inputs: {
       nixosConfigurations = {
         cho = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
           specialArgs = { inherit inputs; };
           modules = [
+            { nixpkgs.hostPlatform = "x86_64-linux"; }
             { nixpkgs.config.allowUnfree = true; }
             ./configuration.nix
-            fw-fanctrl.nixosModules.default
             home-manager.nixosModules.home-manager
             {
               home-manager.useUserPackages = true;

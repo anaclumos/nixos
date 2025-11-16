@@ -6,12 +6,6 @@ let
 
 in {
   nixpkgs.config.allowUnfree = true;
-  # Use the upstream fw-fanctrl flake’s pinned package to satisfy jsonschema constraints
-  nixpkgs.overlays = [
-    (final: prev: {
-      fw-fanctrl = inputs.fw-fanctrl.packages.x86_64-linux.fw-fanctrl;
-    })
-  ];
   imports = [
     ./hardware-configuration.nix
     ./gnome/default.nix
@@ -19,7 +13,6 @@ in {
     ./dev/default.nix
     ./modules/user.nix
     ./modules/config.nix
-    ./fw-fanctrl.nix
   ];
 
   # Module configuration
@@ -86,8 +79,6 @@ in {
   programs.nix-ld.libraries = with pkgs; [ ];
 
   environment.systemPackages = with pkgs; [
-    inputs.fw-fanctrl.packages.x86_64-linux.fw-fanctrl
-    fw-ectool
     # Install KakaoTalk at the system level so the binary is always
     # available at /run/current-system/sw/bin/kakaotalk regardless of
     # Home Manager state or user profiles.
