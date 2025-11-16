@@ -5,8 +5,6 @@
   home-manager.users.sunghyun = {
     programs.git = {
       enable = true;
-      userName = "Sunghyun Cho";
-      userEmail = "hey@cho.sh";
 
       # Git signing configuration with 1Password SSH
       signing = {
@@ -15,7 +13,11 @@
           "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGaWDMcfAJMbWDorZP8z1beEAz+fjLb+VFqFm8hkAlpt";
       };
 
-      extraConfig = {
+      settings = {
+        # User configuration
+        user.name = "Sunghyun Cho";
+        user.email = "hey@cho.sh";
+
         # Core configuration
         core.editor = "cursor --wait";
 
