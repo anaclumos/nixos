@@ -13,11 +13,11 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1763676235,
-        "narHash": "sha256-6Bri1agFBZdwrO3l32m1aUO6jHfbeBW+8eFVSlBkUAM=",
+        "lastModified": 1764110097,
+        "narHash": "sha256-Qt1/+egYCGrn54MRwqijgs3TRfCuoFpPvWNmlwpddik=",
         "owner": "mrshmllow",
         "repo": "affinity-nix",
-        "rev": "f4ed11bdb68bc14a11a1c1a545ef1891a02cb1a1",
+        "rev": "cdab717798574b30e65a3e5be26b084320f67a79",
         "type": "github"
       },
       "original": {
@@ -141,11 +141,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1763416652,
-        "narHash": "sha256-8EBEEvtzQ11LCxpQHMNEBQAGtQiCu/pqP9zSovDSbNM=",
+        "lastModified": 1764075860,
+        "narHash": "sha256-KYEIHCBBw+/lwKsJNRNoUxBB4ZY2LK0G0T8f+0i65q0=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "ea164b7c9ccdc2321379c2ff78fd4317b4c41312",
+        "rev": "295d90e22d557ccc3049dc92460b82f372cd3892",
         "type": "github"
       },
       "original": {
@@ -161,8 +161,8 @@
         "nixpkgs": "nixpkgs_4"
       },
       "locked": {
-        "lastModified": 1763273054,
-        "narHash": "sha256-Xu0OiyjZraUcB9Pm+68sFFHn1qaw7p3mVSnlh55/5XM=",
+        "lastModified": 1764132215,
+        "narHash": "sha256-4qcM3YKvHvALMbUiWd1wVrZJrdpK/sRIinrOiaxTPOY=",
         "path": "/home/sunghyun/Desktop/nix/kakaotalk.nix",
         "type": "path"
       },
@@ -174,7 +174,7 @@
     "kakaotalk-exe": {
       "flake": false,
       "locked": {
-        "narHash": "sha256-h8zIdf2vCdZeC1fiFga1XeHUdoq/Bq+RAvqgEz4qK1U=",
+        "narHash": "sha256-+K71T9Je8OICYfTfXxTPpcD4X8PNw7GbRVBcKniu+/A=",
         "type": "file",
         "url": "https://app-pc.kakaocdn.net/talk/win32/KakaoTalk_Setup.exe"
       },
@@ -197,11 +197,11 @@
     },
     "nixos-hardware": {
       "locked": {
-        "lastModified": 1762847253,
-        "narHash": "sha256-BWWnUUT01lPwCWUvS0p6Px5UOBFeXJ8jR+ZdLX8IbrU=",
+        "lastModified": 1764080039,
+        "narHash": "sha256-b1MtLQsQc4Ji1u08f+C6g5XrmLPkJQ1fhNkCt+0AERQ=",
         "owner": "NixOS",
         "repo": "nixos-hardware",
-        "rev": "899dc449bc6428b9ee6b3b8f771ca2b0ef945ab9",
+        "rev": "da17006633ca9cda369be82893ae36824a2ddf1a",
         "type": "github"
       },
       "original": {
@@ -306,16 +306,16 @@
     },
     "nixpkgs_5": {
       "locked": {
-        "lastModified": 1763421233,
-        "narHash": "sha256-Stk9ZYRkGrnnpyJ4eqt9eQtdFWRRIvMxpNRf4sIegnw=",
+        "lastModified": 1763948260,
+        "narHash": "sha256-dY9qLD0H0zOUgU3vWacPY6Qc421BeQAfm8kBuBtPVE0=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "89c2b2330e733d6cdb5eae7b899326930c2c0648",
+        "rev": "1c8ba8d3f7634acac4a2094eef7c32ad9106532c",
         "type": "github"
       },
       "original": {
         "owner": "nixos",
-        "ref": "nixos-unstable",
+        "ref": "nixos-25.05",
         "repo": "nixpkgs",
         "type": "github"
       }
