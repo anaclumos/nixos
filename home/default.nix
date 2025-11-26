@@ -18,7 +18,7 @@
   dconf.enable = true;
   home.username = "sunghyun";
   home.homeDirectory = "/home/sunghyun";
-  home.stateVersion = "25.05";
+  home.stateVersion = "25.11";
 
   # Bluetooth headset media controls
   services.mpris-proxy.enable = true;
