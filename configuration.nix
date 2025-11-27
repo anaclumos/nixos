@@ -2,7 +2,7 @@
 
 let
   user = "sunghyun";
-  hostname = "cho";
+  hostname = "framework";
 
 in {
   nixpkgs.config.allowUnfree = true;

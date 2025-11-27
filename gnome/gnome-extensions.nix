@@ -2,7 +2,7 @@
 
 {
   home.packages = with pkgs.gnomeExtensions; [
-    gtk4-desktop-icons-ng-ding
+    unite
     clipboard-history
     auto-power-profile
     appindicator
@@ -13,7 +13,7 @@
   dconf.settings = {
     "org/gnome/shell" = {
       enabled-extensions = [
-        "gtk4-ding@smedius.gitlab.com"
+        "unite@hardpixel.eu"
         "clipboard-history@alexsaveau.dev"
         "auto-power-profile@dmy3k.github.io"
         "appindicatorsupport@rgcjonas.gmail.com"
