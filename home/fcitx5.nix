@@ -152,4 +152,13 @@
       HiddenNotifications=
     '';
   };
+
+  # XIM configuration
+  xdg.configFile."fcitx5/conf/xim.conf" = {
+    force = true;
+    text = ''
+      # Use On The Spot Style (Needs restarting)
+      UseOnTheSpot=True
+    '';
+  };
 }
