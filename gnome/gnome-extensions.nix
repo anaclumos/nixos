@@ -21,5 +21,14 @@
         "dock-from-dash@fthx"
       ];
     };
+
+    "org/gnome/shell/extensions/clipboard-history" = {
+      toggle-menu = [ "<Control>g" ];
+    };
+
+    "org/gnome/shell/extensions/auto-power-profile" = {
+      ac = "balanced";
+      bat = "power-saver";
+    };
   };
 }
