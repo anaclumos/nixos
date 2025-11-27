@@ -30,5 +30,18 @@
       ac = "balanced";
       bat = "power-saver";
     };
+
+    "org/gnome/shell/extensions/unite" = {
+      app-menu-ellipsize-mode = "start";
+      desktop-name-text = "Home";
+      extend-left-box = false;
+      hide-activities-button = "always";
+      notifications-position = "center";
+      reduce-panel-spacing = true;
+      show-appmenu-button = true;
+      show-window-buttons = "never";
+      show-window-title = "always";
+      use-activities-text = true;
+    };
   };
 }
