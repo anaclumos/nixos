@@ -44,6 +44,7 @@ let
     vtracer
     azure-cli
     azure-storage-azcopy
+    gemini-cli
   ];
 
   games = with pkgs; [ dolphin-emu bottles lutris ];
