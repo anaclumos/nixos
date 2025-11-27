@@ -42,7 +42,8 @@ let
     ripgrep
     lsof
     vtracer
-    mongodb-compass
+    azure-cli
+    azure-storage-azcopy
   ];
 
   games = with pkgs; [ dolphin-emu bottles lutris ];
