@@ -21,6 +21,9 @@
         # Core configuration
         core.editor = "cursor --wait";
 
+        # Credential helper for HTTPS (using GitHub CLI)
+        credential.helper = "${lib.getExe pkgs.gh} auth git-credential";
+
         # GPG configuration for SSH signing
         gpg = { format = "ssh"; };
         "gpg \"ssh\"" = {

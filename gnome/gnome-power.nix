@@ -5,13 +5,12 @@
   programs.dconf.profiles.user.databases = [{
     settings = {
       # Disable automatic screen blank
-      "org/gnome/desktop/session" = {
-        idle-delay = lib.gvariant.mkUint32 0;
-      };
+      "org/gnome/desktop/session" = { idle-delay = lib.gvariant.mkUint32 0; };
 
       # Disable automatic suspend when plugged in (AC power)
       "org/gnome/settings-daemon/plugins/power" = {
         sleep-inactive-ac-type = "nothing";
+        sleep-inactive-ac-timeout = lib.gvariant.mkInt32 0;
       };
     };
   }];
