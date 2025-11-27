@@ -56,7 +56,7 @@
           semicolon = M-6
           apostrophe = M-7
           n = M-8
-          o = M-9
+          m = M-9
         '';
       };
     };

@@ -42,7 +42,6 @@ let
     ripgrep
     lsof
     vtracer
-    warp-terminal
     mongodb-compass
   ];
 

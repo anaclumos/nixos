@@ -6,7 +6,7 @@ with lib;
   options.modules.system = {
     hostname = mkOption {
       type = types.str;
-      default = "cho";
+      default = "framework";
       description = "System hostname";
     };
 
