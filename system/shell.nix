@@ -13,9 +13,9 @@
 
     shellAliases = {
       build =
-        "cd ~/Desktop/nix/os && nixfmt **/*.nix && nix-channel --update && nix --extra-experimental-features 'nix-command flakes' flake update && sudo NIXPKGS_ALLOW_UNFREE=1 nixos-rebuild switch --flake .#framework --impure && ngc";
+        "cd ~/Desktop/nix && nixfmt **/*.nix && nix-channel --update && nix --extra-experimental-features 'nix-command flakes' flake update && sudo NIXPKGS_ALLOW_UNFREE=1 nixos-rebuild switch --flake .#framework --impure && ngc";
       nixgit = ''
-        cd ~/Desktop/nix/os && git commit -m "$(date +"%Y-%m-%d")" -a && git push'';
+        cd ~/Desktop/nix && git commit -m "$(date +"%Y-%m-%d")" -a && git push'';
       qq = "cd ~/Desktop/extracranial";
       qqqq = "cd ~/Desktop/extracranial && bun run save && gp && exit";
       ec = "expressvpn connect";
