@@ -19,7 +19,7 @@
       clock-show-weekday = true;
       clock-format = "12h";
       enable-hot-corners = false;
-      # enable-animations = false;
+      enable-animations = false;
     };
 
     "org/gnome/desktop/wm/preferences" = {

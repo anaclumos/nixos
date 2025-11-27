@@ -19,5 +19,6 @@
     gnome-photos
     evince
     geary
+    gnome-text-editor
   ]);
 }
