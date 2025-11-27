@@ -5,7 +5,7 @@
     "org/gnome/settings-daemon/plugins/media-keys" = {
       custom-keybindings = [
         "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/spotlight/"
-        "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/linear/"
+        "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/jira/"
         "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/lock/"
         "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/1password/"
         "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/dark-mode/"
@@ -18,9 +18,9 @@
           "bash -c 'dbus-send --session --dest=org.gnome.Shell --type=method_call /org/gnome/Shell org.freedesktop.DBus.Properties.Set string:org.gnome.Shell string:OverviewActive variant:boolean:true'";
         binding = "<Ctrl>space";
       };
-    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/linear" = {
-      name = "Open Linear";
-      command = "xdg-open https://linear.app";
+    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/jira" = {
+      name = "Open Jira";
+      command = "xdg-open https://lunit.atlassian.net/jira/core/projects/INCL2";
       binding = "<Ctrl><Alt><Super><Shift>i";
     };
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/lock" = {
