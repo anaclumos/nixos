@@ -83,4 +83,73 @@
     [Addon]
     Enabled=True
   '';
+
+  # Input method profile - defines which input methods are active
+  xdg.configFile."fcitx5/profile" = {
+    force = true;
+    text = ''
+      [Groups/0]
+      # Group Name
+      Name=Default
+      # Layout
+      Default Layout=us
+      # Default Input Method
+      DefaultIM=hangul
+
+      [Groups/0/Items/0]
+      # Name
+      Name=keyboard-us
+      # Layout
+      Layout=
+
+      [Groups/0/Items/1]
+      # Name
+      Name=hangul
+      # Layout
+      Layout=
+
+      [GroupOrder]
+      0=Default
+    '';
+  };
+
+  # Hangul (Korean) input method configuration
+  xdg.configFile."fcitx5/conf/hangul.conf" = {
+    force = true;
+    text = ''
+      # Keyboard Layout
+      Keyboard=Dubeolsik
+      # Auto Reorder
+      AutoReorder=True
+      # Word Commit
+      WordCommit=False
+      # Hanja Mode
+      HanjaMode=False
+
+      [HanjaModeToggleKey]
+      0=Hangul_Hanja
+      1=F9
+
+      [PrevPage]
+      0=Up
+
+      [NextPage]
+      0=Down
+
+      [PrevCandidate]
+      0=Shift+Tab
+
+      [NextCandidate]
+      0=Tab
+    '';
+  };
+
+  # Notifications configuration
+  xdg.configFile."fcitx5/conf/notifications.conf" = {
+    force = true;
+    text = ''
+      # Hidden Notifications
+      HiddenNotifications=
+    '';
+  };
 }

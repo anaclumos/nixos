@@ -5,6 +5,7 @@
     pkgs.pantheon.elementary-icon-theme
     pkgs.hicolor-icon-theme
     pkgs.adwaita-icon-theme
+    pkgs.whitesur-icon-theme
   ];
 
   dconf.settings = {
@@ -13,7 +14,7 @@
       font-name = "Pretendard 12";
       document-font-name = "Pretendard 12";
       monospace-font-name = "Berkeley Mono 12";
-      icon-theme = "Adwaita";
+      icon-theme = "WhiteSur";
       cursor-theme = "elementary";
       clock-show-weekday = true;
       clock-format = "12h";
@@ -26,5 +27,19 @@
     };
 
     "org/gnome/system/locale" = { region = "en_US.UTF-8"; };
+
+    "org/gnome/shell" = {
+      favorite-apps = [
+        "org.gnome.Nautilus.desktop"
+        "google-chrome.desktop"
+        "thunderbird.desktop"
+        "com.github.th_ch.youtube_music.desktop"
+        "org.gnome.Calendar.desktop"
+        "cursor.desktop"
+        "org.gnome.Console.desktop"
+        "slack.desktop"
+        "kakaotalk.desktop"
+      ];
+    };
   };
 }
