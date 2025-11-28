@@ -15,7 +15,6 @@ in {
     ./modules/config.nix
   ];
 
-  # Module configuration
   modules.user.name = user;
   modules.system.hostname = hostname;
   modules.system.timezone = "Asia/Seoul";
@@ -46,7 +45,6 @@ in {
 
   services.tailscale.enable = true;
 
-  # Audio
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
@@ -56,7 +54,6 @@ in {
     pulse.enable = true;
   };
 
-  # Bluetooth
   hardware.bluetooth = {
     enable = true;
     powerOnBoot = true;

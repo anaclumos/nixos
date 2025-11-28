@@ -33,7 +33,7 @@
 
     "org/gnome/shell/extensions/unite" = {
       app-menu-ellipsize-mode = "start";
-      desktop-name-text = "Home";
+      desktop-name-text = "성현";
       extend-left-box = false;
       hide-activities-button = "always";
       notifications-position = "center";
