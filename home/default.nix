@@ -5,7 +5,6 @@
     ./programs.nix
     ./packages.nix
     ./system-tools.nix
-    ./phoenix.nix
     ./gcloud.nix
     ./locale.nix
     ./fcitx5.nix
