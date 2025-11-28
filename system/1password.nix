@@ -51,7 +51,6 @@ in {
       Comment=Password manager and secure wallet
     '';
 
-    xdg.configFile."1password/1password-bw-integration".text = ''
-    '';
+    xdg.configFile."1password/1password-bw-integration".text = "";
   };
 }
