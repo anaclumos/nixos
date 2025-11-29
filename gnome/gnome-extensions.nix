@@ -36,6 +36,7 @@
       desktop-name-text = "성현";
       extend-left-box = false;
       hide-activities-button = "always";
+      hide-window-titlebars = "never";
       notifications-position = "center";
       reduce-panel-spacing = true;
       show-appmenu-button = true;
