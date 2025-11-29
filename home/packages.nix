@@ -46,6 +46,9 @@ let
     azure-storage-azcopy
     gemini-cli
     tmux
+    cmake
+    gcc
+    gnumake
   ];
 
   games = with pkgs; [ dolphin-emu bottles lutris ];
