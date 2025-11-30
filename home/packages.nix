@@ -49,6 +49,9 @@ let
     cmake
     gcc
     gnumake
+    devpod
+    devpod-desktop
+    devcontainer
   ];
 
   games = with pkgs; [ dolphin-emu bottles lutris ];
