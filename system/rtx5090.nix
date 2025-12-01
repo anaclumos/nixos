@@ -1,5 +1,6 @@
 { config, pkgs, lib, ... }: {
   services.hardware.bolt.enable = true;
+  programs.nix-ld.libraries = [ config.hardware.nvidia.package ];
   hardware.nvidia = {
     open = true;
     modesetting.enable = false;
