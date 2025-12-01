@@ -22,6 +22,7 @@ let
     "Roboto"
     "Tahoma"
     "맑은 고딕"
+    "맑은고딕"
     "MalgunGothic"
     "돋움"
   ];
