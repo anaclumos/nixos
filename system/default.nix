@@ -7,7 +7,6 @@
     ./hibernation.nix
     ./gpu.nix
     ./radeon890m.nix
-    ./rtx5090.nix
     ./gaming.nix
   ];
 }
