@@ -7,5 +7,6 @@
     ./shell.nix
     ./1password.nix
     ./hibernation.nix
+    ./gpu.nix
   ];
 }
