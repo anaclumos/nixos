@@ -16,9 +16,12 @@
       PrevCandidate=
       NextCandidate=
       TogglePreedit=
-      ModifierOnlyKeyTimeout=250       [Hotkey/ActivateKeys]
-      0=Control+Control_R       [Hotkey/DeactivateKeys]
-      0=Control+Control_L       [Behavior]
+      ModifierOnlyKeyTimeout=250
+      [Hotkey/ActivateKeys]
+      0=Control+Control_R
+      [Hotkey/DeactivateKeys]
+      0=Control+Control_L
+      [Behavior]
       ActiveByDefault=False
       resetStateWhenFocusIn=No
       ShareInputState=No
@@ -48,11 +51,14 @@
       [Groups/0]
       Name=Default
       Default Layout=us
-      DefaultIM=hangul       [Groups/0/Items/0]
+      DefaultIM=hangul
+      [Groups/0/Items/0]
       Name=keyboard-us
-      Layout=       [Groups/0/Items/1]
+      Layout=
+      [Groups/0/Items/1]
       Name=hangul
-      Layout=       [GroupOrder]
+      Layout=
+      [GroupOrder]
       0=Default
     '';
   };
@@ -62,12 +68,17 @@
       Keyboard=Dubeolsik
       AutoReorder=True
       WordCommit=False
-      HanjaMode=False       [HanjaModeToggleKey]
+      HanjaMode=False
+      [HanjaModeToggleKey]
       0=Hangul_Hanja
-      1=F9       [PrevPage]
-      0=Up       [NextPage]
-      0=Down       [PrevCandidate]
-      0=Shift+Tab       [NextCandidate]
+      1=F9
+      [PrevPage]
+      0=Up
+      [NextPage]
+      0=Down
+      [PrevCandidate]
+      0=Shift+Tab
+      [NextCandidate]
       0=Tab
     '';
   };

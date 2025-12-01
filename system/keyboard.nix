@@ -13,7 +13,8 @@
           leftmeta = layer(mac_alt)
           rightmeta = layer(mac_alt)
           leftcontrol = layer(mac_control)
-          rightcontrol = layer(mac_control)           [mac_command:C]
+          rightcontrol = layer(mac_control)
+          [mac_command:C]
           c = C-insert
           v = S-insert
           x = S-delete
@@ -23,17 +24,21 @@
           left = home
           up = pageup
           right = end
-          down = pagedown           [mac_command+shift]
-          c = C-S-c           [app_switch_state:A]
-          backspace = C-backspace           [mac_alt:A]
+          down = pagedown
+          [mac_command+shift]
+          c = C-S-c
+          [app_switch_state:A]
+          backspace = C-backspace
+          [mac_alt:A]
           left = C-left
           right = C-right
-          backspace = C-backspace           [mac_control:C]
+          backspace = C-backspace
+          [mac_control:C]
           left = M-pageup
-          right = M-pagedown           [hyper:C-A-S-M]
+          right = M-pagedown
+          [hyper:C-A-S-M]
           left = M-left
           right = M-right
-          # enter = macro(M-S-end M-up)
           f = M-1
           h = M-3
           j = M-2
