@@ -13,21 +13,18 @@
 
     shellAliases = {
       build =
-        "cd ~/Desktop/nix && nixfmt **/*.nix && nix-channel --update && nix --extra-experimental-features 'nix-command flakes' flake update && sudo NIXPKGS_ALLOW_UNFREE=1 nixos-rebuild switch --flake .#framework --impure && ngc";
+        "cd ~/Documents/nix && nixfmt **/*.nix && nix-channel --update && nix --extra-experimental-features 'nix-command flakes' flake update && sudo NIXPKGS_ALLOW_UNFREE=1 nixos-rebuild switch --flake .#framework --impure && ngc";
       nixgit = ''
-        cd ~/Desktop/nix && git commit -m "$(date +"%Y-%m-%d")" -a && git push'';
-      qq = "cd ~/Desktop/extracranial";
-      qqqq = "cd ~/Desktop/extracranial && bun run save && gp && exit";
+        cd ~/Documents/nix && git commit -m "$(date +"%Y-%m-%d")" -a && git push'';
       ec = "expressvpn connect";
       ed = "expressvpn disconnect";
       x = "exit";
       oo = "hub browse";
-      zz = "cursor ~/Desktop/nix";
+      zz = "cursor ~/Documents/nix";
       ss = "source ~/.zshrc";
       cc = "cursor .";
       sha =
         "git push && echo Done in $(git rev-parse HEAD) | xclip -selection clipboard";
-      hn = "sh ~/Desktop/tools/hn/hn.sh";
       emptyfolder = "find . -type d -empty -delete";
       npm = "bun";
       npx = "bunx";
