@@ -1,4 +1,5 @@
 { config, pkgs, lib, ... }: {
+  services.hardware.bolt.enable = true;
   hardware.nvidia = {
     open = true;
     modesetting.enable = false;
