@@ -1,7 +1,6 @@
 { config, pkgs, lib, ... }:
 
 {
-  # AMD Radeon 890M iGPU
   boot.initrd.kernelModules = [ "amdgpu" ];
 
   hardware.graphics.extraPackages = with pkgs; [ rocmPackages.clr.icd ];

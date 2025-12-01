@@ -59,10 +59,10 @@ let
     dolphin-emu
     bottles
     (lutris.override { extraPkgs = pkgs: [ pkgs.libnghttp2 pkgs.winetricks ]; })
-    wineWowPackages.staging # 32+64-bit Wine for Battle.net/SC2
+    wineWowPackages.staging
     winetricks
-    vulkan-tools # for vulkaninfo
-    dxvk # DXVK for DirectX to Vulkan translation
+    vulkan-tools
+    dxvk
   ];
 
   applications = with pkgs; [
