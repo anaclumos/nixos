@@ -21,7 +21,6 @@ let
     unzip
     zip
     act
-    sqlitebrowser
     terraform
     biome
     vscode-extensions.biomejs.biome
@@ -50,10 +49,11 @@ let
     gcc
     gnumake
     devpod
-    devpod-desktop
     devcontainer
     nvme-cli
     wget
+    podman-compose
+    _1password-cli
   ];
 
   games = with pkgs; [ dolphin-emu bottles lutris ];
@@ -66,7 +66,6 @@ let
     firefox
     youtube-music
     _1password-gui
-    _1password-cli
     ookla-speedtest
     geekbench
     expressvpn
@@ -77,6 +76,10 @@ let
     imagemagick
     pngquant
     logseq
+    podman-desktop
+    pods
+    sqlitebrowser
+    devpod-desktop
   ];
 
   gnomeTools = with pkgs; [ refine ];
