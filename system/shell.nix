@@ -28,8 +28,7 @@
       emptyfolder = "find . -type d -empty -delete";
       npm = "bun";
       npx = "bunx";
-      chat =
-        "codex --yolo -c model_reasoning_effort='high'";
+      chat = "codex --yolo -c model_reasoning_effort='high'";
       ngc =
         "sudo nix-env -p /nix/var/nix/profiles/system --delete-generations +20 && sudo nix-store --gc";
     };

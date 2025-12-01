@@ -54,6 +54,7 @@ let
     wget
     podman-compose
     _1password-cli
+    pciutils
   ];
 
   games = with pkgs; [ dolphin-emu bottles lutris ];
