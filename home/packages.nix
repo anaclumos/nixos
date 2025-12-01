@@ -52,6 +52,8 @@ let
     devpod
     devpod-desktop
     devcontainer
+    nvme-cli
+    wget
   ];
 
   games = with pkgs; [ dolphin-emu bottles lutris ];
