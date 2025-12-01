@@ -10,7 +10,7 @@
       oh-my-zsh = {
         enable = true;
         theme = "robbyrussell";
-        plugins = [ "git" "docker" "npm" ];
+        plugins = [ "git" "podman" "npm" ];
       };
       initContent = ''
         ${pkgs.fastfetch}/bin/fastfetch && if [ "$(pwd)" = "/home/sunghyun" ]; then cd ~/Documents; fi
