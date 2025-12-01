@@ -1,5 +1,6 @@
 { config, pkgs, lib, ... }: {
   services.hardware.bolt.enable = true;
+  boot.kernelModules = [ "nvidia_uvm" ];
   programs.nix-ld.libraries = [ config.hardware.nvidia.package ];
   hardware.nvidia = {
     open = true;
