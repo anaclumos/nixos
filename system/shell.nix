@@ -8,12 +8,12 @@
     ohMyZsh = {
       enable = true;
       theme = "robbyrussell";
-      plugins = [ "git" "docker" "npm" "sudo" "command-not-found" ];
+      plugins = [ "git" "podman" "npm" "sudo" "command-not-found" ];
     };
 
     shellAliases = {
       build =
-        "sudo cd ~/Documents/nix && nixfmt **/*.nix && nix-channel --update && nix --extra-experimental-features 'nix-command flakes' flake update && sudo NIXPKGS_ALLOW_UNFREE=1 nixos-rebuild switch --flake .#framework --impure && ngc";
+        "cd ~/Documents/nix && nixfmt **/*.nix && nix-channel --update && nix --extra-experimental-features 'nix-command flakes' flake update && sudo NIXPKGS_ALLOW_UNFREE=1 nixos-rebuild switch --flake .#framework --impure && ngc";
       nixgit = ''
         cd ~/Documents/nix && git commit -m "$(date +"%Y-%m-%d")" -a && git push'';
       ec = "expressvpn connect";
@@ -29,9 +29,9 @@
       npm = "bun";
       npx = "bunx";
       chat =
-        "codex --dangerously-bypass-approvals-and-sandbox --model gpt-5 -c model_reasoning_effort='high'";
+        "codex --dangerously-bypass-approvals-and-sandbox -c model_reasoning_effort='high'";
       ngc =
-        "sudo nix-env -p /nix/var/nix/profiles/system --delete-generations +5 && sudo nix-store --gc";
+        "sudo nix-env -p /nix/var/nix/profiles/system --delete-generations +20 && sudo nix-store --gc";
     };
   };
 }
