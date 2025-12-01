@@ -9,6 +9,42 @@
       nix-direnv.enable = true;
     };
 
+    fastfetch = {
+      enable = true;
+      settings = {
+        modules = [
+          "title"
+          "separator"
+          "os"
+          "host"
+          "kernel"
+          "uptime"
+          "packages"
+          "shell"
+          "display"
+          "de"
+          "wm"
+          "wmtheme"
+          "theme"
+          "icons"
+          "font"
+          "cursor"
+          "terminal"
+          "terminalfont"
+          "cpu"
+          "gpu"
+          "memory"
+          "swap"
+          "disk"
+          "battery"
+          "poweradapter"
+          "locale"
+          "break"
+          "colors"
+        ];
+      };
+    };
+
     zsh = {
       enable = true;
       autosuggestion.enable = true;
@@ -18,7 +54,7 @@
         plugins = [ "git" "podman" "npm" ];
       };
       initContent = ''
-        ${pkgs.fastfetch}/bin/fastfetch && if [ "$(pwd)" = "/home/sunghyun" ]; then cd ~/Documents; fi
+        fastfetch && if [ "$(pwd)" = "/home/sunghyun" ]; then cd ~/Documents; fi
       '';
       shellAliases = {
         npm = "bun";
