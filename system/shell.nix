@@ -28,6 +28,8 @@
       chat = "codex --yolo -c model_reasoning_effort='high'";
       ngc =
         "sudo nix-env -p /nix/var/nix/profiles/system --delete-generations +20 && sudo nix-store --gc";
+      taildrop =
+        "cd ~/Pictures/Screenshots && sudo tailscale file cp *.png iphone-17-pro: && rm *.png";
     };
   };
 }
