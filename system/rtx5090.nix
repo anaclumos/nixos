@@ -1,0 +1,34 @@
+{ config, pkgs, lib, ... }:
+
+{
+  hardware.nvidia = {
+    open = true;
+    modesetting.enable = true;
+  };
+
+  # CUDA support
+  nixpkgs.config.cudaSupport = true;
+
+  # NVIDIA binary cache (avoids hours of compilation)
+  nix.settings = {
+    substituters = [ "https://cuda-maintainers.cachix.org" ];
+    trusted-public-keys = [
+      "cuda-maintainers.cachix.org-1:0dq3bujKpuEPMCX6U4WylrUDZ9JyUG0VpVZa7CNfq5E="
+    ];
+  };
+
+  environment.systemPackages = with pkgs; [
+    nvtopPackages.full
+    nvidia-vaapi-driver
+
+    # CUDA toolkit
+    cudaPackages.cuda_cudart
+    cudaPackages.cuda_nvcc
+    cudaPackages.cudnn
+    cudaPackages.libcublas
+    cudaPackages.libcufft
+    cudaPackages.libcurand
+    cudaPackages.libcusolver
+    cudaPackages.libcusparse
+  ];
+}
