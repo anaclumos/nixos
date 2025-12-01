@@ -1,6 +1,4 @@
-{ pkgs, ... }:
-
-{
+{ pkgs, ... }: {
   home.packages = with pkgs.gnomeExtensions; [
     unite
     clipboard-history
@@ -9,7 +7,6 @@
     kimpanel
     dock-from-dash
   ];
-
   dconf.settings = {
     "org/gnome/shell" = {
       enabled-extensions = [
@@ -21,17 +18,14 @@
         "dock-from-dash@fthx"
       ];
     };
-
     "org/gnome/shell/extensions/clipboard-history" = {
       toggle-menu = [ "<Control>g" ];
     };
-
     "org/gnome/shell/extensions/power-profile-switcher" = {
       ac = "performance";
       bat = "performance";
       threshold = 80;
     };
-
     "org/gnome/shell/extensions/unite" = {
       app-menu-ellipsize-mode = "start";
       desktop-name-text = "성현";

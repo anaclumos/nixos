@@ -1,5 +1,4 @@
 { config, pkgs, inputs, ... }:
-
 let
   developmentTools = with pkgs; [
     nodejs
@@ -54,7 +53,6 @@ let
     _1password-cli
     pciutils
   ];
-
   games = with pkgs; [
     dolphin-emu
     bottles
@@ -64,7 +62,6 @@ let
     vulkan-tools
     dxvk
   ];
-
   applications = with pkgs; [
     slack
     teams-for-linux
@@ -87,7 +84,6 @@ let
     pods
     sqlitebrowser
   ];
-
   gnomeTools = with pkgs; [ refine ];
 in {
   home.packages = developmentTools ++ games ++ applications ++ gnomeTools

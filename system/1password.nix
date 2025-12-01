@@ -1,5 +1,4 @@
 { config, lib, pkgs, ... }:
-
 let onePassPath = "~/.1password/agent.sock";
 in {
   programs._1password.enable = true;
@@ -7,7 +6,6 @@ in {
     enable = true;
     polkitPolicyOwners = [ "sunghyun" ];
   };
-
   environment.etc = {
     "1password/custom_allowed_browsers" = {
       text = ''
@@ -20,15 +18,12 @@ in {
       mode = "0755";
     };
   };
-
   environment.variables = {
     OP_SERVICE_ACCOUNT_TOKEN = "/etc/1password/service-account-token";
     SSH_AUTH_SOCK = "$HOME/.1password/agent.sock";
   };
-
   home-manager.users.sunghyun = {
     home.packages = with pkgs; [ _1password-gui _1password-cli ];
-
     programs.ssh = {
       enable = true;
       enableDefaultConfig = false;
@@ -39,7 +34,6 @@ in {
         };
       };
     };
-
     xdg.configFile."autostart/1password.desktop".text = ''
       [Desktop Entry]
       Type=Application
@@ -50,7 +44,6 @@ in {
       Name=1Password
       Comment=Password manager and secure wallet
     '';
-
     xdg.configFile."1password/1password-bw-integration".text = "";
   };
 }

@@ -1,6 +1,4 @@
-{ config, pkgs, ... }:
-
-{
+{ config, pkgs, ... }: {
   home.language = {
     base = "en_US.UTF-8";
     address = "en_US.UTF-8";

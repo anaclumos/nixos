@@ -1,10 +1,7 @@
-{ lib, ... }:
-
-{
+{ lib, ... }: {
   programs.dconf.profiles.user.databases = [{
     settings = {
       "org/gnome/desktop/session" = { idle-delay = lib.gvariant.mkUint32 0; };
-
       "org/gnome/settings-daemon/plugins/power" = {
         sleep-inactive-ac-type = "nothing";
         sleep-inactive-ac-timeout = lib.gvariant.mkInt32 0;

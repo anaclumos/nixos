@@ -1,6 +1,4 @@
-{ config, lib, pkgs, ... }:
-
-{
+{ config, lib, pkgs, ... }: {
   programs.zsh = {
     enable = true;
     autosuggestions.enable = true;
@@ -10,7 +8,6 @@
       theme = "robbyrussell";
       plugins = [ "git" "podman" "npm" "sudo" "command-not-found" ];
     };
-
     shellAliases = {
       build =
         "cd ~/Documents/nix && nixfmt **/*.nix && nix-channel --update && nix --extra-experimental-features 'nix-command flakes' flake update && sudo NIXPKGS_ALLOW_UNFREE=1 nixos-rebuild switch --flake .#framework --impure && ngc";

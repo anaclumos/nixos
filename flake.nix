@@ -1,6 +1,5 @@
 {
   description = "NixOS configuration for Sunghyun's systems";
-
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
     home-manager = {
@@ -9,7 +8,6 @@
     };
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
   };
-
   outputs = { self, nixpkgs, home-manager, nixos-hardware, ... }@inputs: {
     nixosConfigurations = {
       framework = nixpkgs.lib.nixosSystem {

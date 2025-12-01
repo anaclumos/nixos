@@ -1,6 +1,4 @@
-{ config, pkgs, ... }:
-
-{
+{ config, pkgs, ... }: {
   dconf.settings = {
     "org/gnome/settings-daemon/plugins/media-keys" = {
       custom-keybindings = [
@@ -29,14 +27,12 @@
         "dbus-send --type=method_call --dest=org.gnome.ScreenSaver /org/gnome/ScreenSaver org.gnome.ScreenSaver.Lock";
       binding = "<Ctrl>l";
     };
-
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/1password" =
       {
         name = "1Password Quick Access";
         command = "1password --quick-access";
         binding = "<Ctrl><Shift>space";
       };
-
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/dark-mode" =
       {
         name = "Toggle Dark Mode";
