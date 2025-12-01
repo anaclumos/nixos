@@ -1,9 +1,7 @@
 { config, lib, pkgs, ... }:
-
 let
   berkeleyMono =
     pkgs.callPackage ../../fonts/berkeley-mono/berkeley-mono.nix { };
-
   fontAliases = [
     "Helvetica"
     "Helvetica Neue"
@@ -26,7 +24,6 @@ let
     "MalgunGothic"
     "돋움"
   ];
-
   generateFontAlias = font: ''
     <match target="pattern">
       <test qual="any" name="family">

@@ -1,6 +1,4 @@
-{ config, lib, pkgs, ... }:
-
-{
+{ config, lib, pkgs, ... }: {
   home-manager.users.sunghyun = {
     programs.git = {
       enable = true;
@@ -9,7 +7,6 @@
         key =
           "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGaWDMcfAJMbWDorZP8z1beEAz+fjLb+VFqFm8hkAlpt";
       };
-
       settings = {
         user.name = "Sunghyun Cho";
         user.email = "hey@cho.sh";

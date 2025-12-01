@@ -1,6 +1,4 @@
-{ config, pkgs, lib, ... }:
-
-{
+{ config, pkgs, lib, ... }: {
   imports = [
     ./keyboard.nix
     ./fonts/default.nix

@@ -1,13 +1,10 @@
-{ pkgs, ... }:
-
-{
+{ pkgs, ... }: {
   home.packages = [
     pkgs.pantheon.elementary-icon-theme
     pkgs.hicolor-icon-theme
     pkgs.adwaita-icon-theme
     pkgs.whitesur-icon-theme
   ];
-
   dconf.settings = {
     "org/gnome/desktop/interface" = {
       show-battery-percentage = true;
@@ -21,13 +18,10 @@
       enable-hot-corners = false;
       enable-animations = false;
     };
-
     "org/gnome/desktop/wm/preferences" = {
       titlebar-font = "Pretendard Bold 12";
     };
-
     "org/gnome/system/locale" = { region = "en_US.UTF-8"; };
-
     "org/gnome/shell" = {
       favorite-apps = [
         "org.gnome.Nautilus.desktop"

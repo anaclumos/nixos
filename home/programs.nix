@@ -1,14 +1,10 @@
-{ config, pkgs, inputs, ... }:
-
-{
+{ config, pkgs, inputs, ... }: {
   programs = {
     home-manager.enable = true;
-
     direnv = {
       enable = true;
       nix-direnv.enable = true;
     };
-
     fastfetch = {
       enable = true;
       settings = {
@@ -44,7 +40,6 @@
         ];
       };
     };
-
     zsh = {
       enable = true;
       autosuggestion.enable = true;
@@ -61,6 +56,5 @@
         npx = "bunx";
       };
     };
-
   };
 }

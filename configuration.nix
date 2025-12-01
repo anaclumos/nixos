@@ -1,9 +1,7 @@
 { config, pkgs, lib, inputs, ... }:
-
 let
   user = "sunghyun";
   hostname = "framework";
-
 in {
   nixpkgs.config.allowUnfree = true;
   imports = [
@@ -14,27 +12,19 @@ in {
     ./modules/user.nix
     ./modules/config.nix
   ];
-
   modules.user.name = user;
   modules.system.hostname = hostname;
   modules.system.timezone = "Asia/Seoul";
-
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.systemd-boot.configurationLimit = 20;
-
   boot.kernelPackages = pkgs.linuxPackages_latest;
   services.fprintd.enable = true;
-
   services.fwupd.enable = true;
-
   services.expressvpn.enable = true;
-
   networking.hostName = hostname;
   networking.networkmanager.enable = true;
-
   time.timeZone = "Asia/Seoul";
-
   i18n = {
     defaultLocale = "en_US.UTF-8";
     inputMethod = {
@@ -43,9 +33,7 @@ in {
       fcitx5.addons = with pkgs; [ fcitx5-hangul fcitx5-gtk ];
     };
   };
-
   services.tailscale.enable = true;
-
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
@@ -54,7 +42,6 @@ in {
     alsa.support32Bit = true;
     pulse.enable = true;
   };
-
   hardware.bluetooth = {
     enable = true;
     powerOnBoot = true;
@@ -65,30 +52,22 @@ in {
       };
     };
   };
-
   services.printing.enable = true;
-
   hardware.graphics.enable = true;
   hardware.graphics.enable32Bit = true;
-
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
   programs.nix-ld.enable = true;
   programs.nix-ld.libraries = with pkgs; [ ];
-
   environment.systemPackages = with pkgs; [ ];
-
   environment.variables = {
     SSL_CERT_FILE = "${pkgs.cacert}/etc/ssl/certs/ca-bundle.crt";
     NIX_SSL_CERT_FILE = "${pkgs.cacert}/etc/ssl/certs/ca-bundle.crt";
   };
-
   environment.sessionVariables = {
     MOZ_ENABLE_WAYLAND = "0";
     GTK_IM_MODULE = "fcitx";
     QT_IM_MODULE = "fcitx";
     XMODIFIERS = "@im=fcitx";
   };
-
   system.stateVersion = "25.11";
 }
