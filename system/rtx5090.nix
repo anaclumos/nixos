@@ -1,7 +1,8 @@
 { config, pkgs, lib, ... }: {
   hardware.nvidia = {
     open = true;
-    modesetting.enable = true;
+    modesetting.enable = false;
+    nvidiaPersistenced = true;
   };
   nixpkgs.config.cudaSupport = true;
   nix.settings = {

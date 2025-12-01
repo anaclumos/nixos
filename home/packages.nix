@@ -11,7 +11,6 @@ let
     vscode
     hub
     gh
-    ollama
     xclip
     scc
     ffmpeg-full

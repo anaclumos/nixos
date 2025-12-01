@@ -23,8 +23,4 @@
     lact
   ];
   users.users.sunghyun.extraGroups = [ "render" ];
-  services.ollama = {
-    enable = true;
-    acceleration = "rocm";
-  };
 }
