@@ -4,7 +4,7 @@
   home.packages = with pkgs.gnomeExtensions; [
     unite
     clipboard-history
-    auto-power-profile
+    power-profile-switcher
     appindicator
     kimpanel
     dock-from-dash
@@ -15,7 +15,7 @@
       enabled-extensions = [
         "unite@hardpixel.eu"
         "clipboard-history@alexsaveau.dev"
-        "auto-power-profile@dmy3k.github.io"
+        "power-profile-switcher@eliapasquali.github.io"
         "appindicatorsupport@rgcjonas.gmail.com"
         "kimpanel@kde.org"
         "dock-from-dash@fthx"
@@ -26,9 +26,10 @@
       toggle-menu = [ "<Control>g" ];
     };
 
-    "org/gnome/shell/extensions/auto-power-profile" = {
-      ac = "balanced";
-      bat = "power-saver";
+    "org/gnome/shell/extensions/power-profile-switcher" = {
+      ac = "performance";
+      bat = "performance";
+      threshold = 80;
     };
 
     "org/gnome/shell/extensions/unite" = {
