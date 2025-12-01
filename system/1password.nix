@@ -23,7 +23,7 @@ in {
 
   environment.variables = {
     OP_SERVICE_ACCOUNT_TOKEN = "/etc/1password/service-account-token";
-    SSH_AUTH_SOCK = onePassPath;
+    SSH_AUTH_SOCK = "$HOME/.1password/agent.sock";
   };
 
   home-manager.users.sunghyun = {

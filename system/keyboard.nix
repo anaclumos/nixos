@@ -47,7 +47,7 @@
           [hyper:C-A-S-M]
           left = M-left
           right = M-right
-          enter = macro(M-S-end M-up)
+          # enter = macro(M-S-end M-up)
           f = M-1
           h = M-3
           j = M-2
