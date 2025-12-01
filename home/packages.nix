@@ -48,8 +48,6 @@ let
     cmake
     gcc
     gnumake
-    devpod
-    devcontainer
     nvme-cli
     wget
     podman-compose
@@ -57,7 +55,15 @@ let
     pciutils
   ];
 
-  games = with pkgs; [ dolphin-emu bottles lutris ];
+  games = with pkgs; [
+    dolphin-emu
+    bottles
+    (lutris.override { extraPkgs = pkgs: [ pkgs.libnghttp2 pkgs.winetricks ]; })
+    wineWowPackages.staging # 32+64-bit Wine for Battle.net/SC2
+    winetricks
+    vulkan-tools # for vulkaninfo
+    dxvk # DXVK for DirectX to Vulkan translation
+  ];
 
   applications = with pkgs; [
     slack
@@ -80,7 +86,6 @@ let
     podman-desktop
     pods
     sqlitebrowser
-    devpod-desktop
   ];
 
   gnomeTools = with pkgs; [ refine ];

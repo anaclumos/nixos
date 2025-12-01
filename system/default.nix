@@ -8,5 +8,6 @@
     ./1password.nix
     ./hibernation.nix
     ./gpu.nix
+    ./gaming.nix
   ];
 }
