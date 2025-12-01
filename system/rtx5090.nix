@@ -6,10 +6,8 @@
     modesetting.enable = true;
   };
 
-  # CUDA support
   nixpkgs.config.cudaSupport = true;
 
-  # NVIDIA binary cache (avoids hours of compilation)
   nix.settings = {
     substituters = [ "https://cuda-maintainers.cachix.org" ];
     trusted-public-keys = [
@@ -20,8 +18,6 @@
   environment.systemPackages = with pkgs; [
     nvtopPackages.full
     nvidia-vaapi-driver
-
-    # CUDA toolkit
     cudaPackages.cuda_cudart
     cudaPackages.cuda_nvcc
     cudaPackages.cudnn
