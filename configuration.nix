@@ -20,6 +20,8 @@ in {
   boot.loader.systemd-boot.configurationLimit = 20;
   boot.kernelPackages = pkgs.linuxPackages_latest;
   services.fprintd.enable = true;
+  services.fprintd.tod.enable = true;
+  services.fprintd.tod.driver = pkgs.libfprint-2-tod1-goodix;
   services.fwupd.enable = true;
   services.expressvpn.enable = true;
   networking.hostName = hostname;

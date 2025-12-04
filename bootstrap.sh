@@ -29,8 +29,40 @@ else
     echo "==> You may need to run: nixos-generate-config --show-hardware-config > hardware-configuration.nix"
 fi
 
-echo "==> Building and switching to new NixOS configuration..."
+echo "==> Building and switching to new NixOS configuration (first pass)..."
 sudo nixos-rebuild switch --flake "$TARGET_DIR#framework"
+
+echo "==> Updating swap resume_offset for hibernation..."
+if [ -f /var/lib/swapfile ]; then
+    SWAP_OFFSET=$(sudo filefrag -v /var/lib/swapfile | awk 'NR==4 {print $4}' | sed 's/\.\.//')
+    if [ -n "$SWAP_OFFSET" ]; then
+        sed -i "s/resume_offset=[0-9]*/resume_offset=$SWAP_OFFSET/" "$TARGET_DIR/system/hibernation.nix"
+        echo "==> Updated resume_offset to $SWAP_OFFSET"
+        echo "==> Rebuilding with correct hibernation offset..."
+        sudo nixos-rebuild switch --flake "$TARGET_DIR#framework"
+    else
+        echo "==> WARNING: Could not determine swap offset"
+    fi
+else
+    echo "==> Swapfile not yet created, hibernation offset will need to be set after first boot"
+fi
+
+echo "==> Updating Framework firmware via fwupd..."
+sudo fwupdmgr refresh --force || true
+sudo fwupdmgr get-updates || true
+sudo fwupdmgr update -y || echo "==> No firmware updates available or update requires reboot"
+
+echo "==> Running final build..."
+cd "$TARGET_DIR"
+nixfmt **/*.nix
+nix-channel --update
+nix --extra-experimental-features 'nix-command flakes' flake update
+sudo NIXPKGS_ALLOW_UNFREE=1 nixos-rebuild switch --flake .#framework --impure
+sudo nix-env -p /nix/var/nix/profiles/system --delete-generations +20
+sudo nix-store --gc
 
 echo "==> Bootstrap complete!"
 echo "==> Your NixOS configuration is now at: $TARGET_DIR"
+echo "==> Rebooting in 5 seconds..."
+sleep 5
+sudo reboot
