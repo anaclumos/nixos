@@ -19,6 +19,7 @@ in {
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.systemd-boot.configurationLimit = 20;
   boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.initrd.luks.devices."luks-5dc5e1b8-5bec-47dc-ad64-2346cdd8fa8f".device = "/dev/disk/by-uuid/5dc5e1b8-5bec-47dc-ad64-2346cdd8fa8f";
   services.fprintd.enable = true;
   services.fprintd.tod.enable = true;
   services.fprintd.tod.driver = pkgs.libfprint-2-tod1-goodix;
