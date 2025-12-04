@@ -30,31 +30,37 @@ else
 fi
 
 echo "==> Detecting swap configuration for hibernation..."
-# Check if installer configured a swap partition (look in hardware-configuration.nix)
-SWAP_DEVICE=$(grep -oP 'device = "/dev/mapper/luks-[^"]+' /etc/nixos/hardware-configuration.nix | grep -v "luks-$(grep -oP 'fileSystems\."/" = \{\s*device = "/dev/mapper/luks-\K[^"]+' /etc/nixos/hardware-configuration.nix)" | head -1 | sed 's/device = "//')
+# Check if installer configured a swap partition in swapDevices
+# Extract swap device from hardware-configuration.nix (under swapDevices section)
+SWAP_DEVICE=$(awk '/swapDevices/,/\];/' /etc/nixos/hardware-configuration.nix | grep 'device = ' | head -1 | sed 's/.*device = "\([^"]*\)".*/\1/')
 
-if [ -n "$SWAP_DEVICE" ]; then
+if [ -n "$SWAP_DEVICE" ] && [ "$SWAP_DEVICE" != "" ]; then
     echo "==> Found swap partition: $SWAP_DEVICE"
 
-    # Extract the swap LUKS UUID from installer's configuration.nix
-    SWAP_LUKS_UUID=$(grep -oP 'luks-[0-9a-f-]+' /etc/nixos/configuration.nix | grep -v "$(grep -oP 'fileSystems\."/" = \{\s*device = "/dev/mapper/luks-\K[0-9a-f-]+' /etc/nixos/hardware-configuration.nix)" | head -1)
+    # Extract UUID from the swap device path (e.g., /dev/mapper/luks-UUID -> luks-UUID)
+    SWAP_LUKS_NAME=$(basename "$SWAP_DEVICE")
 
-    if [ -n "$SWAP_LUKS_UUID" ]; then
-        echo "==> Found swap LUKS device: $SWAP_LUKS_UUID"
+    # Check if installer's configuration.nix has the LUKS unlock for swap
+    if grep -q "$SWAP_LUKS_NAME" /etc/nixos/configuration.nix 2>/dev/null; then
+        # Extract the raw UUID (without luks- prefix)
+        SWAP_RAW_UUID="${SWAP_LUKS_NAME#luks-}"
+        echo "==> Found swap LUKS device: $SWAP_LUKS_NAME"
 
         # Update configuration.nix with swap LUKS unlock
-        # Remove any existing swap LUKS line first
+        # Remove any existing swap LUKS lines first (clean slate)
         sed -i '/# Unlock swap partition for hibernation/d' "$TARGET_DIR/configuration.nix"
-        sed -i '/boot.initrd.luks.devices."luks-.*swap/d' "$TARGET_DIR/configuration.nix"
-        sed -i '/boot.initrd.luks.devices."luks-5dc5e1b8/d' "$TARGET_DIR/configuration.nix"
+        sed -i '/boot.initrd.luks.devices."luks-.*".device/d' "$TARGET_DIR/configuration.nix"
 
         # Find the line with boot.kernelPackages and add swap LUKS after it
-        sed -i "/boot.kernelPackages = pkgs.linuxPackages_latest;/a\\  # Unlock swap partition for hibernation\n  boot.initrd.luks.devices.\"$SWAP_LUKS_UUID\".device = \"/dev/disk/by-uuid/${SWAP_LUKS_UUID#luks-}\";" "$TARGET_DIR/configuration.nix"
+        sed -i "/boot.kernelPackages = pkgs.linuxPackages_latest;/a\\  # Unlock swap partition for hibernation\\
+  boot.initrd.luks.devices.\"$SWAP_LUKS_NAME\".device = \"/dev/disk/by-uuid/$SWAP_RAW_UUID\";" "$TARGET_DIR/configuration.nix"
         echo "==> Updated configuration.nix with swap LUKS device"
 
         # Update hibernation.nix with the swap device as resume device
         sed -i "s|boot.resumeDevice = .*|boot.resumeDevice = \"$SWAP_DEVICE\";|" "$TARGET_DIR/system/hibernation.nix"
         echo "==> Updated hibernation.nix resume device to $SWAP_DEVICE"
+    else
+        echo "==> Swap LUKS device not found in configuration.nix, skipping LUKS setup"
     fi
 else
     echo "==> No swap partition found, will use swapfile configuration"
