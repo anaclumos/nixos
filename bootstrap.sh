@@ -71,8 +71,23 @@ else
 fi
 
 echo "==> Detecting swap configuration for hibernation..."
+# Debug: show raw swapDevices
+echo "==> DEBUG: Evaluating swapDevices..."
+RAW_SWAP=$(nix eval --impure --expr '
+  let
+    hwConfig = import /etc/nixos/hardware-configuration.nix {
+      config = {};
+      lib = import <nixpkgs/lib>;
+      pkgs = {};
+      modulesPath = toString <nixpkgs/nixos/modules>;
+    };
+  in hwConfig.swapDevices
+' 2>&1) || true
+echo "==> DEBUG: Raw swapDevices = $RAW_SWAP"
+
 # Use nix eval to parse hardware-configuration.nix semantically
 SWAP_DEVICE=$(nix_eval_hw 'if hwConfig.swapDevices == [] then "" else (builtins.head hwConfig.swapDevices).device or ""')
+echo "==> DEBUG: SWAP_DEVICE = '$SWAP_DEVICE'"
 
 if [ -n "$SWAP_DEVICE" ]; then
     echo "==> Found swap partition: $SWAP_DEVICE"
