@@ -7,7 +7,8 @@ NIX_EVAL="nix eval --impure --raw --expr"
 
 # Helper function to evaluate nix expressions from /etc/nixos files
 nix_eval_hw() {
-    $NIX_EVAL "
+    local result
+    if ! result=$($NIX_EVAL "
       let
         hwConfig = import /etc/nixos/hardware-configuration.nix {
           config = {};
@@ -16,11 +17,17 @@ nix_eval_hw() {
           modulesPath = toString <nixpkgs/nixos/modules>;
         };
       in $1
-    " 2>/dev/null || echo ""
+    " 2>&1); then
+        echo "==> ERROR: nix_eval_hw failed with expression: $1" >&2
+        echo "==> Error output: $result" >&2
+        exit 1
+    fi
+    echo "$result"
 }
 
 nix_eval_cfg() {
-    $NIX_EVAL "
+    local result
+    if ! result=$($NIX_EVAL "
       let
         lib = import <nixpkgs/lib>;
         cfg = import /etc/nixos/configuration.nix {
@@ -30,7 +37,12 @@ nix_eval_cfg() {
           modulesPath = toString <nixpkgs/nixos/modules>;
         };
       in $1
-    " 2>/dev/null || echo ""
+    " 2>&1); then
+        echo "==> ERROR: nix_eval_cfg failed with expression: $1" >&2
+        echo "==> Error output: $result" >&2
+        exit 1
+    fi
+    echo "$result"
 }
 
 echo "==> NixOS Bootstrap Script"
