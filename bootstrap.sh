@@ -32,9 +32,12 @@ fi
 echo "==> Detecting swap configuration for hibernation..."
 # Check if installer configured a swap partition in swapDevices
 # Extract swap device from hardware-configuration.nix (under swapDevices section)
-SWAP_DEVICE=$(awk '/swapDevices/,/\];/' /etc/nixos/hardware-configuration.nix | grep 'device = ' | head -1 | sed 's/.*device = "\([^"]*\)".*/\1/')
+SWAP_DEVICE=""
+if grep -q "swapDevices" /etc/nixos/hardware-configuration.nix; then
+    SWAP_DEVICE=$(awk '/swapDevices/,/\];/' /etc/nixos/hardware-configuration.nix | grep 'device = ' | head -1 | sed 's/.*device = "\([^"]*\)".*/\1/' || echo "")
+fi
 
-if [ -n "$SWAP_DEVICE" ] && [ "$SWAP_DEVICE" != "" ]; then
+if [ -n "$SWAP_DEVICE" ]; then
     echo "==> Found swap partition: $SWAP_DEVICE"
 
     # Extract UUID from the swap device path (e.g., /dev/mapper/luks-UUID -> luks-UUID)
