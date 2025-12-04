@@ -1,10 +1,5 @@
 { config, pkgs, lib, ... }: {
-  swapDevices = [{
-    device = "/var/lib/swapfile";
-    size = 64 * 1024;
-  }];
-  boot.resumeDevice = config.fileSystems."/".device;
-  boot.kernelParams = [ "resume_offset=119527424" ];
+  boot.resumeDevice = "/dev/mapper/luks-5dc5e1b8-5bec-47dc-ad64-2346cdd8fa8f";
   powerManagement.enable = true;
   services.power-profiles-daemon.enable = true;
   services.logind.settings.Login = {
