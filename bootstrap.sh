@@ -3,12 +3,11 @@ set -euo pipefail
 
 REPO_URL="https://github.com/anaclumos/nix.git"
 TARGET_DIR="$HOME/Documents/nix"
-NIX_EVAL="nix --extra-experimental-features 'nix-command flakes' eval --impure --raw --expr"
 
 # Helper function to evaluate nix expressions from /etc/nixos files
 nix_eval_hw() {
     local result
-    if ! result=$($NIX_EVAL "
+    if ! result=$(nix --extra-experimental-features "nix-command flakes" eval --impure --raw --expr "
       let
         hwConfig = import /etc/nixos/hardware-configuration.nix {
           config = {};
@@ -27,7 +26,7 @@ nix_eval_hw() {
 
 nix_eval_cfg() {
     local result
-    if ! result=$($NIX_EVAL "
+    if ! result=$(nix --extra-experimental-features "nix-command flakes" eval --impure --raw --expr "
       let
         lib = import <nixpkgs/lib>;
         cfg = import /etc/nixos/configuration.nix {
@@ -73,7 +72,7 @@ fi
 echo "==> Detecting swap configuration for hibernation..."
 # Debug: show raw swapDevices
 echo "==> DEBUG: Evaluating swapDevices..."
-RAW_SWAP=$(nix --extra-experimental-features 'nix-command flakes' eval --impure --expr '
+RAW_SWAP=$(nix --extra-experimental-features "nix-command flakes" eval --impure --expr '
   let
     hwConfig = import /etc/nixos/hardware-configuration.nix {
       config = {};
