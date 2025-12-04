@@ -5,11 +5,7 @@
 On a fresh NixOS installation:
 
 ```sh
-wget -qO- https://raw.githubusercontent.com/anaclumos/nix/main/bootstrap.sh | sh
-```
-
-```sh
-curl -fsSL https://raw.githubusercontent.com/anaclumos/nix/main/bootstrap.sh | sh
+nix-shell -p curl --run 'curl -fsSL https://raw.githubusercontent.com/anaclumos/nix/main/bootstrap.sh | sh'
 ```
 
 ## macOS Key Controls
