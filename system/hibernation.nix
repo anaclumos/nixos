@@ -4,7 +4,7 @@
     size = 64 * 1024;
   }];
   boot.resumeDevice = config.fileSystems."/".device;
-  boot.kernelParams = [ "resume_offset=235018240" ];
+  boot.kernelParams = [ "resume_offset=119527424" ];
   powerManagement.enable = true;
   services.power-profiles-daemon.enable = true;
   services.logind.settings.Login = {
