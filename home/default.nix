@@ -10,6 +10,7 @@
     ../gnome/gnome-extensions.nix
     ../gnome/gnome-shortcuts.nix
     ../gnome/gnome-appearance.nix
+    ./timewall.nix
   ];
   dconf.enable = true;
   home.username = "sunghyun";
