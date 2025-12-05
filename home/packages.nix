@@ -83,6 +83,8 @@ let
     podman-desktop
     pods
     sqlitebrowser
+    timewall
+    libheif
   ];
   gnomeTools = with pkgs; [ refine ];
 in {

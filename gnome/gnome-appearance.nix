@@ -29,7 +29,7 @@
         "thunderbird.desktop"
         "com.github.th_ch.youtube_music.desktop"
         "org.gnome.Calendar.desktop"
-        "cursor.desktop"
+        "antigravity.desktop"
         "org.gnome.Console.desktop"
         "slack.desktop"
       ];
