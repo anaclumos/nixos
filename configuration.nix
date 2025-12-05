@@ -23,8 +23,6 @@ in {
   boot.initrd.luks.devices."luks-727a76aa-c0e8-4aad-9176-79c292ff5ad7".device =
     "/dev/disk/by-uuid/727a76aa-c0e8-4aad-9176-79c292ff5ad7";
   services.fprintd.enable = true;
-  services.fprintd.tod.enable = true;
-  services.fprintd.tod.driver = pkgs.libfprint-2-tod1-goodix;
   services.fwupd.enable = true;
   services.expressvpn.enable = true;
   networking.hostName = hostname;
