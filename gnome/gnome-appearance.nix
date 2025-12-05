@@ -17,6 +17,7 @@
       clock-format = "12h";
       enable-hot-corners = false;
       enable-animations = false;
+      color-scheme = "prefer-dark";
     };
     "org/gnome/desktop/wm/preferences" = {
       titlebar-font = "Pretendard Bold 12";
