@@ -51,6 +51,7 @@ let
     podman-compose
     _1password-cli
     pciutils
+    antigravity
   ];
   games = with pkgs; [
     dolphin-emu
