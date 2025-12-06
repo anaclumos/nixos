@@ -11,14 +11,17 @@ in {
     ./dev/default.nix
     ./modules/user.nix
     ./modules/config.nix
+
+    ./modules/rocm.nix
   ];
+
   modules.user.name = user;
   modules.system.hostname = hostname;
   modules.system.timezone = "Asia/Seoul";
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.systemd-boot.configurationLimit = 20;
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages;
   # Unlock swap partition for hibernation
   boot.initrd.luks.devices."luks-727a76aa-c0e8-4aad-9176-79c292ff5ad7".device =
     "/dev/disk/by-uuid/727a76aa-c0e8-4aad-9176-79c292ff5ad7";
@@ -61,10 +64,12 @@ in {
   hardware.graphics.enable32Bit = true;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   programs.nix-ld.enable = true;
+  programs.nix-ld.libraries = with pkgs; [ libsndfile ];
   environment.systemPackages = with pkgs; [ ];
   environment.variables = {
     SSL_CERT_FILE = "${pkgs.cacert}/etc/ssl/certs/ca-bundle.crt";
     NIX_SSL_CERT_FILE = "${pkgs.cacert}/etc/ssl/certs/ca-bundle.crt";
+    LD_LIBRARY_PATH = "$LD_LIBRARY_PATH:/run/opengl-driver/lib";
   };
   environment.sessionVariables = {
     MOZ_ENABLE_WAYLAND = "0";

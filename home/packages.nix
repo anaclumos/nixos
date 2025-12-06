@@ -51,7 +51,9 @@ let
     podman-compose
     _1password-cli
     pciutils
-    antigravity
+    libheif
+    libsndfile
+    btop
   ];
   games = with pkgs; [
     dolphin-emu
@@ -84,7 +86,7 @@ let
     pods
     sqlitebrowser
     timewall
-    libheif
+    antigravity
   ];
   gnomeTools = with pkgs; [ refine ];
 in {
