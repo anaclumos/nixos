@@ -48,6 +48,7 @@
           apostrophe = M-7
           n = M-8
           m = M-9
+          enter = macro(M-S-end M-up)
         '';
       };
     };
