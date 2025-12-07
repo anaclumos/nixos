@@ -54,6 +54,7 @@ let
     libheif
     libsndfile
     btop
+    zluda
   ];
   games = with pkgs; [
     dolphin-emu
@@ -88,7 +89,7 @@ let
     timewall
     antigravity
   ];
-  gnomeTools = with pkgs; [ refine ];
+  gnomeTools = with pkgs; [ refine wmctrl ];
 in {
   home.packages = developmentTools ++ games ++ applications ++ gnomeTools
     ++ [ pkgs.pretendard pkgs.monaspace ];

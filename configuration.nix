@@ -12,7 +12,6 @@ in {
     ./modules/user.nix
     ./modules/config.nix
 
-    ./modules/rocm.nix
   ];
 
   modules.user.name = user;
