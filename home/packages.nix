@@ -54,7 +54,6 @@ let
     libheif
     libsndfile
     btop
-    zluda
   ];
   games = with pkgs; [
     dolphin-emu
