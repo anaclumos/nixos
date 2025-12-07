@@ -62,6 +62,15 @@ in {
   services.printing.enable = true;
   hardware.graphics.enable = true;
   hardware.graphics.enable32Bit = true;
+  powerManagement = {
+    enable = true;
+    powerDownCommands = ''
+      ${pkgs.kmod}/bin/modprobe -r mt7925e
+    '';
+    powerUpCommands = ''
+      ${pkgs.kmod}/bin/modprobe mt7925e
+    '';
+  };
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   programs.nix-ld.enable = true;
   programs.nix-ld.libraries = with pkgs; [ libsndfile ];
