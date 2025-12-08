@@ -54,6 +54,7 @@ let
     libheif
     libsndfile
     btop
+    tectonic
   ];
   games = with pkgs; [
     dolphin-emu
