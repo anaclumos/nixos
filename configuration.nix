@@ -21,7 +21,6 @@ in {
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.systemd-boot.configurationLimit = 20;
   boot.kernelPackages = pkgs.linuxPackages_latest;
-  # Unlock swap partition for hibernation
   boot.initrd.luks.devices."luks-067d3a16-727c-40f5-8510-a2cb221929cf".device =
     "/dev/disk/by-uuid/067d3a16-727c-40f5-8510-a2cb221929cf";
   services.fprintd.enable = true;
@@ -61,15 +60,6 @@ in {
   services.printing.enable = true;
   hardware.graphics.enable = true;
   hardware.graphics.enable32Bit = true;
-  powerManagement = {
-    enable = true;
-    powerDownCommands = ''
-      ${pkgs.kmod}/bin/modprobe -r mt7925e
-    '';
-    powerUpCommands = ''
-      ${pkgs.kmod}/bin/modprobe mt7925e
-    '';
-  };
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   programs.nix-ld.enable = true;
   programs.nix-ld.libraries = with pkgs; [ libsndfile ];

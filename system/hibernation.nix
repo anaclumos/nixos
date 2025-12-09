@@ -4,7 +4,7 @@
   services.power-profiles-daemon.enable = true;
   services.logind.settings.Login = {
     HandleLidSwitch = "suspend-then-hibernate";
-    HandleLidSwitchDocked = "ignore";
+    HandleLidSwitchDocked = "suspend-then-hibernate";
     HandleLidSwitchExternalPower = "suspend-then-hibernate";
     HandlePowerKey = "hibernate";
     HandlePowerKeyLongPress = "poweroff";
