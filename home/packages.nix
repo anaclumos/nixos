@@ -88,7 +88,7 @@ let
     sqlitebrowser
     timewall
     antigravity
-    inputs.kakaotalk.packages.${pkgs.system}.default
+    inputs.kakaotalk.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
   gnomeTools = with pkgs; [ refine wmctrl ];
 in {
