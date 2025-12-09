@@ -1,5 +1,5 @@
 { config, pkgs, lib, ... }: {
-  boot.resumeDevice = "/dev/mapper/luks-727a76aa-c0e8-4aad-9176-79c292ff5ad7";
+  boot.resumeDevice = "/dev/mapper/luks-067d3a16-727c-40f5-8510-a2cb221929cf";
   powerManagement.enable = true;
   services.power-profiles-daemon.enable = true;
   services.logind.settings.Login = {
