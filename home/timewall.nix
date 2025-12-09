@@ -10,7 +10,7 @@
 
     Service = {
       ExecStart =
-        "${pkgs.timewall}/bin/timewall set --daemon '/home/sunghyun/Pictures/solar-gradients.heic'";
+        "${pkgs.timewall}/bin/timewall set --daemon '/home/sunghyun/Documents/nix/wallpaper/solar-gradient.heic'";
       Restart = "always";
       RestartSec = "10";
     };
