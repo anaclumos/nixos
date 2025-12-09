@@ -33,6 +33,7 @@
         "antigravity.desktop"
         "org.gnome.Console.desktop"
         "slack.desktop"
+        "kakaotalk.desktop"
       ];
     };
   };
