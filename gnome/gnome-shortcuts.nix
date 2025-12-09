@@ -41,11 +41,5 @@
           "bash -c 'current=$(gsettings get org.gnome.desktop.interface color-scheme); if [[ \"$current\" == \"'\"'\"'prefer-dark'\"'\"'\" ]]; then gsettings set org.gnome.desktop.interface color-scheme '\"'\"'default'\"'\"'; else gsettings set org.gnome.desktop.interface color-scheme '\"'\"'prefer-dark'\"'\"'; fi'";
         binding = "<Ctrl><Alt><Super><Shift>grave";
       };
-    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/chat" = {
-      name = "Launch or Focus KakaoTalk";
-      command =
-        "bash -c 'wmctrl -x -a KakaoTalk || kakaotalk && wmctrl -x -a KakaoTalk'";
-      binding = "<Ctrl><Alt><Super><Shift>m";
-    };
   };
 }
