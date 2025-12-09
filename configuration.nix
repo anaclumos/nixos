@@ -22,8 +22,8 @@ in {
   boot.loader.systemd-boot.configurationLimit = 20;
   boot.kernelPackages = pkgs.linuxPackages_latest;
   # Unlock swap partition for hibernation
-  boot.initrd.luks.devices."luks-727a76aa-c0e8-4aad-9176-79c292ff5ad7".device =
-    "/dev/disk/by-uuid/727a76aa-c0e8-4aad-9176-79c292ff5ad7";
+  boot.initrd.luks.devices."luks-067d3a16-727c-40f5-8510-a2cb221929cf".device =
+    "/dev/disk/by-uuid/067d3a16-727c-40f5-8510-a2cb221929cf";
   services.fprintd.enable = true;
   services.fwupd.enable = true;
   services.expressvpn.enable = true;
