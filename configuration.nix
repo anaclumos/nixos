@@ -57,6 +57,10 @@ in {
       };
     };
   };
+  services.ollama = {
+    enable = true;
+    acceleration = "rocm";
+  };
   services.printing.enable = true;
   hardware.graphics.enable = true;
   hardware.graphics.enable32Bit = true;
