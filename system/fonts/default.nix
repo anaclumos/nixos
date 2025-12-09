@@ -35,12 +35,18 @@ let
     </match>
   '';
 in {
-  fonts.packages = with pkgs; [ pretendard monaspace berkeleyMono ];
+  fonts.packages = with pkgs; [
+    pretendard
+    monaspace
+    berkeleyMono
+    noto-fonts-cjk-sans
+    noto-fonts-cjk-serif
+  ];
   fonts.fontDir.enable = true;
   fonts.fontconfig = {
     defaultFonts = {
-      sansSerif = [ "Pretendard" ];
-      serif = [ "Pretendard" ];
+      sansSerif = [ "Pretendard" "Noto Sans CJK KR" ];
+      serif = [ "Pretendard" "Noto Serif CJK KR" ];
       monospace = [ "Monaspace" ];
     };
     localConf = ''

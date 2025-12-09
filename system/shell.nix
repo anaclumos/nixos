@@ -17,9 +17,9 @@
       ed = "expressvpn disconnect";
       x = "exit";
       oo = "hub browse";
-      zz = "cursor ~/Documents/nix";
+      zz = "antigravity ~/Documents/nix";
       ss = "source ~/.zshrc";
-      cc = "cursor .";
+      cc = "antigravity .";
       sha =
         "git push && echo Done in $(git rev-parse HEAD) | xclip -selection clipboard";
       emptyfolder = "find . -type d -empty -delete";
@@ -28,8 +28,8 @@
       chat = "codex --yolo -c model_reasoning_effort='high'";
       ngc =
         "sudo nix-env -p /nix/var/nix/profiles/system --delete-generations +20 && sudo nix-store --gc";
-      taildrop =
-        "cd ~/Pictures/Screenshots && sudo tailscale file cp *.png iphone-17-pro: && rm *.png";
+      airdrop =
+        "cd ~/Screenshots && sudo tailscale file cp *.png iphone-17-pro: && rm *.png";
     };
   };
 }
