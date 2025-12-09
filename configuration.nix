@@ -20,7 +20,7 @@ in {
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.systemd-boot.configurationLimit = 20;
-  boot.kernelPackages = pkgs.linuxPackages;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
   # Unlock swap partition for hibernation
   boot.initrd.luks.devices."luks-727a76aa-c0e8-4aad-9176-79c292ff5ad7".device =
     "/dev/disk/by-uuid/727a76aa-c0e8-4aad-9176-79c292ff5ad7";
