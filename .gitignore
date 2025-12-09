@@ -2,3 +2,4 @@ result
 result-*
 .direnv
 .env
+.DS_Store
