@@ -88,6 +88,9 @@ let
     sqlitebrowser
     timewall
     antigravity
+    beeper
+    signal-desktop
+    telegram-desktop
     inputs.kakaotalk.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
   gnomeTools = with pkgs; [ refine wmctrl ];
