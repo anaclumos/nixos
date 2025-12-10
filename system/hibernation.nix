@@ -1,6 +1,7 @@
 { config, pkgs, lib, ... }:
 let resumeDevice = "/dev/mapper/luks-067d3a16-727c-40f5-8510-a2cb221929cf";
 in {
+  boot.initrd.systemd.enable = true;
   boot.resumeDevice = resumeDevice;
   boot.kernelParams = [ "resume=${resumeDevice}" ];
   powerManagement.enable = true;
