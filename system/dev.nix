@@ -1,6 +1,4 @@
 { config, pkgs, lib, ... }: {
-  imports = [ ./git.nix ];
-
   # Podman
   virtualisation.podman = {
     enable = true;
