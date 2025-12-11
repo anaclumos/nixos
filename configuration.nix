@@ -9,7 +9,7 @@ in {
     ./gnome/gnome-desktop.nix
     ./gnome/gnome-power.nix
     ./system/default.nix
-    ./dev/default.nix
+    ./system/dev.nix
     ./modules/user.nix
     ./modules/config.nix
   ];

@@ -1,7 +1,6 @@
 { config, lib, pkgs, ... }:
 let
-  berkeleyMono =
-    pkgs.callPackage ../../fonts/berkeley-mono/berkeley-mono.nix { };
+  berkeleyMono = pkgs.callPackage ../fonts/berkeley-mono/berkeley-mono.nix { };
   fontAliases = [
     "Helvetica"
     "Helvetica Neue"

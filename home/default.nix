@@ -5,9 +5,8 @@
     ./fcitx5.nix
     ./thunderbird.nix
     ./timewall.nix
-    ../gnome/gnome-extensions.nix
-    ../gnome/gnome-shortcuts.nix
-    ../gnome/gnome-appearance.nix
+    ./git.nix
+    ./gnome.nix
   ];
   dconf.enable = true;
   home.username = "sunghyun";
