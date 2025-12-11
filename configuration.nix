@@ -6,21 +6,24 @@ in {
   nixpkgs.config.allowUnfree = true;
   imports = [
     ./hardware-configuration.nix
-    ./gnome/default.nix
+    ./gnome/gnome-desktop.nix
+    ./gnome/gnome-power.nix
     ./system/default.nix
     ./dev/default.nix
     ./modules/user.nix
     ./modules/config.nix
-
   ];
 
   modules.user.name = user;
   modules.system.hostname = hostname;
   modules.system.timezone = "Asia/Seoul";
+
+  # Boot configuration
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.systemd-boot.configurationLimit = 20;
   boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.initrd.systemd.enable = true;
   boot.initrd.luks.devices."luks-067d3a16-727c-40f5-8510-a2cb221929cf" = {
     device = "/dev/disk/by-uuid/067d3a16-727c-40f5-8510-a2cb221929cf";
     preLVM = true;
@@ -65,8 +68,36 @@ in {
     acceleration = "rocm";
   };
   services.printing.enable = true;
+
+  # Graphics
   hardware.graphics.enable = true;
   hardware.graphics.enable32Bit = true;
+  services.xserver.videoDrivers = [ "amdgpu" ];
+
+  # Gaming
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true;
+    dedicatedServer.openFirewall = true;
+    localNetworkGameTransfers.openFirewall = true;
+  };
+  programs.gamemode.enable = true;
+
+  # Power management & hibernation
+  powerManagement.enable = true;
+  services.power-profiles-daemon.enable = true;
+  services.logind.settings.Login = {
+    HandleLidSwitch = "hibernate";
+    HandleLidSwitchDocked = "hibernate";
+    HandleLidSwitchExternalPower = "hibernate";
+    HandlePowerKey = "hibernate";
+    HandlePowerKeyLongPress = "poweroff";
+  };
+  systemd.sleep.extraConfig = ''
+    SuspendState=mem
+    HibernateMode=shutdown
+  '';
+
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   programs.nix-ld.enable = true;
   programs.nix-ld.libraries = with pkgs; [ libsndfile ];

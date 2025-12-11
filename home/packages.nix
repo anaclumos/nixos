@@ -95,7 +95,13 @@ let
     inputs.kakaotalk.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
   gnomeTools = with pkgs; [ refine wmctrl ];
+  systemTools = with pkgs; [ xclip wmctrl xdotool keyd zsh-autosuggestions ];
+  cloudTools = with pkgs;
+    [
+      (google-cloud-sdk.withExtraComponents
+        [ google-cloud-sdk.components.gke-gcloud-auth-plugin ])
+    ];
 in {
   home.packages = developmentTools ++ games ++ applications ++ gnomeTools
-    ++ [ pkgs.pretendard pkgs.monaspace ];
+    ++ systemTools ++ cloudTools ++ [ pkgs.pretendard pkgs.monaspace ];
 }
