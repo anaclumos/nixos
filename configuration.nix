@@ -1,15 +1,13 @@
-{ config, pkgs, lib, inputs, ... }:
+{ pkgs, ... }:
 let
   user = "sunghyun";
   hostname = "framework";
 in {
-  nixpkgs.config.allowUnfree = true;
   imports = [
     ./hardware-configuration.nix
-    ./gnome/gnome-desktop.nix
-    ./gnome/gnome-power.nix
-    ./system/default.nix
-    ./system/dev.nix
+    ./fonts/default.nix
+    ./modules/gnome.nix
+    ./modules/system.nix
     ./modules/user.nix
     ./modules/config.nix
   ];
@@ -17,6 +15,7 @@ in {
   modules.user.name = user;
   modules.system.hostname = hostname;
   modules.system.timezone = "Asia/Seoul";
+  modules.system.locale = "en_US.UTF-8";
 
   # Boot configuration
   boot.loader.systemd-boot.enable = true;
@@ -29,19 +28,13 @@ in {
     preLVM = true;
     allowDiscards = true;
   };
-  services.fprintd.enable = true;
   services.fwupd.enable = true;
   services.expressvpn.enable = true;
-  networking.hostName = hostname;
   networking.networkmanager.enable = true;
-  time.timeZone = "Asia/Seoul";
-  i18n = {
-    defaultLocale = "en_US.UTF-8";
-    inputMethod = {
-      enable = true;
-      type = "fcitx5";
-      fcitx5.addons = with pkgs; [ fcitx5-hangul fcitx5-gtk ];
-    };
+  i18n.inputMethod = {
+    enable = true;
+    type = "fcitx5";
+    fcitx5.addons = with pkgs; [ fcitx5-hangul fcitx5-gtk ];
   };
   services.tailscale.enable = true;
   services.pulseaudio.enable = false;
@@ -51,17 +44,6 @@ in {
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
-  };
-  hardware.bluetooth = {
-    enable = true;
-    powerOnBoot = true;
-    settings = {
-      General = {
-        Enable = "Source,Sink,Media,Socket";
-        Experimental = true;
-        KernelExperimental = true;
-      };
-    };
   };
   services.ollama = {
     enable = true;

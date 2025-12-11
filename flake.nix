@@ -9,24 +9,34 @@
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     kakaotalk.url = "github:anaclumos/kakaotalk.nix";
   };
-  outputs = { self, nixpkgs, home-manager, nixos-hardware, ... }@inputs: {
-    nixosConfigurations = {
-      framework = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs; };
-        modules = [
-          { nixpkgs.hostPlatform = "x86_64-linux"; }
-          { nixpkgs.config.allowUnfree = true; }
-          ./configuration.nix
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useUserPackages = true;
-            home-manager.users.sunghyun = import ./home;
-            home-manager.extraSpecialArgs = { inherit inputs; };
-            home-manager.sharedModules =
-              [{ nixpkgs.config.allowUnfree = true; }];
-          }
-        ];
+  outputs = inputs@{ self, nixpkgs, home-manager, nixos-hardware, ... }:
+    let
+      system = "x86_64-linux";
+      username = "sunghyun";
+      pkgs = import nixpkgs {
+        inherit system;
+        config.allowUnfree = true;
       };
+    in {
+      nixosConfigurations = {
+        framework = nixpkgs.lib.nixosSystem {
+          inherit system;
+          specialArgs = { inherit inputs; };
+          modules = [
+            { nixpkgs.config.allowUnfree = true; }
+            ./configuration.nix
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useUserPackages = true;
+              home-manager.users.${username} = import ./home;
+              home-manager.extraSpecialArgs = { inherit inputs; };
+              home-manager.sharedModules =
+                [{ nixpkgs.config.allowUnfree = true; }];
+            }
+          ];
+        };
+      };
+
+      formatter.${system} = pkgs.nixfmt-classic;
     };
-  };
 }
