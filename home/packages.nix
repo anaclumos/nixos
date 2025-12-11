@@ -55,6 +55,7 @@ let
     libsndfile
     btop
     tectonic
+    tex-fmt
   ];
   games = with pkgs; [
     dolphin-emu

@@ -21,8 +21,11 @@ in {
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.systemd-boot.configurationLimit = 20;
   boot.kernelPackages = pkgs.linuxPackages_latest;
-  boot.initrd.luks.devices."luks-067d3a16-727c-40f5-8510-a2cb221929cf".device =
-    "/dev/disk/by-uuid/067d3a16-727c-40f5-8510-a2cb221929cf";
+  boot.initrd.luks.devices."luks-067d3a16-727c-40f5-8510-a2cb221929cf" = {
+    device = "/dev/disk/by-uuid/067d3a16-727c-40f5-8510-a2cb221929cf";
+    preLVM = true;
+    allowDiscards = true;
+  };
   services.fprintd.enable = true;
   services.fwupd.enable = true;
   services.expressvpn.enable = true;
