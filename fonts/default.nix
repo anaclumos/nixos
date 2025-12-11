@@ -1,6 +1,5 @@
-{ config, lib, pkgs, ... }:
+{ lib, pkgs, ... }:
 let
-  berkeleyMono = pkgs.callPackage ../fonts/berkeley-mono/berkeley-mono.nix { };
   fontAliases = [
     "Helvetica"
     "Helvetica Neue"
@@ -23,6 +22,7 @@ let
     "MalgunGothic"
     "돋움"
   ];
+
   generateFontAlias = font: ''
     <match target="pattern">
       <test qual="any" name="family">
@@ -33,6 +33,22 @@ let
       </edit>
     </match>
   '';
+
+  berkeleyMono = pkgs.stdenv.mkDerivation {
+    pname = "berkeley-mono";
+    version = "2025-07-02";
+    src = ./berkeley-mono.zip;
+    nativeBuildInputs = [ pkgs.unzip ];
+    sourceRoot = ".";
+    installPhase = ''
+      install -Dm644 *.otf -t $out/share/fonts/opentype
+    '';
+    meta = {
+      description = "Berkeley Mono type family";
+      license = lib.licenses.unfreeRedistributable;
+      platforms = lib.platforms.all;
+    };
+  };
 in {
   fonts.packages = with pkgs; [
     pretendard
@@ -41,6 +57,7 @@ in {
     noto-fonts-cjk-sans
     noto-fonts-cjk-serif
   ];
+
   fonts.fontDir.enable = true;
   fonts.fontconfig = {
     defaultFonts = {

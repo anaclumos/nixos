@@ -1,5 +1,7 @@
-{ lib, ... }:
-with lib; {
+{ lib, config, ... }:
+with lib;
+let cfg = config.modules.system;
+in {
   options.modules.system = {
     hostname = mkOption {
       type = types.str;
@@ -25,6 +27,26 @@ with lib; {
       type = types.bool;
       default = true;
       description = "Enable fingerprint reader support";
+    };
+  };
+
+  config = {
+    networking.hostName = cfg.hostname;
+    time.timeZone = cfg.timezone;
+    i18n.defaultLocale = cfg.locale;
+
+    services.fprintd.enable = cfg.enableFingerprint;
+
+    hardware.bluetooth = mkIf cfg.enableBluetooth {
+      enable = true;
+      powerOnBoot = true;
+      settings = {
+        General = {
+          Enable = "Source,Sink,Media,Socket";
+          Experimental = true;
+          KernelExperimental = true;
+        };
+      };
     };
   };
 }

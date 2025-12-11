@@ -60,6 +60,10 @@ fi
 
 cd "$TARGET_DIR"
 
+# Format the repo early so downstream text replacements stay predictable
+echo "==> Formatting Nix files..."
+nix-shell -p nixfmt-classic --run "nixfmt **/*.nix"
+
 echo "==> Copying hardware-configuration.nix from /etc/nixos..."
 if [ -f /etc/nixos/hardware-configuration.nix ]; then
     cp /etc/nixos/hardware-configuration.nix "$TARGET_DIR/hardware-configuration.nix"

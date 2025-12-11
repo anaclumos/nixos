@@ -1,4 +1,25 @@
-{ lib, ... }: {
+{ lib, pkgs, ... }: {
+  services.xserver.enable = true;
+  services.displayManager.gdm.enable = true;
+  services.desktopManager.gnome.enable = true;
+
+  environment.gnome.excludePackages = with pkgs; [
+    epiphany
+    gedit
+    yelp
+    seahorse
+    gnome-connections
+    gnome-tour
+    xterm
+    gnome-contacts
+    gnome-maps
+    gnome-music
+    gnome-photos
+    evince
+    geary
+    gnome-text-editor
+  ];
+
   programs.dconf.profiles.user.databases = [{
     settings = {
       "org/gnome/desktop/session" = { idle-delay = lib.gvariant.mkUint32 0; };

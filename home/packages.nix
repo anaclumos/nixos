@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, ... }:
+{ lib, pkgs, inputs, ... }:
 let
   developmentTools = with pkgs; [
     nodejs
@@ -11,7 +11,6 @@ let
     vscode
     hub
     gh
-    xclip
     scc
     ffmpeg-full
     whois
@@ -46,17 +45,16 @@ let
     cmake
     gcc
     gnumake
-    nvme-cli
     wget
     podman-compose
     _1password-cli
-    pciutils
     libheif
     libsndfile
     btop
     tectonic
     tex-fmt
   ];
+
   games = with pkgs; [
     dolphin-emu
     bottles
@@ -66,6 +64,7 @@ let
     vulkan-tools
     dxvk
   ];
+
   applications = with pkgs; [
     slack
     teams-for-linux
@@ -79,7 +78,6 @@ let
     expressvpn
     caffeine-ng
     zoom-us
-    beeper
     pngcrush
     imagemagick
     pngquant
@@ -89,19 +87,20 @@ let
     sqlitebrowser
     timewall
     antigravity
-    beeper
     signal-desktop
     telegram-desktop
     inputs.kakaotalk.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
-  gnomeTools = with pkgs; [ refine wmctrl ];
-  systemTools = with pkgs; [ xclip wmctrl xdotool keyd zsh-autosuggestions ];
+
+  gnomeTools = with pkgs; [ refine ];
+  systemTools = with pkgs; [ xclip wmctrl xdotool pciutils nvme-cli ];
+
   cloudTools = with pkgs;
     [
       (google-cloud-sdk.withExtraComponents
         [ google-cloud-sdk.components.gke-gcloud-auth-plugin ])
     ];
 in {
-  home.packages = developmentTools ++ games ++ applications ++ gnomeTools
-    ++ systemTools ++ cloudTools ++ [ pkgs.pretendard pkgs.monaspace ];
+  home.packages = lib.unique (developmentTools ++ games ++ applications
+    ++ gnomeTools ++ systemTools ++ cloudTools);
 }
