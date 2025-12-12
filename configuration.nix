@@ -37,6 +37,7 @@ in {
     fcitx5.addons = with pkgs; [ fcitx5-hangul fcitx5-gtk ];
   };
   services.tailscale.enable = true;
+  services.adguardhome.enable = true;
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
