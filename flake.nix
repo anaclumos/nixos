@@ -21,15 +21,15 @@
       nixosConfigurations = {
         framework = nixpkgs.lib.nixosSystem {
           inherit system;
-          specialArgs = { inherit inputs; };
+          specialArgs = { inherit inputs username; };
           modules = [
             { nixpkgs.config.allowUnfree = true; }
             ./configuration.nix
             home-manager.nixosModules.home-manager
             {
               home-manager.useUserPackages = true;
-              home-manager.users.${username} = import ./home;
-              home-manager.extraSpecialArgs = { inherit inputs; };
+              home-manager.users.${username} = import ./home.nix;
+              home-manager.extraSpecialArgs = { inherit inputs username; };
               home-manager.sharedModules =
                 [{ nixpkgs.config.allowUnfree = true; }];
             }

@@ -4,7 +4,6 @@ set -euo pipefail
 REPO_URL="https://github.com/anaclumos/nix.git"
 TARGET_DIR="$HOME/Documents/nix"
 
-# Helper function to evaluate nix expressions from /etc/nixos files
 nix_eval_hw() {
     local result
     if ! result=$(nix --extra-experimental-features "nix-command flakes" eval --impure --raw --expr "
@@ -60,7 +59,6 @@ fi
 
 cd "$TARGET_DIR"
 
-# Format the repo early so downstream text replacements stay predictable
 echo "==> Formatting Nix files..."
 nix-shell -p nixfmt-classic --run "nixfmt **/*.nix"
 
@@ -74,7 +72,6 @@ else
 fi
 
 echo "==> Detecting swap configuration for hibernation..."
-# Debug: show raw swapDevices
 echo "==> DEBUG: Evaluating swapDevices..."
 RAW_SWAP=$(nix --extra-experimental-features "nix-command flakes" eval --impure --expr '
   let
@@ -88,37 +85,30 @@ RAW_SWAP=$(nix --extra-experimental-features "nix-command flakes" eval --impure 
 ' 2>&1) || true
 echo "==> DEBUG: Raw swapDevices = $RAW_SWAP"
 
-# Use nix eval to parse hardware-configuration.nix semantically
 SWAP_DEVICE=$(nix_eval_hw 'if hwConfig.swapDevices == [] then "" else (builtins.head hwConfig.swapDevices).device or ""')
 echo "==> DEBUG: SWAP_DEVICE = '$SWAP_DEVICE'"
 
 if [ -n "$SWAP_DEVICE" ]; then
     echo "==> Found swap partition: $SWAP_DEVICE"
 
-    # Extract LUKS name from the swap device path (e.g., /dev/mapper/luks-UUID -> luks-UUID)
     SWAP_LUKS_NAME=$(basename "$SWAP_DEVICE")
     SWAP_RAW_UUID="${SWAP_LUKS_NAME#luks-}"
 
-    # Check if this is an encrypted swap by looking for LUKS config in installer's configuration.nix
     LUKS_DEVICE=$(nix_eval_cfg "cfg.boot.initrd.luks.devices.\"$SWAP_LUKS_NAME\".device or \"\"")
 
     if [ -n "$LUKS_DEVICE" ]; then
         echo "==> Found swap LUKS device: $SWAP_LUKS_NAME"
 
-        # Update configuration.nix with swap LUKS unlock
-        # Remove any existing swap LUKS lines first (clean slate)
         sed -i '/# Unlock swap partition for hibernation/d' "$TARGET_DIR/configuration.nix"
         sed -i '/boot.initrd.luks.devices."luks-.*".device/d' "$TARGET_DIR/configuration.nix"
 
-        # Find the line with boot.kernelPackages and add swap LUKS after it
-        sed -i "/boot.kernelPackages = pkgs.linuxPackages_latest;/a\\  # Unlock swap partition for hibernation\\
+        sed -i "/boot.kernelPackages = pkgs.linuxPackages_latest;/a\\
   boot.initrd.luks.devices.\"$SWAP_LUKS_NAME\".device = \"/dev/disk/by-uuid/$SWAP_RAW_UUID\";" "$TARGET_DIR/configuration.nix"
         echo "==> Updated configuration.nix with swap LUKS device"
     else
         echo "==> Swap partition is not encrypted, no LUKS setup needed"
     fi
 
-    # Update hibernation.nix with the swap device as resume device
     sed -i "s|boot.resumeDevice = .*|boot.resumeDevice = \"$SWAP_DEVICE\";|" "$TARGET_DIR/system/hibernation.nix"
     echo "==> Updated hibernation.nix resume device to $SWAP_DEVICE"
 else
@@ -129,7 +119,6 @@ echo "==> Building and switching to new NixOS configuration (first pass)..."
 sudo nixos-rebuild switch --flake "$TARGET_DIR#framework"
 
 echo "==> Updating swap configuration for hibernation..."
-# Check if using swapfile (created after first build) or swap partition
 if [ -z "$SWAP_DEVICE" ] && [ -f /var/lib/swapfile ]; then
     SWAP_OFFSET=$(sudo filefrag -v /var/lib/swapfile | awk 'NR==4 {print $4}' | sed 's/\.\.//')
     if [ -n "$SWAP_OFFSET" ]; then
