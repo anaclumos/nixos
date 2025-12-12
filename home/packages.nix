@@ -35,9 +35,7 @@ let
     pkg-config
     nix-index
     codex
-    ripgrep
     lsof
-    vtracer
     azure-cli
     azure-storage-azcopy
     gemini-cli
