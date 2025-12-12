@@ -52,6 +52,7 @@ let
     tectonic
     tex-fmt
     trayscale
+    jq
   ];
 
   games = with pkgs; [

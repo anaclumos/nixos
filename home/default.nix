@@ -67,6 +67,17 @@ in {
         ];
       };
     };
+    atuin = {
+      enable = true;
+      enableZshIntegration = true;
+      settings = {
+        auto_sync = true;
+        sync_frequency = "1h";
+        search_mode = "fuzzy";
+        filter_mode = "global";
+        update_check = false;
+      };
+    };
     zsh = {
       enable = true;
       autosuggestion.enable = true;
