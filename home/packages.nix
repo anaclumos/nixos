@@ -81,7 +81,6 @@ let
     imagemagick
     pngquant
     logseq
-    podman-desktop
     pods
     sqlitebrowser
     timewall
