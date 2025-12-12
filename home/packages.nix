@@ -53,6 +53,7 @@ let
     btop
     tectonic
     tex-fmt
+    trayscale
   ];
 
   games = with pkgs; [
