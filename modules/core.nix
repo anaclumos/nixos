@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, pkgs, ... }:
 let
   user = config.modules.user.name;
   userHome = "/home/${user}";
@@ -102,5 +102,4 @@ in {
     OP_SERVICE_ACCOUNT_TOKEN = "/etc/1password/service-account-token";
     SSH_AUTH_SOCK = onePassAgent;
   };
-
 }

@@ -1,23 +1,22 @@
-{ pkgs, ... }:
-let
-  user = "sunghyun";
-  hostname = "framework";
+{ pkgs, username, ... }:
+let hostname = "framework";
 in {
   imports = [
     ./hardware-configuration.nix
     ./fonts/default.nix
     ./modules/gnome.nix
-    ./modules/system.nix
-    ./modules/user.nix
-    ./modules/config.nix
+    ./modules/options.nix
+    ./modules/core.nix
+    ./modules/gaming.nix
+    ./modules/media.nix
+    ./modules/networking.nix
   ];
 
-  modules.user.name = user;
+  modules.user.name = username;
   modules.system.hostname = hostname;
   modules.system.timezone = "Asia/Seoul";
   modules.system.locale = "en_US.UTF-8";
 
-  # Boot configuration
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.systemd-boot.configurationLimit = 20;
@@ -29,22 +28,10 @@ in {
     allowDiscards = true;
   };
   services.fwupd.enable = true;
-  services.expressvpn.enable = true;
-  networking.networkmanager.enable = true;
   i18n.inputMethod = {
     enable = true;
     type = "fcitx5";
     fcitx5.addons = with pkgs; [ fcitx5-hangul fcitx5-gtk ];
-  };
-  services.tailscale.enable = true;
-  services.adguardhome.enable = true;
-  services.pulseaudio.enable = false;
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
   };
   services.ollama = {
     enable = true;
@@ -52,21 +39,6 @@ in {
   };
   services.printing.enable = true;
 
-  # Graphics
-  hardware.graphics.enable = true;
-  hardware.graphics.enable32Bit = true;
-  services.xserver.videoDrivers = [ "amdgpu" ];
-
-  # Gaming
-  programs.steam = {
-    enable = true;
-    remotePlay.openFirewall = true;
-    dedicatedServer.openFirewall = true;
-    localNetworkGameTransfers.openFirewall = true;
-  };
-  programs.gamemode.enable = true;
-
-  # Power management & hibernation
   powerManagement.enable = true;
   services.power-profiles-daemon.enable = true;
   services.logind.settings.Login = {
