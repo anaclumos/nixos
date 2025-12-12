@@ -9,7 +9,6 @@
     # Extensions
     gnomeExtensions.unite
     gnomeExtensions.clipboard-history
-    gnomeExtensions.power-profile-switcher
     gnomeExtensions.appindicator
     gnomeExtensions.kimpanel
     gnomeExtensions.dock-from-dash
@@ -48,7 +47,6 @@
       enabled-extensions = [
         "unite@hardpixel.eu"
         "clipboard-history@alexsaveau.dev"
-        "power-profile-switcher@eliapasquali.github.io"
         "appindicatorsupport@rgcjonas.gmail.com"
         "kimpanel@kde.org"
         "dock-from-dash@fthx"
@@ -58,11 +56,6 @@
     # Extension Settings
     "org/gnome/shell/extensions/clipboard-history" = {
       toggle-menu = [ "<Control>g" ];
-    };
-    "org/gnome/shell/extensions/power-profile-switcher" = {
-      ac = "performance";
-      bat = "performance";
-      threshold = 80;
     };
     "org/gnome/shell/extensions/unite" = {
       app-menu-ellipsize-mode = "start";
