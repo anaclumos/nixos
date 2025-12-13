@@ -111,18 +111,28 @@ let
   '';
   tb-headless-wrapper =
     pkgs.writeShellScriptBin "thunderbird-headless-wrapper" ''
+      set -euo pipefail
       export DISPLAY=:0
       export WAYLAND_DISPLAY=wayland-0
       export XDG_RUNTIME_DIR="/run/user/$(id -u)"
-      ${pkgs.dbus}/bin/dbus-monitor --session "interface='org.freedesktop.Notifications',member='ActionInvoked'" | while read -r line; do
+
+      # Launch the UI from a transient unit so stopping this headless service
+      # (which thunderbird-ui does) does not kill the launcher mid-run.
+      launch_ui() {
+        if systemctl --user is-active --quiet thunderbird-open-from-notification.service; then
+          return
+        fi
+        systemd-run --user --collect --quiet --unit=thunderbird-open-from-notification ${tb-ui}/bin/thunderbird-ui || true
+      }
+
+      ${pkgs.dbus}/bin/dbus-monitor --session "interface='org.freedesktop.Notifications',member='ActionInvoked'" |
+      while read -r line; do
         if echo "$line" | grep -q "ActionInvoked"; then
-          systemctl --user stop thunderbird-headless.service 2>/dev/null
-          ${tb}/bin/thunderbird & 
-          sleep 2
-          systemctl --user start thunderbird-headless.service
+          launch_ui
         fi
       done &
       MONITOR_PID=$!
+
       "${tb}/bin/thunderbird" --headless
       kill $MONITOR_PID 2>/dev/null || true
     '';
