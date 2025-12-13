@@ -70,7 +70,7 @@ in {
           k = M-4
           l = M-5
           semicolon = M-6
-          apostrophe = M-7
+          o = M-7
           n = M-8
           m = M-9
           enter = macro(M-S-end M-up)

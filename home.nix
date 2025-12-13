@@ -74,7 +74,7 @@ let
     obsidian
     google-chrome
     firefox
-    youtube-music
+    spotify
     _1password-gui
     ookla-speedtest
     geekbench
@@ -479,10 +479,10 @@ in {
         "org.gnome.Nautilus.desktop"
         "google-chrome.desktop"
         "thunderbird.desktop"
-        "com.github.th_ch.youtube_music.desktop"
+        "spotify.desktop"
         "org.gnome.Calendar.desktop"
         "antigravity.desktop"
-        "org.gnome.Console.desktop"
+        "obsidian.desktop"
         "slack.desktop"
         "kakaotalk.desktop"
       ];
