@@ -88,7 +88,6 @@ let
     pods
     sqlitebrowser
     timewall
-    antigravity
     signal-desktop
     telegram-desktop
     inputs.kakaotalk.packages.${pkgs.stdenv.hostPlatform.system}.default
@@ -260,9 +259,9 @@ in {
         ed = "expressvpn disconnect";
         x = "exit";
         oo = "hub browse";
-        zz = "antigravity ~/Documents/nix";
+        zz = "code ~/Documents/nix";
         ss = "source ~/.zshrc";
-        cc = "antigravity .";
+        cc = "code .";
         sha =
           "git push && echo Done in $(git rev-parse HEAD) | xclip -selection clipboard";
         emptyfolder = "find . -type d -empty -delete";
@@ -492,7 +491,7 @@ in {
         "thunderbird.desktop"
         "spotify.desktop"
         "org.gnome.Calendar.desktop"
-        "antigravity.desktop"
+        "code.desktop"
         "obsidian.desktop"
         "slack.desktop"
         "kakaotalk.desktop"
