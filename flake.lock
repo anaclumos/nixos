@@ -28,11 +28,11 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1765710935,
-        "narHash": "sha256-gIkqCD6l1qRmSMsS2FqHSSfcak1W6u1uPbSq6DpVlmk=",
+        "lastModified": 1765714897,
+        "narHash": "sha256-QjdCB2pUtFsrwnWTu5R8NCUPKoi2NU3OzygSwEnS7SU=",
         "owner": "anaclumos",
         "repo": "kakaotalk.nix",
-        "rev": "c6060b37173a66618d6b5e5c79b3a795f6ca757c",
+        "rev": "361cd7cda701719451cfd496dc6c8e604f0e93bd",
         "type": "github"
       },
       "original": {
@@ -97,11 +97,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1765311797,
-        "narHash": "sha256-mSD5Ob7a+T2RNjvPvOA1dkJHGVrNVl8ZOrAwBjKBDQo=",
+        "lastModified": 1765608474,
+        "narHash": "sha256-9Wx53UK0z8Di5iesJID0tS1dRKwGxI4i7tsSanOHhF0=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "09eb77e94fa25202af8f3e81ddc7353d9970ac1b",
+        "rev": "28bb483c11a1214a73f9fd2d9928a6e2ea86ec71",
         "type": "github"
       },
       "original": {
