@@ -2,15 +2,15 @@
 
 
 ![Framework](https://img.shields.io/badge/Framework-Laptop_13-000000?style=flat&logo=framework&logoColor=white)
+![Display](https://img.shields.io/badge/Display-2880x1920_@_120Hz-000000?style=flat)
+![RAM](https://img.shields.io/badge/RAM-Crucial_96GB_DDR5_5600MHz-000000?style=flat)
+![Storage](https://img.shields.io/badge/Storage-4TB_SN850X-000000?style=flat)
 ![NixOS](https://img.shields.io/badge/NixOS-25.11-5277C3?style=flat&logo=nixos&logoColor=white)
 ![GNOME](https://img.shields.io/badge/GNOME-49.2-4A86CF?style=flat&logo=gnome&logoColor=white)
 ![Wayland](https://img.shields.io/badge/Wayland-Mutter-FFBC00?style=flat&logo=wayland&logoColor=white)
 ![Kernel](https://img.shields.io/badge/Kernel-6.18.0-FCC624?style=flat&logo=linux&logoColor=black)
 ![AMD](https://img.shields.io/badge/AMD-Ryzen_AI_9_HX_370-ED1C24?style=flat&logo=amd&logoColor=white)
 ![Radeon](https://img.shields.io/badge/Radeon-890M-ED1C24?style=flat&logo=amd&logoColor=white)
-![Display](https://img.shields.io/badge/Display-2880x1920_@_120Hz-000000?style=flat)
-![RAM](https://img.shields.io/badge/RAM-96GB-000000?style=flat)
-![Storage](https://img.shields.io/badge/Storage-4TB_SN850X-000000?style=flat)
 
 Flake-based NixOS + Home Manager for my Framework Laptop
 
