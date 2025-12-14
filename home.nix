@@ -184,6 +184,7 @@ in {
       gnomeExtensions.unite
       gnomeExtensions.clipboard-history
       gnomeExtensions.appindicator
+      gnomeExtensions.media-controls
       gnomeExtensions.kimpanel
       gnomeExtensions.dock-from-dash
     ]));

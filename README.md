@@ -6,8 +6,8 @@
 ![GNOME](https://img.shields.io/badge/GNOME-Wayland-4A86CF?style=flat&logo=gnome&logoColor=white)
 ![AMD](https://img.shields.io/badge/AMD-Ryzen_AI_9_HX_370-ED1C24?style=flat&logo=amd&logoColor=white)
 ![Radeon](https://img.shields.io/badge/Radeon-890M-ED1C24?style=flat&logo=amd&logoColor=white)
-![RAM](https://img.shields.io/badge/RAM-96GB-purple?style=flat)
-![Storage](https://img.shields.io/badge/Storage-4TB_SN850X-blue?style=flat)
+![RAM](https://img.shields.io/badge/RAM-96GB-000000?style=flat&logo=crucial&logoColor=white)
+![Storage](https://img.shields.io/badge/Storage-4TB_SN850X-000000?style=flat&logo=westerndigital&logoColor=white)
 
 Flake-based NixOS + Home Manager for my Framework Laptop
 
