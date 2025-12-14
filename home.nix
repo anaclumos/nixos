@@ -56,6 +56,7 @@ let
     tex-fmt
     trayscale
     jq
+    opencode
   ];
 
   games = with pkgs; [
