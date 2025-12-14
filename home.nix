@@ -504,6 +504,7 @@ in {
         "appindicatorsupport@rgcjonas.gmail.com"
         "kimpanel@kde.org"
         "dock-from-dash@fthx"
+        "mediacontrols@cliffniff.github.com"
       ];
     };
 
@@ -511,17 +512,33 @@ in {
       toggle-menu = [ "<Control>g" ];
     };
     "org/gnome/shell/extensions/unite" = {
-      app-menu-ellipsize-mode = "start";
+      app-menu-ellipsize-mode = "end";
       desktop-name-text = "성현";
       extend-left-box = false;
       hide-activities-button = "always";
       hide-window-titlebars = "never";
+      icon-scale-workaround = true;
       notifications-position = "center";
       reduce-panel-spacing = true;
-      show-appmenu-button = true;
+      show-appmenu-button = false;
+      show-desktop-name = false;
+      show-legacy-tray = true;
       show-window-buttons = "never";
-      show-window-title = "always";
+      show-window-title = "never";
       use-activities-text = true;
+    };
+    "org/gnome/shell/extensions/mediacontrols" = {
+      colored-player-icon = true;
+      extension-position = "Left";
+      fixed-label-width = false;
+      hide-media-notification = true;
+      label-width = lib.hm.gvariant.mkUint32 500;
+      labels-order = [ "TITLE" ];
+      scroll-labels = false;
+      show-control-icons = false;
+      show-label = true;
+      show-player-icon = true;
+      show-track-slider = false;
     };
 
     "org/gnome/settings-daemon/plugins/media-keys" = {
