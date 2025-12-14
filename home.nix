@@ -531,7 +531,7 @@ in {
       colored-player-icon = true;
       extension-position = "Left";
       fixed-label-width = false;
-      hide-media-notification = true;
+      hide-media-notification = false;
       label-width = lib.hm.gvariant.mkUint32 500;
       labels-order = [ "TITLE" ];
       scroll-labels = false;
