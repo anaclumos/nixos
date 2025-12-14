@@ -12,7 +12,6 @@
 ![AMD](https://img.shields.io/badge/AMD-Ryzen_AI_9_HX_370-ED1C24?style=flat&logo=amd&logoColor=white)
 ![Radeon](https://img.shields.io/badge/Radeon-890M-ED1C24?style=flat&logo=amd&logoColor=white)
 
-Flake-based NixOS + Home Manager for my Framework Laptop
 
 ## Quick Install
 
