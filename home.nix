@@ -91,6 +91,7 @@ let
     timewall
     signal-desktop
     telegram-desktop
+    beeper
     inputs.kakaotalk.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 
