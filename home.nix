@@ -4,60 +4,83 @@ let
   onePassAgent = "${homeDir}/.1password/agent.sock";
 
   developmentTools = with pkgs-unstable; [
+    # Languages & Runtimes
     nodejs
-    nodePackages.pnpm
-    nodePackages.vercel
     bun
-    nixfmt-classic
-    claude-code
-    code-cursor
-    vscode
-    hub
-    gh
-    scc
-    ffmpeg-full
-    whois
-    lefthook
-    unzip
-    zip
-    act
-    terraform
-    biome
-    vscode-extensions.biomejs.biome
-    argocd
-    k9s
-    kubectl
-    moon
-    git
-    zsh
-    cacert
     uv
     ruff
-    comma
-    mariadb
-    pkg-config
-    nix-index
-    codex
-    lsof
-    azure-cli
-    azure-storage-azcopy
-    gemini-cli
-    tmux
+
+    # Package Managers & Build Tools
+    nodePackages.pnpm
+    nodePackages.vercel
     cmake
     gcc
     gnumake
+    pkg-config
+    moon
+    lefthook
+
+    # Code Editors & IDEs
+    claude-code
+    code-cursor
+    vscode
+    vscode-extensions.biomejs.biome
+
+    # Version Control & Git (git managed by programs.git)
+    hub
+    gh
+
+    # Cloud & Infrastructure
+    terraform
+    argocd
+    k9s
+    kubectl
+    azure-cli
+    azure-storage-azcopy
+
+    # AI & Coding Assistants
+    codex
+    gemini-cli
+    opencode
+
+    # Nix Tools
+    nixfmt-classic
+    comma
+    nix-index
+
+    # Database
+    mariadb
+
+    # CLI Utilities
+    scc
+    whois
+    unzip
+    zip
+    act
+    biome
+    lsof
+    tmux
     wget
-    podman-compose
-    _1password-cli
-    libheif
-    libsndfile
-    btop
+    jq
+
+    # Image Processing CLI
+    pngcrush
+    imagemagick
+    pngquant
+
+    # Document Processing
     tectonic
     tex-fmt
-    trayscale
-    jq
-    opencode
+
+    # Shell (zsh managed by programs.zsh)
+    cacert
+
+    # Container Tools
+    podman-compose
+    _1password-cli
   ];
+
+  mediaTools = with pkgs-unstable; [ ffmpeg-full libheif libsndfile ];
 
   games = with pkgs; [
     dolphin-emu
@@ -70,32 +93,60 @@ let
   ];
 
   applications = with pkgs; [
+    # Communication
     slack
     teams-for-linux
-    obsidian
+    beeper
+    zoom-us
+    inputs.kakaotalk.packages.${pkgs.stdenv.hostPlatform.system}.default
+
+    # Browsers
     google-chrome
     firefox
-    spotify
-    _1password-gui
-    ookla-speedtest
-    geekbench
-    expressvpn
-    caffeine-ng
-    zoom-us
-    pngcrush
-    imagemagick
-    pngquant
+
+    # Productivity
+    obsidian
     logseq
+    sticky-notes
+
+    # Media
+    spotify
+
+    # Security & VPN
+    _1password-gui
+    expressvpn
+
+    # Utilities
+    caffeine-ng
+    timewall
+    trayscale
+
+    # Database & Dev Tools
     pods
     sqlitebrowser
-    timewall
-    beeper
-    sticky-notes
-    inputs.kakaotalk.packages.${pkgs.stdenv.hostPlatform.system}.default
+
+    # Benchmarks
+    geekbench
   ];
 
   gnomeTools = with pkgs; [ refine ];
-  systemTools = with pkgs; [ xclip wmctrl xdotool pciutils nvme-cli ];
+
+  systemTools = with pkgs; [
+    # Clipboard & Window Management
+    xclip
+    wmctrl
+    xdotool
+
+    # Hardware Info
+    pciutils
+    nvme-cli
+
+    # Monitoring
+    btop
+
+    # Network Testing
+    ookla-speedtest
+  ];
 
   cloudTools = with pkgs;
     [
@@ -181,8 +232,9 @@ in {
     time = "en_US.UTF-8";
   };
 
-  home.packages = lib.unique (developmentTools ++ games ++ applications
-    ++ gnomeTools ++ systemTools ++ cloudTools ++ [ tb tb-ui ] ++ (with pkgs; [
+  home.packages = lib.unique (developmentTools ++ mediaTools ++ games
+    ++ applications ++ gnomeTools ++ systemTools ++ cloudTools ++ [ tb tb-ui ]
+    ++ (with pkgs; [
       pantheon.elementary-icon-theme
       hicolor-icon-theme
       adwaita-icon-theme
