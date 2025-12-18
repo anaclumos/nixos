@@ -33,10 +33,6 @@ in {
     type = "fcitx5";
     fcitx5.addons = with pkgs; [ fcitx5-hangul fcitx5-gtk ];
   };
-  services.ollama = {
-    enable = true;
-    acceleration = "rocm";
-  };
   services.printing.enable = true;
 
   powerManagement.enable = true;

@@ -75,6 +75,9 @@ let
     # Container Tools
     podman-compose
     _1password-cli
+
+    # LLM Tools
+    ollama
   ];
 
   mediaTools = with pkgs-unstable; [ ffmpeg-full libheif libsndfile ];
