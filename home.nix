@@ -3,7 +3,7 @@ let
   homeDir = "/home/${username}";
   onePassAgent = "${homeDir}/.1password/agent.sock";
 
-  developmentTools = with pkgs; [
+  developmentTools = with pkgs-unstable; [
     nodejs
     nodePackages.pnpm
     nodePackages.vercel
@@ -56,7 +56,7 @@ let
     tex-fmt
     trayscale
     jq
-    pkgs-unstable.opencode
+    opencode
   ];
 
   games = with pkgs; [
