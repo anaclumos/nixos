@@ -98,6 +98,7 @@ let
     beeper
     zoom-us
     inputs.kakaotalk.packages.${pkgs.stdenv.hostPlatform.system}.default
+    inputs.hyprnote.packages.${pkgs.stdenv.hostPlatform.system}.default
 
     # Browsers
     google-chrome

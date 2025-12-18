@@ -9,6 +9,7 @@
     };
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     kakaotalk.url = "github:anaclumos/kakaotalk.nix";
+    hyprnote.url = "github:anaclumos/hyprnote.nix";
   };
   outputs = inputs@{ self, nixpkgs, nixpkgs-unstable, home-manager
     , nixos-hardware, ... }:

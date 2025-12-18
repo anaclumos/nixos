@@ -1,5 +1,23 @@
 {
   "nodes": {
+    "flake-utils": {
+      "inputs": {
+        "systems": "systems"
+      },
+      "locked": {
+        "lastModified": 1731533236,
+        "narHash": "sha256-l0KFg5HjrsfsO/JpG+r7fRrqm12kzFHyUHqHCVpMMbI=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "11707dc2f618dd54ca8739b309ec4fc024de578b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -21,48 +39,41 @@
         "type": "github"
       }
     },
-    "kakaotalk": {
+    "hyprnote": {
       "inputs": {
-        "kakaotalk-exe": "kakaotalk-exe",
-        "kakaotalk-icon": "kakaotalk-icon",
+        "flake-utils": "flake-utils",
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1765950814,
-        "narHash": "sha256-SF/fFXczAQVW4UGjJQAdqULCrqgvq9EKvu+A4HcZZlk=",
+        "lastModified": 1766003170,
+        "narHash": "sha256-9Y6x60R8eRDevqWaMcb4IsiOMT5mM1iw8dTitnxP1cg=",
+        "owner": "anaclumos",
+        "repo": "hyprnote.nix",
+        "rev": "6e94cac1861fafe474a069d382d441c79e1f2038",
+        "type": "github"
+      },
+      "original": {
+        "owner": "anaclumos",
+        "repo": "hyprnote.nix",
+        "type": "github"
+      }
+    },
+    "kakaotalk": {
+      "inputs": {
+        "nixpkgs": "nixpkgs_2"
+      },
+      "locked": {
+        "lastModified": 1766044562,
+        "narHash": "sha256-jO1eMyyIZUwA1WMC2IpKsgSFWBB2oLIRYc6Be6R/ZlU=",
         "owner": "anaclumos",
         "repo": "kakaotalk.nix",
-        "rev": "51db80b7bb49548c2b893cb10222a7f03425079a",
+        "rev": "5c797dc674d04fa36b780831c4c47402b26bb2c1",
         "type": "github"
       },
       "original": {
         "owner": "anaclumos",
         "repo": "kakaotalk.nix",
         "type": "github"
-      }
-    },
-    "kakaotalk-exe": {
-      "flake": false,
-      "locked": {
-        "narHash": "sha256-+K71T9Je8OICYfTfXxTPpcD4X8PNw7GbRVBcKniu+/A=",
-        "type": "file",
-        "url": "https://app-pc.kakaocdn.net/talk/win32/KakaoTalk_Setup.exe"
-      },
-      "original": {
-        "type": "file",
-        "url": "https://app-pc.kakaocdn.net/talk/win32/KakaoTalk_Setup.exe"
-      }
-    },
-    "kakaotalk-icon": {
-      "flake": false,
-      "locked": {
-        "narHash": "sha256-FcSTBiBxiGyOhRuLkaVIjVt2omY3Tz2NKE/+nGvHDjo=",
-        "type": "file",
-        "url": "https://upload.wikimedia.org/wikipedia/commons/e/e3/KakaoTalk_logo.svg"
-      },
-      "original": {
-        "type": "file",
-        "url": "https://upload.wikimedia.org/wikipedia/commons/e/e3/KakaoTalk_logo.svg"
       }
     },
     "nixos-hardware": {
@@ -83,16 +94,18 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1750731501,
-        "narHash": "sha256-Ah4qq+SbwMaGkuXCibyg+Fwn00el4KmI3XFX6htfDuk=",
+        "lastModified": 1765779637,
+        "narHash": "sha256-KJ2wa/BLSrTqDjbfyNx70ov/HdgNBCBBSQP3BIzKnv4=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "69dfebb3d175bde602f612915c5576a41b18486b",
+        "rev": "1306659b587dc277866c7b69eb97e5f07864d8c4",
         "type": "github"
       },
       "original": {
-        "id": "nixpkgs",
-        "type": "indirect"
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
       }
     },
     "nixpkgs-unstable": {
@@ -113,6 +126,20 @@
     },
     "nixpkgs_2": {
       "locked": {
+        "lastModified": 1750731501,
+        "narHash": "sha256-Ah4qq+SbwMaGkuXCibyg+Fwn00el4KmI3XFX6htfDuk=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "69dfebb3d175bde602f612915c5576a41b18486b",
+        "type": "github"
+      },
+      "original": {
+        "id": "nixpkgs",
+        "type": "indirect"
+      }
+    },
+    "nixpkgs_3": {
+      "locked": {
         "lastModified": 1765838191,
         "narHash": "sha256-m5KWt1nOm76ILk/JSCxBM4MfK3rYY7Wq9/TZIIeGnT8=",
         "owner": "nixos",
@@ -130,10 +157,26 @@
     "root": {
       "inputs": {
         "home-manager": "home-manager",
+        "hyprnote": "hyprnote",
         "kakaotalk": "kakaotalk",
         "nixos-hardware": "nixos-hardware",
-        "nixpkgs": "nixpkgs_2",
+        "nixpkgs": "nixpkgs_3",
         "nixpkgs-unstable": "nixpkgs-unstable"
+      }
+    },
+    "systems": {
+      "locked": {
+        "lastModified": 1681028828,
+        "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",
+        "owner": "nix-systems",
+        "repo": "default",
+        "rev": "da67096a3b9bf56a91d16901293e51ba5b49a27e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-systems",
+        "repo": "default",
+        "type": "github"
       }
     }
   },
