@@ -1,4 +1,4 @@
-{ lib, pkgs, inputs, username, ... }:
+{ lib, pkgs, pkgs-unstable, inputs, username, ... }:
 let
   homeDir = "/home/${username}";
   onePassAgent = "${homeDir}/.1password/agent.sock";
@@ -56,7 +56,7 @@ let
     tex-fmt
     trayscale
     jq
-    opencode
+    pkgs-unstable.opencode
   ];
 
   games = with pkgs; [
