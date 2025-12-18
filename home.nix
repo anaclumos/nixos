@@ -90,6 +90,7 @@ let
     sqlitebrowser
     timewall
     beeper
+    sticky-notes
     inputs.kakaotalk.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 
