@@ -19,7 +19,6 @@ let
 
     # Code Editors & IDEs
     claude-code
-    code-cursor
     vscode
     vscode-extensions.biomejs.biome
 

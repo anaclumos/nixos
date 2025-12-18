@@ -186,7 +186,7 @@ in {
           name = "Sunghyun Cho";
           email = "hey@cho.sh";
         };
-        core = { editor = "cursor --wait"; };
+        core = { editor = "code --wait"; };
         credential = { helper = "${lib.getExe pkgs.gh} auth git-credential"; };
         gpg = { format = "ssh"; };
         "gpg \"ssh\"" = {
