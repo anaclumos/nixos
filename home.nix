@@ -477,7 +477,7 @@ in {
       {
         name = "Toggle Dark Mode";
         command =
-          "bash -c 'current=$(gsettings get org.gnome.desktop.interface color-scheme); if [[ \"$current\" == '''prefer-dark''' ]]; then gsettings set org.gnome.desktop.interface color-scheme ''''default'''; else gsettings set org.gnome.desktop.interface color-scheme ''''prefer-dark'''; fi'";
+          "bash -c 'if gsettings get org.gnome.desktop.interface color-scheme | grep -q dark; then gsettings set org.gnome.desktop.interface color-scheme default; else gsettings set org.gnome.desktop.interface color-scheme prefer-dark; fi'";
         binding = "<Ctrl><Alt><Super><Shift>grave";
       };
   };
