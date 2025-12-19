@@ -158,7 +158,6 @@ in {
         ec = "expressvpn connect";
         ed = "expressvpn disconnect";
         x = "exit";
-        oo = "hub browse";
         zz = "code ~/Documents/nix";
         ss = "source ~/.zshrc";
         cc = "code .";
