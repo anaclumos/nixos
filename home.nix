@@ -451,7 +451,6 @@ in {
       show-track-slider = false;
     };
     "org/gnome/shell/extensions/dash-to-dock" = {
-      custom-theme-shrink = true;
       dock-fixed = false;
       dock-position = "BOTTOM";
       extend-height = false;
