@@ -402,6 +402,7 @@ in {
         "kimpanel@kde.org"
         "dock-from-dash@fthx"
         "mediacontrols@cliffniff.github.com"
+        "ding@rastersoft.com"
       ];
     };
 

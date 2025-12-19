@@ -169,6 +169,7 @@ let
     gnomeExtensions.media-controls
     gnomeExtensions.kimpanel
     gnomeExtensions.dock-from-dash
+    gnomeExtensions.desktop-icons-ng-ding
   ];
 
 in {
