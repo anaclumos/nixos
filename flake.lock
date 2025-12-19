@@ -235,11 +235,11 @@
         "nixpkgs": "nixpkgs_4"
       },
       "locked": {
-        "lastModified": 1766123686,
-        "narHash": "sha256-NYwQeMe8NWIEtjx1KixPWOZ5bMJYLdeLeTOi9Q97D8k=",
+        "lastModified": 1766136454,
+        "narHash": "sha256-rjJzUWMZmnJpBZjmu5BdbztepJWmK7QLelWmaRU5cMQ=",
         "owner": "anaclumos",
         "repo": "tableplus.nix",
-        "rev": "7ab577145f570795598198601b344ae115b577bf",
+        "rev": "1cbca4cd97af1c458f2a7df776f58623e66a7b21",
         "type": "github"
       },
       "original": {

@@ -159,7 +159,7 @@ let
     pantheon.elementary-icon-theme
     hicolor-icon-theme
     adwaita-icon-theme
-    whitesur-icon-theme
+    colloid-icon-theme
   ];
 
   gnomeExtensionsList = with pkgs; [

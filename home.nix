@@ -371,7 +371,7 @@ in {
       font-name = "Pretendard 12";
       document-font-name = "Pretendard 12";
       monospace-font-name = "Berkeley Mono 12";
-      icon-theme = "WhiteSur";
+      icon-theme = "Colloid";
       cursor-theme = "elementary";
       clock-show-weekday = true;
       clock-format = "12h";
