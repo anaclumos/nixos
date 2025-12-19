@@ -124,6 +124,7 @@ let
     # Database & Dev Tools
     pods
     sqlitebrowser
+    inputs.tableplus.packages.${pkgs.stdenv.hostPlatform.system}.default
 
     # Benchmarks
     geekbench
