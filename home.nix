@@ -148,17 +148,17 @@ in {
         plugins = [ "git" "podman" "npm" "sudo" "command-not-found" ];
       };
       initContent = ''
-        fastfetch && if [ "$(pwd)" = "${homeDir}" ]; then cd ~/Documents; fi
+        fastfetch && if [ "$(pwd)" = "${homeDir}" ]; then cd ~/Desktop; fi
       '';
       shellAliases = {
         build =
-          "cd ~/Documents/nix && nixfmt **/*.nix && nix-channel --update && nix --extra-experimental-features 'nix-command flakes' flake update && sudo NIXPKGS_ALLOW_UNFREE=1 nixos-rebuild switch --flake .#framework --impure && ngc";
+          "cd ~/Desktop/nix && nixfmt **/*.nix && nix-channel --update && nix --extra-experimental-features 'nix-command flakes' flake update && sudo NIXPKGS_ALLOW_UNFREE=1 nixos-rebuild switch --flake .#framework --impure && ngc";
         nixgit = ''
-          cd ~/Documents/nix && git commit -m "$(date +"%Y-%m-%d")" -a && git push'';
+          cd ~/Desktop/nix && git commit -m "$(date +"%Y-%m-%d")" -a && git push'';
         ec = "expressvpn connect";
         ed = "expressvpn disconnect";
         x = "exit";
-        zz = "code ~/Documents/nix";
+        zz = "code ~/Desktop/nix";
         ss = "source ~/.zshrc";
         cc = "code .";
         sha =

@@ -2,7 +2,7 @@
 set -euo pipefail
 
 REPO_URL="https://github.com/anaclumos/nix.git"
-TARGET_DIR="$HOME/Documents/nix"
+TARGET_DIR="$HOME/Desktop/nix"
 
 nix_eval_hw() {
     local result
@@ -46,8 +46,8 @@ nix_eval_cfg() {
 echo "==> NixOS Bootstrap Script"
 echo "==> This will set up your NixOS configuration"
 
-mkdir -p "$HOME/Documents"
-cd "$HOME/Documents"
+mkdir -p "$HOME/Desktop"
+cd "$HOME/Desktop"
 
 echo "==> Cloning configuration repository..."
 if [ -d "$TARGET_DIR" ]; then
