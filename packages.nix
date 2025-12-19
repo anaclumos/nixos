@@ -101,7 +101,6 @@ let
 
     # Browsers
     google-chrome
-    firefox
 
     # Productivity
     obsidian
@@ -167,8 +166,9 @@ let
     gnomeExtensions.appindicator
     gnomeExtensions.media-controls
     gnomeExtensions.kimpanel
-    gnomeExtensions.dock-from-dash
+    gnomeExtensions.dash-to-dock
     gnomeExtensions.desktop-icons-ng-ding
+    gnomeExtensions.blur-my-shell
   ];
 
 in {

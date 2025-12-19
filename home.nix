@@ -412,9 +412,10 @@ in {
         "clipboard-history@alexsaveau.dev"
         "appindicatorsupport@rgcjonas.gmail.com"
         "kimpanel@kde.org"
-        "dock-from-dash@fthx"
+        "dash-to-dock@micxgx.gmail.com"
         "mediacontrols@cliffniff.github.com"
         "ding@rastersoft.com"
+        "blur-my-shell@aunetx"
       ];
     };
 
@@ -423,7 +424,6 @@ in {
     };
     "org/gnome/shell/extensions/unite" = {
       app-menu-ellipsize-mode = "end";
-      desktop-name-text = "성현";
       extend-left-box = false;
       hide-activities-button = "always";
       hide-window-titlebars = "never";
@@ -449,6 +449,29 @@ in {
       show-label = true;
       show-player-icon = true;
       show-track-slider = false;
+    };
+    "org/gnome/shell/extensions/dash-to-dock" = {
+      custom-theme-shrink = true;
+      dock-fixed = false;
+      dock-position = "BOTTOM";
+      extend-height = false;
+      intellihide = true;
+      intellihide-mode = "MAXIMIZED_WINDOWS";
+      autohide = true;
+      show-trash = true;
+      show-mounts = true;
+    };
+    "org/gnome/shell/extensions/blur-my-shell" = { pipelines-version = 3; };
+    "org/gnome/shell/extensions/blur-my-shell/panel" = { blur = false; };
+    "org/gnome/shell/extensions/blur-my-shell/overview" = { blur = false; };
+    "org/gnome/shell/extensions/blur-my-shell/appfolder" = { blur = false; };
+    "org/gnome/shell/extensions/blur-my-shell/lockscreen" = { blur = false; };
+    "org/gnome/shell/extensions/blur-my-shell/screenshot" = { blur = false; };
+    "org/gnome/shell/extensions/blur-my-shell/window-list" = { blur = false; };
+    "org/gnome/shell/extensions/blur-my-shell/dash-to-dock" = {
+      blur = true;
+      override-background = true;
+      style-dash-to-dock = 2;
     };
 
     "org/gnome/settings-daemon/plugins/media-keys" = {
