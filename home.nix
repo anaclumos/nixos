@@ -459,6 +459,8 @@ in {
       autohide = true;
       show-trash = true;
       show-mounts = true;
+      hotkeys-overlay = false;
+      hotkeys-show-dock = false;
     };
     "org/gnome/shell/extensions/blur-my-shell" = { pipelines-version = 3; };
     "org/gnome/shell/extensions/blur-my-shell/panel" = { blur = false; };
