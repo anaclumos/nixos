@@ -97,6 +97,7 @@ let
     teams-for-linux
     beeper
     zoom-us
+    telegram-desktop
     inputs.kakaotalk.packages.${pkgs.stdenv.hostPlatform.system}.default
 
     # Browsers
