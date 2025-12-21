@@ -403,7 +403,7 @@ in {
         "code.desktop"
         "obsidian.desktop"
         "slack.desktop"
-        "telegram.desktop"
+        "org.telegram.desktop.desktop"
         "tableplus.desktop"
         "com.vixalien.sticky.desktop"
       ];
