@@ -464,16 +464,6 @@ in {
     };
     "org/gnome/shell/extensions/blur-my-shell" = { pipelines-version = 3; };
     "org/gnome/shell/extensions/blur-my-shell/panel" = { blur = false; };
-    "org/gnome/shell/extensions/blur-my-shell/overview" = { blur = false; };
-    "org/gnome/shell/extensions/blur-my-shell/appfolder" = { blur = false; };
-    "org/gnome/shell/extensions/blur-my-shell/lockscreen" = { blur = false; };
-    "org/gnome/shell/extensions/blur-my-shell/screenshot" = { blur = false; };
-    "org/gnome/shell/extensions/blur-my-shell/window-list" = { blur = false; };
-    "org/gnome/shell/extensions/blur-my-shell/dash-to-dock" = {
-      blur = true;
-      override-background = true;
-      style-dash-to-dock = 2;
-    };
 
     "org/gnome/settings-daemon/plugins/media-keys" = {
       custom-keybindings = [
