@@ -403,7 +403,7 @@ in {
         "code.desktop"
         "obsidian.desktop"
         "slack.desktop"
-        "kakaotalk.desktop"
+        "telegram.desktop"
         "tableplus.desktop"
         "com.vixalien.sticky.desktop"
       ];
@@ -472,7 +472,6 @@ in {
         "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/lock/"
         "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/1password/"
         "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/dark-mode/"
-        "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/kakaotalk/"
       ];
     };
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/spotlight" =
