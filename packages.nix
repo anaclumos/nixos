@@ -144,8 +144,8 @@ let
     # Monitoring
     btop
 
-    # Network Testing
-    ookla-speedtest
+    # Notifications
+    libnotify
   ];
 
   cloudTools = with pkgs;
