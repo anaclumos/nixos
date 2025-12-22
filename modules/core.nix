@@ -16,10 +16,9 @@ let
 in {
   programs.zsh.enable = true;
 
-  virtualisation.podman = {
+  virtualisation.docker = {
     enable = true;
-    dockerCompat = true;
-    defaultNetwork.settings.dns_enabled = true;
+    enableOnBoot = true;
   };
 
   environment.sessionVariables = lunitSessionVariables;

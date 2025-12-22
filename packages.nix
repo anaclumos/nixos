@@ -72,7 +72,7 @@ let
     cacert
 
     # Container Tools
-    podman-compose
+    docker-compose
     _1password-cli
 
     # LLM Tools
@@ -121,7 +121,6 @@ let
     trayscale
 
     # Database & Dev Tools
-    pods
     sqlitebrowser
     inputs.tableplus.packages.${pkgs.stdenv.hostPlatform.system}.default
 

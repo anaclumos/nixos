@@ -50,7 +50,7 @@ in {
       };
       extraGroups = mkOption {
         type = types.listOf types.str;
-        default = [ "wheel" "networkmanager" "podman" "video" "audio" ];
+        default = [ "wheel" "networkmanager" "docker" "video" "audio" ];
         description = "Additional groups for the user";
       };
     };

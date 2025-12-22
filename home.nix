@@ -145,7 +145,7 @@ in {
       oh-my-zsh = {
         enable = true;
         theme = "robbyrussell";
-        plugins = [ "git" "podman" "npm" "sudo" "command-not-found" ];
+        plugins = [ "git" "docker" "npm" "sudo" "command-not-found" ];
       };
       initContent = ''
         fastfetch && if [ "$(pwd)" = "${homeDir}" ]; then cd ~/Desktop; fi
