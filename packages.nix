@@ -33,6 +33,7 @@ let
     kubectl
     azure-cli
     azure-storage-azcopy
+    cloudflared
 
     # AI & Coding Assistants
     codex
