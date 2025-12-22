@@ -352,7 +352,7 @@ in {
       show-battery-percentage = true;
       font-name = "Pretendard GOV 12";
       document-font-name = "Pretendard GOV 12";
-      monospace-font-name = "Berkeley Mono 12";
+      monospace-font-name = "Iosevka 12";
       icon-theme = "Colloid";
       cursor-theme = "elementary";
       clock-show-weekday = true;
