@@ -29,7 +29,7 @@ let
         <string>${font}</string>
       </test>
       <edit name="family" mode="assign" binding="same">
-        <string>Pretendard</string>
+        <string>Pretendard GOV</string>
       </edit>
     </match>
   '';
@@ -51,7 +51,7 @@ let
   };
 in {
   fonts.packages = with pkgs; [
-    pretendard
+    pretendard-gov
     monaspace
     berkeleyMono
     noto-fonts-cjk-sans
@@ -61,15 +61,15 @@ in {
   fonts.fontDir.enable = true;
   fonts.fontconfig = {
     defaultFonts = {
-      sansSerif = [ "Pretendard" "Noto Sans CJK KR" ];
-      serif = [ "Pretendard" "Noto Serif CJK KR" ];
+      sansSerif = [ "Pretendard GOV" "Noto Sans CJK KR" ];
+      serif = [ "Pretendard GOV" "Noto Serif CJK KR" ];
       monospace = [ "Monaspace" ];
     };
     localConf = ''
       <?xml version="1.0"?>
       <!DOCTYPE fontconfig SYSTEM "fonts.dtd">
       <fontconfig>
-        <!-- Replace various fonts with Pretendard -->
+        <!-- Replace various fonts with Pretendard GOV -->
         ${lib.concatMapStrings generateFontAlias fontAliases}
       </fontconfig>
     '';
