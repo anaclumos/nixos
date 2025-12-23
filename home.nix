@@ -299,9 +299,7 @@ in {
   home.file.".gemini/settings.json" = {
     force = true;
     text = builtins.toJSON {
-      general = {
-        sessionRetention = { enabled = false; };
-      };
+      general = { sessionRetention = { enabled = false; }; };
     } + "\n";
   };
 
