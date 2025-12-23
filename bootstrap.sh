@@ -146,7 +146,7 @@ nixfmt **/*.nix
 nix-channel --update
 nix --extra-experimental-features 'nix-command flakes' flake update
 sudo NIXPKGS_ALLOW_UNFREE=1 nixos-rebuild switch --flake .#framework --impure
-sudo nix-env -p /nix/var/nix/profiles/system --delete-generations +20
+sudo nix-env -p /nix/var/nix/profiles/system --delete-generations +100
 sudo nix-store --gc
 
 echo "==> Bootstrap complete!"

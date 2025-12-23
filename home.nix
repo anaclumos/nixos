@@ -135,7 +135,7 @@ in {
         npx = "bunx";
         chat = "codex --yolo -c model_reasoning_effort='high'";
         ngc =
-          "sudo nix-env -p /nix/var/nix/profiles/system --delete-generations +20 && sudo nix-store --gc";
+          "sudo nix-env -p /nix/var/nix/profiles/system --delete-generations +100 && sudo nix-store --gc";
         airdrop =
           "cd ~/Screenshots && sudo tailscale file cp *.png iphone-17-pro: && rm *.png";
       };
