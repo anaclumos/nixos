@@ -36,11 +36,6 @@ in {
   imports = [ ./oh-my-opencode.nix ];
 
   dconf.enable = true;
-  dconf.settings = {
-    "org/gnome/settings-daemon/plugins/power" = {
-      power-button-action = "hibernate";
-    };
-  };
   home.username = username;
   home.homeDirectory = homeDir;
   home.stateVersion = "25.11";
@@ -295,6 +290,20 @@ in {
     Comment=Tailscale GUI
   '';
   xdg.configFile."1password/1password-bw-integration".text = "";
+
+  home.file.".claude/settings.json" = {
+    force = true;
+    text = builtins.toJSON { cleanupPeriodDays = 9999999999; } + "\n";
+  };
+
+  home.file.".gemini/settings.json" = {
+    force = true;
+    text = builtins.toJSON {
+      general = {
+        sessionRetention = { enabled = false; };
+      };
+    } + "\n";
+  };
 
   systemd.user.services.timewall = {
     Unit = {
