@@ -38,13 +38,14 @@ in {
   powerManagement.enable = true;
   services.power-profiles-daemon.enable = true;
   services.logind.settings.Login = {
-    HandleLidSwitch = "hibernate";
-    HandleLidSwitchDocked = "hibernate";
-    HandleLidSwitchExternalPower = "hibernate";
+    HandleLidSwitch = "suspend-then-hibernate";
+    HandleLidSwitchDocked = "suspend-then-hibernate";
+    HandleLidSwitchExternalPower = "suspend-then-hibernate";
     HandlePowerKey = "hibernate";
     HandlePowerKeyLongPress = "poweroff";
   };
   systemd.sleep.extraConfig = ''
+    HibernateDelaySec=10min
     SuspendState=mem
     HibernateMode=shutdown
   '';
