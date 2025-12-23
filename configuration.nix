@@ -43,6 +43,8 @@ in {
     HandleLidSwitchExternalPower = "suspend-then-hibernate";
     HandlePowerKey = "hibernate";
     HandlePowerKeyLongPress = "poweroff";
+    IdleAction = "ignore";
+    IdleActionSec = "0";
   };
   systemd.sleep.extraConfig = ''
     HibernateDelaySec=10min
