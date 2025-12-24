@@ -78,6 +78,7 @@ let
 
     # LLM Tools
     ollama
+    ramalama
   ];
 
   mediaTools = with pkgs-unstable; [ ffmpeg-full libheif libsndfile ];
