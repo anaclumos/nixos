@@ -60,6 +60,7 @@ let
     wget
     jq
     openssl
+    librsvg
 
     # Image Processing CLI
     pngcrush
