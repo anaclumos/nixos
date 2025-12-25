@@ -59,6 +59,7 @@ let
     tmux
     wget
     jq
+    openssl
 
     # Image Processing CLI
     pngcrush
