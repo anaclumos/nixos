@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ ... }: {
   services.expressvpn.enable = true;
   networking.networkmanager.enable = true;
   networking.networkmanager.wifi.powersave = false;

@@ -10,28 +10,6 @@ let
     "${tb}/bin/thunderbird" "$@"
     systemctl --user start thunderbird-headless.service
   '';
-  fontAliases = [
-    "Helvetica"
-    "Helvetica Neue"
-    "Arial"
-    "-apple-system"
-    "BlinkMacSystemFont"
-    "Ubuntu"
-    "noto-sans"
-    "malgun gothic"
-    "Apple SD Gothic Neo"
-    "AppleSDGothicNeo"
-    "Noto Sans TC"
-    "Noto Sans JP"
-    "Noto Sans KR"
-    "Noto Sans"
-    "Roboto"
-    "Tahoma"
-    "맑은 고딕"
-    "맑은고딕"
-    "MalgunGothic"
-    "돋움"
-  ];
 in {
   imports = [ ./oh-my-opencode.nix ];
 

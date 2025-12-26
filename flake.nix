@@ -7,12 +7,10 @@
       url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     kakaotalk.url = "github:anaclumos/kakaotalk.nix";
     tableplus.url = "github:anaclumos/tableplus.nix";
   };
-  outputs = inputs@{ self, nixpkgs, nixpkgs-unstable, home-manager
-    , nixos-hardware, ... }:
+  outputs = inputs@{ self, nixpkgs, nixpkgs-unstable, home-manager, ... }:
     let
       system = "x86_64-linux";
       username = "sunghyun";
