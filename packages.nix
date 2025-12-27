@@ -61,6 +61,7 @@ let
     jq
     openssl
     librsvg
+    iw
 
     # Image Processing CLI
     pngcrush
