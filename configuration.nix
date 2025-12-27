@@ -21,10 +21,6 @@ in {
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.systemd-boot.configurationLimit = 100;
   boot.kernelPackages = pkgs.linuxPackages_latest;
-  boot.extraModprobeConfig = ''
-    options mt7925e disable_aspm=1
-    options mt7925-common disable_clc=1
-  '';
   boot.initrd.systemd.enable = true;
   boot.initrd.luks.devices."luks-067d3a16-727c-40f5-8510-a2cb221929cf" = {
     device = "/dev/disk/by-uuid/067d3a16-727c-40f5-8510-a2cb221929cf";
